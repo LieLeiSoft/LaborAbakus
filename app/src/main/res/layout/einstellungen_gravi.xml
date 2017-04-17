@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cBlau"
+        android:gravity="center_horizontal"
+        android:text="@string/Beschriftung_Einstellungen"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cHellbraun" >
+
+        <TextView
+            android:id="@+id/TextView08"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/Eingabe_der_Einwaage"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/cSchwarz" />
+
+        <TableRow
+            android:id="@+id/TableRow01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/TextView_Brutto_Netto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/aktuell_Netto"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/cSchwarz" />
+            </TableRow>
+
+            <Button
+                android:id="@+id/btn_Brutto_Netto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btn_Brutto_Netto"
+                android:text="@string/Brutto_oder_Netto"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cHellblau" >
+
+        <TextView
+            android:id="@+id/TextView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/Rueckwaage_Einmalig_bis_Massekonstanz"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/cSchwarz" />
+
+        <TableRow
+            android:id="@+id/TableRow04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/Button01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnRSDMinus"
+                android:text="@string/Rueckwaage_bis_zur_Massenkonstanz"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/Massenkonstanz_in_mg"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cSchwarz" />
+        </TableRow>
+
+        <TextView
+            android:id="@+id/TextView06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/Ausnahme"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/cSchwarz" />
+
+        <TableRow
+            android:id="@+id/TableRow02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/Button02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnRSDMinus"
+                android:text="@string/Ja_Nein"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/TextView02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/aktuell_Ja"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cSchwarz" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cHellgruen" >
+
+        <TextView
+            android:id="@+id/TextView07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/Nachkommastellen"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/cSchwarz" />
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/TextView03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Nachkommastellen_Gehalt"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cSchwarz" />
+
+            <Button
+                android:id="@+id/Button03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnGehaltMinus"
+                android:text="@string/minus"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/Gehalt"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/Button04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnGehaltPlus"
+                android:text="@string/plus"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/TextView05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Nachkommastellen_RSD"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cSchwarz" />
+
+            <Button
+                android:id="@+id/Button06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnRSDMinus"
+                android:text="@string/minus"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/RSD"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/Button05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnRSDPlus"
+                android:text="@string/plus"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cHellorange" >
+
+        <TextView
+            android:id="@+id/TextView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/Warnung"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/cSchwarz" />
+
+        <TableRow
+            android:id="@+id/TableRow03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/Button07"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnRSDMinus"
+                android:text="@string/Ja_Nein"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/TextView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/aktuell_Ja"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cSchwarz" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

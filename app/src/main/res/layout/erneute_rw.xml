@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cEingabe"
+    android:gravity="center|center_horizontal|left|top"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btnErneuteRW"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnErneuteRW"
+            android:text="@string/erneuteRW" />
+
+        <Button
+            android:id="@+id/btnBerechnung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:onClick="btnBerechnung"
+            android:text="@string/Berechnung"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/tvVariante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:minEms="50"
+            android:text="@string/RW"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/cBlau" />
+
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/TableRow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cHellorange"
+            android:gravity="center_horizontal|center_vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Wdh"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvAr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/RW_alt"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvNr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/RW_neu"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvDiff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/Differenz"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:background="@color/cHellorange"
+            android:gravity="center_horizontal" >
+
+            <CheckBox
+                android:id="@+id/CheckBox0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:shadowColor="@color/cBlau"
+                android:text="@string/P1"
+                android:textColor="@color/cBlau"
+                android:textColorLink="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TValteRW0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVneueRW0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVdiffP0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:background="@color/cHellorange"
+            android:gravity="center_horizontal" >
+
+            <CheckBox
+                android:id="@+id/CheckBox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:shadowColor="@color/cBlau"
+                android:text="@string/P2"
+                android:textColor="@color/cBlau"
+                android:textColorLink="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TValteRW1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVneueRW1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVdiffP1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:background="@color/cHellorange"
+            android:gravity="center_horizontal" >
+
+            <CheckBox
+                android:id="@+id/CheckBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:shadowColor="@color/cBlau"
+                android:text="@string/P3"
+                android:textColor="@color/cBlau"
+                android:textColorLink="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TValteRW2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVneueRW2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVdiffP2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:background="@color/cHellorange"
+            android:gravity="center_horizontal" >
+
+            <CheckBox
+                android:id="@+id/CheckBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:shadowColor="@color/cBlau"
+                android:text="@string/P4"
+                android:textColor="@color/cBlau"
+                android:textColorLink="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TValteRW3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVneueRW3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVdiffP3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:background="@color/cHellorange"
+            android:gravity="center_horizontal" >
+
+            <CheckBox
+                android:id="@+id/CheckBox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:shadowColor="@color/cBlau"
+                android:text="@string/P5"
+                android:textColor="@color/cBlau"
+                android:textColorLink="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TValteRW4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVneueRW4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVdiffP4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TableRow5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:background="@color/cHellorange"
+            android:gravity="center_horizontal" >
+
+            <CheckBox
+                android:id="@+id/CheckBox5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:shadowColor="@color/cBlau"
+                android:text="@string/P6"
+                android:textColor="@color/cBlau"
+                android:textColorLink="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TValteRW5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVneueRW5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/TVdiffP5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:gravity="center_horizontal"
+                android:text="@string/nix"
+                android:textColor="@color/cBlau" />
+
+        </TableRow>
+    </TableLayout>
+	
+</LinearLayout>

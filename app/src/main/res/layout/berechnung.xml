@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cEingabe"
+    android:gravity="center|center_horizontal|left|top"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tvVariante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:minEms="50"
+            android:text="@string/Berechnung_Gehalt"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/cBlau"
+            android:textColorHint="@color/cBlau" />
+
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/TR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/P1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView13"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_1"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView14"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_2"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView15"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_3"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView16"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_4"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView17"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_5"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView02"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_6"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView19"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_7"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView22"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_8"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView25"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_9"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView28"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_10"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView31"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_11"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView34"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_12"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView37"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_13"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView40"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_14"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView43"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_15"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView46"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_16"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView49"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_17"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView52"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_18"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView55"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_19"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView56"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Einwaage_20"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRest19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlust19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/TR_P_Durchschnitt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/dP"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvRestD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Rest"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+
+            <TextView
+                android:id="@+id/tvVerlustD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="2"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal"
+                android:text="@string/Verlust"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cBlau" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/tvRSD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/cHellorange"
+        android:text="@string/RSD"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/cBlau" />
+	
+</LinearLayout>

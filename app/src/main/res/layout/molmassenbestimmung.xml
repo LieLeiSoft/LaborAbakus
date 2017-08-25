@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/TableLayout1"
     android:layout_width="wrap_content"
     android:layout_height="match_parent" >
@@ -31,10 +32,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:background="@android:color/holo_red_dark"
             android:minEms="2"
             android:onClick="btnWeiter"
             android:text="@string/Oxidationsstufen"
-            android:textAllCaps="false" />
+            android:textColor="@color/cWeiss"
+            tools:textColor="@color/cSchwarz" />
 
     </RelativeLayout>
 

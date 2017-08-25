@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
@@ -15,15 +16,24 @@
         android:id="@+id/button1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@color/cHellblau"
         android:onClick="btnOnClickGravi"
-        android:text="@string/Beschriftung_Gravimetrie" />
-        
+        android:text="@string/Beschriftung_Gravimetrie"
+        android:textAllCaps="false"
+        android:textColor="@color/cSchwarz"
+        android:textColorHighlight="@color/cSchwarz" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@color/cHellblau"
         android:onClick="btnOnClickStatis"
-        android:text="@string/Statistische_Berechnungen" />
+        android:text="@string/Statistische_Berechnungen"
+        android:textAllCaps="false"
+        android:textColor="@color/cSchwarz" />
 
     <Button
         android:id="@+id/button3"
@@ -55,8 +65,11 @@
         android:id="@+id/button6"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@color/cHellblau"
         android:onClick="btnOnClickMolmasse"
-        android:text="@string/Molmasse" />
+        android:text="@string/Molmasse"
+        android:textAllCaps="false"
+        android:textColor="@color/cSchwarz" />
 
     <Button
         android:id="@+id/button7"

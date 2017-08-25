@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Labor - Abakus</string>
+    <string name="app_name">Abakus</string>
     <string name="Copyright">Ingo Leisner &amp; Frank Liekefett  © 2015</string>
     <string name="Beschriftung_Gravimetrie" >Gravimetrische Berechnungen</string>
     <string name="Beschriftung_Titer">Volumetrische Berechnung des Titers mit einer anderen Maßlösung</string>
@@ -91,10 +91,11 @@
     <string name="Rueckwaage_bis_zur_Massenkonstanz">Einmalig /\nMassekonstanz?</string>
     <string name="Massenkonstanz_in_mg">aktuell: Massekonstanz</string>
     <string name="Milligramm">mg</string>
-    <color name="cBlau">#0000FF</color>
+    <color name="cBlau">#0000ff</color>
+    <color name="cDunkelblau">#0d0166</color>
     <color name="cGold">#FFCC00</color>
     <color name="cSchwarz">#000000</color>
-    <color name="cWeiss">#FFFFFF</color>
+    <color name="cWeiss">#ffffff</color>
     <color name="cEingabe">#FFFF99</color>
     <color name="cEingabeText">#000000</color>
     <string name="Prozent">%</string>
@@ -113,7 +114,7 @@
     <color name="cHellorange">#FFBB33</color>
     <color name="cHellgruen">#99CC00</color>
     <color name="cHellbraun">#C2BC3D</color>
-    <color name="cHellblau">#7EA7FC</color>
+    <color name="cHellblau">#7ea7fc</color>
     <string name="Titrationsart">Titrationsart:</string>
     <string name="Beschriftung_Vorlage">Vorlage?</string>
     <string name="Direkte_Titration">Direkte Titration</string>

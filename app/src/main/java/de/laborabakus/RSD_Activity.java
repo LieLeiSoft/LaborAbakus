@@ -73,8 +73,10 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
         n = n + 1;
         X = x/n;
         d = dblAktuellerWert - X;
-        d = Math.exp(d);   //Math.sqrt(d);
+        d = Math.pow(d, 2);   //d hoch 2
         Sd = Sd + d;
+        s = Math.sqrt (Sd/(n-1));
+        RSD =(s*100/X);
 
         // *********** Ausgabe Anzahl Meﬂwerte *************
 
@@ -87,7 +89,14 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
         tv.setText(Double.toString(X));
 
         // *********** Ausgabe Standardabweichung *************
+
+        tv = (TextView) findViewById(R.id.tvStandardabweichung);
+        tv.setText(Double.toString(s));
+
         // *********** Ausgabe relative Standardabweichung % *************
+
+        tv = (TextView) findViewById(R.id.tvStandardabweichung);
+        tv.setText(Double.toString(RSD));
 
     } // btnWeiter
 

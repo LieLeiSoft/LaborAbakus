@@ -42,41 +42,21 @@
         <activity 
             android:name="BerechnungRueckwaageActivity" android:windowSoftInputMode="stateHidden">
         </activity>
-        
-        <activity 
-            android:name="TiterEingabenActivity" android:windowSoftInputMode="stateVisible">
-        </activity>
-        
-        <activity 
-            android:name="VolumetrieActivity" android:windowSoftInputMode="stateVisible">
-        </activity>
-        
-        <activity 
-            android:name="VolumetrieBWActivity" android:windowSoftInputMode="stateVisible">
-        </activity>
-    
-        <activity 
-            android:name="VolumetrieVorlageActivity" android:windowSoftInputMode="stateVisible">
-        </activity>
-        
+
         <activity 
             android:name="Einstellungen_Gravi_Activity" android:windowSoftInputMode="stateHidden">
         </activity>
         
         <activity 
-            android:name="FaktorActivity" android:windowSoftInputMode="stateVisible">
-        </activity>
-        
-        <activity 
             android:name="MolmassenActivity" android:windowSoftInputMode="stateHidden">
         </activity>
-        
+
+        <activity
+            android:name="RSD_Activity" android:windowSoftInputMode="stateHidden">
+        </activity>
+
         <activity 
             android:name="GleichungActivity" android:windowSoftInputMode="stateHidden">
-        </activity>
-        
-        <activity 
-            android:name="MolaritaetActivity" android:windowSoftInputMode="stateVisible">
         </activity>
                 
         <activity 

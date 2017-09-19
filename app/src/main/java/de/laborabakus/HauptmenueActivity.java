@@ -98,7 +98,7 @@ public class HauptmenueActivity extends Activity {
     
     public void btnOnClickStatis(View v)
     {
-        Intent myIntent = new Intent(v.getContext(), EinwaageActivity.class);
+        Intent myIntent = new Intent(v.getContext(), RSD_Activity.class);
 
         // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

@@ -96,7 +96,7 @@
     <color name="cGold">#FFCC00</color>
     <color name="cSchwarz">#000000</color>
     <color name="cWeiss">#ffffff</color>
-    <color name="cEingabe">#FFFF99</color>
+    <color name="cEingabe">#e8e896</color>
     <color name="cEingabeText">#000000</color>
     <string name="Prozent">%</string>
     <string name="hilfe_einwaage_2">Eingabefeld Titer Maßlsg.: Hier wird Titer der Maßlösung eingegeben.</string>
@@ -262,7 +262,6 @@
     <string name="nix">---</string>
     <string name="Wdh">Wdh.?</string>
     <string name="Statistische_Berechnungen">Statistische Berechnungen</string>
-    <string name="Berechnung_der_RSD">Berechnung der relativen Standardabweichung in Prozent</string>
     <string name="Wert">Wert</string>
     <string name="Oxidationsstufen">Oxidations-\nstufen</string>
     <integer-array name="Oxi_H">

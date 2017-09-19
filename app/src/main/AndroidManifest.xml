@@ -52,7 +52,7 @@
         </activity>
 
         <activity
-            android:name="RSD_Activity" android:windowSoftInputMode="stateHidden">
+            android:name="RSD_Activity" android:windowSoftInputMode="stateVisible">
         </activity>
 
         <activity 

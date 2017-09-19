@@ -454,12 +454,6 @@ public class GleichungActivity extends Activity {
             	startActivity(intent);
                 return true;
                 
-            case R.id.menu_Impressum:
-            	intent = new Intent(this, ImpressumActivity.class);
-            	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	startActivity(intent);
-                return true;
-                
             case R.id.menu_Menue:
             	ActivityRegistry.finishAll();
             	intent = new Intent(this, HauptmenueActivity.class);

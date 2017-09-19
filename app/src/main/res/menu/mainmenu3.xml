@@ -7,13 +7,6 @@
         android:icon="@drawable/icon_hilfe"
         android:showAsAction="always"
         android:title="@string/Beschriftung_Hilfe" />
-
-    <item
-        android:id="@+id/menu_Impressum"
-        android:icon="@drawable/icon_impressum"
-        android:showAsAction="always"
-        android:title="@string/Impressum" />
-
     <item
         android:id="@+id/menu_Menue"
         android:icon="@drawable/icon_home"

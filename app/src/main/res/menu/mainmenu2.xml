@@ -6,13 +6,11 @@
         android:icon="@drawable/icon_hilfe"
         android:showAsAction="always"
         android:title="@string/Beschriftung_Hilfe" />
-
     <item
         android:id="@+id/menu_Einstellungen"
         android:icon="@drawable/icon_einstellungen"
         android:showAsAction="always"
         android:title="@string/Beschriftung_Einstellungen" />
-
     <item
         android:id="@+id/menu_Impressum"
         android:icon="@drawable/icon_impressum"

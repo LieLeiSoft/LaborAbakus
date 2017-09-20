@@ -4,38 +4,63 @@
     android:id="@+id/TableLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".EinwaageActivity" >
+    tools:context=".EinwaageActivity"
+    android:weightSum="1">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
 
-        <Button
-            android:id="@+id/btnWeiter"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:background="@color/chellhellgrau"
-            android:minEms="6"
-            android:onClick="btnWeiter"
-            android:text="@string/naechster_wert"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/cSchwarz" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnClear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:background="@color/chellhellgrau"
-            android:minEms="6"
-            android:onClick="btnClear"
-            android:text="@string/Clear_all"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/cSchwarz" />
+            <Button
+                android:id="@+id/btnListe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@color/chellhellgrau"
+                android:minEms="6"
+                android:onClick="btnListe"
+                android:text="@string/Liste"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cSchwarz" />
+
+            <Button
+                android:id="@+id/btnClear_last"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@color/chellhellgrau"
+                android:minEms="6"
+                android:onClick="btnClear_last"
+                android:text="@string/Clear_last"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cSchwarz" />
+
+            <Button
+                android:id="@+id/btnClearAlle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:background="@color/chellhellgrau"
+                android:minEms="6"
+                android:onClick="btnClear_alle"
+                android:text="@string/Clear_alle"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cSchwarz" />
+        </LinearLayout>
 
     </RelativeLayout>
 
@@ -59,19 +84,20 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="281dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
-        android:layout_marginTop="5dp">
+        android:layout_weight="4.40">
 
         <TableRow
             android:id="@+id/TableRow01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
+            android:gravity="center_horizontal">
 
             <TextView
                 android:id="@+id/TextView01"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/cHellorange"
@@ -102,7 +128,7 @@
 
             <TextView
                 android:id="@+id/TextView02"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/cHellorange"
@@ -124,6 +150,7 @@
                 android:textSize="14sp" />
 
         </TableRow>
+
         <TableRow
             android:id="@+id/TableRow03"
             android:layout_width="wrap_content"
@@ -132,7 +159,7 @@
 
             <TextView
                 android:id="@+id/TextView03"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/cHellorange"
@@ -192,13 +219,15 @@
             android:id="@+id/Eingabewert1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:minHeight="50dp">
 
             <EditText
                 android:id="@+id/Eingabewert"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@color/chellhellgrau"
                 android:ellipsize="start"
@@ -209,6 +238,19 @@
                 android:textColor="@color/cSchwarz"
                 android:textColorHint="@color/cGold"
                 android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/btnWeiter"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/chellhellgrau"
+                android:minEms="4"
+                android:onClick="btnWeiter"
+                android:text="@string/berechne"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cSchwarz" />
 
         </TableRow>
 

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Fehler_und_Ausgleichsrechnung">Fehler - und Ausgleichsrechnung</string>
-    <string name="naechster_wert">Nächster\nEingabewert</string>
-    <string name="eingabe">Eingabewert ?</string>
+    <string name="berechne">Berechne</string>
+    <string name="eingabe">weitere Eingabe?</string>
     <string name="Anzahl_Messwerte">Anzahl der Messwerte = </string>
     <string name="Mittelwert">arithmetischer Mittelwert = </string>
     <string name="Standardabweichung">Standardabweichung = </string>
     <string name="relative_RSD">% RSD = </string>
-    <string name="Clear_all">Alle Eingaben\nlöschen</string>
+    <string name="Clear_alle">Alle Eingaben\nlöschen</string>
+    <string name="Clear_last">Letze Eingabe\nlöschen</string>
+    <string name="Liste">Eingabeliste\nanzeigen</string>
 </resources>

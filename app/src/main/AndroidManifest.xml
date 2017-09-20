@@ -62,6 +62,10 @@
         <activity 
             android:name="ErneuteRwActivity" android:windowSoftInputMode="stateHidden">
         </activity>
+
+        <activity
+            android:name="ListActivity" android:windowSoftInputMode="stateHidden">
+        </activity>
         
         <activity 
             android:name="ImpressumActivity">

@@ -62,43 +62,24 @@ public class HilfeActivity extends Activity {
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Menue
-	private void erstelle_Hilfe_Fettkennzahlen(String strKapitel) {		
+	private void erstelle_Hilfe_RSD(String strKapitel) {
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Säurezahl (EP oder USP)";
-		Hilfe[intFeldNr][2] = "Säurezahl (nach EP oder USP)";
-		Hilfe[intFeldNr][3] = "Die Säurezahl (SZ) ist eine chemische Größe zur Charakterisierung"
-				+ " von sauren Bestandteilen in Fetten oder Ölen. Sie bezeichnet die Masse an"
-				+ " Kaliumhydroxid (in mg), die notwendig ist um die in 1 g Fett enthaltenen freien"
-				+ " Fettsäuren zu neutralisieren."
-				+ "\n"
-				+ "Berechnung nach EP:\n"
-				+ "SZ = (5,610 x V) / m\n"
-				+ "Berechnung nach USP:\n"
-				+ "SZ = (56,11 x V x 0,1) / m\n"
-				+ "V = Verbrauch KOH 0,1N\n"
-				+ "m = Einwaage in Gramm";
+		Hilfe[intFeldNr][1] = "Allgemeines";
+		Hilfe[intFeldNr][2] = "Berechnung der relativen Standardabeichung in Prozent";
+		Hilfe[intFeldNr][3] = "Die relative Standardabweichung"
+				+ " bla blub";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Esterzahl (USP)";
-		Hilfe[intFeldNr][2] = "Esterzahl (USP)";
+		Hilfe[intFeldNr][1] = "Button >Eingabeliste anzeigen<";
+		Hilfe[intFeldNr][2] = "Eingabeliste anzeigen";
 		Hilfe[intFeldNr][3] = "Die Esterzahl (EZ) bezeichnet die Masse an Kaliumhydroxid in Milligramm,"
-				+ " die benötigt wird, um die in 1 g Fett enthaltenen Esterbindungen der Neutralester"
-				+ " zu hydrolysieren (zu verseifen). Im Europäischen Arzneibuch wird die Esterzahl nicht"
-				+ " titriert, sondern aus der Verseifungszahl (VZ) und der Säurezahl (SZ) berechnet."
-				+ "\n"
-				+ "Berechnung nach EP:\n"
-				+ "EZ = VZ - SZ\n"
-				+ "Berechnung nach USP:\n"
-				+ "EZ = (56,11 x (VB - VT) x 0,5) / m\n"
-				+ "VB = Verbr. Blank HCL 0,5N\n"
-				+ "VT = Verbr. Probe HCL 0,5N\n"
-				+ "m = Einwaage in Gramm";
+				+ " blablub";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Hydroxylzahl (mit bekannter SZ)";
+		Hilfe[intFeldNr][1] = "";
 		Hilfe[intFeldNr][2] = "Hydroxylzahl (nach EP oder USP und bekannter SZ)";
 		Hilfe[intFeldNr][3] = "Die Hydroxylzahl (OHZ) ist ein Maß für den Gehalt an Hydroxygruppen in"
 				+ " organischen Materialien, z. B. in Harzen, Lacken, Polyesterolen, Fetten und Lösungsmitteln."
@@ -623,8 +604,8 @@ public class HilfeActivity extends Activity {
 		
 		if (strKapitel.equals("Menue") == true) {
 			erstelle_Hilfe_Menue(strKapitel);
-		} else if (strKapitel.equals("Fettkennzahlen") == true) {
-			erstelle_Hilfe_Fettkennzahlen(strKapitel);
+		} else if (strKapitel.equals("RSD") == true) {
+			erstelle_Hilfe_RSD(strKapitel);
 		} else if (strKapitel.equals("Einwaage") == true) {
 			erstelle_Hilfe_Einwaage(strKapitel);
 		} else if (strKapitel.equals("Verbrauch") == true) {

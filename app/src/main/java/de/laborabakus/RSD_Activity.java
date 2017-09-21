@@ -281,7 +281,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             case R.id.menu_Hilfe:
             	intent = new Intent(this, HilfeActivity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	intent.putExtra("Kapitel", "Einwaage");
+            	intent.putExtra("Kapitel", "RSD");
             	startActivity(intent);
                 return true;
                 

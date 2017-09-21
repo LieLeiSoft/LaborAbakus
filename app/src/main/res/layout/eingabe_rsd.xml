@@ -71,8 +71,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/cHellblau"
             android:layout_marginTop="5dp"
+            android:background="@color/cHellblau"
             android:gravity="center"
             android:minEms="50"
             android:text="@string/Fehler_und_Ausgleichsrechnung"

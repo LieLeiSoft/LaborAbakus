@@ -30,35 +30,28 @@ public class HilfeActivity extends Activity {
 	private void erstelle_Hilfe_Menue(String strKapitel) {		
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
-		//Hilfe[intFeldNr][1] = getResources().getString(R.string.Beschriftung_Urtiter);
-		Hilfe[intFeldNr][2] = "Neuer Titer mit Urtiter";
-		Hilfe[intFeldNr][3] = "In dieser Routine lässt sich der Titer von einer"
-				+ " Maßlösung bestimmen. Der Titer wird dabei mit einem Urtiter eingestellt.";
+		Hilfe[intFeldNr][1] = "Gravimetrische Berechnungen";
+		Hilfe[intFeldNr][2] = "Gravimetrische Berechnungen";
+		Hilfe[intFeldNr][3] = "In dieser Routine lässt sich der Verlust und/oder " +
+				"der Rest einer Substanz vor und nach einer Analyse mithilfe einer " +
+				"Analysenwaage bestimmen. Z.B. Sulfatasche (Rest) oder Trockenverlust (Verlust).";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = getResources().getString(R.string.Beschriftung_Titer);
-		Hilfe[intFeldNr][2] = "Neuer Titer mit eingestellter Maßlösung";
-		Hilfe[intFeldNr][3] = "In dieser Routine lässt sich der Titer von einer"
-				+ " Maßlösung bestimmen. Der Titer wird dabei mit einer anderen Maßlösung"
-				+ " mit bekanntem Titer eingestellt.";
+		Hilfe[intFeldNr][1] = "Statistische Berechnungen";
+		Hilfe[intFeldNr][2] = "Statistische Berechnungen";
+		Hilfe[intFeldNr][3] = "In dieser Routine lassen sich in der sogenannten Fehlerausgleichsrechnung " +
+				"arithmetischer Mittelwert, absulute Abweichung, Standardabweichung und die " +
+				"relative Standardabweichung in Prozent berechnen.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = getResources().getString(R.string.Beschriftung_Berechnung);
-		Hilfe[intFeldNr][2] = "Titration des Gehaltes in %";
-		Hilfe[intFeldNr][3] = "In dieser Routine lässt sich der Gehalt in % von der zu"
-				+ " untersuchenden Substanz bestimmen. Dies geschieht mit einer"
-				+ " eingestellten Maßlösung. ";
+		Hilfe[intFeldNr][1] = "Molmasse und Oxidationsstufen";
+		Hilfe[intFeldNr][2] = "Molmasse und Oxidationsstufen";
+		Hilfe[intFeldNr][3] = "Mit dieser Routine lässt sich die Atommasse einzelner Elemente der " +
+				"Haupt- und Nebengruppen bestimmen. Ganze Molmassen von Formeln können ebenfalls " +
+				"über das PSE Eingabefeld berechnet werden.";
 
-		intFeldNr++;
-		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = getResources().getString(R.string.Fettkennzahl);
-		Hilfe[intFeldNr][2] = "Titration von Fettkennzahlen";
-		Hilfe[intFeldNr][3] = "In dieser Routine lässt sich eine aufgeführte Fettkennzahl"
-				+ " nach dem Europäischen oder Amerikanischen Arzneibuch bestimmen."
-				+ " Dabei werden die laut Methode fest vorgegebenen Parameter vollständig"
-				+ " übernommen.";
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Menue
@@ -66,72 +59,66 @@ public class HilfeActivity extends Activity {
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Allgemeines";
-		Hilfe[intFeldNr][2] = "Berechnung der relativen Standardabeichung in Prozent";
-		Hilfe[intFeldNr][3] = "Die relative Standardabweichung"
-				+ " bla blub";
+		Hilfe[intFeldNr][2] = "Die Fehlerrechnung";
+		Hilfe[intFeldNr][3] = "Bei der Bestimmung einer physikalischen Größe oder der Durchführung einer " +
+				"Analyse kann im allgemeinen nicht erwartet werden, daß der sich ergebene Wert gleich dem " +
+				"wahren Wert ist. Daher ist es wichtig, einen Hinweis über die Genauigkeit bzw. Zuverlässigkeit " +
+				"der Meßergebnisse in Form einer Fehleranzeige anzubringen. Die folgende Fehlerrechnung gilt nur " +
+				"für zufällige Fehler, die mit gleicher Wahrscheinlichkeit positive und negative Werte " +
+				"annehmen und mit Hilfe der Statistik abgekürzt werden können. Sie gilt nicht für systematische " +
+				"Fehler, verursacht durch immer im gleichen Sinne wirkende Mängel der Meßmethode. Sie gilt " +
+				"ebenfalls nicht für persönliche Fehler, die durch die Neigung des Beobachters, immer im " +
+				"gleichen Sinne etwas unkorrekt abzulesen, entstehen können.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Button >Eingabeliste anzeigen<";
 		Hilfe[intFeldNr][2] = "Eingabeliste anzeigen";
-		Hilfe[intFeldNr][3] = "Die Esterzahl (EZ) bezeichnet die Masse an Kaliumhydroxid in Milligramm,"
-				+ " blablub";
+		Hilfe[intFeldNr][3] = "Beim Betätigen des Buttons öffnet sich eine Liste der bisherigen eingegebenen " +
+				"Werte bzw. Ergebnisse. Rechts neben dem jeweiligen Wert/Ergebnis, wird die entsprechen zugehörige" +
+				" absolute Abweichung vom Mittelwert errechnet.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "";
-		Hilfe[intFeldNr][2] = "Hydroxylzahl (nach EP oder USP und bekannter SZ)";
-		Hilfe[intFeldNr][3] = "Die Hydroxylzahl (OHZ) ist ein Maß für den Gehalt an Hydroxygruppen in"
-				+ " organischen Materialien, z. B. in Harzen, Lacken, Polyesterolen, Fetten und Lösungsmitteln."
-				+ " Die Hydroxylzahl gibt die Menge Kaliumhydroxid in Milligramm an, welche der bei einer"
-				+ " Acetylierung von einem Gramm Substanz gebundenen Menge Essigsäure gleichwertig ist."
-				+ "\n"
-				+ "Berechnung nach EP:\n"
-				+ "OHZ = ((28,05 x (VB - VT)) / m) + SZ\n"
-				+ "Berechnung nach USP:\n"
-				+ "OHZ = (56,11 x 0,5) / m x (VB - VT) x SZ\n"
-				+ "VB = Verbr. Blank KOH 0,5N\n"
-				+ "VT = Verbr. Probe KOH 0,5N\n"
-				+ "m = Einwaage in Gramm";
+		Hilfe[intFeldNr][1] = "Button >Letze Eingabe löschen<";
+		Hilfe[intFeldNr][2] = "Letze Eingabe löschen";
+		Hilfe[intFeldNr][3] = "Beim Betätigen des Buttons wird der jeweilige letzte eingegebe Wert gelöscht. Bei " +
+				"Bedarf können alle Werte der Reihe nach einzeln bis zum Anfang gelöscht werden. Ein " +
+				"Wiederherstellen ist nicht möglich.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Hydroxylzahl (unbekannte SZ)";
-		Hilfe[intFeldNr][2] = "Hydroxylzahl (nach EP oder USP und unbekannter SZ)";
-		Hilfe[intFeldNr][3] = "Die Hydroxylzahl (OHZ) ist ein Maß für den Gehalt an Hydroxygruppen in"
-				+ " organischen Materialien, z. B. in Harzen, Lacken, Polyesterolen, Fetten und Lösungsmitteln."
-				+ " Die Hydroxylzahl gibt die Menge Kaliumhydroxid in Milligramm an, welche der bei einer"
-				+ " Acetylierung von einem Gramm Substanz gebundenen Menge Essigsäure gleichwertig ist.";
+		Hilfe[intFeldNr][1] = "Button >Alle Eingaben löschen<";
+		Hilfe[intFeldNr][2] = "Alle Eingaben löschen";
+		Hilfe[intFeldNr][3] = "Beim Betätigen des Buttons werden alle eingegeben Werte gelöscht."
+				+ " Ein Wiederherstellen ist nicht möglich.";
 		
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Iodzahl (EP oder USP)";
-		Hilfe[intFeldNr][2] = "Iodzahl (nach EP oder USP)";
-		Hilfe[intFeldNr][3] = "Die Iodzahl (IZ) ist eine Fettkennzahl zur Charakterisierung von Fetten und"
-				+ " Ölen. Sie ist ein Maß für den Gehalt eines Fettes an ungesättigten Verbindungen"
-				+ " – genauer: ungesättigte Fettsäurereste in den Glyceriden. Es ist die Menge in Gramm Iod,"
-				+ " die formal an 100 g Fett addiert werden kann. Je mehr olefinische Doppelbindungen es in"
-				+ " einem Fett gibt, desto mehr Iod kann formal addiert werden und desto höher ist somit die Iodzahl.";
+		Hilfe[intFeldNr][1] = "Button >Berechne<";
+		Hilfe[intFeldNr][2] = "Berechne";
+		Hilfe[intFeldNr][3] = "Beim Betätigen des Buttons wird bei vorheriger Eingabe eines Wertes bzw. " +
+				"Ergebnisses im Eingabefeld, der neue arithmetische Mittelwert, die Standardabweichung " +
+				"und die relative Standardabweichung (% RSD) in Prozent neu berechnet.";
 		
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Peroxidzahl (EP oder USP)";
-		Hilfe[intFeldNr][2] = "Peroxidzahl (nach EP oder USP)";
-		Hilfe[intFeldNr][3] = "Die Peroxidzahl (POZ) ist eine Kennzahl für den Gehalt an peroxidischen"
-				+ " funktionellen Gruppen eines Fettes oder eines fetten Öls. Sie kann als Kennzahl für die Beurteilung"
-				+ " des Fettverderbs herangezogen werden.";
+		Hilfe[intFeldNr][1] = "Eingabefeld";
+		Hilfe[intFeldNr][2] = "Weitere Eingabe?";
+		Hilfe[intFeldNr][3] = "In diesem Eingabefeld wird der entsprechende zu berechnende Wert bzw. " +
+				"das Ergebnis über die Tastatur eingegeben. Die Tastatur wird durch antippen des " +
+				"Eingabefeldes wieder aufgerufen.";
 		
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Verseifungszahl (EP oder USP)";
-		Hilfe[intFeldNr][2] = "Verseifungszahl (nach EP oder USP)";
-		Hilfe[intFeldNr][3] = "Die Verseifungszahl (VZ) ist eine Kennzahl zur chemischen Charakterisierung von"
-				+ " Fetten und Ölen. Sie wird zu deren Reinheitsprüfung und Qualitätskontrolle herangezogen. Die"
-				+ " Verseifungszahl ist ein Maß für die in einem Gramm Fett gebundenen und frei vorkommenden Säuren."
-				+ " Sie gibt an, wie viel Kaliumhydroxid (in mg) notwendig ist, um die in 1 g Fett enthaltenen freien"
-				+ " Säuren zu neutralisieren und die vorhandenen Esterbindungen zu spalten (Verseifung). Je kleiner"
-				+ " die mittlere molare Masse eines Fettes ist (also je mehr kurzkettige Fettsäuren enthalten sind),"
-				+ " desto größer ist die Verseifungszahl.";
+		Hilfe[intFeldNr][1] = "Ausgabefelder";
+		Hilfe[intFeldNr][2] = "Ausgabefelder";
+		Hilfe[intFeldNr][3] = "arithmetischer Mittelwert: Wenn n Messungen derselben Größe die Ergebnisse " +
+				"x1, x2, x3,..... geliefert haben und alle Einzelmessungen untereinander gleichwertig sind," +
+				" dann ist der wahrscheinlichste Wert der gemessenen Größe der arithmetische Mittelwert.\n" +
+				"Standardabweichung: Die Standardabweichung ist eine statistische Güteziffer für das" +
+				" Meßverfahren.\n% RSD: Als Maß für den relativen, zufälligen Fehler, wird hier die " +
+				"relative Standardabweichung (Variationskoeffizient) in Prozent angegeben.";
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Fettkennzahlen

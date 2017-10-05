@@ -27,7 +27,7 @@ public class HilfeActivity extends Activity {
 	// Spalte 2: Überschrift, die in der Titelleiste des Meldungsfensters angezeigt wird
 	// Spalte 3: Hilfetext
 
-	private void erstelle_Hilfe_Menue(String strKapitel) {		
+	private void erstelle_Hilfe_Menue(String strKapitel) {
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Gravimetrische Berechnungen";
@@ -55,6 +55,8 @@ public class HilfeActivity extends Activity {
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Menue
+
+
 	private void erstelle_Hilfe_RSD(String strKapitel) {
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
@@ -92,7 +94,7 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][2] = "Alle Eingaben löschen";
 		Hilfe[intFeldNr][3] = "Beim Betätigen des Buttons werden alle eingegeben Werte gelöscht."
 				+ " Ein Wiederherstellen ist nicht möglich.";
-		
+
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Button >Berechne<";
@@ -100,7 +102,7 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][3] = "Beim Betätigen des Buttons wird bei vorheriger Eingabe eines Wertes bzw. " +
 				"Ergebnisses im Eingabefeld, der neue arithmetische Mittelwert, die Standardabweichung " +
 				"und die relative Standardabweichung (% RSD) in Prozent neu berechnet.";
-		
+
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Eingabefeld";
@@ -108,7 +110,7 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][3] = "In diesem Eingabefeld wird der entsprechende zu berechnende Wert bzw. " +
 				"das Ergebnis über die Tastatur eingegeben. Die Tastatur wird durch antippen des " +
 				"Eingabefeldes wieder aufgerufen.";
-		
+
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Ausgabefelder";
@@ -121,58 +123,197 @@ public class HilfeActivity extends Activity {
 				"relative Standardabweichung (Variationskoeffizient) in Prozent angegeben.";
 
 		intFeldNr_max = intFeldNr;
-	} // erstelle_Hilfe_Fettkennzahlen
-	
-	private void erstelle_Hilfe_Einwaage(String strKapitel) {		
+	} // erstelle_Hilfe_RSD
+
+
+
+	private void erstelle_Hilfe_Einwaage(String strKapitel) {
+
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Eingaben löschen";
 		Hilfe[intFeldNr][2] = "Button > Eingaben löschen <";
 		Hilfe[intFeldNr][3] = "Mit Hilfe dieses Buttons können alle Eingaben auf dem aktuellen"
-            + " Bildschirm gelöscht werden. Eingaben von dem nächsten oder vorherigen"
-            + " Display bleiben dabei unberührt.";
+				+ " Bildschirm gelöscht werden. Eingaben von dem nächsten oder vorherigen"
+				+ " Display bleiben dabei unberührt.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Weiter";
 		Hilfe[intFeldNr][2] = "Button > Weiter <";
 		Hilfe[intFeldNr][3] = "Wurden alle nötigen Eingaben gemacht, kann mit diesem Button zum"
-            + " nächsten Bildschirm gewechseln werden. Mit der Android Zurücktaste, kann man zum vorheringen"
-            + " Display zurückkehren, um Änderungen bei den Eingaben vorzunehmen.";
+				+ " nächsten Bildschirm gewechseln werden. Mit der Android Zurücktaste, kann man zum vorheringen"
+				+ " Display zurückkehren, um Änderungen bei den Eingaben vorzunehmen.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Einwaage";
-		Hilfe[intFeldNr][2] = "Eingabefeld > Einwaage <";
-		Hilfe[intFeldNr][3] = "In diesen Eingabefeldern können bis zu 8 Einwaagen gleichzeitig eingegeben"
-			+ " werden. Erst beim Anwählen eines Eingabefeldes öffnet sich das jeweils nächte Eingabefeld."
-			+ " Für jede Einwaage erscheint später auch ein entsprechendes Eingabefeld für den Verbrauch."
-            + " Nicht belegte Felder bleiben später bei der Berechnung unberücksichtigt. Mit der Android"
-            + " Zurücktaste, kann man jedoch zum vorheringen Display zurückkehren,"
-            + " und Eingaben jederzeit korrigieren. Alle Einwaagen müssen in Gramm eingegeben werden!";
+		Hilfe[intFeldNr][1] = "Leergewicht";
+		Hilfe[intFeldNr][2] = "Eingabefeld > Tiegel x <";
+		Hilfe[intFeldNr][3] = "In diesen Eingabefeld wird das reine Gewicht des Einwaagegefäßes eingegeben."
+				+ " Das reine Gewicht des leeren Behältnisses ist für die spätere Berechnung unerlässlich."
+				+ " Für jede durchnumerierte Probe wird vorher ein eigenes Tiegelgewicht-Eingabefeld generiert.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Urtiter";
-		Hilfe[intFeldNr][2] = "Eingabefeld > Urtiter (%) <";
-		Hilfe[intFeldNr][3] = "Nur in der Routine der Volumetrischen Gehaltsbestimmung: Der Urtiter ist ein"
-			+ " primärer Standard, der vollständig mit einer entsprechenden Maßlösung"
-            + " reagiert. In diesem Eingabefeld wird die Reinheit des Urtiters in Prozent eingetragen. Wird keine"
-            + " Eingabe vorgenommen und zum nächsten Display gewechselt, wird der Urtiter automatisch auf 100%"
-            + " gesetzt. Mit der Android Zurücktaste, kann man jedoch zum zurückkehren, und diese gesetzte Eingabe"
-            + " jederzeit korrigieren.";
+		Hilfe[intFeldNr][1] = "Nettoeinwaage / Bruttoeinwaage";
+		Hilfe[intFeldNr][2] = "Eingabefeld > Probe x <";
+		Hilfe[intFeldNr][3] = "In diesen Eingabefeld gibt es je nach der vorgenommenen Einstellung zwei Optionen.\n"
+				+ " Option 1 (Standard): Nettoeinwaage. Wurde die Nettoeinwaage ausgewählt, dann muss in diesem"
+				+ " Eingabefeld das reine Gewicht der Probe eingegeben werden. Das reine Nettogewicht erhält man "
+				+ " in der Regel, wenn man vor der Einwaage der Probe auf der Waage die Tara Taste betätigt,"
+				+ " damit das Gewicht des Gefäßes auf 0,000 gesetzt wird.\n"
+				+ " Option 2: Bruttoeinwaage. Wurde die Bruttoeinwaage ausgewählt, dann muss in diesem"
+				+ " Eingabefeld das gesammte Gewicht der Probe inklusive des Probengefäßes eingegeben werden."
+				+ " Dies beiden Optionen lassen sich unter Einstellungen auswählen.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einstellungen";
+		Hilfe[intFeldNr][2] = "Button > Einstellungen <";
+		Hilfe[intFeldNr][3] = "(Button: weißer Schüssel - blauer Hintergrund) Unter Einstellungen lässt"
+				+ " sich die Anzahl der gerundeten Nachkommastellen"
+				+ " von dem errechneten Rest bzw. dem verlust einstellen. Desweiteren lässt"
+				+ " sich bei einigen Layouts"
+				+ " die Schriftgröße und Buttonhöhe individuell anpassen.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einstellungen";
+		Hilfe[intFeldNr][2] = "> Home-Button <";
+		Hilfe[intFeldNr][3] = "(Button: schwarzes Haus - weißer Kreis)\n"
+				+ "Mit diesem Button kehrt man zum Hauptmenü zurück.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einstellungen";
+		Hilfe[intFeldNr][2] = "> Beenden-Button <";
+		Hilfe[intFeldNr][3] = "(Button: weißes Kreuz - roter Hintergrund)\n"
+				+ "Wird dieser Button betätigt, wird die App beendet.";
+
+
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Einwaage
 
-	private void erstelle_Hilfe_Berechnung(String strKapitel) {		
+	private void erstelle_Hilfe_Rückwaage(String strKapitel) {
+
+		int intFeldNr = 0;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Eingaben löschen";
+		Hilfe[intFeldNr][2] = "Button > Eingaben löschen <";
+		Hilfe[intFeldNr][3] = "Mit Hilfe dieses Buttons können alle Eingaben auf dem aktuellen"
+				+ " Bildschirm gelöscht werden. Eingaben von dem nächsten oder vorherigen"
+				+ " Display bleiben dabei unberührt.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Weiter";
+		Hilfe[intFeldNr][2] = "Button > Weiter <";
+		Hilfe[intFeldNr][3] = "Wurden alle nötigen Eingaben gemacht, kann mit diesem Button zum"
+				+ " nächsten Bildschirm gewechseln werden. Mit der Android Zurücktaste, kann man zum vorheringen"
+				+ " Display zurückkehren, um Änderungen bei den Eingaben vorzunehmen.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Bruttorückwaage der Proben";
+		Hilfe[intFeldNr][2] = "Eingabefeld > Probe x <";
+		Hilfe[intFeldNr][3] = "In diesen Eingabefeld wird das Gewicht des Probengefäßes inklusive Pobenrest"
+				+ " nach der Analyse und der Rückwaage eingegeben. Die Rückwaage kann beliebig oft"
+				+ " (Entscheidung im nächsten Layout) wiederholt werden.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einstellungen";
+		Hilfe[intFeldNr][2] = "Button > Einstellungen <";
+		Hilfe[intFeldNr][3] = "(Button: weißer Schüssel - blauer Hintergrund) Unter Einstellungen lässt"
+				+ " sich die Anzahl der gerundeten Nachkommastellen"
+				+ " von dem errechneten Rest bzw. dem verlust einstellen. Desweiteren lässt"
+				+ " sich bei einigen Layouts"
+				+ " die Schriftgröße und Buttonhöhe individuell anpassen.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einstellungen";
+		Hilfe[intFeldNr][2] = "> Home-Button <";
+		Hilfe[intFeldNr][3] = "(Button: schwarzes Haus - weißer Kreis)\n"
+				+ "Mit diesem Button kehrt man zum Hauptmenü zurück.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einstellungen";
+		Hilfe[intFeldNr][2] = "> Beenden-Button <";
+		Hilfe[intFeldNr][3] = "(Button: weißes Kreuz - roter Hintergrund)\n"
+				+ "Wird dieser Button betätigt, wird die App beendet.";
+
+		intFeldNr_max = intFeldNr;
+	} // erstelle_Hilfe_Rückwaage
+
+
+	private void erstelle_Hilfe_Erneute_Rückwaage(String strKapitel) {
+
+		int intFeldNr = 0;
+
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Wiederholung der Rückwaage";
+		Hilfe[intFeldNr][2] = "Wiederholung der Rückwaage";
+		Hilfe[intFeldNr][3] = "Bei einigen Analysen wird eine erneute Rückwaage vorgeschrieben."
+				+ " Zum Beispiel die Rückwaage des Probengefäßes bis zur Gewichtskonstanz. Das heißt eine"
+				+ " Auswertung der Rückwaage ist nur zulässig, wenn die Differenz zwischen vorheriger und"
+				+ " erneuter Rückwaage nicht zu groß ist. Diese Differenz wird nach der 2. Rückwaage berechnet"
+				+ " und angezeigt. Ist die Differenz einzelner Rückwaagen zu groß können diese im linken Kreis"
+				+ " angewählt werden";
+
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Erneute Rückwaage";
+		Hilfe[intFeldNr][2] = "Button > Erneute Rückwaage <";
+		Hilfe[intFeldNr][3] = "Ist die Auswahl der erneunten rückwaage vorgenommen worden, können einzelne Rückwaagen"
+				+ " beim Betätigen des Buttons wiederholt werden.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Berechnung";
+		Hilfe[intFeldNr][2] = "Button > Berechnung <";
+		Hilfe[intFeldNr][3] = "Wenn die (erneute) Rückwaage den Anforderungen entspricht, kann mit diesem Button zum"
+				+ " nächsten Bildschirm gewechseln werden. Der Prozentuale Anteil des Restes und des Verlustes wird"
+				+ " für jede Probe errechnet.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einstellungen";
+		Hilfe[intFeldNr][2] = "Button > Einstellungen <";
+		Hilfe[intFeldNr][3] = "(Button: weißer Schüssel - blauer Hintergrund) Unter Einstellungen lässt"
+				+ " sich die Anzahl der gerundeten Nachkommastellen"
+				+ " von dem errechneten Rest bzw. dem verlust einstellen. Desweiteren lässt"
+				+ " sich bei einigen Layouts"
+				+ " die Schriftgröße und Buttonhöhe individuell anpassen.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einstellungen";
+		Hilfe[intFeldNr][2] = "> Home-Button <";
+		Hilfe[intFeldNr][3] = "(Button: schwarzes Haus - weißer Kreis)\n"
+				+ "Mit diesem Button kehrt man zum Hauptmenü zurück.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einstellungen";
+		Hilfe[intFeldNr][2] = "> Beenden-Button <";
+		Hilfe[intFeldNr][3] = "(Button: weißes Kreuz - roter Hintergrund)\n"
+				+ "Wird dieser Button betätigt, wird die App beendet.";
+
+		intFeldNr_max = intFeldNr;
+	} // erstelle_Hilfe_Erneute_Rückwaage
+
+
+	private void erstelle_Hilfe_Berechnung(String strKapitel) {
 		int intFeldNr = 0;
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Einstellungen";
 		Hilfe[intFeldNr][2] = "Button > Einstellungen <";
-		Hilfe[intFeldNr][3] = "Unter Einstellungen lässt sich die Anzahl der gerundeten Nachkommastellen"
+		Hilfe[intFeldNr][3] = "(Button: weißer Schüssel - blauer Hintergrund) Unter Einstellungen lässt"
+				+ " sich die Anzahl der gerundeten Nachkommastellen"
 				+ " von dem errechneten Gehalt und der relativen Standardabweichung einstellen. Die"
 				+ " Nachkommastellen vom Titer können nicht eingestellt werden, weil dieser in der Chemie"
 				+ " standardmäßig mit 4 Stellen angegeben wird. Desweiteren lässt sich bei einigen Layouts"
@@ -205,8 +346,8 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][1] = "Titer";
 		Hilfe[intFeldNr][2] = "Ausgabefeld > Titer <";
 		Hilfe[intFeldNr][3] = "Der Titer ist ein Faktor, der die Abweichung der tatsächlichen"
-            + " Konzentration von der gewünschten Konzentration einer Maßlösung angibt."
-            + " Der Idealwert eines Titers ist somit 1,0000.";
+				+ " Konzentration von der gewünschten Konzentration einer Maßlösung angibt."
+				+ " Der Idealwert eines Titers ist somit 1,0000.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
@@ -219,72 +360,9 @@ public class HilfeActivity extends Activity {
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Berechnung
 
-	private void erstelle_Hilfe_Verbrauch(String strKapitel) {		
-		int intFeldNr = 0;
-		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Eingaben löschen";
-		Hilfe[intFeldNr][2] = "Button > Eingaben löschen <";
-		Hilfe[intFeldNr][3] = "Mit Hilfe dieses Buttons können alle Eingaben auf dem aktuellen"
-				+ " Bildschirm gelöscht werden. Eingaben von dem nächsten oder vorherigen"
-				+ " Display bleiben dabei unberührt.";
 
-		intFeldNr++;
-		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Berechnung";
-		Hilfe[intFeldNr][2] = "Button > Berechnung <";
-		Hilfe[intFeldNr][3] = "Wurden alle Verbräuche (jedoch mindestens ein Verbrauch)"
-				+ " eingegeben, kann man mit diesem Button zum nächsten Bildschirm"
-				+ " wechseln, in welchem dann die Ergebnisse der einzelnen Proben"
-				+ " angezeigt werden. Mit der Android Zurücktaste, kann man jederzeit"
-				+ " zum vorheringen Display zurückkehren, um Änderungen bei den Eingaben"
-				+ " vorzunehmen.";
 
-		intFeldNr++;
-		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Blindwerte";
-		Hilfe[intFeldNr][2] = "Button > Blindwerte? <";
-		Hilfe[intFeldNr][3] = "Mit diesem Button kann man zu einem Bildschirm"
-		+ " wechseln, in welchem, falls vorhanden, die Verbräuche von Blindwerten,"
-		+ " eingeben werden. Werden mehere Blindwerte eingegeben, wird der Durchschnitt"
-		+ " aller Blindwerte berechnet. Dieser Durchschnittsblindwert wird dann bei der"
-		+ " Berechnung berücksichtigt. Um zu dem Display"
-		+ " der Probenverbräuche zurückzukehren muss die Android Zurücktaste 2x"
-		+ " oder der Button  < zur Titration > betätigt werden.";
-
-		intFeldNr++;
-		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Verbrauch Probe";
-		Hilfe[intFeldNr][2] = "Eingabefeld > Verbrauch Probe <";
-		Hilfe[intFeldNr][3] = "In diesen Eingabefeldern können, entsprechend der Einwaagen,"
-				+ " bis zu 8 Verbräuche gleichzeitig eingegeben werden. Der Verbrauch an"
-				+ " Maßlösung wird für jede Probe in Milliliter eingegeben. Ein Verbrauch von 0 ml"
-				+ " ist ebenfalls möglich.";
-
-		intFeldNr++;
-		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Verbrauch Blindwerte";
-		Hilfe[intFeldNr][2] = "Eingabefeld > Verbrauch Blindwerte <";
-		Hilfe[intFeldNr][3] = "In diesen Eingabefeldern können bis zu 8 Verbräuche von Blindwerten in Milliliter"
-				+ " eingegeben werden. Die Verbräuche von mehreren Blindwerten werden automatisch zu"
-				+ " einem Ø Blindwert gemittelt. Ein Blindwertverbrauch von 0ml ist ebenfalls möglich."
-				+ " Der errechnete Ø Blindwert wird dann für die Berechnung verwendet und standardmäßig von den "
-				+ " Probenverbräuchen abgezogen. Ist der errechnete Ø Blindwert größer, als ein Probenverbrauch,"
-				+ " so kann dieser später nach einer Abfrage in einer Dialogbox von den Verbräuchen der Proben abgezogen"
-				+ " werden. Nicht belegte Felder bleiben später für die Berechnung unberücksichtigt.";
-
-		intFeldNr++;
-		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Vorlagevolumen";
-		Hilfe[intFeldNr][2] = "Eingabefeld > Volumen Vorlage <";
-		Hilfe[intFeldNr][3] = "Wird bei einer Rücktitration mit einer Vorlage gearbeitet, kann in diesem"
-				+ " Eingabefeld das entsprechende Volumen in Milliliter der Vorlage eingegeben werden."
-				+ " Da es sich bei der Verwendung einer Vorlage immer um eine Rücktitration handelt, werden"
-				+ " die Probenverbräuche grundsätzlich von dem Vorlagevolumen abgezogen.";
-
-		intFeldNr_max = intFeldNr;
-	} // erstelle_Hilfe_Verbrauch
-		
-	private void erstelle_Hilfe_Titereingaben(String strKapitel) {		
+	private void erstelle_Hilfe_Titereingaben(String strKapitel) {
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Eingaben löschen";
@@ -327,17 +405,17 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][2] = "Eingabefeld > Titer <";
 		Hilfe[intFeldNr][3] = "In diesem Eingabefeld wird der Titer der Maßlösung eingegeben."
 				+ " Der Titer ist ein Faktor, der die Abweichung der tatsächlichen"
-            + " Konzentration von der gewünschten Konzentration einer Maßlösung angibt."
-            + " Der Idealwert eines Titers ist somit 1,0000. Wird keine Eingabe vorgenommen"
-            + " und zum nächsten Display gewechselt,"
-            + " wird der Titer automatisch auf 1,0000 gesetzt. Mit der Android Zurücktaste,"
-            + " kann man jedoch zurückkehren, und diese gesetzte Eingabe"
-            + " jederzeit korrigieren.";
+				+ " Konzentration von der gewünschten Konzentration einer Maßlösung angibt."
+				+ " Der Idealwert eines Titers ist somit 1,0000. Wird keine Eingabe vorgenommen"
+				+ " und zum nächsten Display gewechselt,"
+				+ " wird der Titer automatisch auf 1,0000 gesetzt. Mit der Android Zurücktaste,"
+				+ " kann man jedoch zurückkehren, und diese gesetzte Eingabe"
+				+ " jederzeit korrigieren.";
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Titereingaben
-	
-	private void erstelle_Hilfe_Molaritaet(String strKapitel) {		
+
+	private void erstelle_Hilfe_Molaritaet(String strKapitel) {
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Eingaben löschen";
@@ -361,7 +439,7 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][3] = "In diesem Eingabefeld muss die Molmasse der eingesetzten Substanz für die Maßlösung in Gramm"
 				+ " pro Mol eingegeben werden. Ist die Molmasse unbekannt, kann diese auch im nächsten Layout über den berechne"
 				+ " Button mit Hilfe des Periodensystems errechnet werden.";
-		
+
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "stöchiometrische Wertigkeit";
@@ -392,7 +470,7 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][1] = "Volumen der Maßlösung";
 		Hilfe[intFeldNr][2] = "Eingabefeld > Volumen der Maßlösung <";
 		Hilfe[intFeldNr][3] = "In diesem Eingabefeld muss das Volumen der Maßlösung in Liter eingegeben werden.";
-		
+
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Reinheit der Einwaage";
@@ -402,8 +480,8 @@ public class HilfeActivity extends Activity {
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Molaritaet
-	
-	private void erstelle_Hilfe_Faktor(String strKapitel) {		
+
+	private void erstelle_Hilfe_Faktor(String strKapitel) {
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Eingaben löschen";
@@ -438,8 +516,8 @@ public class HilfeActivity extends Activity {
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Faktor
-	
-	private void erstelle_Hilfe_Vorlage(String strKapitel) {		
+
+	private void erstelle_Hilfe_Vorlage(String strKapitel) {
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Eingaben löschen";
@@ -453,7 +531,7 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][1] = "zur Titration";
 		Hilfe[intFeldNr][2] = "Button > zur Titration <";
 		Hilfe[intFeldNr][3] = "Mit Hilfe diesen Buttons kommt man zum Layout der Titration.";
-		
+
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Titrationsart: Direkte / Inverse Titration";
@@ -474,8 +552,8 @@ public class HilfeActivity extends Activity {
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Vorlage
-	
-	private void erstelle_Hilfe_Molmassen(String strKapitel) {		
+
+	private void erstelle_Hilfe_Molmassen(String strKapitel) {
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Allgemeines!";
@@ -519,15 +597,15 @@ public class HilfeActivity extends Activity {
         et = (EditText) findViewById(resId);
     	strBack = et.getText().toString();
 		*/
-		
+
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Button <- ";
 		Hilfe[intFeldNr][2] = "Button <- ";
 		Hilfe[intFeldNr][3] = "Mit diesem Button kann die zuvor eingegebene Formel und die berechnetete Molmasse wieder gelöscht werden."
 				+ " Ein schrittweises rückgängiges Löschen einzelner Elemente ist nicht möglich.";
-		
-		
+
+
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Indexzahl-Button (z.B. 0, 1, 2, 3, ...)";
@@ -547,11 +625,11 @@ public class HilfeActivity extends Activity {
 				+ " mindestens ein Element eingegeben wurde. Ein neues Klammer auf -Symbol wird erst wieder angezeigt, nachdem"
 				+ " die alte Klammer geschlossen wurde. Eckige Klammern (Komplexe) können nicht eingegeben werden. Diese Formeln "
 				+ " müssen als Summenformel eingegeben werden.";
-		
+
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Molmassen
-	
-	private void erstelle_Hilfe_Oxidationsstufen(String strKapitel) {		
+
+	private void erstelle_Hilfe_Oxidationsstufen(String strKapitel) {
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Allgemeines!";
@@ -572,23 +650,23 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][2] = "Button > Zurück <";
 		Hilfe[intFeldNr][3] = "Mit diesem Button kann man zu dem vorherigen"
 				+ " Bildschirm zurück kehren.";
-		
+
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Molmassen
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.hilfe);
 
 		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
-	    ActivityRegistry.register(this);
-		
+		ActivityRegistry.register(this);
+
 		Bundle extras = getIntent().getExtras();
 		String strKapitel;
-		
+
 		strKapitel = extras.getString("Kapitel");
-		
+
 		if (strKapitel.equals("Menue") == true) {
 			erstelle_Hilfe_Menue(strKapitel);
 		} else if (strKapitel.equals("RSD") == true) {
@@ -596,15 +674,15 @@ public class HilfeActivity extends Activity {
 		} else if (strKapitel.equals("Einwaage") == true) {
 			erstelle_Hilfe_Einwaage(strKapitel);
 		} else if (strKapitel.equals("Verbrauch") == true) {
-			erstelle_Hilfe_Verbrauch(strKapitel);
+			erstelle_Hilfe_Erneute_Rückwaage(strKapitel);
 		} else if (strKapitel.equals("Titereingaben") == true) {
-			erstelle_Hilfe_Titereingaben(strKapitel);
+			erstelle_Hilfe_Rückwaage(strKapitel);
 		} else if (strKapitel.equals("Molaritaet") == true) {
 			erstelle_Hilfe_Molaritaet(strKapitel);
 		} else if (strKapitel.equals("Faktor") == true) {
 			erstelle_Hilfe_Faktor(strKapitel);
 		} else if (strKapitel.equals("Vorlage") == true) {
-			erstelle_Hilfe_Vorlage(strKapitel);	
+			erstelle_Hilfe_Vorlage(strKapitel);
 		} else if (strKapitel.equals("Molmassen") == true) {
 			erstelle_Hilfe_Molmassen(strKapitel);
 		} else if (strKapitel.equals("Oxidationsstufen") == true) {
@@ -612,69 +690,69 @@ public class HilfeActivity extends Activity {
 		} else if (strKapitel.equals("Berechnung") == true) {
 			erstelle_Hilfe_Berechnung(strKapitel);
 		};
-		
+
 		initList();
 
-	    // Die ListView-Komponente kommt aus dem Layout
-	    ListView lv = (ListView) findViewById(R.id.lvHilfe);
+		// Die ListView-Komponente kommt aus dem Layout
+		ListView lv = (ListView) findViewById(R.id.lvHilfe);
 
-	    // Der 'SimpleAdapter' erwartet folgende Parameter:
-	    //  1. Kontext-Referenz (Activity)
-	    //  2. Daten, die angezeigt werden sollen (hier vom Typ 'ArrayList')
-	    //  3. Layout, das für jede Zeile in der Liste verwendet werden soll
-	    //  4. String-Array mit den Schlüsseln, nach denen die Datenliste gefiltert werden soll (hier: 'Kapitel')
-	    //  5. Integer-Array mit den View-IDs, die je Zeile angezeigt werden sollen
-	    //  Die Größe der Arrays der Parameter 4 und 5 muss identisch sein!
-	    //SimpleAdapter simpleAdpt = new SimpleAdapter(this, hilfeListe, android.R.layout.simple_list_item_1, new String[] {strKapitel}, new int[] {android.R.id.text1});
-	    SimpleAdapter simpleAdpt = new SimpleAdapter(this, hilfeListe, R.layout.my_listview, new String[] {strKapitel}, new int[] {R.id.tvHilfezeile});
+		// Der 'SimpleAdapter' erwartet folgende Parameter:
+		//  1. Kontext-Referenz (Activity)
+		//  2. Daten, die angezeigt werden sollen (hier vom Typ 'ArrayList')
+		//  3. Layout, das für jede Zeile in der Liste verwendet werden soll
+		//  4. String-Array mit den Schlüsseln, nach denen die Datenliste gefiltert werden soll (hier: 'Kapitel')
+		//  5. Integer-Array mit den View-IDs, die je Zeile angezeigt werden sollen
+		//  Die Größe der Arrays der Parameter 4 und 5 muss identisch sein!
+		//SimpleAdapter simpleAdpt = new SimpleAdapter(this, hilfeListe, android.R.layout.simple_list_item_1, new String[] {strKapitel}, new int[] {android.R.id.text1});
+		SimpleAdapter simpleAdpt = new SimpleAdapter(this, hilfeListe, R.layout.my_listview, new String[] {strKapitel}, new int[] {R.id.tvHilfezeile});
 
-	    lv.setAdapter(simpleAdpt);		
+		lv.setAdapter(simpleAdpt);
 
-	    // hier wird festgelegt, was passieren soll, wenn der Anwender eine Zeile anklickt:
-	    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-	         public void onItemClick(AdapterView<?> parentAdapter, View view, int position, long id) {
-	        	 
-	        	 LinearLayout ll = (LinearLayout) view;
-	             TextView clickedView = (TextView) ll.getChildAt(0);
-	        	 
-	            // es ist bekannt, dass der angeklickte View eine TextView ist; er wird daher als solcher angesprochen 
-	            //TextView clickedView = (TextView) view;
-             	
-	         	for (int intFeldNr=0; intFeldNr<=intFeldNr_max; intFeldNr++) {
-	        	    if (Hilfe[intFeldNr][1] == clickedView.getText()) {	        	    	
-	        			AlertDialog.Builder builder = new AlertDialog.Builder(HilfeActivity.this);
-	        			builder.setTitle(Hilfe[intFeldNr][2]);
-	        			builder.setMessage(Hilfe[intFeldNr][3]);
-	        			builder.setPositiveButton("OK",
-	        					new DialogInterface.OnClickListener()
-	        						{
-	        							public void onClick(DialogInterface dialog, int id)
-	        							{
-	        								dialog.dismiss();
-	        							}		
-	        						});
+		// hier wird festgelegt, was passieren soll, wenn der Anwender eine Zeile anklickt:
+		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parentAdapter, View view, int position, long id) {
 
-	        			AlertDialog dialog = builder.create();
-	        			dialog.show();
+				LinearLayout ll = (LinearLayout) view;
+				TextView clickedView = (TextView) ll.getChildAt(0);
 
-	        			break; // for-Schleife vorzeitig beenden
-	        	    } // if (Hilfe[zeile][1] == clickedView.getText())
-	      		} // for
-	         } // onItemClick
-	    }); // setOnItemClickListener	    
+				// es ist bekannt, dass der angeklickte View eine TextView ist; er wird daher als solcher angesprochen
+				//TextView clickedView = (TextView) view;
+
+				for (int intFeldNr=0; intFeldNr<=intFeldNr_max; intFeldNr++) {
+					if (Hilfe[intFeldNr][1] == clickedView.getText()) {
+						AlertDialog.Builder builder = new AlertDialog.Builder(HilfeActivity.this);
+						builder.setTitle(Hilfe[intFeldNr][2]);
+						builder.setMessage(Hilfe[intFeldNr][3]);
+						builder.setPositiveButton("OK",
+								new DialogInterface.OnClickListener()
+								{
+									public void onClick(DialogInterface dialog, int id)
+									{
+										dialog.dismiss();
+									}
+								});
+
+						AlertDialog dialog = builder.create();
+						dialog.show();
+
+						break; // for-Schleife vorzeitig beenden
+					} // if (Hilfe[zeile][1] == clickedView.getText())
+				} // for
+			} // onItemClick
+		}); // setOnItemClickListener
 	} // onCreate
 
 	private void initList() {
-    	for (int zeile=0; zeile<=intFeldNr_max; zeile++) {
-    	    hilfeListe.add(erstelleHilfe(Hilfe[zeile][0], Hilfe[zeile][1]));
-  		}
+		for (int zeile=0; zeile<=intFeldNr_max; zeile++) {
+			hilfeListe.add(erstelleHilfe(Hilfe[zeile][0], Hilfe[zeile][1]));
+		}
 	}
 
 	private LinkedHashMap<String, String> erstelleHilfe(String key, String name) {
-	    LinkedHashMap<String, String> hilfetext = new LinkedHashMap<String, String>();
-	    hilfetext.put(key, name);
-	
-	    return hilfetext;
+		LinkedHashMap<String, String> hilfetext = new LinkedHashMap<String, String>();
+		hilfetext.put(key, name);
+
+		return hilfetext;
 	}
-	
+
 } // HilfeActivity

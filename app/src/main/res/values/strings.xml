@@ -11,4 +11,6 @@
     <string name="Clear_last">Letze Eingabe\nlöschen</string>
     <string name="Liste">Eingabeliste\nanzeigen</string>
     <string name="letzter_Messwert">letzter Eingabe-Meßwert = </string>
+    <string name="Gehalt_ext">Gehaltsberechnung über einen externen Standard</string>
+    <string name="Gehalt_int">Gehaltsberechnung über einen internen Standard</string>
 </resources>

@@ -15,6 +15,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class RSD_Activity extends Activity /*implements OnFocusChangeListener */ {
 
@@ -51,6 +54,8 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
         imm.showSoftInput(et, InputMethodManager.SHOW_FORCED);
 
 	} // onCreate
+
+    List<String> WerteList = new ArrayList<String>();
 
 	/** wird ausgeführt, wenn Activicty angezeigt wird */
 
@@ -99,6 +104,10 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             s = Math.sqrt(d / (n - 1));
             RSD = (s * 100 / X);
 
+            // strErgebnis = Double.toString(dblErgebnis);
+
+            WerteList.add(Eingabetext);
+
             // *********** Ausgabe Anzahl Meßwerte *************
             strAusgabetext = Integer.toString(n);; // 0 Nachkommastellen
             tv = (TextView) findViewById(R.id.tvAnzahl_Messwert);
@@ -135,25 +144,12 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
 
     public void btnListe(View v)
     {
-        /*
-        // create a list of items
-        String[] myItems = {"Blue", "Green", "Rot", "Gelb"};
+        setContentView(R.layout.listview_rsd);
 
-        // Build Adapter
-        ListAdapter Werteadapter = new ArrayAdapter<String>(this, R.layout.eingabe_rsd, myItems);
+        ArrayAdapter<String> adapterListe = new ArrayAdapter<String>(RSD_Activity.this, android.R.layout.simple_list_item_1, WerteList);
 
-        // Configure the list view
-        ListView WerteListView = (ListView) findViewById(R.id.lvTest);
-        WerteListView.setAdapter(Werteadapter);
-        */
-
-        Intent myIntent = new Intent(v.getContext(), ListActivity.class);
-
-        // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
-        myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-
-        // Activity aufrufen
-        startActivity(myIntent);
+        ListView lWerte = (ListView) findViewById(R.id.lvWerteListe);
+        lWerte.setAdapter(adapterListe);
     }
     // ******************************************************************************************
     // ******************* Button Clear_last ****************************************************

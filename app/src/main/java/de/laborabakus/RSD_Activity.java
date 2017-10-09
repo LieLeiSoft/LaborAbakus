@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,6 +28,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
     double d;   // absolute Abweichung der Einzelwerte vom Mittelwert
     double s;   // Standardabweichung
     double RSD; // relative Standardabweichung in Prozent
+    boolean mainisopen = true;
 
     EditText et;
     TextView tv;
@@ -145,12 +147,25 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
     public void btnListe(View v)
     {
         setContentView(R.layout.listview_rsd);
+        mainisopen = false;
 
         ArrayAdapter<String> adapterListe = new ArrayAdapter<String>(RSD_Activity.this, android.R.layout.simple_list_item_1, WerteList);
 
         ListView lWerte = (ListView) findViewById(R.id.lvWerteListe);
         lWerte.setAdapter(adapterListe);
+
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && mainisopen == false) {
+            mainisopen = true;
+            setContentView(R.layout.eingabe_rsd);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
     // ******************************************************************************************
     // ******************* Button Clear_last ****************************************************
     // ******************************************************************************************

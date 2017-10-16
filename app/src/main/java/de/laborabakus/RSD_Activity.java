@@ -1,7 +1,6 @@
 package de.laborabakus;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,35 +37,37 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
     double Speicher;
 
 
-	/** wird ausgeführt, wenn Activicty erstellt wird */
+	/** wird ausgefï¿½hrt, wenn Activicty erstellt wird */
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.eingabe_rsd);
 
-    	// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
+    	// Activity registrieren, damit sie spï¿½ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
-
 
         EditText et = null;
         // Cursor in erstes Eingabefeld setzen und numerische Tastatur einschalten
         et = (EditText) findViewById(R.id.Eingabewert);
         et.requestFocus();
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(et, InputMethodManager.SHOW_FORCED);
-
+        showSoftKeyboard(findViewById(R.id.Eingabewert));
 	} // onCreate
 
-	/** wird ausgeführt, wenn Activicty angezeigt wird */
+	/** wird ausgefï¿½hrt, wenn Activicty angezeigt wird */
 
     @Override
-    public void onResume() {
+    protected void onResume() {
         super.onResume();
-	} // onResume
+    } // onResume
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    } // onPause
 
 
-	// ******************************************************************************************
+    // ******************************************************************************************
 	// ******************* Button Weiter ********************************************************
 	// ******************************************************************************************
 
@@ -78,7 +80,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
         // *********** Weiter nur bei Eingabe *************
         if (Eingabetext.equals("") == false)
         {
-            // *********** alte Werte werden gelöscht und neu berechnet *************
+            // *********** alte Werte werden gelï¿½scht und neu berechnet *************
 
             arr_x[0] = 0;
             X = 0;
@@ -105,7 +107,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
 
             // strErgebnis = Double.toString(dblErgebnis);
 
-            // *********** Ausgabe Anzahl Meßwerte *************
+            // *********** Ausgabe Anzahl Meï¿½werte *************
             strAusgabetext = Integer.toString(n);; // 0 Nachkommastellen
             tv = (TextView) findViewById(R.id.tvAnzahl_Messwert);
             tv.setText(strAusgabetext);
@@ -128,7 +130,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             tv = (TextView) findViewById(R.id.tvRSD);
             tv.setText(strAusgabetext);
 
-            // *********** Eingabefeld für nächste Eingabe leeren *************
+            // *********** Eingabefeld fï¿½r nï¿½chste Eingabe leeren *************
             et = (EditText) findViewById(R.id.Eingabewert);
             et.setText("");
         }
@@ -176,12 +178,12 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
 
             ListView lWerte = (ListView) findViewById(R.id.lvWerteListe);
             lWerte.setAdapter(adapterListe);
-
         } // try ...
         catch (Exception e)
         {
             Log.i("RSD_Activity", "btnListe: " + e.getMessage());
             e.printStackTrace();
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
     } // btnListe
 
@@ -202,7 +204,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
     public void btnClear_last(View v)
 
     {
-        // *********** alte Werte werden gelöscht und neu berechnet *************
+        // *********** alte Werte werden gelï¿½scht und neu berechnet *************
 
         arr_x[0] = 0;
         X = 0;
@@ -228,7 +230,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             s = Math.sqrt(d / (n - 1));
             RSD = (s * 100 / X);
 
-            // *********** Ausgabe Anzahl Meßwerte *************
+            // *********** Ausgabe Anzahl Meï¿½werte *************
             strAusgabetext = Integer.toString(n);; // 0 Nachkommastellen
             tv = (TextView) findViewById(R.id.tvAnzahl_Messwert);
             tv.setText(strAusgabetext);
@@ -251,7 +253,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             tv = (TextView) findViewById(R.id.tvRSD);
             tv.setText(strAusgabetext);
 
-            // *********** Eingabefeld für nächste Eingabe leeren *************
+            // *********** Eingabefeld fï¿½r nï¿½chste Eingabe leeren *************
             et = (EditText) findViewById(R.id.Eingabewert);
             et.setText("");
         }
@@ -279,7 +281,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
         s = 0;
         RSD = 0;
 
-        // *********** Ausgabe Anzahl Meßwerte *************
+        // *********** Ausgabe Anzahl Meï¿½werte *************
         tv = (TextView) findViewById(R.id.tvAnzahl_Messwert);
         tv.setText("");
 

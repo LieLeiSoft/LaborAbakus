@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,7 +13,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -57,14 +57,11 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
 
 	} // onCreate
 
-    List<String> WerteList = new ArrayList<String>();
-
 	/** wird ausgeführt, wenn Activicty angezeigt wird */
 
-		@Override
-		public void onResume() {
-		super.onResume();
-
+    @Override
+    public void onResume() {
+        super.onResume();
 	} // onResume
 
 
@@ -108,8 +105,6 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
 
             // strErgebnis = Double.toString(dblErgebnis);
 
-            WerteList.add(Eingabetext);
-
             // *********** Ausgabe Anzahl Meßwerte *************
             strAusgabetext = Integer.toString(n);; // 0 Nachkommastellen
             tv = (TextView) findViewById(R.id.tvAnzahl_Messwert);
@@ -146,15 +141,49 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
 
     public void btnListe(View v)
     {
-        setContentView(R.layout.listview_rsd);
-        mainisopen = false;
+        List<String> WerteList = new ArrayList<String>();
 
-        ArrayAdapter<String> adapterListe = new ArrayAdapter<String>(RSD_Activity.this, android.R.layout.simple_list_item_1, WerteList);
+        double dblMittelwert = 0;
+        double dblEingabewert = 0;
+        double dblAbsolAbweich = 0;
+        String strListText;
 
-        ListView lWerte = (ListView) findViewById(R.id.lvWerteListe);
-        lWerte.setAdapter(adapterListe);
+        try {
+            tv = (TextView) findViewById(R.id.tv_Mittelwert);
+            strListText = tv.getText().toString();
+            strListText = strListText.replace(",", ".");
 
-    }
+            dblMittelwert = Double.parseDouble(strListText);
+
+            for (int t=1; t<=n; t++)
+            {
+                dblEingabewert  = arr_x[t];
+                dblAbsolAbweich = dblEingabewert - dblMittelwert;
+
+                strListText = ActivityTools.fktDoubleToStringFormat(dblEingabewert, 4); // 4 Nachkommastellen
+                strListText = strListText+(" (");
+                strListText = strListText+ActivityTools.fktDoubleToStringFormat(dblAbsolAbweich, 4); // 4 Nachkommastellen
+                strListText = strListText+")";
+
+                WerteList.add(strListText);
+            }
+
+            hideSoftKeyboard();
+
+            setContentView(R.layout.listview_rsd);
+            mainisopen = false;
+            ArrayAdapter<String> adapterListe = new ArrayAdapter<String>(RSD_Activity.this, android.R.layout.simple_list_item_1, WerteList);
+
+            ListView lWerte = (ListView) findViewById(R.id.lvWerteListe);
+            lWerte.setAdapter(adapterListe);
+
+        } // try ...
+        catch (Exception e)
+        {
+            Log.i("RSD_Activity", "btnListe: " + e.getMessage());
+            e.printStackTrace();
+        }
+    } // btnListe
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -311,6 +340,25 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             default:
                 return super.onOptionsItemSelected(item);
         }
-	}
+	} // onOptionsItemSelected
+
+    /**
+     * Hides the soft keyboard
+     */
+    private void hideSoftKeyboard() {
+        if(getCurrentFocus()!=null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+    }
+
+    /**
+     * Shows the soft keyboard
+     */
+    private void showSoftKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        view.requestFocus();
+        inputMethodManager.showSoftInput(view, 0);
+    }
 } // class RSD_Activity
 

@@ -23,7 +23,7 @@ import java.util.List;
 public class RSD_Activity extends Activity /*implements OnFocusChangeListener */ {
 
     int n = 0;      // Anzahl der Messwerte
-    double[] arr_x = new double[30];
+    double[] arr_x = new double[99];
     double X;   // arithmetischer Mittelwert
     double d;   // absolute Abweichung der Einzelwerte vom Mittelwert
     double s;   // Standardabweichung
@@ -163,9 +163,8 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
                 dblAbsolAbweich = dblEingabewert - dblMittelwert;
 
                 strListText = ActivityTools.fktDoubleToStringFormat(dblEingabewert, 4); // 4 Nachkommastellen
-                strListText = strListText+(" (");
+                strListText = strListText+"      ";
                 strListText = strListText+ActivityTools.fktDoubleToStringFormat(dblAbsolAbweich, 4); // 4 Nachkommastellen
-                strListText = strListText+")";
 
                 WerteList.add(strListText);
             }
@@ -188,10 +187,40 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
     } // btnListe
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
         if (keyCode == KeyEvent.KEYCODE_BACK && mainisopen == false) {
             mainisopen = true;
             setContentView(R.layout.eingabe_rsd);
+
+            // *********** Ausgabe Anzahl Me�werte *************
+            strAusgabetext = Integer.toString(n);; // 0 Nachkommastellen
+            tv = (TextView) findViewById(R.id.tvAnzahl_Messwert);
+            tv.setText(strAusgabetext);
+
+            // *********** Ausgabe Mittelwert *************
+            Speicher = X; // nur die Ausgabe soll gerundet werden
+            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            tv = (TextView) findViewById(R.id.tv_Mittelwert);
+            tv.setText(strAusgabetext);
+
+            // *********** Ausgabe Standardabweichung *************
+            Speicher = s; // nur die Ausgabe soll gerundet werden
+            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            tv = (TextView) findViewById(R.id.tvStandardabweichung);
+            tv.setText(strAusgabetext);
+
+            // *********** Ausgabe relative Standardabweichung % *************
+            Speicher = RSD; // nur die Ausgabe soll gerundet werden
+            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            tv = (TextView) findViewById(R.id.tvRSD);
+            tv.setText(strAusgabetext);
+
+            // Cursor in erstes Eingabefeld setzen und numerische Tastatur einschalten
+            et = (EditText) findViewById(R.id.Eingabewert);
+            et.requestFocus();
+            showSoftKeyboard(findViewById(R.id.Eingabewert));
+
             return true;
         }
         return super.onKeyDown(keyCode, event);

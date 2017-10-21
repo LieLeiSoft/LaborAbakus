@@ -1,6 +1,7 @@
 package de.laborabakus;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -41,38 +42,22 @@ public class RDSAdapter extends BaseAdapter {
 
     // 5
     @Override
-/*
     public View getView(int position, View convertView, ViewGroup parent) {
         // 1
-        final double x = arr_x[position];
+        final double x = arr_x.get(position);
 
         // 2
         if (convertView == null) {
             final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-            convertView = layoutInflater.inflate(R.layout.linearlayout_book, null);
+            convertView = layoutInflater.inflate(R.layout.eingabeliste, null);
         }
 
         // 3
-        final ImageView imageView = (ImageView)convertView.findViewById(R.id.imageview_cover_art);
-        final TextView nameTextView = (TextView)convertView.findViewById(R.id.textview_book_name);
-        final TextView authorTextView = (TextView)convertView.findViewById(R.id.textview_book_author);
-        final ImageView imageViewFavorite = (ImageView)convertView.findViewById(R.id.imageview_favorite);
+        final TextView nameTextView = (TextView)convertView.findViewById(R.id.textview_Eingabeliste);
 
         // 4
-        imageView.setImageResource(book.getImageResource());
-        nameTextView.setText(mContext.getString(book.getName()));
-        authorTextView.setText(mContext.getString(book.getAuthor()));
+        nameTextView.setText(ActivityTools.fktDoubleToStringFormat(x, 4)); // 4 Nachkommastellen
 
         return convertView;
-    } // getView
-*/
-    public View getView(int position, View convertView, ViewGroup parent) {
-        final double x = arr_x.get(position);
-
-        TextView dummyTextView = new TextView(mContext);
-
-        dummyTextView.setText(ActivityTools.fktDoubleToStringFormat(x, 4)); // 4 Nachkommastellen
-
-        return dummyTextView;
     } // getView
 } // RDSAdapter

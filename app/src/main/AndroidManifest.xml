@@ -64,10 +64,6 @@
         </activity>
 
         <activity
-            android:name="ListActivity" android:windowSoftInputMode="stateHidden">
-        </activity>
-        
-        <activity 
             android:name="ImpressumActivity">
         </activity>
         

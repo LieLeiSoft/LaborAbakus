@@ -13,4 +13,7 @@
     <string name="letzter_Messwert">letzter Eingabe-Meßwert = </string>
     <string name="Gehalt_ext">Gehaltsberechnung über einen externen Standard</string>
     <string name="Gehalt_int">Gehaltsberechnung über einen internen Standard</string>
+    <string name="Titel_Eingabeliste">Eingabeliste</string>
+    <string name="Eingabeliste_Ueb1">Eingabe</string>
+    <string name="Eingabeliste_Ueb2">Absol. Abw.</string>
 </resources>

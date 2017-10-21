@@ -142,25 +142,24 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
 
     public void btnListe(View v)
     {
-        List<String> WerteList = new ArrayList<String>();
-        List<Double> List_Eingabe_RDS = new ArrayList<Double>();
+        List<Double> Eingabeliste = new ArrayList<Double>();
 
         double dblMittelwert = 0;
         double dblEingabewert = 0;
         double dblAbsolAbweich = 0;
-        String strListText;
+        String strMittelwert;
 
 
         try {
             tv = (TextView) findViewById(R.id.tv_Mittelwert);
-            strListText = tv.getText().toString();
-            strListText = strListText.replace(",", ".");
+            strMittelwert = tv.getText().toString();
+            strMittelwert = strMittelwert.replace(",", ".");
 
-            dblMittelwert = Double.parseDouble(strListText);
+            dblMittelwert = Double.parseDouble(strMittelwert);
 
             hideSoftKeyboard();
 
-            setContentView(R.layout.gridview_rsd);
+            setContentView(R.layout.eingabeliste);
             mainisopen = false;
 
             for (int t=1; t<=n; t++)
@@ -168,13 +167,13 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
                 dblEingabewert  = arr_x[t];
                 dblAbsolAbweich = dblEingabewert - dblMittelwert;
 
-                List_Eingabe_RDS.add(dblEingabewert);
-                List_Eingabe_RDS.add(dblAbsolAbweich);
+                Eingabeliste.add(dblEingabewert);
+                Eingabeliste.add(dblAbsolAbweich);
             }
 
             GridView gridView = (GridView)findViewById(R.id.gridview);
-            RDSAdapter rdsAdapter = new RDSAdapter(this, List_Eingabe_RDS);
-            gridView.setAdapter(rdsAdapter);
+            EingabelisteAdapter eingabelisteAdapter = new EingabelisteAdapter(this, Eingabeliste);
+            gridView.setAdapter(eingabelisteAdapter);
 
         } // try ...
         catch (Exception e)

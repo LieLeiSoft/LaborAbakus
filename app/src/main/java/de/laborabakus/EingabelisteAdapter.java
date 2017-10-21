@@ -11,13 +11,13 @@ import java.util.List;
 
 // GridView-Tutorial: https://www.raywenderlich.com/127544/android-gridview-getting-started
 
-public class RDSAdapter extends BaseAdapter {
+public class EingabelisteAdapter extends BaseAdapter {
 
     private final Context mContext;
     private final List<Double> arr_x;
 
     // 1
-    public RDSAdapter(Context context, List<Double> arr_x) {
+    public EingabelisteAdapter(Context context, List<Double> arr_x) {
         this.mContext = context;
         this.arr_x = arr_x;
     }
@@ -49,7 +49,7 @@ public class RDSAdapter extends BaseAdapter {
         // 2
         if (convertView == null) {
             final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-            convertView = layoutInflater.inflate(R.layout.eingabeliste, null);
+            convertView = layoutInflater.inflate(R.layout.eingabeliste_textview, null);
         }
 
         // 3
@@ -60,4 +60,4 @@ public class RDSAdapter extends BaseAdapter {
 
         return convertView;
     } // getView
-} // RDSAdapter
+} // EingabelisteAdapter

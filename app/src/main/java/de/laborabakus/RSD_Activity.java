@@ -10,9 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -144,11 +143,13 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
     public void btnListe(View v)
     {
         List<String> WerteList = new ArrayList<String>();
+        List<Double> List_Eingabe_RDS = new ArrayList<Double>();
 
         double dblMittelwert = 0;
         double dblEingabewert = 0;
         double dblAbsolAbweich = 0;
         String strListText;
+
 
         try {
             tv = (TextView) findViewById(R.id.tv_Mittelwert);
@@ -157,26 +158,24 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
 
             dblMittelwert = Double.parseDouble(strListText);
 
+            hideSoftKeyboard();
+
+            setContentView(R.layout.gridview_rsd);
+            mainisopen = false;
+
             for (int t=1; t<=n; t++)
             {
                 dblEingabewert  = arr_x[t];
                 dblAbsolAbweich = dblEingabewert - dblMittelwert;
 
-                strListText = ActivityTools.fktDoubleToStringFormat(dblEingabewert, 4); // 4 Nachkommastellen
-                strListText = strListText+"      ";
-                strListText = strListText+ActivityTools.fktDoubleToStringFormat(dblAbsolAbweich, 4); // 4 Nachkommastellen
-
-                WerteList.add(strListText);
+                List_Eingabe_RDS.add(dblEingabewert);
+                List_Eingabe_RDS.add(dblAbsolAbweich);
             }
 
-            hideSoftKeyboard();
+            GridView gridView = (GridView)findViewById(R.id.gridview);
+            RDSAdapter rdsAdapter = new RDSAdapter(this, List_Eingabe_RDS);
+            gridView.setAdapter(rdsAdapter);
 
-            setContentView(R.layout.listview_rsd);
-            mainisopen = false;
-            ArrayAdapter<String> adapterListe = new ArrayAdapter<String>(RSD_Activity.this, android.R.layout.simple_list_item_1, WerteList);
-
-            ListView lWerte = (ListView) findViewById(R.id.lvWerteListe);
-            lWerte.setAdapter(adapterListe);
         } // try ...
         catch (Exception e)
         {

@@ -145,7 +145,8 @@ public class MolmassenActivity extends Activity {
 		
 		for (int x=0; x<=4; x++)
 		{
-			tv = (TextView) findViewById(R.id.btnSZ_0+x);
+            int viewId = getResources().getIdentifier("btnSZ_"+x, "id", getPackageName());
+            tv = (TextView) findViewById(viewId);
 			tv.setVisibility(View.INVISIBLE);
 			prefEditor.putInt("btnSZ_0", 0);
 		}
@@ -280,7 +281,8 @@ public class MolmassenActivity extends Activity {
 		
 		for (int x=0; x<=4; x++)
 		{
-			tv = (TextView) findViewById(R.id.btnSZ_0+x);
+            int viewId = getResources().getIdentifier("btnSZ_"+x, "id", getPackageName());
+            tv = (TextView) findViewById(viewId);
 			tv.setVisibility(View.INVISIBLE);
 			prefEditor.putInt("btnSZ_0", 0);
 		}
@@ -568,7 +570,8 @@ public class MolmassenActivity extends Activity {
 			
 			for (int x=0; x<=4; x++)
 			{
-				tv = (TextView) findViewById(R.id.btnSZ_0+x);
+                int viewId = getResources().getIdentifier("btnSZ_"+x, "id", getPackageName());
+                tv = (TextView) findViewById(viewId);
 				tv.setVisibility(View.INVISIBLE);
 				prefEditor.putInt("btnSZ_0", 0);
 			}
@@ -752,7 +755,8 @@ public class MolmassenActivity extends Activity {
 		{
 			if (strElement.equals("(") == false)
 			{
-				tv = (TextView) findViewById(R.id.btnSZ_0+x);
+				int viewId = getResources().getIdentifier("btnSZ_"+x, "id", getPackageName());
+				tv = (TextView) findViewById(viewId);
 				tv.setVisibility(View.VISIBLE);
 			}
 		}
@@ -835,7 +839,8 @@ public class MolmassenActivity extends Activity {
 		
 		for (int x=0; x<=4; x++)
 		{
-			tv = (TextView) findViewById(R.id.btnSZ_0+x);
+            int viewId = getResources().getIdentifier("btnSZ_"+x, "id", getPackageName());
+            tv = (TextView) findViewById(viewId);
 			tv.setVisibility(View.INVISIBLE);
 			prefEditor.putInt("btnSZ_0", 0);
 		}

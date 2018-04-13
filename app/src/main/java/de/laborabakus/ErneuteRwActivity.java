@@ -29,7 +29,7 @@ public class ErneuteRwActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.erneute_rw);
 
-		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
+		// Activity registrieren, damit sie spÃ¤ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
 	} // onCreate
 	
@@ -126,7 +126,7 @@ public class ErneuteRwActivity extends Activity {
 		
 	} // onResume
 	
-	/** wird ausgeführt, wenn zu einer anderen Activicty gewechselt wird */
+	/** wird ausgefï¿½hrt, wenn zu einer anderen Activicty gewechselt wird */
 	@Override
 	public void onPause() {
 		super.onPause();
@@ -159,7 +159,7 @@ public class ErneuteRwActivity extends Activity {
     		// **************************************       		
     		// *** Hier wird ein Toast ausgegeben ***
     		// **************************************        		
-    		String text = "\n   Bitte mindestens eine   \n      Probe auswählen!   \n"; 
+    		String text = "\n   Bitte mindestens eine   \n      Probe auswÃ¤hlen!   \n";
     		Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
     		Meldung.setGravity(Gravity.TOP, 0, 0);
     		Meldung.show();
@@ -197,7 +197,7 @@ public class ErneuteRwActivity extends Activity {
     		// **************************************       		
     		// *** Hier wird ein Toast ausgegeben ***
     		// **************************************        		
-    		String text = "\n    Bitte für die Berechnung die   \n   angewählten Proben abwählen!   \n"; 
+    		String text = "\n    Bitte fï¿½r die Berechnung die   \n   angewÃ¤hlten Proben abwÃ¤hlen!   \n";
     		Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
     		Meldung.setGravity(Gravity.TOP, 0, 0);
     		Meldung.show();

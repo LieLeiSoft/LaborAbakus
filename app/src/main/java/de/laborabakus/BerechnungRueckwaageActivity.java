@@ -34,7 +34,7 @@ public class BerechnungRueckwaageActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.berechnung);
 
-		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
+		// Activity registrieren, damit sie spÃ¤ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
 	} // onCreate
 	
@@ -59,7 +59,7 @@ public class BerechnungRueckwaageActivity extends Activity {
    		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
    		//***********************************************************************
-   		//********* Auslesen der Ein- Rück- und Tarawaagen **********************
+   		//********* Auslesen der Ein- RÃ¼ck- und Tarawaagen **********************
    		//***********************************************************************
    		
    		for (int x=0; x<=5; x++)
@@ -154,7 +154,7 @@ public class BerechnungRueckwaageActivity extends Activity {
 		
 		dblSpeicher = dblRest;
 		
-		// Anzeige Ø 
+		// Anzeige Durchschnitt
 		if (intAnzahl > 1)
 		{
 			tv = (TextView) findViewById(R.id.tvRestD);

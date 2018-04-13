@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public class EinwaageActivity extends Activity implements OnFocusChangeListener  {
 	
-	/** wird ausgeführt, wenn Activicty erstellt wird */
+	/** wird ausgefÃ¼hrt, wenn Activicty erstellt wird */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -27,7 +27,7 @@ public class EinwaageActivity extends Activity implements OnFocusChangeListener 
 
 	    EditText et;
 
-    	// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
+    	// Activity registrieren, damit sie spÃ¤ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);  
 
 		// Eingabefelder mit Listener verbinden
@@ -51,7 +51,7 @@ public class EinwaageActivity extends Activity implements OnFocusChangeListener 
 
 	} // onCreate
 
-	/** wird ausgeführt, wenn Activicty angezeigt wird */
+	/** wird ausgefÃ¼hrt, wenn Activicty angezeigt wird */
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -104,7 +104,7 @@ public class EinwaageActivity extends Activity implements OnFocusChangeListener 
 	    } 
 	} // onResume
 
-	/** wird ausgeführt, wenn zu einer anderen Activicty gewechselt wird */
+	/** wird ausgefÃ¼hrt, wenn zu einer anderen Activicty gewechselt wird */
 	@Override
 	public void onPause() {
 		super.onPause();
@@ -206,7 +206,7 @@ public class EinwaageActivity extends Activity implements OnFocusChangeListener 
 
        	if (Eingabe_OK == true) 
        	{		    	
-        	// Hier wird geprüft, ob in dem ersten Eingabefeld (Tara 1) ein Wert steht
+        	// Hier wird geprï¿½ft, ob in dem ersten Eingabefeld (Tara 1) ein Wert steht
     		
            	et = (EditText) findViewById(R.id.Tara_0);  
     	    Eingabetext = et.getText().toString();
@@ -226,7 +226,7 @@ public class EinwaageActivity extends Activity implements OnFocusChangeListener 
        	
        	if (Eingabe_OK == true) 
        	{		    	
-        	// Hier wird geprüft, ob in dem ersten Eingabefeld (Tara 1) ein Wert steht
+        	// Hier wird geprÃ¼ft, ob in dem ersten Eingabefeld (Tara 1) ein Wert steht
        		for (int x=0; x<=5; x++)
        		{
        			resID = getResources().getIdentifier("Tara_"+x, "id", getPackageName());
@@ -256,13 +256,13 @@ public class EinwaageActivity extends Activity implements OnFocusChangeListener 
        	
        	if (Eingabe_OK == true) 
        	{		    	
-        	// Hier wird geprüft, ob in irgendeiner Eingabe eine "0" steht    		
+        	// Hier wird geprï¿½ft, ob in irgendeiner Eingabe eine "0" steht    		
     	    for (int intEW=0; intEW<=5; intEW++)
     	    {    	    	
     			// Id wird ermittelt
     			int resId = getResources().getIdentifier("Einwaage_"+intEW, "id", getPackageName());
     					
-    			// Das Feld der Objektvariable wird über die Id gesucht
+    			// Das Feld der Objektvariable wird Ã¼ber die Id gesucht
     	    	et = (EditText) findViewById(resId);  
 
     	    	if (et.VISIBLE == View.VISIBLE) 
@@ -295,7 +295,7 @@ public class EinwaageActivity extends Activity implements OnFocusChangeListener 
     } // btnWeiter
 	
 	
-    // Eingabefelder zurücksetzen
+    // Eingabefelder zurï¿½cksetzen
     public void btnClear(View v) {
     	EditText et;
     	int resId;

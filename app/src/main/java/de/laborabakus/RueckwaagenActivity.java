@@ -28,7 +28,7 @@ public class RueckwaagenActivity extends Activity {
 	}return false;}
 	
 	@SuppressWarnings("static-access")
-	public boolean fktEingabeprüfung (boolean Eingabe_OK)
+	public boolean fktEingabeprÃ¼fung (boolean Eingabe_OK)
 	{
     	EditText et;
     	String strWert;
@@ -44,7 +44,7 @@ public class RueckwaagenActivity extends Activity {
 
        	if (Eingabe_OK == true) 
        	{		    	
-        	// Hier wird geprüft, ob in dem ersten Eingabefeld ein Wert steht
+        	// Hier wird geprï¿½ft, ob in dem ersten Eingabefeld ein Wert steht
        		for (int x=0; x<=5; x++)
        		{
        			strWert = prefs.getString("Einwaage_"+x, "0");
@@ -74,13 +74,13 @@ public class RueckwaagenActivity extends Activity {
        	
        	if (Eingabe_OK == true) 
        	{		    	
-        	// Hier wird geprüft, ob in irgendeiner Eingabe eine "0" steht    		
+        	// Hier wird geprï¿½ft, ob in irgendeiner Eingabe eine "0" steht    		
     	    for (int x=0; x<=5; x++)
     	    {    	    	
     			// Id wird ermittelt
     			int resId = getResources().getIdentifier("Rueckwaage_"+x, "id", getPackageName());
     					
-    			// Das Feld der Objektvariable wird über die Id gesucht
+    			// Das Feld der Objektvariable wird ï¿½ber die Id gesucht
     	    	et = (EditText) findViewById(resId);  
 
     	    	if (et.VISIBLE == View.VISIBLE) 
@@ -115,7 +115,7 @@ public class RueckwaagenActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.rueckwaage);
 
-		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
+		// Activity registrieren, damit sie spï¿½ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
 	} // onCreate
 	
@@ -142,7 +142,7 @@ public class RueckwaagenActivity extends Activity {
    			resId = getResources().getIdentifier("Rueckwaage_"+x, "id", getPackageName());
    			et = (EditText) findViewById(resId);
    			
-   			if (intAlleERW == 0) 						// erneute Rückwaage ? nein
+   			if (intAlleERW == 0) 						// erneute Rï¿½ckwaage ? nein
    			{
    				if (strEinwaage.equals("0") == true) 	// Einwaage vorhanden? nein
    				{   			
@@ -156,16 +156,16 @@ public class RueckwaagenActivity extends Activity {
    					et.requestFocus();
    				}
    			}
-   			else										// erneute Rückwaage ? ja
+   			else										// erneute Rï¿½ckwaage ? ja
    			{
-   		   		if (intErneuteRW == 1) 					// erneute Rückwaage Nr x ? ja
+   		   		if (intErneuteRW == 1) 					// erneute Rï¿½ckwaage Nr x ? ja
    	   	   	   	{
    	   	   			et.setVisibility(View.VISIBLE);
    	   	   			et.setFocusableInTouchMode(true);
-   	   	   			et.setText(""); 					// damit die alte Rückwaage verschwindet
+   	   	   			et.setText(""); 					// damit die alte Rï¿½ckwaage verschwindet
    	   	   			et.requestFocus();
    	   	   	   	}
-   		   		else									// erneute Rückwaage Nr x ? nein
+   		   		else									// erneute Rï¿½ckwaage Nr x ? nein
    		   		{
    	   	   			et.setVisibility(View.INVISIBLE);
    	   	   			et.setFocusableInTouchMode(false);
@@ -183,7 +183,7 @@ public class RueckwaagenActivity extends Activity {
    	   			else   // erneute RW == 1 (ja)
    	   			{
    	   	   			et.setVisibility(View.VISIBLE);
-   	   	   			et.setText(""); 		// damit die alte Rückwaage verschwindet
+   	   	   			et.setText(""); 		// damit die alte Rï¿½ckwaage verschwindet
    	   	   			//et.setFocusableInTouchMode(true);
    	   	   			et.requestFocus();
 
@@ -198,7 +198,7 @@ public class RueckwaagenActivity extends Activity {
    	   		
 	} // onResume
 	
-	/** wird ausgeführt, wenn zu einer anderen Activicty gewechselt wird */
+	/** wird ausgefï¿½hrt, wenn zu einer anderen Activicty gewechselt wird */
 	@Override
 	public void onPause() {
 		super.onPause();
@@ -236,7 +236,7 @@ public class RueckwaagenActivity extends Activity {
     	
     	// ***************************************************************
     	// ***************************************************************
-    	Eingabe_OK = fktEingabeprüfung(Eingabe_OK);
+    	Eingabe_OK = fktEingabeprÃ¼fung(Eingabe_OK);
     	// ***************************************************************
     	// ***************************************************************
     	
@@ -249,7 +249,7 @@ public class RueckwaagenActivity extends Activity {
     } // btnRest
 	
 	
-    // Eingabefelder zurücksetzen
+    // Eingabefelder zurï¿½cksetzen
     public void btnClear(View v) {
     	EditText et;
     	int resId;

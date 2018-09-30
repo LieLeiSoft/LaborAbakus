@@ -1,0 +1,371 @@
+package de.laborabakus;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+
+public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClickListener*/  {
+
+    //private View mButton;
+    // EditText et;
+    TextView tv;
+    String strAcidAuswahl = "";
+    String strAcidGehalt;
+    String strEinheitGehalt;
+    String strCounter;
+    String strX;
+    int intCounter;
+    int resId;
+
+
+
+    /** wird ausgef�hrt, wenn Activicty erstellt wird */
+	@Override
+	public void onCreate(Bundle savedInstanceState)
+	{
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.konz_lsg_auswahl);
+
+        //mButton = findViewById(R.id.button1);
+        //mButton.setOnClickListener(this);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        strCounter = prefs.getString("strCounter", "0");
+        intCounter = Integer.parseInt(strCounter);
+
+        if (intCounter == 0) // nur, wenn nichts eingegeben wurde (also auch beim Ersten mal)
+        {
+            intCounter = intCounter +1;
+            strCounter = Integer.toString(intCounter);
+
+            prefEditor.putString("strCounter", strCounter);
+            prefEditor.putString("EinheitGehaltVerd", "%");
+
+            // Salzsäure
+            prefEditor.putString("AcidAuswahl_0", "Salzsäure");
+            prefEditor.putString("AcidGehalt_0", "37");
+            prefEditor.putString("EinheitGehalt_0", "%");
+            prefEditor.putString("Dichte_0", "1.183");
+            prefEditor.putString("Molmasse_0", "36.461");
+            // Schwefelsäure
+            prefEditor.putString("AcidAuswahl_1", "Schwefelsäure");
+            prefEditor.putString("AcidGehalt_1", "97");
+            prefEditor.putString("EinheitGehalt_1", "%");
+            prefEditor.putString("Dichte_1", "1.8364");
+            prefEditor.putString("Molmasse_1", "98.076");
+            // Salpetersäure
+            prefEditor.putString("AcidAuswahl_2", "Salpetersäure");
+            prefEditor.putString("AcidGehalt_2", "65");
+            prefEditor.putString("EinheitGehalt_2", "%");
+            prefEditor.putString("Dichte_2", "1.391");
+            prefEditor.putString("Molmasse_2", "63.012");
+            // Phosphorsäure
+            prefEditor.putString("AcidAuswahl_3", "Phosphorsäure");
+            prefEditor.putString("AcidGehalt_3", "85");
+            prefEditor.putString("EinheitGehalt_3", "%");
+            prefEditor.putString("Dichte_3", "1.689");
+            prefEditor.putString("Molmasse_3", "97.994");
+            // Essigsäure
+            prefEditor.putString("AcidAuswahl_4", "Essigsäure");
+            prefEditor.putString("AcidGehalt_4", "100");
+            prefEditor.putString("EinheitGehalt_4", "%");
+            prefEditor.putString("Dichte_4", "1.048");
+            prefEditor.putString("Molmasse_4", "60.052");
+            // Perchlorsäure
+            prefEditor.putString("AcidAuswahl_5", "Perchlorsäure");
+            prefEditor.putString("AcidGehalt_5", "71");
+            prefEditor.putString("EinheitGehalt_5", "%");
+            prefEditor.putString("Dichte_5", "1.684");
+            prefEditor.putString("Molmasse_5", "100.457");
+            // Wasserstoffperoxid
+            prefEditor.putString("AcidAuswahl_6", "Wasserstoffperoxid");
+            prefEditor.putString("AcidGehalt_6", "35");
+            prefEditor.putString("EinheitGehalt_6", "%");
+            prefEditor.putString("Dichte_6", "1.132");
+            prefEditor.putString("Molmasse_6", "34.014");
+            // Mustersäure
+            prefEditor.putString("AcidAuswahl_7", "Mustersäure");
+            prefEditor.putString("AcidGehalt_7", "1");
+            prefEditor.putString("EinheitGehalt_7", "mol/L");
+            prefEditor.putString("Dichte_7", "1.0");
+            prefEditor.putString("Molmasse_7", "1");
+            // Natronlauge
+            prefEditor.putString("AcidAuswahl_8", "Natronlauge");
+            prefEditor.putString("AcidGehalt_8", "40");
+            prefEditor.putString("EinheitGehalt_8", "%");
+            prefEditor.putString("Dichte_8", "1.43");
+            prefEditor.putString("Molmasse_8", "39.997");
+            // Kalilauge
+            prefEditor.putString("AcidAuswahl_9", "Kalilauge");
+            prefEditor.putString("AcidGehalt_9", "50");
+            prefEditor.putString("EinheitGehalt_9", "%");
+            prefEditor.putString("Dichte_9", "1.503");
+            prefEditor.putString("Molmasse_9", "56.109");
+            // Ammoniaklösung
+            prefEditor.putString("AcidAuswahl_10", "Ammoniaklösung");
+            prefEditor.putString("AcidGehalt_10", "32");
+            prefEditor.putString("EinheitGehalt_10", "%");
+            prefEditor.putString("Dichte_10", "0.886");
+            prefEditor.putString("Molmasse_10", "17.031");
+            // Musterlauge
+            prefEditor.putString("AcidAuswahl_11", "Musterlauge");
+            prefEditor.putString("AcidGehalt_11", "10");
+            prefEditor.putString("EinheitGehalt_11", "mol/L");
+            prefEditor.putString("Dichte_11", "0.999");
+            prefEditor.putString("Molmasse_11", "1");
+            prefEditor.apply();
+
+            // Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
+            ActivityRegistry.register(this);
+        } // if
+	} // onCreate
+
+	/** wird ausgef�hrt, wenn Activicty angezeigt wird */
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
+        for (int x=0; x<=11; x++) // 12 Zeilen im Auswahl-Layout
+        {
+            // hier werden die Felder im Layout befüllt
+            strX = Integer.toString(x);
+            strAcidAuswahl = prefs.getString("AcidAuswahl_"+strX, strAcidAuswahl);
+            strAcidGehalt = prefs.getString("AcidGehalt_"+strX, strAcidGehalt);
+            strEinheitGehalt = prefs.getString("EinheitGehalt_"+strX, strEinheitGehalt);
+
+            resId = getResources().getIdentifier("AcidAuswahl_"+strX, "id", getPackageName());
+            tv = (TextView) findViewById(resId);
+            tv.setText(strAcidAuswahl+" "+strAcidGehalt+strEinheitGehalt);
+
+        } //for
+
+
+
+
+    } // onResume
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+
+
+
+
+    } // onPause
+
+    // ******************************************************************************************
+    // ******************* Button Auswahl ********************************************************
+    // ******************************************************************************************
+    public void btnAuswahl(View v) {
+        String strAuswahl = "";
+        int CurrentID = v.getId();
+        switch (CurrentID)
+        {
+            case R.id.AcidAuswahl_0:
+                strAuswahl = "0";
+                break;
+            case R.id.AcidAuswahl_1:
+                strAuswahl = "1";
+                break;
+            case R.id.AcidAuswahl_2:
+                strAuswahl = "2";
+                break;
+            case R.id.AcidAuswahl_3:
+                strAuswahl = "3";
+                break;
+            case R.id.AcidAuswahl_4:
+                strAuswahl = "4";
+                break;
+            case R.id.AcidAuswahl_5:
+                strAuswahl = "5";
+                break;
+            case R.id.AcidAuswahl_6:
+                strAuswahl = "6";
+                break;
+            case R.id.AcidAuswahl_7:
+                strAuswahl = "7";
+                break;
+            case R.id.AcidAuswahl_8:
+                strAuswahl = "8";
+                break;
+            case R.id.AcidAuswahl_9:
+                strAuswahl = "9";
+                break;
+            case R.id.AcidAuswahl_10:
+                strAuswahl = "10";
+                break;
+            case R.id.AcidAuswahl_11:
+                strAuswahl = "11";
+                break;
+        } // switch (CurrentID)
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        prefEditor.putString("Auswahl", strAuswahl);
+        prefEditor.apply();
+
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_Gesucht_Activity.class);
+
+        // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
+        myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+        // Activity aufrufen
+        startActivity(myIntent);
+
+    } // btnLsg0
+
+    public void btnLsg(View v) {
+        String strAuswahl = "";
+        int CurrentID = v.getId();
+        switch (CurrentID)
+        {
+            case R.id.btnLsg_0:
+                strAuswahl = "0";
+                break;
+            case R.id.btnLsg_1:
+                strAuswahl = "1";
+                break;
+            case R.id.btnLsg_2:
+                strAuswahl = "2";
+                break;
+            case R.id.btnLsg_3:
+                strAuswahl = "3";
+                break;
+            case R.id.btnLsg_4:
+                strAuswahl = "4";
+                break;
+            case R.id.btnLsg_5:
+                strAuswahl = "5";
+                break;
+            case R.id.btnLsg_6:
+                strAuswahl = "6";
+                break;
+            case R.id.btnLsg_7:
+                strAuswahl = "7";
+                break;
+            case R.id.btnLsg_8:
+                strAuswahl = "8";
+                break;
+            case R.id.btnLsg_9:
+                strAuswahl = "9";
+                break;
+            case R.id.btnLsg_10:
+                strAuswahl = "10";
+                break;
+            case R.id.btnLsg_11:
+                strAuswahl = "11";
+                break;
+        } // switch (CurrentID)
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        prefEditor.putString("Auswahl", strAuswahl);
+        prefEditor.apply();
+
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_Anpassung_Activity.class);
+
+        // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
+        myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+        // Activity aufrufen
+        startActivity(myIntent);
+
+    } // btnLsg
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mainmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final Intent[] intent = {null};
+        switch (item.getItemId())
+        {
+            case R.id.menu_Einstellungen:
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Konz_lsg_Auswahl_Activity.this);
+                builder.setTitle("Zurücksetzen aller Säuren und Laugen?");
+                builder.setPositiveButton("Ja",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                                SharedPreferences.Editor prefEditor = prefs.edit();
+                                prefEditor.putString("strCounter", "0");
+                                prefEditor.apply();
+                                dialog.dismiss();
+
+                               ActivityRegistry.finishAll();
+
+                            }
+                        }
+                );
+                builder.setNegativeButton("Nein",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                            }
+                        }
+                );
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+
+                return true;
+
+            case R.id.menu_Hilfe:
+                intent[0] = new Intent(this, HilfeActivity.class);
+                intent[0].setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent[0].putExtra("Kapitel", "RSD");
+                startActivity(intent[0]);
+                return true;
+
+            case R.id.menu_Menue:
+                ActivityRegistry.finishAll();
+                intent[0] = new Intent(this, HauptmenueActivity.class);
+                intent[0].setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent[0]);
+                return true;
+
+            case R.id.menu_Aus:
+                ActivityRegistry.finishAll();
+                finish();
+                System.exit(0);
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    } // onOptionsItemSelected
+
+    /*@Override
+    public void onClick(View view)
+    {
+        switch (view.getId())
+        {
+            case R.id.button1:
+                // Do something
+        }
+    }*/
+} // class Konz_lsg_Auswahl
+

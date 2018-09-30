@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cHellblau"
+    android:gravity="center_horizontal"
+    android:weightSum="1">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:background="@color/chellhellgrau"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Gesucht wird ..."
+            android:textColor="@color/cSchwarz"
+            android:textSize="16dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/AcidAuswahl_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:onClick="btnGesuchtMasseKonz"
+            android:text="... die Masse der\nkonzentrierten Lösung"
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/AcidAuswahl_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnGesuchtMasseVerd"
+            android:text="... die Masse der\nverdünnten Lösung"
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/AcidAuswahl_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnGesuchtGehaltVerd"
+            android:text="... der Gehalt der\n verdünnten Lösung"
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+    </TableRow>
+
+
+</TableLayout>

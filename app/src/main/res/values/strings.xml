@@ -16,4 +16,7 @@
     <string name="Titel_Eingabeliste">Eingabeliste</string>
     <string name="Eingabeliste_Ueb1">Eingabe</string>
     <string name="Eingabeliste_Ueb2">Absol. Abw.</string>
+    <string name="Zurucksetzen_aller">Zurücksetzen aller Säuren und Laugen\nStandardwerte wiederherstellen?</string>
+    <string name="ja">ja</string>
+    <string name="nein">nein</string>
 </resources>

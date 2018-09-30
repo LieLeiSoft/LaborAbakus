@@ -55,6 +55,22 @@
             android:name="RSD_Activity" android:windowSoftInputMode="stateVisible">
         </activity>
 
+        <activity
+            android:name="Konz_lsg_verd_Activity" android:windowSoftInputMode="stateVisible">
+        </activity>
+
+        <activity
+            android:name="Konz_lsg_Gesucht_Activity" android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
+            android:name="Konz_lsg_Auswahl_Activity" android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
+            android:name="Konz_lsg_Anpassung_Activity" android:windowSoftInputMode="stateHidden">
+        </activity>
+
         <activity 
             android:name="GleichungActivity" android:windowSoftInputMode="stateHidden">
         </activity>

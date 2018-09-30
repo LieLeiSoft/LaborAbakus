@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cHellorange"
+    android:weightSum="1">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:text="Name"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/etAnpassungName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_span="3"
+            android:gravity="center_horizontal"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:text="Gehalt"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/etAnpassungGehalt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:minWidth="80dp"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/tvAnpassungEinheit"
+            android:layout_width="69dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnEinheitGehalt"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:text="Dichte"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/etAnpassungDichte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:text="g/ml"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:text="Molmasse"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/etAnpassungMolmasse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:text="g/mol"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+</TableLayout>

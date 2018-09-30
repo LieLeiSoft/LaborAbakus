@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/v_scroll"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cHellblau"
+    android:stretchColumns="0"
+    android:shrinkColumns="0"
+    android:weightSum="1">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:text="Auswahl"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_0"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_0"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_3"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_3"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_4"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_4"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_5"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_5"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_6"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_6"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_7"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_7"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_8"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_8"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_9"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_9"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_10"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_10"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/AcidAuswahl_11"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnAuswahl"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_11"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnLsg"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+</TableLayout>

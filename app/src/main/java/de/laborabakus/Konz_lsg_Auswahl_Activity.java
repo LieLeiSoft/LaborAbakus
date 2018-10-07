@@ -179,7 +179,7 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
         String strAuswahl = "";
 
         // Feldnamen anhand der ID ermitteln
-        strFeldname = getResources().getResourceName(v.getId());
+        strFeldname = getResources().getResourceEntryName(v.getId());
         // Feldnummer aus Feldnamen extrahieren und in strAuswahl speichern
         intPos = strFeldname.indexOf("_")+1;
         strAuswahl = strFeldname.substring(intPos);
@@ -206,7 +206,7 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
         String strAuswahl = "";
 
         // Feldnamen anhand der ID ermitteln
-        strFeldname = getResources().getResourceName(v.getId());
+        strFeldname = getResources().getResourceEntryName(v.getId());
         // Feldnummer aus Feldnamen extrahieren und in strAuswahl speichern
         intPos = strFeldname.indexOf("_")+1;
         strAuswahl = strFeldname.substring(intPos);

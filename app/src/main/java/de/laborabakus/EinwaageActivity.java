@@ -146,39 +146,39 @@ public class EinwaageActivity extends Activity implements OnFocusChangeListener 
 	// Felder einblenden
     public void onFocusChange(View v, boolean hasFocus) {
     	EditText et;
-		int CurrentID = v.getId();
-		switch (CurrentID) {
-		case R.id.Einwaage_0:
-	    	et = (EditText) findViewById(R.id.Tara_1);
-			et.setVisibility(View.VISIBLE);
-	    	et = (EditText) findViewById(R.id.Einwaage_1);
-			et.setVisibility(View.VISIBLE);
-			break;
-		case R.id.Einwaage_1:			
-	    	et = (EditText) findViewById(R.id.Tara_2);
-			et.setVisibility(View.VISIBLE);
-	    	et = (EditText) findViewById(R.id.Einwaage_2);
-			et.setVisibility(View.VISIBLE);
-			break;
-		case R.id.Einwaage_2:			
-	    	et = (EditText) findViewById(R.id.Tara_3);
-			et.setVisibility(View.VISIBLE);
-	    	et = (EditText) findViewById(R.id.Einwaage_3);
-			et.setVisibility(View.VISIBLE);
-			break;
-		case R.id.Einwaage_3:			
-	    	et = (EditText) findViewById(R.id.Tara_4);
-			et.setVisibility(View.VISIBLE);
-	    	et = (EditText) findViewById(R.id.Einwaage_4);
-			et.setVisibility(View.VISIBLE);
-			break;
-		case R.id.Einwaage_4:			
-	    	et = (EditText) findViewById(R.id.Tara_5);
-			et.setVisibility(View.VISIBLE);
-	    	et = (EditText) findViewById(R.id.Einwaage_5);
-			et.setVisibility(View.VISIBLE);
-			break;
-		}		
+
+        String strFeldname = "";
+        int intPos = 0;
+        int intFeldNr = 0;
+        int intViewId = 0;
+
+        // Feldnamen anhand der ID ermitteln
+        strFeldname = getResources().getResourceEntryName(v.getId());
+        if (strFeldname.indexOf("Einwaage_") == 0)
+        {
+            // Focus wird in ein Einwaage-Feld gewechselt
+
+            // Feldnummer aus Feldnamen extrahieren und in intFeldNr speichern
+            intPos = strFeldname.indexOf("_") + 1;
+            intFeldNr = Integer.parseInt(strFeldname.substring(intPos));
+
+            if (intFeldNr < 5)
+            {
+                intFeldNr = intFeldNr + 1;
+
+                // nächstes Tara-Feld anzeigen
+                strFeldname = "Tara_" + Integer.toString(intFeldNr);
+                intViewId = getResources().getIdentifier(strFeldname, "id", getPackageName());
+                et = (EditText) findViewById(intViewId);
+                et.setVisibility(View.VISIBLE);
+
+                // nächstes Einwaage-Feld anzeigen
+                strFeldname = "Einwaage_" + Integer.toString(intFeldNr);
+                intViewId = getResources().getIdentifier(strFeldname, "id", getPackageName());
+                et = (EditText) findViewById(intViewId);
+                et.setVisibility(View.VISIBLE);
+            } // if (intFeldNr <= 4)
+        } // if (strFeldname.indexOf("Einwaage_") > 0)
     } // onFocusChange
     
 	@SuppressWarnings("static-access")

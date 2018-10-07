@@ -174,47 +174,15 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
     // ******************* Button Auswahl ********************************************************
     // ******************************************************************************************
     public void btnAuswahl(View v) {
+        String strFeldname = "";
+        int intPos = 0;
         String strAuswahl = "";
-        int CurrentID = v.getId();
-        switch (CurrentID)
-        {
-            case R.id.AcidAuswahl_0:
-                strAuswahl = "0";
-                break;
-            case R.id.AcidAuswahl_1:
-                strAuswahl = "1";
-                break;
-            case R.id.AcidAuswahl_2:
-                strAuswahl = "2";
-                break;
-            case R.id.AcidAuswahl_3:
-                strAuswahl = "3";
-                break;
-            case R.id.AcidAuswahl_4:
-                strAuswahl = "4";
-                break;
-            case R.id.AcidAuswahl_5:
-                strAuswahl = "5";
-                break;
-            case R.id.AcidAuswahl_6:
-                strAuswahl = "6";
-                break;
-            case R.id.AcidAuswahl_7:
-                strAuswahl = "7";
-                break;
-            case R.id.AcidAuswahl_8:
-                strAuswahl = "8";
-                break;
-            case R.id.AcidAuswahl_9:
-                strAuswahl = "9";
-                break;
-            case R.id.AcidAuswahl_10:
-                strAuswahl = "10";
-                break;
-            case R.id.AcidAuswahl_11:
-                strAuswahl = "11";
-                break;
-        } // switch (CurrentID)
+
+        // Feldnamen anhand der ID ermitteln
+        strFeldname = getResources().getResourceName(v.getId());
+        // Feldnummer aus Feldnamen extrahieren und in strAuswahl speichern
+        intPos = strFeldname.indexOf("_")+1;
+        strAuswahl = strFeldname.substring(intPos);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
@@ -233,47 +201,15 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
     } // btnLsg0
 
     public void btnLsg(View v) {
+        String strFeldname = "";
+        int intPos = 0;
         String strAuswahl = "";
-        int CurrentID = v.getId();
-        switch (CurrentID)
-        {
-            case R.id.btnLsg_0:
-                strAuswahl = "0";
-                break;
-            case R.id.btnLsg_1:
-                strAuswahl = "1";
-                break;
-            case R.id.btnLsg_2:
-                strAuswahl = "2";
-                break;
-            case R.id.btnLsg_3:
-                strAuswahl = "3";
-                break;
-            case R.id.btnLsg_4:
-                strAuswahl = "4";
-                break;
-            case R.id.btnLsg_5:
-                strAuswahl = "5";
-                break;
-            case R.id.btnLsg_6:
-                strAuswahl = "6";
-                break;
-            case R.id.btnLsg_7:
-                strAuswahl = "7";
-                break;
-            case R.id.btnLsg_8:
-                strAuswahl = "8";
-                break;
-            case R.id.btnLsg_9:
-                strAuswahl = "9";
-                break;
-            case R.id.btnLsg_10:
-                strAuswahl = "10";
-                break;
-            case R.id.btnLsg_11:
-                strAuswahl = "11";
-                break;
-        } // switch (CurrentID)
+
+        // Feldnamen anhand der ID ermitteln
+        strFeldname = getResources().getResourceName(v.getId());
+        // Feldnummer aus Feldnamen extrahieren und in strAuswahl speichern
+        intPos = strFeldname.indexOf("_")+1;
+        strAuswahl = strFeldname.substring(intPos);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();

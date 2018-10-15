@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 17
-    buildToolsVersion '27.0.3'
+    buildToolsVersion '28.0.2'
 
     // 'encoding' wird gesetzt, damit Build-Lauf funktioniert (sonst verursachen Umlaute in den Java-Sourcen den Fehler: "error: unmappable character for encoding UTF-8")
 //    compileOptions { encoding "ISO-8859-1" }

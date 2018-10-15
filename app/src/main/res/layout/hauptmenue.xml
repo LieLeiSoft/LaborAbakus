@@ -80,13 +80,22 @@
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz" />
 
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:onClick="btnOnClickExitApp"
-                android:text="@string/Beschriftung_ExitApp"
-                android:visibility="gone" />
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="btnOnClickExitApp"
+            android:text="@string/Beschriftung_ExitApp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cHellblau"
+            android:onClick="btnOnClickQuizDemo"
+            android:text="Quiz-Demo"
+            android:textAllCaps="false"
+            android:textColor="@color/cSchwarz" />
     </LinearLayout>
 </ScrollView>

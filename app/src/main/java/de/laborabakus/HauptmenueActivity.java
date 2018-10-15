@@ -123,18 +123,29 @@ public class HauptmenueActivity extends Activity {
 		startActivity(myIntent);
 	}
 
-    public void btnOnClickMolmasse(View v)
-    {
-        Intent myIntent = new Intent(v.getContext(), MolmassenActivity.class);
+	public void btnOnClickMolmasse(View v)
+	{
+		Intent myIntent = new Intent(v.getContext(), MolmassenActivity.class);
 
-        // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
-        myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+		// verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
+		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 
 		// Activity aufrufen
-        startActivity(myIntent);
-    }
-    
-    @Override
+		startActivity(myIntent);
+	}
+	public void btnOnClickQuizDemo(View v)
+	{
+		Intent myIntent = new Intent(v.getContext(), QuizDemoActivity.class);
+
+		// verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
+		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+		// Activity aufrufen
+		startActivity(myIntent);
+	}
+
+
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mainmenu2, menu);

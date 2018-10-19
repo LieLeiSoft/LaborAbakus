@@ -54,7 +54,6 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         strAcidGehalt = prefs.getString("AcidGehalt_"+strAuswahl, strAcidGehalt);
         tv = (TextView) findViewById(R.id.etAnpassungGehalt);
         tv.setText(strAcidGehalt);
-        strAcidGehalt = strAcidGehalt.replace(",", ".");
         dblAcidGehalt = Double.parseDouble(strAcidGehalt);
 
         strEinheitGehalt = prefs.getString("EinheitGehalt_"+strAuswahl, strEinheitGehalt);
@@ -64,13 +63,11 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         strDichte = prefs.getString("Dichte_"+strAuswahl, strDichte);
         tv = (TextView) findViewById(R.id.etAnpassungDichte);
         tv.setText(strDichte);
-        strDichte = strDichte.replace(",", ".");
         dblDichte = Double.parseDouble(strDichte);
 
         strMolmasse = prefs.getString("Molmasse_"+strAuswahl, strMolmasse);
         tv = (TextView) findViewById(R.id.etAnpassungMolmasse);
         tv.setText(strMolmasse);
-        strMolmasse = strMolmasse.replace(",", ".");
         dblMolmasse = Double.parseDouble(strMolmasse);
 
     } // onResume
@@ -128,8 +125,8 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
             // Umrechnung auf mol/L
 
             dblAcidGehalt = (dblAcidGehalt * dblDichte * 1000) / (100 * dblMolmasse);
-            dblErgebnis = dblAcidGehalt;
-            strAcidGehalt = ActivityTools.fktDoubleToStringFormat(dblErgebnis, 2); // 1 Nachkommastellen
+            dblAcidGehalt = ActivityTools.fktRunden(dblAcidGehalt, 2); // 2 Nachkommastellen
+            strAcidGehalt = Double.toString(dblAcidGehalt);
             tv = (TextView) findViewById(R.id.etAnpassungGehalt);
             tv.setText(strAcidGehalt);
 
@@ -144,8 +141,8 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
             // Umrechnung auf %
 
             dblAcidGehalt = (dblAcidGehalt * dblMolmasse) / (10 * dblDichte);
-            dblErgebnis = dblAcidGehalt;
-            strAcidGehalt = ActivityTools.fktDoubleToStringFormat(dblErgebnis, 2); // 1 Nachkommastellen
+            dblAcidGehalt = ActivityTools.fktRunden(dblAcidGehalt, 2); // 2 Nachkommastellen
+            strAcidGehalt = Double.toString(dblAcidGehalt);
             tv = (TextView) findViewById(R.id.etAnpassungGehalt);
             tv.setText(strAcidGehalt);
         }

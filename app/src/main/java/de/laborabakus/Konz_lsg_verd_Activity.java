@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeListener */
@@ -29,24 +31,30 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
     String strEinheitGehaltVerd;
     String strGesucht;
     String strErgebnis;
+    String strDichte;
+    String strMolmasse;
     double dblMasseAcid;
     double dblMasseVerd;
     double dblGehaltVerd;
     double dblGehaltAcid;
+    double dblDichte;
+    double dblMolmasse;
+    double dblErgebnis;
 
-	/** wird ausgef�hrt, wenn Activicty erstellt wird */
-	@Override
-	public void onCreate(Bundle savedInstanceState)
-	{
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.konz_lsg_verd);
 
-    	// Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
-	    ActivityRegistry.register(this);
+    /** wird ausgef?hrt, wenn Activicty erstellt wird */
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.konz_lsg_verd);
 
-	} // onCreate
+        // Activity registrieren, damit sie sp?ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
+        ActivityRegistry.register(this);
 
-	/** wird ausgef�hrt, wenn Activicty angezeigt wird */
+    } // onCreate
+
+    /** wird ausgef?hrt, wenn Activicty angezeigt wird */
 
     @Override
     public void onResume() {
@@ -60,6 +68,10 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
         strAcidAuswahl = prefs.getString("AcidAuswahl_"+strAuswahl, strAcidAuswahl);
         strAcidGehalt = prefs.getString("AcidGehalt_"+strAuswahl, strAcidGehalt);
         strEinheitGehalt = prefs.getString("EinheitGehalt_"+strAuswahl, strEinheitGehalt);
+        strDichte = prefs.getString("Dichte_"+strAuswahl, strDichte);
+        dblDichte = Double.parseDouble(strDichte);
+        strMolmasse = prefs.getString("Molmasse_"+strAuswahl, strMolmasse);
+        dblMolmasse = Double.parseDouble(strMolmasse);
         strGesucht = prefs.getString("Gesucht", "MasseKonz");
 
         tv = (TextView) findViewById(R.id.tvAcidBase);
@@ -103,12 +115,12 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
 
         if (strGesucht.equals("GehaltVerd") == true)
         {
-               strEinheitGehaltVerd = prefs.getString("EinheitGehaltVerd", "%");
+            strEinheitGehaltVerd = prefs.getString("EinheitGehaltVerd", "%");
             tv = (TextView) findViewById(R.id.tvAnpassungEinheitGehaltVerd);
             tv.setText(strEinheitGehaltVerd);
 
             // Eingabefeld Konzentration der Verdünnung unsichtbar machen
-            et = (EditText) findViewById(R.id.etAnpassungKonz);
+            et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);
             et.setVisibility(View.GONE);
             tv = (TextView) findViewById(R.id.textView7);
             tv.setVisibility(View.VISIBLE);
@@ -117,10 +129,6 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
             b.setVisibility(View.INVISIBLE);
         }
 
-
-
-
-
     } // onResume
 
     @Override
@@ -128,117 +136,204 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
         super.onPause();
     } // onPause
 
+
+    /* *********************************************************************************************
+     ***************** Button % / mol/L ************************************************************
+     ***********************************************************************************************/
+
     public void btnEinheitGehaltVerd(View v)
     {
         TextView tv;
         tv = (TextView) v;
         strEinheitGehaltVerd = tv.getText().toString();
 
-        if (strEinheitGehaltVerd.equals("%") == true)
+        et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);
+        strGehaltVerd = et.getText().toString();
+
+        tv = (TextView) findViewById(R.id.tvErgebnis1);
+        tv.setText("");    // Beim Wechsel von % auf mol/L oder umgekehrt das Ergebnisfeld löschen
+
+        if (strEinheitGehaltVerd.equals("%") == true)   // Wenn das Feld auf % steht ...
         {
-            strEinheitGehaltVerd = "mol/L";
+            strEinheitGehaltVerd = "mol/L";             // ...umschalten auf mol/L
 
             tv = (TextView) findViewById(R.id.tvAnpassungEinheitGehaltVerd);
             tv.setText(strEinheitGehaltVerd);
+
+            if (strGehaltVerd.equals("") == false)      // Nur wenn das Feld voll ist, dann ...
+            {
+                dblGehaltVerd = Double.parseDouble(strGehaltVerd);
+                dblGehaltVerd = (dblGehaltVerd * dblDichte * 1000) / (100 * dblMolmasse); // ...den Gehalt auf mol/L umrechnen
+                dblErgebnis = ActivityTools.fktRunden(dblGehaltVerd, 2); // 2 Nachkommastellen
+                strGehaltVerd = Double.toString(dblErgebnis);
+                et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);
+                et.setText(strGehaltVerd);
+                et.setSelection(et.getText().length());     // Cursor nach rechts setzen
+            }
         }
         else
         {
-            strEinheitGehaltVerd = "%";
+            strEinheitGehaltVerd = "%";                 // ...umschalten auf mol/L
 
             tv = (TextView) findViewById(R.id.tvAnpassungEinheitGehaltVerd);
             tv.setText(strEinheitGehaltVerd);
+
+            if (strGehaltVerd.equals("") == false)      // Nur wenn das Feld voll ist, dann ...
+            {
+                dblGehaltVerd = Double.parseDouble(strGehaltVerd);
+                dblGehaltVerd = (dblGehaltVerd * dblMolmasse) / (10 * dblDichte);   // ...den Gehalt auf % umrechnen
+                dblErgebnis = ActivityTools.fktRunden(dblGehaltVerd, 2); // 2 Nachkommastellen
+                strGehaltVerd = Double.toString(dblErgebnis);
+                et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);
+                et.setText(strGehaltVerd);
+                et.setSelection(et.getText().length());     // Cursor nach rechts setzen
+            }
         }
-    } // btnAuswahl
+    } // btn % mol/L
+
+    /* *********************************************************************************************
+     ***************** Button Berechnung ************************************************************
+     ***********************************************************************************************/
 
     public void btnBerechneMasseKonz(View v)
     {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        SharedPreferences.Editor prefEditor = prefs.edit();
-
-        strAuswahl = prefs.getString("Auswahl", "0");
-        strAcidAuswahl = prefs.getString("AcidAuswahl_"+strAuswahl, strAcidAuswahl);
-        strAcidGehalt = prefs.getString("AcidGehalt_"+strAuswahl, strAcidGehalt);
-        dblGehaltAcid = Double.parseDouble(strAcidGehalt);
-
         et = (EditText) findViewById(R.id.etAnpassungMasseVerd);
         strMasseVerd = et.getText().toString();
-        dblMasseVerd = Double.parseDouble(strMasseVerd);
-
-        et = (EditText) findViewById(R.id.etAnpassungKonz);
+        et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);
         strGehaltVerd = et.getText().toString();
-        dblGehaltVerd = Double.parseDouble(strGehaltVerd);
-
-        InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
-
-        // Berechnung der Masse der Konzentrierten Lösung
-        // Masse Konz = (MasseVerd * GehaltVerd) / GehaltKonz
-
-        dblMasseAcid = (dblMasseVerd * dblGehaltVerd) / dblGehaltAcid;
-        strErgebnis = ActivityTools.fktDoubleToStringFormat(dblMasseAcid, 1); // 1 Nachkommastellen
 
         tv = (TextView) findViewById(R.id.tvErgebnis1);
-        tv.setText("Für den Ansatz einer "+ strAcidAuswahl +" "+ strGehaltVerd + strEinheitGehaltVerd +
-                ", benötigt man "+ strErgebnis +" g einer "+ strAcidAuswahl + " " + strAcidGehalt +
-                strEinheitGehalt +", die mit Wasser zu "+ strMasseVerd +" g verdünnt werden muss.");
+        tv.setText("");    // das Ergebnisfeld löschen
 
+        if ((strMasseVerd.equals("") == false) && (strGehaltVerd.equals("") == false)) // Wenn beide Felder voll sind ...
+        {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            SharedPreferences.Editor prefEditor = prefs.edit();
 
+            strAuswahl = prefs.getString("Auswahl", "0");
+            strAcidAuswahl = prefs.getString("AcidAuswahl_"+strAuswahl, strAcidAuswahl);
+            strAcidGehalt = prefs.getString("AcidGehalt_"+strAuswahl, strAcidGehalt);
+            strEinheitGehalt = prefs.getString("EinheitGehalt_"+strAuswahl, strEinheitGehalt);
+            strDichte = prefs.getString("Dichte_"+strAuswahl, strDichte);
+            strMolmasse = prefs.getString("Molmasse_"+strAuswahl, strMolmasse);
 
-        //tv = (TextView) findViewById(R.id.tvErgebnis2);
-        //tv.setText(strAcidGehalt+" "+strMasseVerd+" "+strGehaltVerd);
+            dblGehaltAcid = Double.parseDouble(strAcidGehalt);
+            dblDichte = Double.parseDouble(strDichte);
+            dblMolmasse = Double.parseDouble(strMolmasse);
+            dblMasseVerd = Double.parseDouble(strMasseVerd);
+            dblGehaltVerd = Double.parseDouble(strGehaltVerd);
 
+            if (strEinheitGehalt.equals("mol/L") == true)
+            {
+                dblGehaltAcid = (dblGehaltAcid * dblMolmasse) / (10 * dblDichte);
+            }
 
+            if (strEinheitGehaltVerd.equals("mol/L") == true) // fehlt noch konz mol/L bzw %!!!!!!!!!!!!!!!!!!!!!!
+            {
+                dblErgebnis = (dblGehaltVerd * dblMolmasse) / (10 * dblDichte);   // ...den Gehalt auf % umrechnen
+            }
+            else
+            {
+                dblErgebnis = dblGehaltVerd;
+            }
 
+            if ((dblMasseVerd != 0) && (dblGehaltVerd != 0)) // Wenn eines der Felder <> 0 ist ...
+            {
+                if (dblErgebnis >= dblGehaltAcid) // Wenn der Gehalt der Verd größer der Konz ist ...
+                {
+                    String text = "\n  Der Gehalt der  \n  Verdünnung ist größer,  \n  als der Gehalt der  \n" + strAcidAuswahl +" "+ strAcidGehalt + strEinheitGehalt + "\n  Da gibt es nichts  \n  zu verdünnen!  \n";
+                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                    Meldung.setGravity(Gravity.TOP, 0, 0);
+                    Meldung.show();
+                }
+                else
+                {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 
+                    // Berechnung der Masse der Konzentrierten Lösung
+                    // Masse Konz = (MasseVerd * GehaltVerd) / GehaltKonz
+
+                    if (strEinheitGehaltVerd.equals("%") == true)
+                    {
+                        dblMasseAcid = (dblMasseVerd * dblGehaltVerd) / dblGehaltAcid;
+                        strErgebnis = ActivityTools.fktDoubleToStringFormat(dblMasseAcid, 1); // 1 Nachkommastellen
+                    }
+                    else
+                    {
+                        dblGehaltVerd = (dblGehaltVerd * 100 * dblMolmasse) / (dblDichte * 1000);
+                        dblMasseAcid = (dblMasseVerd * dblGehaltVerd) / dblGehaltAcid;
+                        strErgebnis = ActivityTools.fktDoubleToStringFormat(dblMasseAcid, 1); // 1 Nachkommastellen
+                    }
+
+                    tv = (TextView) findViewById(R.id.tvErgebnis1);
+                    tv.setText("Für den Ansatz einer " + strAcidAuswahl + " " + strGehaltVerd + " " + strEinheitGehaltVerd +
+                            ", benötigt man " + strErgebnis + " g einer " + strAcidAuswahl + " " + strAcidGehalt + " " +
+                            strEinheitGehalt + ", die mit Wasser zu " + strMasseVerd + " g verdünnt werden muss.");
+                }
+            }
+            else
+            {
+                String text = "\n   Bitte keine   \n   0 eingeben!  \n";
+                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                Meldung.setGravity(Gravity.TOP, 0, 0);
+                Meldung.show();
+            }
+        }
+        else
+        {
+            String text = "\n   Bitte Masse und Gehalt   \n   der Verdünnung eingeben!   \n";
+            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+            Meldung.setGravity(Gravity.TOP, 0, 0);
+            Meldung.show();
+        }
     }
-
-	/********************************************
-	 ************** Menue Button ****************
-	 ********************************************/
+    /********************************************
+     ************** Menue Button ****************
+     ********************************************/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mainmenu, menu);
         return true;
-    }   
-    
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	Intent intent = null;
-        switch (item.getItemId()) 
+        Intent intent = null;
+        switch (item.getItemId())
         {
-        	case R.id.menu_Einstellungen:
-            	intent = new Intent(this, Einstellungen_Gravi_Activity.class);
-            	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	startActivity(intent);
+            case R.id.menu_Einstellungen:
+                intent = new Intent(this, Einstellungen_Gravi_Activity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
                 return true;
-             
+
             case R.id.menu_Hilfe:
-            	intent = new Intent(this, HilfeActivity.class);
-            	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	intent.putExtra("Kapitel", "RSD");
-            	startActivity(intent);
+                intent = new Intent(this, HilfeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent.putExtra("Kapitel", "RSD");
+                startActivity(intent);
                 return true;
-                
+
             case R.id.menu_Menue:
-            	ActivityRegistry.finishAll();
-            	intent = new Intent(this, HauptmenueActivity.class);
-            	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	startActivity(intent);
-                return true;
-                
-            case R.id.menu_Aus:	
                 ActivityRegistry.finishAll();
-                finish(); 
+                intent = new Intent(this, HauptmenueActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
+                return true;
+
+            case R.id.menu_Aus:
+                ActivityRegistry.finishAll();
+                finish();
                 System.exit(0);
-                
+
             default:
                 return super.onOptionsItemSelected(item);
         }
-	} // onOptionsItemSelected
+    } // onOptionsItemSelected
 
 
 
 } // class Activity
-

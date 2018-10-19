@@ -30,11 +30,11 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
 
 
     /** wird ausgef�hrt, wenn Activicty erstellt wird */
-	@Override
-	public void onCreate(Bundle savedInstanceState)
-	{
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.konz_lsg_auswahl);
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.konz_lsg_auswahl);
 
         //mButton = findViewById(R.id.button1);
         //mButton.setOnClickListener(this);
@@ -130,9 +130,9 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
             // Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
             ActivityRegistry.register(this);
         } // if
-	} // onCreate
+    } // onCreate
 
-	/** wird ausgef�hrt, wenn Activicty angezeigt wird */
+    /** wird ausgef�hrt, wenn Activicty angezeigt wird */
 
     @Override
     protected void onResume()
@@ -251,9 +251,10 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
                                 prefEditor.putString("strCounter", "0");
                                 prefEditor.apply();
                                 dialog.dismiss();
-
-                               ActivityRegistry.finishAll();
-
+                                ActivityRegistry.finishAll();
+                                Intent myIntent = new Intent(Konz_lsg_Auswahl_Activity.this, HauptmenueActivity.class);
+                                myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                                startActivity(myIntent);
                             }
                         }
                 );
@@ -304,4 +305,3 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
         }
     }*/
 } // class Konz_lsg_Auswahl
-

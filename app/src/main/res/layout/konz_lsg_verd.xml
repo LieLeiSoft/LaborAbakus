@@ -12,24 +12,14 @@
         android:layout_height="match_parent"
         android:background="@color/cHellorange">
 
-        <Button
-            android:id="@+id/tvBerechnungKonz"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="btnBerechneMasseKonz"
-            android:text="Berechne"
-            android:textAllCaps="false"
-            android:textSize="16sp" />
-
-
         <TextView
             android:id="@+id/tvAcidBase"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:layout_span="3"
             android:textColor="@color/cSchwarz"
             android:textSize="16sp" />
-
     </TableRow>
 
     <TableRow
@@ -54,6 +44,7 @@
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
             android:textColor="@color/cSchwarz"
+            android:background="@color/cHellgrau"
             android:textCursorDrawable="@color/cSchwarz"
             android:textSize="16sp" />
 
@@ -75,6 +66,23 @@
             android:textColor="@color/cSchwarz"
             android:textSize="16sp"
             android:visibility="gone" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cHellorange">
+
+        <Button
+            android:id="@+id/tvBerechnungKonz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnBerechneMasseKonz"
+            android:text="Berechne"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
 
     </TableRow>
 
@@ -125,6 +133,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:background="@color/cHellgrau"
             android:textColor="@color/cSchwarz"
             android:textCursorDrawable="@color/cSchwarz"
             android:textSize="16sp" />
@@ -166,11 +175,12 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/etAnpassungKonz"
+            android:id="@+id/etAnpassungGehaltVerd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
+            android:background="@color/cHellgrau"
             android:textColor="@color/cSchwarz"
             android:textCursorDrawable="@color/cSchwarz"
             android:textSize="16sp" />

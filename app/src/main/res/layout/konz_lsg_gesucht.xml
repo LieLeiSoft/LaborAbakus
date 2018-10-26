@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cHellblau"
+    android:stretchColumns="*"
+    android:shrinkColumns="0"
     android:gravity="center_horizontal"
     android:weightSum="1">
 
@@ -20,9 +22,7 @@
             android:layout_marginLeft="2dp"
             android:background="@color/chellhellgrau"
             android:gravity="center_vertical|center_horizontal"
-            android:text="Gesucht wird ..."
-            android:textColor="@color/cSchwarz"
-            android:textSize="16dp" />
+            android:text="Gesucht wird ..." />
 
     </TableRow>
 

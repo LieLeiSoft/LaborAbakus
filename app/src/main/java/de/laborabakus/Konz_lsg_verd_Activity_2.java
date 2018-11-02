@@ -228,7 +228,7 @@ public class Konz_lsg_verd_Activity_2 extends Activity /*implements OnFocusChang
                 if (dblVerdGehalt >= dblErgebnis) // Wenn der Gehalt der Verd größer der Konz ist ...
                 {
                     String text = "\nDer Gehalt der Verdünnung ist gleich bzw. größer als der Gehalt der " + strKonzAuswahl +" "+ strKonzGehalt + strKonzGehaltEinheit + ". Da gibt es nichts zu verdünnen!\n";
-                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
                     Meldung.setGravity(Gravity.TOP, 0, 0);
                     Meldung.show();
                 }
@@ -278,7 +278,7 @@ public class Konz_lsg_verd_Activity_2 extends Activity /*implements OnFocusChang
             else
             {
                 String text = "\nBitte keine 0 eingeben!\n";
-                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
                 Meldung.setGravity(Gravity.TOP, 0, 0);
                 Meldung.show();
             }
@@ -286,7 +286,7 @@ public class Konz_lsg_verd_Activity_2 extends Activity /*implements OnFocusChang
         else
         {
             String text = "\nBitte die Masse konzentrierten " + strKonzAuswahl +" und den Gehalt der Verdünnung eingeben!\n";
-            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
             Meldung.setGravity(Gravity.TOP, 0, 0);
             Meldung.show();
         }

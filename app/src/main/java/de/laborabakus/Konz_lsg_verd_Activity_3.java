@@ -21,9 +21,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity /*implements OnFocusChang
     View v;
     TextView tv;
     EditText et;
-    String strVerdGehalt;
     String strVerdMenge;
-    String strVerdGehaltEinheit;
     String strAuswahl;
     String strKonzGehalt;
     String strKonzGehaltEinheit;
@@ -257,7 +255,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity /*implements OnFocusChang
 
                     String text = "\n" +strArtikel + " der " + strKonzAuswahl +" ("+ strKonzGehalt + strKonzGehaltEinheit +
                                   ") ist gleich bzw. größer, als " + strArtikel2 + " der Verdünnung. Das ist nicht möglich!\n";
-                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
                     Meldung.setGravity(Gravity.TOP, 0, 0);
                     Meldung.show();
                 }
@@ -296,7 +294,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity /*implements OnFocusChang
             else
             {
                 String text = "\nBitte keine 0 eingeben!\n";
-                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
                 Meldung.setGravity(Gravity.TOP, 0, 0);
                 Meldung.show();
             }
@@ -304,7 +302,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity /*implements OnFocusChang
         else
         {
             String text = "\nBitte die Masse der konzentrierten " + strKonzAuswahl +" und die Masse der Verdünnung eingeben!\n";
-            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
             Meldung.setGravity(Gravity.TOP, 0, 0);
             Meldung.show();
         }

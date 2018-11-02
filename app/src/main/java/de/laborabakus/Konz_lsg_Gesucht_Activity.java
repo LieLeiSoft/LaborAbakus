@@ -35,12 +35,31 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
     @Override
     protected void onPause(){super.onPause();} // onPause
 
-    public void btnGesuchtMasseKonz (View v) {
+    public void btnGesuchtKonzUeberProz (View v) {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        prefEditor.putString ("Gesucht", "MasseKonz");
+        prefEditor.putString("Berechnung_ueber", "Proz"); // (“Name“ und “Wertname“)
+        prefEditor.apply();
+
+
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity.class);
+
+        // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
+        myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+        // Activity aufrufen
+        startActivity(myIntent);
+
+    } // btn
+
+    public void btnGesuchtKonzUeberMol (View v) {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        prefEditor.putString("Berechnung_ueber", "Mol"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
         Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity.class);
@@ -53,15 +72,15 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
 
     } // btn
 
-    public void btnGesuchtMasseVerd (View v) {
+    public void btnGesuchtVerdUeberProz (View v) {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        prefEditor.putString ("Gesucht", "MasseVerd");
+        prefEditor.putString("Berechnung_ueber", "Proz"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
-        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity.class);
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_2.class);
 
         // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -71,15 +90,51 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
 
     } // btn
 
-    public void btnGesuchtGehaltVerd (View v) {
+    public void btnGesuchtVerdUeberMol (View v) {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        prefEditor.putString ("Gesucht", "GehaltVerd");
+        prefEditor.putString("Berechnung_ueber", "Mol"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
-        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity.class);
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_2.class);
+
+        // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
+        myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+        // Activity aufrufen
+        startActivity(myIntent);
+
+    } // btn
+
+    public void btnGesuchtGehaltVerdinProz (View v) {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        prefEditor.putString("Berechnung_ueber", "Masse"); // (“Name“ und “Wertname“)
+        prefEditor.apply();
+
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_3.class);
+
+        // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
+        myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+        // Activity aufrufen
+        startActivity(myIntent);
+
+    } // btn
+
+    public void btnGesuchtGehaltVerdinMolpL (View v) {
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        prefEditor.putString("Berechnung_ueber", "Volumen"); // (“Name“ und “Wertname“)
+        prefEditor.apply();
+
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_3.class);
 
         // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

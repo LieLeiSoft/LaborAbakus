@@ -28,7 +28,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_0"
+            android:id="@+id/KonzAuswahl_0"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -55,7 +55,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_1"
+            android:id="@+id/KonzAuswahl_1"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -82,7 +82,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_2"
+            android:id="@+id/KonzAuswahl_2"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -109,7 +109,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_3"
+            android:id="@+id/KonzAuswahl_3"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -136,7 +136,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_4"
+            android:id="@+id/KonzAuswahl_4"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -163,7 +163,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_5"
+            android:id="@+id/KonzAuswahl_5"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -190,7 +190,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_6"
+            android:id="@+id/KonzAuswahl_6"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -217,7 +217,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_7"
+            android:id="@+id/KonzAuswahl_7"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -244,7 +244,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_8"
+            android:id="@+id/KonzAuswahl_8"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -271,7 +271,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_9"
+            android:id="@+id/KonzAuswahl_9"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -298,7 +298,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_10"
+            android:id="@+id/KonzAuswahl_10"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"
@@ -325,7 +325,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/AcidAuswahl_11"
+            android:id="@+id/KonzAuswahl_11"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="1dp"

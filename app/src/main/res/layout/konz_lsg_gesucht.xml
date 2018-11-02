@@ -37,8 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
             android:gravity="center_vertical|center_horizontal"
-            android:onClick="btnGesuchtMasseKonz"
-            android:text="... die Masse der\nkonzentrierten Lösung"
+            android:onClick="btnGesuchtKonzUeberProz"
+            android:text="... die Masse bzw. das Volumen der konzentrierten Lösung über eine prozentuale Verdünnung"
             android:textAllCaps="false"
             android:textSize="16dp" />
 
@@ -54,9 +54,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
-            android:gravity="center_horizontal"
-            android:onClick="btnGesuchtMasseVerd"
-            android:text="... die Masse der\nverdünnten Lösung"
+            android:gravity="center_vertical|center_horizontal"
+            android:onClick="btnGesuchtKonzUeberMol"
+            android:text="... die Masse bzw. das Volumen der konzentrierten Lösung über eine molare Verdünnung"
             android:textAllCaps="false"
             android:textSize="16dp" />
 
@@ -73,8 +73,62 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
             android:gravity="center_horizontal"
-            android:onClick="btnGesuchtGehaltVerd"
-            android:text="... der Gehalt der\n verdünnten Lösung"
+            android:onClick="btnGesuchtVerdUeberProz"
+            android:text="... die Masse der verdünnten prozentualen Lösung"
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/AcidAuswahl_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnGesuchtVerdUeberMol"
+            android:text="... das Volumen der verdünnten molaren Lösung"
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/AcidAuswahl_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnGesuchtGehaltVerdinProz"
+            android:text="... der Gehalt der verdünnten Lösung in %"
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/AcidAuswahl_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:gravity="center_horizontal"
+            android:onClick="btnGesuchtGehaltVerdinMolpL"
+            android:text="... der Gehalt der verdünnten Lösung in mol/l"
             android:textAllCaps="false"
             android:textSize="16dp" />
 

@@ -15,17 +15,15 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
     EditText et;
     TextView tv;
-    String strAcidAuswahl;
-    String strAcidGehalt;
-    String strEinheitGehalt;
+    String strKonzAuswahl;
+    String strKonzGehalt;
+    String strKonzGehaltEinheit;
     String strDichte;
     String strMolmasse;
     String strAuswahl;
-    double dblAcidGehalt;
+    double dblKonzGehalt;
     double dblDichte;
     double dblMolmasse;
-    double dblErgebnis;
-
 
     /** wird ausgef�hrt, wenn Activicty erstellt wird */
     @Override
@@ -47,28 +45,28 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
         strAuswahl = prefs.getString("Auswahl", "0");
 
-        strAcidAuswahl = prefs.getString("AcidAuswahl_"+strAuswahl, strAcidAuswahl);
+        strKonzAuswahl = prefs.getString("KonzAuswahl_"+strAuswahl, strKonzAuswahl);
         tv = (TextView) findViewById(R.id.etAnpassungName);
-        tv.setText(strAcidAuswahl);
+        tv.setText(strKonzAuswahl);
 
-        strAcidGehalt = prefs.getString("AcidGehalt_"+strAuswahl, strAcidGehalt);
+        strKonzGehalt = prefs.getString("KonzGehalt_"+strAuswahl, strKonzGehalt);
+        dblKonzGehalt = Double.parseDouble(strKonzGehalt);
         tv = (TextView) findViewById(R.id.etAnpassungGehalt);
-        tv.setText(strAcidGehalt);
-        dblAcidGehalt = Double.parseDouble(strAcidGehalt);
+        tv.setText(strKonzGehalt);
 
-        strEinheitGehalt = prefs.getString("EinheitGehalt_"+strAuswahl, strEinheitGehalt);
+        strKonzGehaltEinheit = prefs.getString("KonzGehaltEinheit_"+strAuswahl, strKonzGehaltEinheit);
         tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-        tv.setText(strEinheitGehalt);
+        tv.setText(strKonzGehaltEinheit);
 
         strDichte = prefs.getString("Dichte_"+strAuswahl, strDichte);
+        dblDichte = Double.parseDouble(strDichte);
         tv = (TextView) findViewById(R.id.etAnpassungDichte);
         tv.setText(strDichte);
-        dblDichte = Double.parseDouble(strDichte);
 
         strMolmasse = prefs.getString("Molmasse_"+strAuswahl, strMolmasse);
+        dblMolmasse = Double.parseDouble(strMolmasse);
         tv = (TextView) findViewById(R.id.etAnpassungMolmasse);
         tv.setText(strMolmasse);
-        dblMolmasse = Double.parseDouble(strMolmasse);
 
     } // onResume
 
@@ -83,12 +81,12 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         strAuswahl = prefs.getString("Auswahl", "0");
 
         et = (EditText) findViewById(R.id.etAnpassungName);
-        strAcidAuswahl = et.getText().toString();
-        prefEditor.putString("AcidAuswahl_"+strAuswahl, strAcidAuswahl);
+        strKonzAuswahl = et.getText().toString();
+        prefEditor.putString("KonzAuswahl_"+strAuswahl, strKonzAuswahl);
 
         et = (EditText) findViewById(R.id.etAnpassungGehalt);
-        strAcidGehalt = et.getText().toString();
-        prefEditor.putString("AcidGehalt_"+strAuswahl, strAcidGehalt);
+        strKonzGehalt = et.getText().toString();
+        prefEditor.putString("KonzGehalt_"+strAuswahl, strKonzGehalt);
 
         et = (EditText) findViewById(R.id.etAnpassungDichte);
         strDichte = et.getText().toString();
@@ -110,44 +108,54 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
     {
         TextView tv;
         tv = (TextView) v;
-        strEinheitGehalt = tv.getText().toString();
+        strKonzGehaltEinheit = tv.getText().toString();
+
+        et = (EditText) findViewById(R.id.etAnpassungGehalt);
+        strKonzGehalt = et.getText().toString();
+        dblKonzGehalt = Double.parseDouble(strKonzGehalt);
+
+        et = (EditText) findViewById(R.id.etAnpassungDichte);
+        strDichte = et.getText().toString();
+        dblDichte = Double.parseDouble(strDichte);
+
+        et = (EditText) findViewById(R.id.etAnpassungMolmasse);
+        strMolmasse = et.getText().toString();
+        dblMolmasse = Double.parseDouble(strMolmasse);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        if (strEinheitGehalt.equals("%") == true)
+        if (strKonzGehaltEinheit.equals("%") == true)
         {
-            strEinheitGehalt = "mol/L";
+            strKonzGehaltEinheit = "mol/l";
 
             tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-            tv.setText(strEinheitGehalt);
+            tv.setText(strKonzGehaltEinheit);
 
-            // Umrechnung auf mol/L
+            // Umrechnung auf mol/l
 
-            dblAcidGehalt = (dblAcidGehalt * dblDichte * 1000) / (100 * dblMolmasse);
-            dblAcidGehalt = ActivityTools.fktRunden(dblAcidGehalt, 2); // 2 Nachkommastellen
-            strAcidGehalt = Double.toString(dblAcidGehalt);
-            tv = (TextView) findViewById(R.id.etAnpassungGehalt);
-            tv.setText(strAcidGehalt);
-
+            dblKonzGehalt = (dblKonzGehalt * dblDichte * 10) / dblMolmasse;
+            dblKonzGehalt = ActivityTools.fktRunden(dblKonzGehalt, 4); // 2 Nachkommastellen
         }
         else
         {
-            strEinheitGehalt = "%";
+            strKonzGehaltEinheit = "%";
 
             tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-            tv.setText(strEinheitGehalt);
+            tv.setText(strKonzGehaltEinheit);
 
             // Umrechnung auf %
 
-            dblAcidGehalt = (dblAcidGehalt * dblMolmasse) / (10 * dblDichte);
-            dblAcidGehalt = ActivityTools.fktRunden(dblAcidGehalt, 2); // 2 Nachkommastellen
-            strAcidGehalt = Double.toString(dblAcidGehalt);
-            tv = (TextView) findViewById(R.id.etAnpassungGehalt);
-            tv.setText(strAcidGehalt);
+            dblKonzGehalt = (dblKonzGehalt * dblMolmasse) / (10 * dblDichte);
+            dblKonzGehalt = ActivityTools.fktRunden(dblKonzGehalt, 4); // 2 Nachkommastellen
         }
+
+        strKonzGehalt = Double.toString(dblKonzGehalt);
+        tv = (TextView) findViewById(R.id.etAnpassungGehalt);
+        tv.setText(strKonzGehalt);
+
         strAuswahl = prefs.getString("Auswahl", "0");
-        prefEditor.putString("EinheitGehalt_"+strAuswahl, strEinheitGehalt);
+        prefEditor.putString("KonzGehaltEinheit_"+strAuswahl, strKonzGehaltEinheit);
         prefEditor.apply();
 
     } // btnAuswahl

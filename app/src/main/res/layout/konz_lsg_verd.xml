@@ -30,11 +30,11 @@
         android:background="@color/cHellorange">
 
         <TextView
-            android:id="@+id/textView01"
+            android:id="@+id/tvNameKonz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Masse"
+            android:text="Volumen"
             android:textColor="@color/cSchwarz"
             android:textSize="16sp" />
 
@@ -49,13 +49,14 @@
             android:textCursorDrawable="@color/cSchwarz"
             android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/textView"
+        <Button
+            android:id="@+id/tvAnpassungEinheitKonz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="g"
-            android:textColor="@color/cSchwarz"
+            android:text="ml"
+            android:onClick="btnEinheitKonz"
+            android:textAllCaps="false"
             android:textSize="14sp" />
 
         <TextView
@@ -120,7 +121,7 @@
         android:background="@color/cHellgruen">
 
         <TextView
-            android:id="@+id/textView03"
+            android:id="@+id/tvNameVerd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -140,7 +141,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView04"
+            android:id="@+id/tvEinheitVerd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -186,13 +187,13 @@
             android:textCursorDrawable="@color/cSchwarz"
             android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/tvAnpassungEinheitGehaltVerd"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tvEinheitVerdGehalt"
+            android:layout_width="88dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:onClick="btnEinheitGehaltVerd"
-            android:textAllCaps="false"
+            android:text="%"
+            android:textColor="@color/cSchwarz"
             android:textSize="14sp" />
 
         <TextView

@@ -56,8 +56,8 @@ public class QuizFragen {
 		mFrage   = "";
 		mAntwort = "";
 		for (int intFrageNr=1; intFrageNr<=intLfdNr_Gesamt; intFrageNr++) {
-			if (   (Quizfragen[intFrageNr][0] == Integer.toString(pLevel))
-				&& (Quizfragen[intFrageNr][1] == Integer.toString(pLfdNr)))
+			if (   (Quizfragen[intFrageNr][0].equals(Integer.toString(pLevel)))
+				&& (Quizfragen[intFrageNr][1].equals(Integer.toString(pLfdNr))))
 			{
 				mFrage   = Quizfragen[intFrageNr][2];
 				mAntwort = Quizfragen[intFrageNr][3];
@@ -70,7 +70,7 @@ public class QuizFragen {
 		int intMax = 0;
 
 		for (int intFrageNr=1; intFrageNr<=intLfdNr_Gesamt; intFrageNr++) {
-			if (Quizfragen[intFrageNr][0] == Integer.toString(pLevel))
+			if (Quizfragen[intFrageNr][0].equals(Integer.toString(pLevel)))
 			{
 				intMax++;
 			}

@@ -29,13 +29,15 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/AcidAuswahl_0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
+            android:baselineAligned="false"
             android:gravity="center_vertical|center_horizontal"
             android:onClick="btnGesuchtKonzUeberProz"
             android:text="... die Masse bzw. das Volumen der konzentrierten Lösung über eine prozentuale Verdünnung"

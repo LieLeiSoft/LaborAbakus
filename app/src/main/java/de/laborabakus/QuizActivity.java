@@ -10,10 +10,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
 
-public class MolmassenActivity extends Activity {
+public class QuizActivity extends Activity {
 
 
 	public enum Element 														// http://www.mindfiresolutions.com/How-to-handle-String-in-switch-case-of-JAVA-617.php
@@ -40,12 +40,27 @@ public class MolmassenActivity extends Activity {
 
 		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
-	   
+
+        String strFrage;
+        String strAntwort;
+		int intLevel;
+		int intFrageNr;
+
+		intLevel = 1;
+
+		QuizFragen.erstelle_Quizfragen();
+		intFrageNr = QuizFragen.ermittel_LfdNr(intLevel);
+        QuizFragen.lese_Quizfrage(intLevel, intFrageNr);
+
+        strFrage = QuizFragen.mFrage;
+        strAntwort = QuizFragen.mAntwort;
+
+
 	    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 	    SharedPreferences.Editor prefEditor = prefs.edit(); 											// Haupt- und Nebengruppenelemente inklusive ihrer Atommassen 
 	    																								// werden in die Konfigurationsdatei eingelesen.
 	    prefEditor.putInt("AnzahlElemente", 0);
-
+		
 	    prefEditor.putString("HE_1", "H");   prefEditor.putFloat("HE_MM_1",  (float) 1.008);	prefEditor.putString("HE_Oxi_1", "1,-1");		
 	    prefEditor.putString("HE_2", "Li");  prefEditor.putFloat("HE_MM_2",  (float) 6.939);	prefEditor.putString("HE_Oxi_2", "1");
 	    prefEditor.putString("HE_3", "Be");  prefEditor.putFloat("HE_MM_3",  (float) 9.012);	prefEditor.putString("HE_Oxi_3", "2");

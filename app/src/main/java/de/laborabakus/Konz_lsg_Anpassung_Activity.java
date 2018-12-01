@@ -4,10 +4,11 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusChangeListener */ {
@@ -21,9 +22,14 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
     String strDichte;
     String strMolmasse;
     String strAuswahl;
+    String strAlterKonzGehalt;
+    String strAlteKonzGehaltEinheit;
+    String strAlteDichte;
     double dblKonzGehalt;
+    double dblAlterKonzGehalt;
     double dblDichte;
     double dblMolmasse;
+    double dblAbweichung;
 
     /** wird ausgef�hrt, wenn Activicty erstellt wird */
     @Override
@@ -50,6 +56,7 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         tv.setText(strKonzAuswahl);
 
         strKonzGehalt = prefs.getString("KonzGehalt_"+strAuswahl, strKonzGehalt);
+        //dblKonzGehalt = ActivityTools.fktSignifikanteStellen(strKonzGehalt, 4);
         dblKonzGehalt = Double.parseDouble(strKonzGehalt);
         tv = (TextView) findViewById(R.id.etAnpassungGehalt);
         tv.setText(strKonzGehalt);
@@ -79,22 +86,66 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         SharedPreferences.Editor prefEditor = prefs.edit();
 
         strAuswahl = prefs.getString("Auswahl", "0");
+        strAlterKonzGehalt = prefs.getString("KonzGehalt_"+strAuswahl, strKonzGehalt);
+        dblAlterKonzGehalt = Double.parseDouble(strAlterKonzGehalt);
+        strAlteDichte = prefs.getString("Dichte_"+strAuswahl, strDichte);
+        strAlteKonzGehaltEinheit = prefs.getString("KonzGehaltEinheit_"+strAuswahl, strAlteKonzGehaltEinheit);
+
+        et = (EditText) findViewById(R.id.etAnpassungGehalt);
+        strKonzGehalt = et.getText().toString();
+        dblKonzGehalt = Double.parseDouble(strKonzGehalt);
+
+        et = (EditText) findViewById(R.id.etAnpassungDichte);
+        strDichte = et.getText().toString();
+
+        tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+        strKonzGehaltEinheit = tv.getText().toString();
+
+        if (strDichte.equals(strAlteDichte) == true)
+        {
+            if (strAlteKonzGehaltEinheit.equals(strKonzGehaltEinheit) == false)
+            {
+                if (strKonzGehaltEinheit.equals("%"))
+                {
+                    dblAlterKonzGehalt = (dblAlterKonzGehalt * dblMolmasse) / (10 * dblDichte);
+                }
+                else
+                {
+                    dblAlterKonzGehalt = (dblAlterKonzGehalt * dblDichte * 10) / dblMolmasse;
+                }
+            }
+            if (dblAlterKonzGehalt >= dblKonzGehalt)
+            {
+                dblAbweichung = ((dblAlterKonzGehalt - dblKonzGehalt) / dblAlterKonzGehalt) * 100;
+            }
+            else
+            {
+                dblAbweichung = ((dblKonzGehalt - dblAlterKonzGehalt) / dblKonzGehalt) * 100;
+            }
+
+            if (dblAbweichung > 1)
+            {
+                String text = "\nAchtung: Der Gehalt wurde gravierend geändert ohne die Dichte anzupassen!! ist das Korrekt?\n";
+                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
+                Meldung.setGravity(Gravity.TOP, 0, 0);
+                Meldung.show();
+            }
+        }
 
         et = (EditText) findViewById(R.id.etAnpassungName);
         strKonzAuswahl = et.getText().toString();
         prefEditor.putString("KonzAuswahl_"+strAuswahl, strKonzAuswahl);
 
-        et = (EditText) findViewById(R.id.etAnpassungGehalt);
-        strKonzGehalt = et.getText().toString();
         prefEditor.putString("KonzGehalt_"+strAuswahl, strKonzGehalt);
 
-        et = (EditText) findViewById(R.id.etAnpassungDichte);
-        strDichte = et.getText().toString();
         prefEditor.putString("Dichte_"+strAuswahl, strDichte);
 
         et = (EditText) findViewById(R.id.etAnpassungMolmasse);
         strMolmasse = et.getText().toString();
         prefEditor.putString("Molmasse_"+strAuswahl, strMolmasse);
+
+        strAuswahl = prefs.getString("Auswahl", "0");
+        prefEditor.putString("KonzGehaltEinheit_"+strAuswahl, strKonzGehaltEinheit);
 
         prefEditor.apply();
 
@@ -154,9 +205,9 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         tv = (TextView) findViewById(R.id.etAnpassungGehalt);
         tv.setText(strKonzGehalt);
 
-        strAuswahl = prefs.getString("Auswahl", "0");
-        prefEditor.putString("KonzGehaltEinheit_"+strAuswahl, strKonzGehaltEinheit);
-        prefEditor.apply();
+        //strAuswahl = prefs.getString("Auswahl", "0");
+        //prefEditor.putString("KonzGehaltEinheit_"+strAuswahl, strKonzGehaltEinheit);
+        //prefEditor.apply();
 
     } // btnAuswahl
 

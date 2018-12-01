@@ -11,11 +11,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChangeListener */ {
+public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChangeListener */ {
 
     int intCounter;
     TextView tv;
@@ -46,17 +45,18 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         strKonzGehaltEinheit = prefs.getString("KonzGehaltEinheit_"+strAuswahl, strKonzGehaltEinheit);
 
         tv = (TextView) findViewById(R.id.AcidAuswahl_0);
-        tv.setText(" ... die Menge der \n"+ strKonzAuswahl+ " ("+ strKonzGehalt + strKonzGehaltEinheit +")\n über eine prozentuale Verdünnung");
+        tv.setText("\n Die Masse oder das Volumen der \n"+ strKonzAuswahl+ " ("+ strKonzGehalt + strKonzGehaltEinheit +")");
 
-        tv = (TextView) findViewById(R.id.AcidAuswahl_1);
-        tv.setText(" ... die Menge der \n"+ strKonzAuswahl+ " ("+ strKonzGehalt + strKonzGehaltEinheit +")\n über eine molare Verdünnung");
+        tv = (TextView) findViewById(R.id.AcidAuswahl_0);
+        tv.setText("\n Die Masse oder das Volumen der \n"+ strKonzAuswahl+ " ("+ strKonzGehalt + strKonzGehaltEinheit +")");
+
 
     } // onResume
 
     @Override
     protected void onPause(){super.onPause();} // onPause
 
-    public void btnGesuchtKonzUeberProz (View v) {
+    public void btnAcidAuswahl_0 (View v) {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
@@ -180,7 +180,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         {
             case R.id.menu_Einstellungen:
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(Konz_lsg_Gesucht_Activity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(Konz_lsg_Gegeben_Activity.this);
                 builder.setTitle("Zurücksetzen aller Säuren und Laugen?");
                 builder.setPositiveButton("Ja",
                         new DialogInterface.OnClickListener() {

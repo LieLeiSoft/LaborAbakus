@@ -809,7 +809,8 @@
                 android:background="@color/cSchwarz"
                 android:onClick="btnPSE"
                 android:textColor="@color/cEingabe"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="invisible"/>
 
             <Button
                 android:id="@+id/btnPSE_41"
@@ -823,7 +824,8 @@
                 android:background="@color/cSchwarz"
                 android:onClick="btnPSE"
                 android:textColor="@color/cEingabe"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="invisible"/>
 
             <Button
                 android:id="@+id/btnPSE_42"
@@ -837,7 +839,8 @@
                 android:background="@color/cSchwarz"
                 android:onClick="btnPSE"
                 android:textColor="@color/cEingabe"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="invisible"/>
 
             <Button
                 android:id="@+id/btnPSE_43"

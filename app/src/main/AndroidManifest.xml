@@ -68,6 +68,10 @@
         </activity>
 
         <activity
+            android:name="Konz_lsg_Gegeben_Activity" android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
             android:name="Konz_lsg_Auswahl_Activity" android:windowSoftInputMode="stateHidden">
         </activity>
 
@@ -88,7 +92,7 @@
         </activity>
 
         <activity
-            android:name="QuizDemoActivity" android:windowSoftInputMode="stateHidden">
+            android:name="QuizActivity" android:windowSoftInputMode="stateHidden">
         </activity>
 
     </application>    

@@ -6,15 +6,22 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class QuizActivity extends Activity {
 
+	TextView tv;
+	int intFrageNr;
+    int intLevel;
+    String strFrage;
+    String strAntwort;
 
 	public enum Element 														// http://www.mindfiresolutions.com/How-to-handle-String-in-switch-case-of-JAVA-617.php
 	// emnum Aufzählungstyp Element
@@ -41,20 +48,16 @@ public class QuizActivity extends Activity {
 		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
 
-        String strFrage;
-        String strAntwort;
-		int intLevel;
-		int intFrageNr;
-
 		intLevel = 1;
 
-		QuizFragen.erstelle_Quizfragen();
-		intFrageNr = QuizFragen.ermittel_LfdNr(intLevel);
-        QuizFragen.lese_Quizfrage(intLevel, intFrageNr);
+		tv = (TextView) findViewById(R.id.btnWeiter);
+		tv.setVisibility(View.INVISIBLE); // TEXTFELD UNSICHTBAR MACHEN
 
-        strFrage = QuizFragen.mFrage;
-        strAntwort = QuizFragen.mAntwort;
+		tv = (TextView) findViewById(R.id.btnHauptgruppenelemente);
+		tv.setVisibility(View.INVISIBLE); // TEXTFELD UNSICHTBAR MACHEN
 
+		tv = (TextView) findViewById(R.id.btnPSE_43);
+		tv.setVisibility(View.INVISIBLE); // TEXTFELD UNSICHTBAR MACHEN
 
 	    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 	    SharedPreferences.Editor prefEditor = prefs.edit(); 											// Haupt- und Nebengruppenelemente inklusive ihrer Atommassen 
@@ -157,8 +160,18 @@ public class QuizActivity extends Activity {
 		tv = (TextView) findViewById(R.id.tvFormel);
 		tv.setText("");
 		strPSE = prefs.getString("PSE", "Hauptgruppenelemente");
-		
-		for (int x=0; x<=4; x++)
+
+        QuizFragen.erstelle_Quizfragen();
+        intFrageNr = QuizFragen.ermittel_LfdNr(intLevel);
+        QuizFragen.lese_Quizfrage(intLevel, intFrageNr);
+
+        strFrage = QuizFragen.mFrage;
+        strAntwort = QuizFragen.mAntwort;
+
+        tv = (TextView) findViewById(R.id.tvMolmasse);
+        tv.setText(strFrage);
+
+        for (int x=0; x<=4; x++)
 		{
             int viewId = getResources().getIdentifier("btnSZ_"+x, "id", getPackageName());
             tv = (TextView) findViewById(viewId);
@@ -173,9 +186,6 @@ public class QuizActivity extends Activity {
 			tv.setVisibility(View.VISIBLE);
 		}
 
-		tv = (TextView) findViewById(R.id.tvMolmasse);
-		tv.setText("");
-		
 		tv = (TextView) findViewById(R.id.tvFormel);
 		tv.setText("");
 		
@@ -261,7 +271,6 @@ public class QuizActivity extends Activity {
 		String strMM_Molaritaet;
 		String strMM_Substanz;
 		String strPSE;
-		TextView tv;
 		
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		SharedPreferences.Editor prefEditor = prefs.edit(); 
@@ -318,7 +327,6 @@ public class QuizActivity extends Activity {
 	{
 		String strPSE = "";
 		String strPSE2 = "";
-		TextView tv;
 		String strElement; 
 		String strFeldname;
 		String strZahl;
@@ -518,7 +526,6 @@ public class QuizActivity extends Activity {
 	
 	public void btnPSE(View v) 
 	{
-		TextView tv;
 		String strElement;
 		String strFormel;
 		String strKey;
@@ -806,9 +813,32 @@ public class QuizActivity extends Activity {
 		// ********* Ausgabe der Molmasse *****************
 		// ************************************************
 		
+		/*
 		strMM = Float.toString(fltMM);
 		tv = (TextView) findViewById(R.id.tvMolmasse);
 		tv.setText(strMM+" g/mol");
+		*/
+
+        // ********************************************************************
+        // ********* Vergleich der Eingabe mit der strAntwort *****************
+        // ********************************************************************
+
+        strMM = Float.toString(fltMM);
+        if(strMM.equals(strAntwort))
+        {
+            String text = "\n   Super!   \n   Richtig!   \n";
+            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+            Meldung.setGravity(Gravity.TOP, 0, 0);
+            Meldung.show();
+
+        }
+        else
+        {
+            String text = "\n   Leider   \n   Falsch!   \n";
+            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+            Meldung.setGravity(Gravity.TOP, 0, 0);
+            Meldung.show();
+        }
 		
 		// ************************************************
 		// ********* Auslesen der Formel ******************
@@ -840,8 +870,7 @@ public class QuizActivity extends Activity {
 	  ************************************************************************************/
 	
 	public void btnSZ_06(View v)
-	{	
-		TextView tv;
+	{
 		String strPSE; 
 				
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
@@ -867,9 +896,6 @@ public class QuizActivity extends Activity {
 			tv.setVisibility(View.VISIBLE);
 		}
 
-		tv = (TextView) findViewById(R.id.tvMolmasse);
-		tv.setText("");
-		
 		tv = (TextView) findViewById(R.id.tvFormel);
 		tv.setText("");
 		
@@ -888,8 +914,37 @@ public class QuizActivity extends Activity {
 	  ************************************************************************************/
 	
 	public void btnWeiter(View v) 
-	{	
+	{
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences.Editor prefEditor = prefs.edit();
+
+		QuizFragen.erstelle_Quizfragen();
+        intFrageNr = QuizFragen.ermittel_LfdNr(intLevel);
+        QuizFragen.lese_Quizfrage(intLevel, intFrageNr);
+
+        strFrage = QuizFragen.mFrage;
+        strAntwort = QuizFragen.mAntwort;
+
+		tv = (TextView) findViewById(R.id.tvFormel);
+		tv.setText("");
+
+		tv = (TextView) findViewById(R.id.btnWeiter);
+		tv.setText("Weiter");
+
+		tv = (TextView) findViewById(R.id.tvMolmasse);
+		tv.setText(strFrage);
+
+		tv = (TextView) findViewById(R.id.tvFormel);
+		tv.setText("");
+
+		prefEditor.putInt("Runde_Klammer_auf", 0);
+		prefEditor.putInt("AnzahlElemente", 0);
+		prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
+		prefEditor.putFloat("Molmasse", 0);
+		prefEditor.apply();
+
+	    /*
+	    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		SharedPreferences.Editor prefEditor = prefs.edit(); 
 		
 		prefEditor.apply();
@@ -897,8 +952,7 @@ public class QuizActivity extends Activity {
 		Intent myIntent = new Intent(this, GleichungActivity.class);
 		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		startActivity(myIntent);
-		
-		/*
+
 		if(strMM_Molaritaet.equals("Wert") == true)
 		{
 			prefEditor.putString("MolaritaetEG_1", strMolmasse);

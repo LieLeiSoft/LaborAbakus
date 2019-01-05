@@ -12,7 +12,6 @@ public class QuizDemoActivity extends Activity {
     TextView timerTextView;
     long startTime = 0;
 
-
     //runs without a timer by reposting this handler at the end of the runnable
     Handler timerHandler = new Handler();
     Runnable timerRunnable = new Runnable() {

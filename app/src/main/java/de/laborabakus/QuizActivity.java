@@ -39,7 +39,8 @@ public class QuizActivity extends Activity {
 	/*************************************************************
 	 ** onCreate wird ausgeführt, wenn Activicty erstellt wird ***
 	 *************************************************************/
-	
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);

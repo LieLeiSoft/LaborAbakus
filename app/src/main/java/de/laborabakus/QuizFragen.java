@@ -24,7 +24,8 @@ public class QuizFragen {
 		/**********************************
 		**** Hauptgruppenelemente *********
 		 **********************************/
-		
+
+
 		intLevel = 1;
 		intLfdNr_Level = 0;
 

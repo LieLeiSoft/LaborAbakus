@@ -95,6 +95,10 @@
             android:name="QuizActivity" android:windowSoftInputMode="stateHidden">
         </activity>
 
-    </application>    
+        <activity
+            android:name="QuizDemoActivity" android:windowSoftInputMode="stateHidden">
+        </activity>
+
+    </application>
 </manifest>
 

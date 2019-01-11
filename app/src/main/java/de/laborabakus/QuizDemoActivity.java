@@ -36,7 +36,7 @@ public class QuizDemoActivity extends Activity {
                 b.setText("start");
             }
         }
-    };
+    }; // timerRunnable
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.Gravity;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +37,36 @@ public class QuizActivity extends Activity {
 	}
 
 	public int[][] arrOxi = new int[100][9]; // Array für Oxidationszahlen (100 Zeilen, 9 Spalten)
-	
+
+	TextView timerTextView;
+	long startTime = 0;
+
+	//runs without a timer by reposting this handler at the end of the runnable
+	Handler timerHandler = new Handler();
+	Runnable timerRunnable = new Runnable() {
+
+		@Override
+		public void run() {
+			long millis = startTime - System.currentTimeMillis();
+			int seconds = (int) (millis / 1000);
+			int minutes = seconds / 60;
+			seconds = seconds % 60;
+
+			if (millis > 0)
+			{
+				timerTextView.setText(String.format("%d:%02d", minutes, seconds));
+				timerHandler.postDelayed(this, 500);
+			}
+			else
+			{
+				timerTextView.setText("GAME OVER");
+				timerHandler.removeCallbacks(timerRunnable);
+				Button b = (Button)findViewById(R.id.btnStartStop);
+				b.setText("start");
+			}
+		}
+	}; // timerRunnable
+
 	/*************************************************************
 	 ** onCreate wird ausgeführt, wenn Activicty erstellt wird ***
 	 *************************************************************/
@@ -59,7 +90,27 @@ public class QuizActivity extends Activity {
 		tv = (TextView) findViewById(R.id.btnPSE_43);
 		tv.setVisibility(View.INVISIBLE); // TEXTFELD UNSICHTBAR MACHEN
 
-	    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		timerTextView = (TextView) findViewById(R.id.timerTextView);
+
+		Button b = (Button) findViewById(R.id.btnStartStop);
+		b.setText("start");
+		b.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Button b = (Button) v;
+				if (b.getText().equals("stop")) {
+					timerHandler.removeCallbacks(timerRunnable);
+					b.setText("start");
+				} else {
+					startTime = System.currentTimeMillis() + 10000; // Countdown 10 Sekunden
+					timerHandler.postDelayed(timerRunnable, 0);
+					b.setText("stop");
+				}
+			}
+		});
+
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 	    SharedPreferences.Editor prefEditor = prefs.edit(); 											// Haupt- und Nebengruppenelemente inklusive ihrer Atommassen 
 	    																								// werden in die Konfigurationsdatei eingelesen.
 	    prefEditor.putInt("AnzahlElemente", 0);
@@ -134,7 +185,7 @@ public class QuizActivity extends Activity {
 	    prefEditor.putString("NE_43","Hg");  prefEditor.putFloat("NE_MM_43", (float) 200.59);	prefEditor.putInt("Hg_Oxi_1", 2);
 	    prefEditor.apply();
 
-	    
+		QuizFragen.erstelle_Quizfragen();
 	} // onCreate
 
 	/***************************************************************
@@ -161,7 +212,6 @@ public class QuizActivity extends Activity {
 		tv.setText("");
 		strPSE = prefs.getString("PSE", "Hauptgruppenelemente");
 
-        QuizFragen.erstelle_Quizfragen();
         intFrageNr = QuizFragen.ermittel_LfdNr(intLevel);
         QuizFragen.lese_Quizfrage(intLevel, intFrageNr);
 
@@ -317,6 +367,11 @@ public class QuizActivity extends Activity {
 			tv.setText("(");
 			tv.setVisibility(View.VISIBLE);
 		}
+
+		timerHandler.removeCallbacks(timerRunnable);
+		Button b = (Button)findViewById(R.id.btnStartStop);
+		b.setText("start");
+
 	} // onPause
 		
 	 /************************************************************************************
@@ -831,7 +886,22 @@ public class QuizActivity extends Activity {
             Meldung.setGravity(Gravity.TOP, 0, 0);
             Meldung.show();
 
-        }
+			startTime = System.currentTimeMillis() + 10000; // Countdown 10 Sekunden
+			timerHandler.postDelayed(timerRunnable, 0);
+
+			intFrageNr = QuizFragen.ermittel_LfdNr(intLevel);
+			QuizFragen.lese_Quizfrage(intLevel, intFrageNr);
+
+			strFrage = QuizFragen.mFrage;
+			strAntwort = QuizFragen.mAntwort;
+
+			tv = (TextView) findViewById(R.id.tvMolmasse);
+			tv.setText(strFrage);
+
+			// Formel-Feld leeren
+			tv = (TextView) findViewById(R.id.tvFormel);
+			tv.setText("");
+		}
         else
         {
             String text = "\n   Leider   \n   Falsch!   \n";
@@ -846,7 +916,7 @@ public class QuizActivity extends Activity {
 		
 		tv = (TextView) findViewById(R.id.tvFormel);
 		strFormel = tv.getText().toString();
-		
+
 		// *************************************************************
 		// ********* Auslesen der Anzahl der Elemente ******************
 		// *************************************************************

@@ -135,6 +135,7 @@ public class HauptmenueActivity extends Activity {
 	}
 	public void btnOnClickQuizDemo(View v)
 	{
+		//Intent myIntent = new Intent(v.getContext(), QuizDemoActivity.class);
 		Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
 
 		// verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde

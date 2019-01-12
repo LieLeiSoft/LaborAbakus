@@ -89,7 +89,7 @@ public class QuizFragen {
 		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
 		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
 		Quizfragen[intLfdNr_Gesamt][2] = "Natrium";
-		Quizfragen[intLfdNr_Gesamt][3] = "22.990";
+		Quizfragen[intLfdNr_Gesamt][3] = "22.99";
 
 		intLfdNr_Level++;
 		intLfdNr_Gesamt++;
@@ -439,7 +439,7 @@ public class QuizFragen {
 		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
 		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
 		Quizfragen[intLfdNr_Gesamt][2] = "Cadmium";
-		Quizfragen[intLfdNr_Gesamt][3] = "112.40";
+		Quizfragen[intLfdNr_Gesamt][3] = "112.4";
 
 		intLfdNr_Level++;
 		intLfdNr_Gesamt++;
@@ -494,7 +494,7 @@ public class QuizFragen {
 		intLfdNr_Gesamt++;
 		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
 		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Platim";
+		Quizfragen[intLfdNr_Gesamt][2] = "Platin";
 		Quizfragen[intLfdNr_Gesamt][3] = "195.09";
 
 		intLfdNr_Level++;
@@ -999,7 +999,7 @@ public class QuizFragen {
 
 	public static int ermittel_LfdNr (int pLevel) {
 		int intZufallszahl = 0;
-		int intMax = 0;
+		int intMax = 0; // Anzahl der Fragen im jeweiligen Level
 
 		for (int intFrageNr=1; intFrageNr<=intLfdNr_max; intFrageNr++) {
 			if (Quizfragen[intFrageNr][0].equals(Integer.toString(pLevel)))
@@ -1012,7 +1012,7 @@ public class QuizFragen {
         } // for...
 
 		if (intMax > 0) {
-			intZufallszahl = (int) (Math.random() * intMax);
+			intZufallszahl = (int) (Math.random() * intMax) + 1;
 		}
 
 		return intZufallszahl;

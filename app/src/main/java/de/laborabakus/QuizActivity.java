@@ -61,8 +61,6 @@ public class QuizActivity extends Activity {
 			{
 				timerTextView.setText("GAME OVER");
 				timerHandler.removeCallbacks(timerRunnable);
-				Button b = (Button)findViewById(R.id.btnStartStop);
-				b.setText("start");
 			}
 		}
 	}; // timerRunnable
@@ -79,36 +77,13 @@ public class QuizActivity extends Activity {
 		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
 
-		intLevel = 1;
-
 		tv = (TextView) findViewById(R.id.btnWeiter);
-		tv.setVisibility(View.INVISIBLE); // TEXTFELD UNSICHTBAR MACHEN
-
-		tv = (TextView) findViewById(R.id.btnHauptgruppenelemente);
 		tv.setVisibility(View.INVISIBLE); // TEXTFELD UNSICHTBAR MACHEN
 
 		tv = (TextView) findViewById(R.id.btnPSE_43);
 		tv.setVisibility(View.INVISIBLE); // TEXTFELD UNSICHTBAR MACHEN
 
 		timerTextView = (TextView) findViewById(R.id.timerTextView);
-
-		Button b = (Button) findViewById(R.id.btnStartStop);
-		b.setText("start");
-		b.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Button b = (Button) v;
-				if (b.getText().equals("stop")) {
-					timerHandler.removeCallbacks(timerRunnable);
-					b.setText("start");
-				} else {
-					startTime = System.currentTimeMillis() + 10000; // Countdown 10 Sekunden
-					timerHandler.postDelayed(timerRunnable, 0);
-					b.setText("stop");
-				}
-			}
-		});
 
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 	    SharedPreferences.Editor prefEditor = prefs.edit(); 											// Haupt- und Nebengruppenelemente inklusive ihrer Atommassen 
@@ -186,6 +161,14 @@ public class QuizActivity extends Activity {
 	    prefEditor.apply();
 
 		QuizFragen.erstelle_Quizfragen();
+
+		intLevel = 4;
+
+		if (intLevel == 2)
+		{
+			tv = (TextView) findViewById(R.id.btnHauptgruppenelemente);
+			btnHauptgruppenelemente(tv);
+		}
 	} // onCreate
 
 	/***************************************************************
@@ -249,63 +232,70 @@ public class QuizActivity extends Activity {
 		 *      *************************************************
 		 */	
 				
-			String strFeldname;
- 
-			String strTextSize = prefs.getString("TG_Molmasse", "16");
-			String strButtonhoehe = prefs.getString("BH_Molmasse", "130");
-			
-			int intTextSize = Integer.parseInt(strTextSize);
-			int intButtonhoehe = Integer.parseInt(strButtonhoehe);
-				
-			for (int x=1; x<=43; x++)															 
-			{
-				strFeldname = "btnPSE_";
-				if (x < 10)																		// Wenn der ID Nr kleiner als 10 (einstellig)....
-				{
-					strFeldname = strFeldname + "0";											// ... dann neuer Feldname "btnPSE_0"
-					}
-					
-				int resId = getResources().getIdentifier(strFeldname+x, "id", getPackageName());
-				tv = (TextView) findViewById(resId);
-				
-		        // Höhe der Textview wird über Layout-Parameter eingestellt, weil "tv.setHeight(intButtonhoehe);" scheinbar ab Android 5 NICHT mehr funktioniert :-( 
-		        LayoutParams params = (LayoutParams) tv.getLayoutParams();
-		        params.height = intButtonhoehe;
-		        tv.setLayoutParams(params);	        
-		        
-		        tv.setTextSize(intTextSize);
-			}
-				
-			for (int x=0; x<=4; x++)															 
-			{
-				int resId = getResources().getIdentifier("btnSZ_"+x, "id", getPackageName());
-				tv = (TextView) findViewById(resId);
-				
-		        // Höhe der Textview wird über Layout-Parameter eingestellt, weil "tv.setHeight(intButtonhoehe);" scheinbar ab Android 5 NICHT mehr funktioniert :-( 
-		        LayoutParams params = (LayoutParams) tv.getLayoutParams();
-		        params.height = intButtonhoehe;
-		        tv.setLayoutParams(params);	        
-		        
-		        tv.setTextSize(intTextSize);
-			}
-				
-			tv = (TextView) findViewById(R.id.btnSZ_06);
-	        // Höhe der Textview wird über Layout-Parameter eingestellt, weil "tv.setHeight(intButtonhoehe);" scheinbar ab Android 5 NICHT mehr funktioniert :-( 
-	        LayoutParams params = (LayoutParams) tv.getLayoutParams();
-	        params.height = intButtonhoehe;
-	        tv.setLayoutParams(params);	        
-	        
-	        tv.setTextSize(intTextSize);
-				
-			tv = (TextView) findViewById(R.id.btnHauptgruppenelemente);
-	        // Höhe der Textview wird über Layout-Parameter eingestellt, weil "tv.setHeight(intButtonhoehe);" scheinbar ab Android 5 NICHT mehr funktioniert :-( 
-	        params.height = intButtonhoehe;
-	        tv.setLayoutParams(params);	        
-	        
-	        tv.setTextSize(intTextSize);
+		String strFeldname;
 
-		
-		
+		String strTextSize = prefs.getString("TG_Molmasse", "16");
+		String strButtonhoehe = prefs.getString("BH_Molmasse", "130");
+
+		int intTextSize = Integer.parseInt(strTextSize);
+		int intButtonhoehe = Integer.parseInt(strButtonhoehe);
+
+		for (int x=1; x<=43; x++)
+		{
+			strFeldname = "btnPSE_";
+			if (x < 10)																		// Wenn der ID Nr kleiner als 10 (einstellig)....
+			{
+				strFeldname = strFeldname + "0";											// ... dann neuer Feldname "btnPSE_0"
+				}
+
+			int resId = getResources().getIdentifier(strFeldname+x, "id", getPackageName());
+			tv = (TextView) findViewById(resId);
+
+			// Höhe der Textview wird über Layout-Parameter eingestellt, weil "tv.setHeight(intButtonhoehe);" scheinbar ab Android 5 NICHT mehr funktioniert :-(
+			LayoutParams params = (LayoutParams) tv.getLayoutParams();
+			params.height = intButtonhoehe;
+			tv.setLayoutParams(params);
+
+			tv.setTextSize(intTextSize);
+		}
+
+		for (int x=0; x<=4; x++)
+		{
+			int resId = getResources().getIdentifier("btnSZ_"+x, "id", getPackageName());
+			tv = (TextView) findViewById(resId);
+
+			// Höhe der Textview wird über Layout-Parameter eingestellt, weil "tv.setHeight(intButtonhoehe);" scheinbar ab Android 5 NICHT mehr funktioniert :-(
+			LayoutParams params = (LayoutParams) tv.getLayoutParams();
+			params.height = intButtonhoehe;
+			tv.setLayoutParams(params);
+
+			tv.setTextSize(intTextSize);
+		}
+
+		tv = (TextView) findViewById(R.id.btnSZ_06);
+		// Höhe der Textview wird über Layout-Parameter eingestellt, weil "tv.setHeight(intButtonhoehe);" scheinbar ab Android 5 NICHT mehr funktioniert :-(
+		LayoutParams params = (LayoutParams) tv.getLayoutParams();
+		params.height = intButtonhoehe;
+		tv.setLayoutParams(params);
+
+		tv.setTextSize(intTextSize);
+
+		tv = (TextView) findViewById(R.id.btnHauptgruppenelemente);
+		// Höhe der Textview wird über Layout-Parameter eingestellt, weil "tv.setHeight(intButtonhoehe);" scheinbar ab Android 5 NICHT mehr funktioniert :-(
+		params.height = intButtonhoehe;
+		tv.setLayoutParams(params);
+
+		tv.setTextSize(intTextSize);
+
+		tv = (TextView) findViewById(R.id.btnHauptgruppenelemente);
+		if (intLevel < 3) {
+			tv.setVisibility(View.INVISIBLE); // TEXTFELD UNSICHTBAR MACHEN
+		}
+		else
+		{
+			tv.setVisibility(View.VISIBLE); // TEXTFELD SICHTBAR MACHEN
+		}
+
 	} // onResume
 
 	/*******************************************************************************
@@ -369,8 +359,6 @@ public class QuizActivity extends Activity {
 		}
 
 		timerHandler.removeCallbacks(timerRunnable);
-		Button b = (Button)findViewById(R.id.btnStartStop);
-		b.setText("start");
 
 	} // onPause
 		
@@ -598,6 +586,14 @@ public class QuizActivity extends Activity {
 		Float fltAtommasse;
 		Float fltMolekuelmasse;
 		Float fltMolekuelmasse_RK;
+
+		tv = (TextView) findViewById(R.id.timerTextView);
+		if (tv.getText().equals("GAME OVER"))
+		{
+			return;
+		}
+
+
 
 		tv = (TextView) v;
 		strElement = tv.getText().toString();
@@ -881,12 +877,14 @@ public class QuizActivity extends Activity {
         strMM = Float.toString(fltMM);
         if(strMM.equals(strAntwort))
         {
-            String text = "\n   Super!   \n   Richtig!   \n";
-            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-            Meldung.setGravity(Gravity.TOP, 0, 0);
-            Meldung.show();
+            if (intLevel > 2) {
+                String text = "\n   Super!   \n   Richtig!   \n";
+                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                Meldung.setGravity(Gravity.TOP, 0, 0);
+                Meldung.show();
+            }
 
-			startTime = System.currentTimeMillis() + 10000; // Countdown 10 Sekunden
+			startTime = System.currentTimeMillis() + 60000; // Countdown x/1000 Sekunden
 			timerHandler.postDelayed(timerRunnable, 0);
 
 			intFrageNr = QuizFragen.ermittel_LfdNr(intLevel);
@@ -901,37 +899,44 @@ public class QuizActivity extends Activity {
 			// Formel-Feld leeren
 			tv = (TextView) findViewById(R.id.tvFormel);
 			tv.setText("");
+
+			prefEditor.putInt("Runde_Klammer_auf", 0);
+			prefEditor.putInt("AnzahlElemente", 0);
+			prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
+			prefEditor.putFloat("Molmasse", 0);
+			prefEditor.apply();
 		}
         else
         {
-            String text = "\n   Leider   \n   Falsch!   \n";
-            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-            Meldung.setGravity(Gravity.TOP, 0, 0);
-            Meldung.show();
-        }
-		
-		// ************************************************
-		// ********* Auslesen der Formel ******************
-		// ************************************************
-		
-		tv = (TextView) findViewById(R.id.tvFormel);
-		strFormel = tv.getText().toString();
+            if (intLevel < 3) {
+                String text = "\n   Leider   \n   Falsch!   \n";
+                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                Meldung.setGravity(Gravity.TOP, 0, 0);
+                Meldung.show();
+            }
 
-		// *************************************************************
-		// ********* Auslesen der Anzahl der Elemente ******************
-		// *************************************************************
-				
-		prefEditor.putInt("Runde_Klammer_auf", intRK_auf);
-		prefEditor.putInt("AnzahlElemente", intAnzahlElemente);
-		prefEditor.putFloat("Molekuelmasse_Runde_Klammer", fltMolekuelmasse_RK);
-		prefEditor.putFloat("Molmasse_Runde_Klammer", fltMM_RK);
-		prefEditor.putFloat("Atommasse", fltAtommasse);
-		prefEditor.putFloat("Molekuelmasse", fltMolekuelmasse);
-		prefEditor.putFloat("Molmasse", fltMM);
-		prefEditor.putString("Formel", strFormel);
-		
-		prefEditor.apply();
-		
+            // ************************************************
+            // ********* Auslesen der Formel ******************
+            // ************************************************
+
+            tv = (TextView) findViewById(R.id.tvFormel);
+            strFormel = tv.getText().toString();
+
+            // *************************************************************
+            // ********* Auslesen der Anzahl der Elemente ******************
+            // *************************************************************
+
+            prefEditor.putInt("Runde_Klammer_auf", intRK_auf);
+            prefEditor.putInt("AnzahlElemente", intAnzahlElemente);
+            prefEditor.putFloat("Molekuelmasse_Runde_Klammer", fltMolekuelmasse_RK);
+            prefEditor.putFloat("Molmasse_Runde_Klammer", fltMM_RK);
+            prefEditor.putFloat("Atommasse", fltAtommasse);
+            prefEditor.putFloat("Molekuelmasse", fltMolekuelmasse);
+            prefEditor.putFloat("Molmasse", fltMM);
+            prefEditor.putString("Formel", strFormel);
+
+            prefEditor.apply();
+        }
     } // btnPSE
 	
 	
@@ -974,9 +979,7 @@ public class QuizActivity extends Activity {
 		prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
 		prefEditor.putFloat("Molmasse", 0);
 		prefEditor.apply();
-
-		
-    } // btnClear
+    } // btnSZ_06
 	
 	
 	 /************************************************************************************

@@ -2,6 +2,7 @@ package de.laborabakus;
 
 public class QuizFragen {
 	private static String[][] Quizfragen = new String[200][4];
+	private static int[] LetzteQuizfragen = new int[10];
 	private static int intLfdNr_max = 0;
 	private static int intLfdNr_Gesamt = 0;
 
@@ -1000,6 +1001,7 @@ public class QuizFragen {
 	public static int ermittel_LfdNr (int pLevel) {
 		int intZufallszahl = 0;
 		int intMax = 0; // Anzahl der Fragen im jeweiligen Level
+		boolean bZufallszahl_bekannt;
 
 		for (int intFrageNr=1; intFrageNr<=intLfdNr_max; intFrageNr++) {
 			if (Quizfragen[intFrageNr][0].equals(Integer.toString(pLevel)))
@@ -1012,7 +1014,36 @@ public class QuizFragen {
         } // for...
 
 		if (intMax > 0) {
-			intZufallszahl = (int) (Math.random() * intMax) + 1;
+
+			if (LetzteQuizfragen[9] != 0)
+			{
+				// Array für letzte Quiz-Fragen "ist voll"
+				// Erstes Element wird "vergessen", alle weiteren rutschen eins höher
+				for (int intFrageNr=0; intFrageNr<(10 - 1); intFrageNr++) {
+					LetzteQuizfragen[intFrageNr] = LetzteQuizfragen[intFrageNr + 1];
+				}
+				LetzteQuizfragen[9] = 0;
+			}
+
+			do {
+				bZufallszahl_bekannt = false;
+				intZufallszahl = (int) (Math.random() * intMax) + 1;
+
+				for (int intFrageNr=0; intFrageNr<10; intFrageNr++) {
+					if (LetzteQuizfragen[intFrageNr] == 0)
+					{
+						LetzteQuizfragen[intFrageNr] = intZufallszahl;
+						break; // for-Schleife vorzeitig beenden
+					}
+					else if (LetzteQuizfragen[intFrageNr] == intZufallszahl)
+					{
+						// die ermittelte Zufallszahl hatten wir schon
+						bZufallszahl_bekannt = true;
+						break; // for-Schleife vorzeitig beenden
+					}
+				} // for...
+
+			} while (bZufallszahl_bekannt == true); // Schleife läuft solange die Bedingung erfüllt ist!
 		}
 
 		return intZufallszahl;

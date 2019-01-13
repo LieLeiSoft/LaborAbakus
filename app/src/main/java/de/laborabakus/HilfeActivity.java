@@ -41,7 +41,7 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][1] = "Statistische Berechnungen";
 		Hilfe[intFeldNr][2] = "Statistische Berechnungen";
 		Hilfe[intFeldNr][3] = "In dieser Routine lassen sich in der sogenannten Fehlerausgleichsrechnung " +
-				"arithmetischer Mittelwert, absulute Abweichung, Standardabweichung und die " +
+				"arithmetischer Mittelwert, absolute Abweichung, Standardabweichung und die " +
 				"relative Standardabweichung in Prozent berechnen.";
 
 		intFeldNr++;

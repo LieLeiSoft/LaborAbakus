@@ -67,7 +67,7 @@ public class QuizActivity extends Activity {
 			{
 				timerTextView.setText("GAME OVER");
 				timerHandler.removeCallbacks(timerRunnable);
-
+				startTime = 0;
 			}
 		}
 	}; // timerRunnable
@@ -365,9 +365,6 @@ public class QuizActivity extends Activity {
 			tv.setText("(");
 			tv.setVisibility(View.VISIBLE);
 		}
-
-		timerHandler.removeCallbacks(timerRunnable);
-
 	} // onPause
 		
 	 /************************************************************************************
@@ -899,9 +896,6 @@ public class QuizActivity extends Activity {
 				intPunkte = intPunkte + 1;
 			}
 
-			startTime = System.currentTimeMillis() + 60000; // Countdown x/1000 Sekunden
-			timerHandler.postDelayed(timerRunnable, 0);
-
 			intFrageNr = QuizFragen.ermittel_LfdNr(intLevel);
 			QuizFragen.lese_Quizfrage(intLevel, intFrageNr);
 
@@ -965,7 +959,12 @@ public class QuizActivity extends Activity {
 
             prefEditor.apply();
         }
-    } // btnPSE
+
+        if (startTime == 0) {
+			startTime = System.currentTimeMillis() + 60000; // Countdown x/1000 Sekunden
+			timerHandler.postDelayed(timerRunnable, 0);
+		}
+	} // btnPSE
 	
 	
 	 /************************************************************************************

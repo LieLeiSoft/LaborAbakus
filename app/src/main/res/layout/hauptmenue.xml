@@ -11,91 +11,105 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:text="@string/Inhalt"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@color/chellrot"
+            android:gravity="center_horizontal"
+            android:text="@string/Inhalt"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/cSchwarz"
+            android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="@color/cHellblau"
-                android:onClick="btnOnClickGravi"
-                android:text="@string/Beschriftung_Gravimetrie"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textColorHighlight="@color/cSchwarz" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="@color/cHellblau"
-                android:onClick="btnOnClickStatis"
-                android:text="@string/Statistische_Berechnungen"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz" />
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@color/cOrange"
+            android:onClick="btnOnClickGravi"
+            android:text="@string/Beschriftung_Gravimetrie"
+            android:textAllCaps="false"
+            android:textColor="@color/cSchwarz"
+            android:textColorHighlight="@color/cSchwarz" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="@color/cHellblau"
-                android:onClick="btnOnClickKonzLsg"
-                android:text="Verdünnen von konzentrierten Lösungen"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"/>
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:onClick="btnOnClickFettkennzahlen"
-                android:text="@string/Fettkennzahl"
-                android:visibility="gone" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@color/cOrange"
+            android:onClick="btnOnClickStatis"
+            android:text="@string/Statistische_Berechnungen"
+            android:textAllCaps="false"
+            android:textColor="@color/cSchwarz" />
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:onClick="btnOnClickHilfe"
-                android:text="@string/Beschriftung_Hilfe"
-                android:visibility="gone" />
 
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/cHellblau"
-                android:onClick="btnOnClickMolmasse"
-                android:text="@string/Molmasse"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@color/cOrange"
+            android:onClick="btnOnClickKonzLsg"
+            android:text="Verdünnen von konzentrierten Lösungen"
+            android:textAllCaps="false"
+            android:textColor="@color/cSchwarz" />
+
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@color/cOrange"
+            android:onClick="btnOnClickMolmasse"
+            android:text="@string/Molmasse"
+            android:textAllCaps="false"
+            android:textColor="@color/cSchwarz" />
+
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@color/cOrange"
+            android:onClick="btnOnClickQuiz"
+            android:text="PSE - Quiz"
+            android:textAllCaps="false"
+            android:textColor="@color/cSchwarz" />
+
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cHellblau"
+            android:textAllCaps="false"
+            android:textColor="@color/cSchwarz"
+            android:visibility="gone" />
+
 
         <Button
             android:id="@+id/button7"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:onClick="btnOnClickExitApp"
-            android:text="@string/Beschriftung_ExitApp"
             android:visibility="gone" />
+
+
         <Button
             android:id="@+id/button8"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="@color/cHellblau"
-            android:onClick="btnOnClickQuizDemo"
-            android:text="Quiz-Demo"
             android:textAllCaps="false"
-            android:textColor="@color/cSchwarz" />
+            android:textColor="@color/cSchwarz"
+            android:visibility="gone" />
     </LinearLayout>
 </ScrollView>

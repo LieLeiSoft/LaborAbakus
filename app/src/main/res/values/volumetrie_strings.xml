@@ -110,11 +110,11 @@
     <string name="Vorlage">Vorlage / Blindwerte</string>
     <string name="UrtiterHilfe">Urtiter</string>
     <string name="Vorlagevolumen">Vorlagevolumen</string>
-    <color name="cOrange">#FF8800</color>
-    <color name="cHellorange">#FFBB33</color>
+    <color name="cOrange">#ff8800</color>
+    <color name="cHellorange">#ffbb33</color>
     <color name="cHellgruen">#99CC00</color>
-    <color name="cHellbraun">#C2BC3D</color>
-    <color name="cHellblau">#7ea7fc</color>
+    <color name="cHellbraun">#c2bc3d</color>
+    <color name="cHellblau">#6590ea</color>
     <string name="Titrationsart">Titrationsart:</string>
     <string name="Beschriftung_Vorlage">Vorlage?</string>
     <string name="Direkte_Titration">Direkte Titration</string>

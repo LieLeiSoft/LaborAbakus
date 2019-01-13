@@ -22,8 +22,14 @@ public class QuizActivity extends Activity {
 	TextView tv;
 	int intFrageNr;
     int intLevel;
-    String strFrage;
+	int intPunkte;
+	int intHighscore;
+
+	String strPunkte;
+	String strHighscore;
+	String strFrage;
     String strAntwort;
+    String strLevel;
 
 	public enum Element 														// http://www.mindfiresolutions.com/How-to-handle-String-in-switch-case-of-JAVA-617.php
 	// emnum Aufzählungstyp Element
@@ -61,6 +67,7 @@ public class QuizActivity extends Activity {
 			{
 				timerTextView.setText("GAME OVER");
 				timerHandler.removeCallbacks(timerRunnable);
+
 			}
 		}
 	}; // timerRunnable
@@ -162,7 +169,8 @@ public class QuizActivity extends Activity {
 
 		QuizFragen.erstelle_Quizfragen();
 
-		intLevel = 4;
+		strLevel = prefs.getString("Level", "1");
+		intLevel = Integer.parseInt(strLevel);
 
 		if (intLevel == 2)
 		{
@@ -874,15 +882,22 @@ public class QuizActivity extends Activity {
         // ********* Vergleich der Eingabe mit der strAntwort *****************
         // ********************************************************************
 
-        strMM = Float.toString(fltMM);
-        if(strMM.equals(strAntwort))
-        {
-            if (intLevel > 2) {
-                String text = "\n   Super!   \n   Richtig!   \n";
-                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-                Meldung.setGravity(Gravity.TOP, 0, 0);
-                Meldung.show();
-            }
+		strMM = Float.toString(fltMM);
+		if(strMM.equals(strAntwort))         // wenn die Antwort richtig ist
+		{
+			if (intLevel > 2)
+			{
+				String text = "\n   Super!   \n   Richtig!   \n";
+				Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+				Meldung.setGravity(Gravity.TOP, 0, 0);
+				Meldung.show();
+
+				intPunkte = intPunkte + 5;
+			}
+			else
+			{
+				intPunkte = intPunkte + 1;
+			}
 
 			startTime = System.currentTimeMillis() + 60000; // Countdown x/1000 Sekunden
 			timerHandler.postDelayed(timerRunnable, 0);
@@ -899,6 +914,19 @@ public class QuizActivity extends Activity {
 			// Formel-Feld leeren
 			tv = (TextView) findViewById(R.id.tvFormel);
 			tv.setText("");
+
+			strLevel = Integer.toString(intLevel);
+			strHighscore = prefs.getString("Highscore"+strLevel, "0");
+
+			intHighscore = Integer.parseInt(strHighscore);
+
+			strPunkte = Integer.toString(intPunkte);
+
+			if(intHighscore < intPunkte)     // die neuen Punkte werden in die Highscore gespeichert, wenn sie höher sind
+			{
+				prefEditor.putString("Highscore"+strLevel, strPunkte);
+			}
+
 
 			prefEditor.putInt("Runde_Klammer_auf", 0);
 			prefEditor.putInt("AnzahlElemente", 0);

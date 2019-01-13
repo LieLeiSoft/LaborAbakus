@@ -81,7 +81,7 @@ public class HauptmenueActivity extends Activity {
 				"KonzGehalt_0,KonzGehalt_1,KonzGehalt_2,KonzGehalt_3,KonzGehalt_4,KonzGehalt_5,KonzGehalt_6,KonzGehalt_7,KonzGehalt_8,KonzGehalt_9,KonzGehalt_10,KonzGehalt_11," +
 				"KonzGehaltEinheit_0,KonzGehaltEinheit_1,KonzGehaltEinheit_2,KonzGehaltEinheit_3,KonzGehaltEinheit_4,KonzGehaltEinheit_5,KonzGehaltEinheit_6,KonzGehaltEinheit_7,KonzGehaltEinheit_8,KonzGehaltEinheit_9,KonzGehaltEinheit_10,KonzGehaltEinheit_11," +
 				"Dichte_0,Dichte_1,Dichte_2,Dichte_3,Dichte_4,Dichte_5,Dichte_6,Dichte_7,Dichte_8,Dichte_9,Dichte_10,Dichte_11," +
-				"Molmasse_0,Molmasse_1,Molmasse_2,Molmasse_3,Molmasse_4,Molmasse_5,Molmasse_6,Molmasse_7,Molmasse_8,Molmasse_9,Molmasse_10,Molmasse_11").indexOf(strKeyName) == -1) {
+				"Molmasse_0,Molmasse_1,Molmasse_2,Molmasse_3,Molmasse_4,Molmasse_5,Molmasse_6,Molmasse_7,Molmasse_8,Molmasse_9,Molmasse_10,Molmasse_11,Level,Highscore,Highscore1,Highscore2,Highscore3,Highscore4,Highscore5,Highscore6").indexOf(strKeyName) == -1) {
    				// Parameter entfernen
    				prefEditor.remove(strKeyName);
    			}
@@ -133,10 +133,11 @@ public class HauptmenueActivity extends Activity {
 		// Activity aufrufen
 		startActivity(myIntent);
 	}
-	public void btnOnClickQuizDemo(View v)
+
+	public void btnOnClickQuiz(View v)
 	{
 		//Intent myIntent = new Intent(v.getContext(), QuizDemoActivity.class);
-		Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
+		Intent myIntent = new Intent(v.getContext(), QuizMenueActivity.class);
 
 		// verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
 		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

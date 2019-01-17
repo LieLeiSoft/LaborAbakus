@@ -1,7 +1,7 @@
 package de.laborabakus;
 
 public class QuizFragen {
-	private static String[][] Quizfragen = new String[200][4];
+	private static String[][] Quizfragen = new String[200][5];
 	private static int[] LetzteQuizfragen = new int[10];
 	private static int intLfdNr_max = 0;
 	private static int intLfdNr_Gesamt = 0;
@@ -21,498 +21,567 @@ public class QuizFragen {
 		int intLfdNr_Level;
 		int intLfdNr_Gesamt = 0;
 
-		// Fragen für Level 1
-		/**********************************
-		**** Hauptgruppenelemente *********
-		 **********************************/
-
-		intLevel = 1;
-		intLfdNr_Level = 0;
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Wasserstoff";
-		Quizfragen[intLfdNr_Gesamt][3] = "1.008";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Lithium";
-		Quizfragen[intLfdNr_Gesamt][3] = "6.939";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Beryllium";
-		Quizfragen[intLfdNr_Gesamt][3] = "9.012";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Bor";
-		Quizfragen[intLfdNr_Gesamt][3] = "10.811";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Kohlenstoff";
-		Quizfragen[intLfdNr_Gesamt][3] = "12.011";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Stickstoff";
-		Quizfragen[intLfdNr_Gesamt][3] = "14.007";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Sauerstoff";
-		Quizfragen[intLfdNr_Gesamt][3] = "15.999";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Fluor";
-		Quizfragen[intLfdNr_Gesamt][3] = "18.998";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Natrium";
-		Quizfragen[intLfdNr_Gesamt][3] = "22.99";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Magnesium";
-		Quizfragen[intLfdNr_Gesamt][3] = "24.312";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Aluminium";
-		Quizfragen[intLfdNr_Gesamt][3] = "26.982";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Silicium";
-		Quizfragen[intLfdNr_Gesamt][3] = "28.086";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Phosphor";
-		Quizfragen[intLfdNr_Gesamt][3] = "30.974";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Schwefel";
-		Quizfragen[intLfdNr_Gesamt][3] = "32.064";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Chlor";
-		Quizfragen[intLfdNr_Gesamt][3] = "35.453";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Kalium";
-		Quizfragen[intLfdNr_Gesamt][3] = "39.102";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Calcium";
-		Quizfragen[intLfdNr_Gesamt][3] = "40.08";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Gallium";
-		Quizfragen[intLfdNr_Gesamt][3] = "69.72";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Germanium";
-		Quizfragen[intLfdNr_Gesamt][3] = "72.59";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Arsen";
-		Quizfragen[intLfdNr_Gesamt][3] = "74.922";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Selen";
-		Quizfragen[intLfdNr_Gesamt][3] = "78.96";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Brom";
-		Quizfragen[intLfdNr_Gesamt][3] = "79.909";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Rubidium";
-		Quizfragen[intLfdNr_Gesamt][3] = "85.47";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Strontium";
-		Quizfragen[intLfdNr_Gesamt][3] = "87.62";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Indium";
-		Quizfragen[intLfdNr_Gesamt][3] = "114.82";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Zinn";
-		Quizfragen[intLfdNr_Gesamt][3] = "118.69";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Antimon";
-		Quizfragen[intLfdNr_Gesamt][3] = "121.75";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Tellur";
-		Quizfragen[intLfdNr_Gesamt][3] = "127.6";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Iod";
-		Quizfragen[intLfdNr_Gesamt][3] = "126.9";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Caesium";
-		Quizfragen[intLfdNr_Gesamt][3] = "132.91";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Barium";
-		Quizfragen[intLfdNr_Gesamt][3] = "137.34";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Thallium";
-		Quizfragen[intLfdNr_Gesamt][3] = "204.38";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Blei";
-		Quizfragen[intLfdNr_Gesamt][3] = "207.19";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Bismut";
-		Quizfragen[intLfdNr_Gesamt][3] = "208.98";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Polonium";
-		Quizfragen[intLfdNr_Gesamt][3] = "210.0";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Astat";
-		Quizfragen[intLfdNr_Gesamt][3] = "210.0";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Francium";
-		Quizfragen[intLfdNr_Gesamt][3] = "223.0";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Radium";
-		Quizfragen[intLfdNr_Gesamt][3] = "226.0";
-
-		// Fragen für Level 2
-		/**********************************
-		 **** Nebengruppenelemente *********
-		 **********************************/
-		intLevel = 2;
-		intLfdNr_Level = 0;
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Scandium";
-		Quizfragen[intLfdNr_Gesamt][3] = "44.956";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Titan";
-		Quizfragen[intLfdNr_Gesamt][3] = "47.88";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Vanadium";
-		Quizfragen[intLfdNr_Gesamt][3] = "50.942";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Chrom";
-		Quizfragen[intLfdNr_Gesamt][3] = "51.996";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Mangan";
-		Quizfragen[intLfdNr_Gesamt][3] = "54.938";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Eisen";
-		Quizfragen[intLfdNr_Gesamt][3] = "55.847";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Cobalt";
-		Quizfragen[intLfdNr_Gesamt][3] = "58.933";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Nickel";
-		Quizfragen[intLfdNr_Gesamt][3] = "58.69";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Kupfer";
-		Quizfragen[intLfdNr_Gesamt][3] = "63.54";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Zink";
-		Quizfragen[intLfdNr_Gesamt][3] = "65.37";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Yttrium";
-		Quizfragen[intLfdNr_Gesamt][3] = "88.905";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Zirkonium";
-		Quizfragen[intLfdNr_Gesamt][3] = "91.22";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Niob";
-		Quizfragen[intLfdNr_Gesamt][3] = "92.906";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Molybdän";
-		Quizfragen[intLfdNr_Gesamt][3] = "95.94";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Technetium";
-		Quizfragen[intLfdNr_Gesamt][3] = "99.0";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Ruthenium";
-		Quizfragen[intLfdNr_Gesamt][3] = "101.07";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Rhodium";
-		Quizfragen[intLfdNr_Gesamt][3] = "102.91";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Paladium";
-		Quizfragen[intLfdNr_Gesamt][3] = "106.42";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Silber";
-		Quizfragen[intLfdNr_Gesamt][3] = "107.87";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Cadmium";
-		Quizfragen[intLfdNr_Gesamt][3] = "112.4";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Lanthan";
-		Quizfragen[intLfdNr_Gesamt][3] = "138.91";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Hafnium";
-		Quizfragen[intLfdNr_Gesamt][3] = "178.49";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Tantal";
-		Quizfragen[intLfdNr_Gesamt][3] = "180.95";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Wolfram";
-		Quizfragen[intLfdNr_Gesamt][3] = "183.85";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Rhenium";
-		Quizfragen[intLfdNr_Gesamt][3] = "186.2";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Osmium";
-		Quizfragen[intLfdNr_Gesamt][3] = "190.2";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Iridium";
-		Quizfragen[intLfdNr_Gesamt][3] = "192.2";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Platin";
-		Quizfragen[intLfdNr_Gesamt][3] = "195.09";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Gold";
-		Quizfragen[intLfdNr_Gesamt][3] = "196.97";
-
-		intLfdNr_Level++;
-		intLfdNr_Gesamt++;
-		Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-		Quizfragen[intLfdNr_Gesamt][2] = "Quecksilber";
-		Quizfragen[intLfdNr_Gesamt][3] = "200.59";
-
-		// Fragen für Level 3
+        //region Fragen für Level 1 (38 Elemente)
+        /**********************************
+         **** Hauptgruppenelemente ********
+         **********************************/
+        intLevel = 1;
+        intLfdNr_Level = 0;
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Wasserstoff";
+        Quizfragen[intLfdNr_Gesamt][3] = "1.008";
+        Quizfragen[intLfdNr_Gesamt][4] = "H";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Lithium";
+        Quizfragen[intLfdNr_Gesamt][3] = "6.939";
+        Quizfragen[intLfdNr_Gesamt][4] = "Li";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Beryllium";
+        Quizfragen[intLfdNr_Gesamt][3] = "9.012";
+        Quizfragen[intLfdNr_Gesamt][4] = "Be";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Bor";
+        Quizfragen[intLfdNr_Gesamt][3] = "10.811";
+        Quizfragen[intLfdNr_Gesamt][4] = "B";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Kohlenstoff";
+        Quizfragen[intLfdNr_Gesamt][3] = "12.011";
+        Quizfragen[intLfdNr_Gesamt][4] = "C";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Stickstoff";
+        Quizfragen[intLfdNr_Gesamt][3] = "14.007";
+        Quizfragen[intLfdNr_Gesamt][4] = "N";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Sauerstoff";
+        Quizfragen[intLfdNr_Gesamt][3] = "15.999";
+        Quizfragen[intLfdNr_Gesamt][4] = "O";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Fluor";
+        Quizfragen[intLfdNr_Gesamt][3] = "18.998";
+        Quizfragen[intLfdNr_Gesamt][4] = "F";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Natrium";
+        Quizfragen[intLfdNr_Gesamt][3] = "22.99";
+        Quizfragen[intLfdNr_Gesamt][4] = "Na";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesium";
+        Quizfragen[intLfdNr_Gesamt][3] = "24.312";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mg";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Aluminium";
+        Quizfragen[intLfdNr_Gesamt][3] = "26.982";
+        Quizfragen[intLfdNr_Gesamt][4] = "Al";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Silicium";
+        Quizfragen[intLfdNr_Gesamt][3] = "28.086";
+        Quizfragen[intLfdNr_Gesamt][4] = "Si";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Phosphor";
+        Quizfragen[intLfdNr_Gesamt][3] = "30.974";
+        Quizfragen[intLfdNr_Gesamt][4] = "P";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Schwefel";
+        Quizfragen[intLfdNr_Gesamt][3] = "32.064";
+        Quizfragen[intLfdNr_Gesamt][4] = "S";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Chlor";
+        Quizfragen[intLfdNr_Gesamt][3] = "35.453";
+        Quizfragen[intLfdNr_Gesamt][4] = "Cl";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Kalium";
+        Quizfragen[intLfdNr_Gesamt][3] = "39.102";
+        Quizfragen[intLfdNr_Gesamt][4] = "K";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Calcium";
+        Quizfragen[intLfdNr_Gesamt][3] = "40.08";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ca";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Gallium";
+        Quizfragen[intLfdNr_Gesamt][3] = "69.72";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ga";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Germanium";
+        Quizfragen[intLfdNr_Gesamt][3] = "72.59";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ge";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Arsen";
+        Quizfragen[intLfdNr_Gesamt][3] = "74.922";
+        Quizfragen[intLfdNr_Gesamt][4] = "As";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Selen";
+        Quizfragen[intLfdNr_Gesamt][3] = "78.96";
+        Quizfragen[intLfdNr_Gesamt][4] = "Se";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Brom";
+        Quizfragen[intLfdNr_Gesamt][3] = "79.909";
+        Quizfragen[intLfdNr_Gesamt][4] = "Br";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Rubidium";
+        Quizfragen[intLfdNr_Gesamt][3] = "85.47";
+        Quizfragen[intLfdNr_Gesamt][4] = "Rb";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Strontium";
+        Quizfragen[intLfdNr_Gesamt][3] = "87.62";
+        Quizfragen[intLfdNr_Gesamt][4] = "Sr";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Indium";
+        Quizfragen[intLfdNr_Gesamt][3] = "114.82";
+        Quizfragen[intLfdNr_Gesamt][4] = "In";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Zinn";
+        Quizfragen[intLfdNr_Gesamt][3] = "118.69";
+        Quizfragen[intLfdNr_Gesamt][4] = "Sn";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Antimon";
+        Quizfragen[intLfdNr_Gesamt][3] = "121.75";
+        Quizfragen[intLfdNr_Gesamt][4] = "Sb";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Tellur";
+        Quizfragen[intLfdNr_Gesamt][3] = "127.6";
+        Quizfragen[intLfdNr_Gesamt][4] = "Te";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Iod";
+        Quizfragen[intLfdNr_Gesamt][3] = "126.9";
+        Quizfragen[intLfdNr_Gesamt][4] = "I";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Caesium";
+        Quizfragen[intLfdNr_Gesamt][3] = "132.91";
+        Quizfragen[intLfdNr_Gesamt][4] = "Cs";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Barium";
+        Quizfragen[intLfdNr_Gesamt][3] = "137.34";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ba";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Thallium";
+        Quizfragen[intLfdNr_Gesamt][3] = "204.38";
+        Quizfragen[intLfdNr_Gesamt][4] = "Tl";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Blei";
+        Quizfragen[intLfdNr_Gesamt][3] = "207.19";
+        Quizfragen[intLfdNr_Gesamt][4] = "Pb";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Bismut";
+        Quizfragen[intLfdNr_Gesamt][3] = "208.98";
+        Quizfragen[intLfdNr_Gesamt][4] = "Bi";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Polonium";
+        Quizfragen[intLfdNr_Gesamt][3] = "210.0";
+        Quizfragen[intLfdNr_Gesamt][4] = "Po";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Astat";
+        Quizfragen[intLfdNr_Gesamt][3] = "210.0";
+        Quizfragen[intLfdNr_Gesamt][4] = "At";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Francium";
+        Quizfragen[intLfdNr_Gesamt][3] = "223.0";
+        Quizfragen[intLfdNr_Gesamt][4] = "Fr";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Radium";
+        Quizfragen[intLfdNr_Gesamt][3] = "226.0";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ra";
+        //endregion
+
+        //region Fragen für Level 2 (30 Elemente)
+        /**********************************
+         **** Nebengruppenelemente ********
+         **********************************/
+        intLevel = 2;
+        intLfdNr_Level = 0;
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Scandium";
+        Quizfragen[intLfdNr_Gesamt][3] = "44.956";
+        Quizfragen[intLfdNr_Gesamt][4] = "Sc";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Titan";
+        Quizfragen[intLfdNr_Gesamt][3] = "47.88";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ti";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Vanadium";
+        Quizfragen[intLfdNr_Gesamt][3] = "50.942";
+        Quizfragen[intLfdNr_Gesamt][4] = "V";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Chrom";
+        Quizfragen[intLfdNr_Gesamt][3] = "51.996";
+        Quizfragen[intLfdNr_Gesamt][4] = "Cr";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Mangan";
+        Quizfragen[intLfdNr_Gesamt][3] = "54.938";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mn";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Eisen";
+        Quizfragen[intLfdNr_Gesamt][3] = "55.847";
+        Quizfragen[intLfdNr_Gesamt][4] = "Fe";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Cobalt";
+        Quizfragen[intLfdNr_Gesamt][3] = "58.933";
+        Quizfragen[intLfdNr_Gesamt][4] = "Co";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Nickel";
+        Quizfragen[intLfdNr_Gesamt][3] = "58.69";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ni";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Kupfer";
+        Quizfragen[intLfdNr_Gesamt][3] = "63.54";
+        Quizfragen[intLfdNr_Gesamt][4] = "Cu";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Zink";
+        Quizfragen[intLfdNr_Gesamt][3] = "65.37";
+        Quizfragen[intLfdNr_Gesamt][4] = "Zn";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Yttrium";
+        Quizfragen[intLfdNr_Gesamt][3] = "88.905";
+        Quizfragen[intLfdNr_Gesamt][4] = "Y";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Zirkonium";
+        Quizfragen[intLfdNr_Gesamt][3] = "91.22";
+        Quizfragen[intLfdNr_Gesamt][4] = "Zr";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Niob";
+        Quizfragen[intLfdNr_Gesamt][3] = "92.906";
+        Quizfragen[intLfdNr_Gesamt][4] = "Nb";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Molybdän";
+        Quizfragen[intLfdNr_Gesamt][3] = "95.94";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mo";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Technetium";
+        Quizfragen[intLfdNr_Gesamt][3] = "99.0";
+        Quizfragen[intLfdNr_Gesamt][4] = "Tc";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Ruthenium";
+        Quizfragen[intLfdNr_Gesamt][3] = "101.07";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ru";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Rhodium";
+        Quizfragen[intLfdNr_Gesamt][3] = "102.91";
+        Quizfragen[intLfdNr_Gesamt][4] = "Rh";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Paladium";
+        Quizfragen[intLfdNr_Gesamt][3] = "106.42";
+        Quizfragen[intLfdNr_Gesamt][4] = "Pd";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Silber";
+        Quizfragen[intLfdNr_Gesamt][3] = "107.87";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ag";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Cadmium";
+        Quizfragen[intLfdNr_Gesamt][3] = "112.4";
+        Quizfragen[intLfdNr_Gesamt][4] = "Cd";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Lanthan";
+        Quizfragen[intLfdNr_Gesamt][3] = "138.91";
+        Quizfragen[intLfdNr_Gesamt][4] = "La";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Hafnium";
+        Quizfragen[intLfdNr_Gesamt][3] = "178.49";
+        Quizfragen[intLfdNr_Gesamt][4] = "Hf";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Tantal";
+        Quizfragen[intLfdNr_Gesamt][3] = "180.95";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ta";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Wolfram";
+        Quizfragen[intLfdNr_Gesamt][3] = "183.85";
+        Quizfragen[intLfdNr_Gesamt][4] = "W";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Rhenium";
+        Quizfragen[intLfdNr_Gesamt][3] = "186.2";
+        Quizfragen[intLfdNr_Gesamt][4] = "Re";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Osmium";
+        Quizfragen[intLfdNr_Gesamt][3] = "190.2";
+        Quizfragen[intLfdNr_Gesamt][4] = "Os";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Iridium";
+        Quizfragen[intLfdNr_Gesamt][3] = "192.2";
+        Quizfragen[intLfdNr_Gesamt][4] = "Ir";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Platin";
+        Quizfragen[intLfdNr_Gesamt][3] = "195.09";
+        Quizfragen[intLfdNr_Gesamt][4] = "Pt";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Gold";
+        Quizfragen[intLfdNr_Gesamt][3] = "196.97";
+        Quizfragen[intLfdNr_Gesamt][4] = "Au";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Quecksilber";
+        Quizfragen[intLfdNr_Gesamt][3] = "200.59";
+        Quizfragen[intLfdNr_Gesamt][4] = "Hg";
+        //endregion
+
+        //region Fragen für Level 3
 		/**********************************
 		 **** Einfache Verbindungen *******
 		 **********************************/
@@ -560,8 +629,9 @@ public class QuizFragen {
 		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
 		Quizfragen[intLfdNr_Gesamt][2] = "Natriumnitrat";
 		Quizfragen[intLfdNr_Gesamt][3] = "84.994";
+        //endregion
 
-		// Fragen für Level 4
+		//region Fragen für Level 4
 		/**********************************
 		 ********** Trivialnamen **********
 		 **********************************/
@@ -980,6 +1050,7 @@ public class QuizFragen {
 		Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
 		Quizfragen[intLfdNr_Gesamt][2] = "Phosgen";
 		Quizfragen[intLfdNr_Gesamt][3] = "98.916";
+        //endregion
 
 		intLfdNr_max = intLfdNr_Gesamt;
 	} // erstelle_Quizfragen

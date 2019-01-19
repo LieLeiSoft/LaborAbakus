@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 public class QuizActivity extends Activity {
 
+	
 	TextView tv;
 	int intFrageNr;
     int intLevel;

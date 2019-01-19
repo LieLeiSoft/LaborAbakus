@@ -252,7 +252,9 @@ public class Konz_lsg_verd_Activity_2 extends Activity /*implements OnFocusChang
 
                         strErgebnis = ActivityTools.fktDoubleToStringFormat(dblVerdMenge, 2); // 1 Nachkommastellen
 
-                        tv = (TextView) findViewById(R.id.tvErgebnis1);
+                        setContentView(R.layout.konz_lsg_ergebnis);
+
+                        tv = (TextView) findViewById(R.id.tvKonzErgebnis);
                         tv.setText("Um aus " + strKonzMenge + strKonzEinheit+ " einer " + strKonzAuswahl + " (" + strKonzGehalt
                                 + strKonzGehaltEinheit + ") eine Verdünnung (" + strVerdGehalt + "%) herzustellen," +
                                 " muss man die konzentrierte " + strKonzAuswahl + " zusammen mit Wasser zu " + strErgebnis + "g verdünnen.");
@@ -268,7 +270,9 @@ public class Konz_lsg_verd_Activity_2 extends Activity /*implements OnFocusChang
 
                         strErgebnis = ActivityTools.fktDoubleToStringFormat(dblVerdMenge, 2); // 1 Nachkommastellen
 
-                        tv = (TextView) findViewById(R.id.tvErgebnis1);
+                        setContentView(R.layout.konz_lsg_ergebnis);
+
+                        tv = (TextView) findViewById(R.id.tvKonzErgebnis);
                         tv.setText("Um aus " + strKonzMenge + strKonzEinheit + " einer " + strKonzAuswahl + " (" + strKonzGehalt
                                 + strKonzGehaltEinheit + ") eine Verdünnung (" + strVerdGehalt + "mol/l) herzustellen," +
                                 " muss man die konzentrierte " + strKonzAuswahl + " zusammen mit Wasser zu " + strErgebnis + "ml verdünnen.");

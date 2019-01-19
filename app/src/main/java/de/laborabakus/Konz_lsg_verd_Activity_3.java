@@ -271,9 +271,11 @@ public class Konz_lsg_verd_Activity_3 extends Activity /*implements OnFocusChang
                     dblVerdGehalt = (dblErgebnis2 * dblErgebnis) / dblVerdMenge;            // Berechnung der Menge in g oder ml!!!
                     strErgebnis = ActivityTools.fktDoubleToStringFormat(dblVerdGehalt, 3);   // 2 Nachkommastellen
 
+                    setContentView(R.layout.konz_lsg_ergebnis);
+
                     if(strBerechnung_ueber.equals("Masse") == true)    // Wenn Einheit der Verd g und % ist
                     {
-                        tv = (TextView) findViewById(R.id.tvErgebnis1);
+                        tv = (TextView) findViewById(R.id.tvKonzErgebnis);
                         tv.setText("Wenn man " + strKonzMenge +"g einer " + strKonzAuswahl +
                                 " (" +strKonzGehalt + strKonzGehaltEinheit + ") mit Wasser" +
                                 " zu " + strVerdMenge + "g verdünnt, erhält man eine verdünnte " +
@@ -282,7 +284,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity /*implements OnFocusChang
                     }
                     else                                               // Wenn Einheit der Verd ml und mol/l ist
                     {
-                        tv = (TextView) findViewById(R.id.tvErgebnis1);
+                        tv = (TextView) findViewById(R.id.tvKonzErgebnis);
                         tv.setText("Wenn man " + strKonzMenge +"mL einer " + strKonzAuswahl +
                                 " (" +strKonzGehalt + strKonzGehaltEinheit + ") mit Wasser" +
                                 " zu " + strVerdMenge + "ml verdünnt, erhält man eine verdünnte " +

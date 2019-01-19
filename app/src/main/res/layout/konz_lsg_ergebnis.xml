@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/saeure_hintergrund"
+    tools:context=".EinwaageActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvKonzErgebnis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/cEingabe"
+            android:gravity="center"
+            android:minEms="50"
+            android:text="@string/Beschriftung_Einwage"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/cBlau"
+            android:textColorHint="@color/cBlau" />
+
+    </RelativeLayout>
+
+</TableLayout>

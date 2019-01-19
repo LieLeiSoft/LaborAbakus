@@ -5,6 +5,7 @@
     android:id="@+id/TableLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/messkolben_hintergrund_klein"
     android:stretchColumns="*"
     android:weightSum="1">
 
@@ -212,7 +213,7 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/cHellblau">
+        android:background="@color/cHellgruen">
 
         <TextView
             android:id="@+id/tvErgebnis1"
@@ -221,19 +222,6 @@
             android:layout_marginLeft="10dp"
             android:layout_span="3"
             android:stretchColumns="0"
-            android:textColor="@color/cSchwarz" />
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cHellblau">
-
-        <TextView
-            android:id="@+id/tvErgebnis2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:textColor="@color/cSchwarz" />
 
     </TableRow>

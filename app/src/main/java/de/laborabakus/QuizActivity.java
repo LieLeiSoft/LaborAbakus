@@ -1,10 +1,12 @@
 package de.laborabakus;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.Gravity;
@@ -19,7 +21,7 @@ import android.widget.Toast;
 
 public class QuizActivity extends Activity {
 
-	
+
 	TextView tv;
 	int intFrageNr;
     int intLevel;
@@ -929,13 +931,22 @@ public class QuizActivity extends Activity {
 			prefEditor.putFloat("Molmasse", 0);
 			prefEditor.apply();
 		}
-        else
+        else // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         {
             if (intLevel < 3) {
-                String text = "\n   Leider   \n   Falsch!   \n";
-                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-                Meldung.setGravity(Gravity.TOP, 0, 0);
-                Meldung.show();
+				Vibrator vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+				vi.vibrate(400);  // vibriert für 400ms
+
+                // Formel-Feld leeren
+                tv = (TextView) findViewById(R.id.tvFormel);
+                tv.setText("");
+
+				prefEditor.putInt("Runde_Klammer_auf", 0);
+				prefEditor.putInt("AnzahlElemente", 0);
+				prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
+				prefEditor.putFloat("Molmasse", 0);
+				prefEditor.apply();
+
             }
 
             // ************************************************

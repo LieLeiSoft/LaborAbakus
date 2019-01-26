@@ -71,6 +71,12 @@ public class QuizActivity extends Activity {
 				timerTextView.setText("GAME OVER");
 				timerHandler.removeCallbacks(timerRunnable);
 				startTime = 0;
+
+                tv = (TextView) findViewById(R.id.btnWeiter);
+                tv.setVisibility(View.INVISIBLE); // TEXTFELD UNSICHTBAR MACHEN
+
+                Vibrator vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vi.vibrate(600);  // vibriert für 600ms
 			}
 		}
 	}; // timerRunnable
@@ -88,6 +94,7 @@ public class QuizActivity extends Activity {
 	    ActivityRegistry.register(this);
 
 		tv = (TextView) findViewById(R.id.btnWeiter);
+        tv.setText("Weiter");
 		tv.setVisibility(View.INVISIBLE); // TEXTFELD UNSICHTBAR MACHEN
 
 		tv = (TextView) findViewById(R.id.btnPSE_43);
@@ -883,8 +890,9 @@ public class QuizActivity extends Activity {
         // ********************************************************************
 
 		strMM = Float.toString(fltMM);
-		if(strMM.equals(strAntwort))         // wenn die Antwort richtig ist
+		if(strMM.equals(strAntwort))
 		{
+			// Antwort ist richtig
 			if (intLevel > 2)
 			{
 				String text = "\n   Super!   \n   Richtig!   \n";
@@ -931,9 +939,11 @@ public class QuizActivity extends Activity {
 			prefEditor.putFloat("Molmasse", 0);
 			prefEditor.apply();
 		}
-        else // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        else
         {
-            if (intLevel < 3) {
+			// Antwort ist falsch
+            if (intLevel < 3)
+            {
 				Vibrator vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 				vi.vibrate(400);  // vibriert für 400ms
 
@@ -946,30 +956,7 @@ public class QuizActivity extends Activity {
 				prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
 				prefEditor.putFloat("Molmasse", 0);
 				prefEditor.apply();
-
             }
-
-            // ************************************************
-            // ********* Auslesen der Formel ******************
-            // ************************************************
-
-            tv = (TextView) findViewById(R.id.tvFormel);
-            strFormel = tv.getText().toString();
-
-            // *************************************************************
-            // ********* Auslesen der Anzahl der Elemente ******************
-            // *************************************************************
-
-            prefEditor.putInt("Runde_Klammer_auf", intRK_auf);
-            prefEditor.putInt("AnzahlElemente", intAnzahlElemente);
-            prefEditor.putFloat("Molekuelmasse_Runde_Klammer", fltMolekuelmasse_RK);
-            prefEditor.putFloat("Molmasse_Runde_Klammer", fltMM_RK);
-            prefEditor.putFloat("Atommasse", fltAtommasse);
-            prefEditor.putFloat("Molekuelmasse", fltMolekuelmasse);
-            prefEditor.putFloat("Molmasse", fltMM);
-            prefEditor.putString("Formel", strFormel);
-
-            prefEditor.apply();
         }
 
         if (startTime == 0) {
@@ -1027,10 +1014,15 @@ public class QuizActivity extends Activity {
 	
 	public void btnWeiter(View v) 
 	{
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		SharedPreferences.Editor prefEditor = prefs.edit();
+        if (QuizFragen.mAntwortText != null)
+        {
+            String text = "Richtige Antwort für '"+strFrage+"' wäre gewesen:"
+                         +"\n"+QuizFragen.mAntwortText;
+            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+            Meldung.setGravity(Gravity.BOTTOM, 0, 0);
+            Meldung.show();
+        }
 
-		QuizFragen.erstelle_Quizfragen();
         intFrageNr = QuizFragen.ermittel_LfdNr(intLevel);
         QuizFragen.lese_Quizfrage(intLevel, intFrageNr);
 
@@ -1040,53 +1032,20 @@ public class QuizActivity extends Activity {
 		tv = (TextView) findViewById(R.id.tvFormel);
 		tv.setText("");
 
-		tv = (TextView) findViewById(R.id.btnWeiter);
-		tv.setText("Weiter");
-
 		tv = (TextView) findViewById(R.id.tvMolmasse);
 		tv.setText(strFrage);
 
 		tv = (TextView) findViewById(R.id.tvFormel);
 		tv.setText("");
 
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences.Editor prefEditor = prefs.edit();
+
 		prefEditor.putInt("Runde_Klammer_auf", 0);
 		prefEditor.putInt("AnzahlElemente", 0);
 		prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
 		prefEditor.putFloat("Molmasse", 0);
 		prefEditor.apply();
-
-	    /*
-	    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		SharedPreferences.Editor prefEditor = prefs.edit(); 
-		
-		prefEditor.apply();
-		
-		Intent myIntent = new Intent(this, GleichungActivity.class);
-		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-		startActivity(myIntent);
-
-		if(strMM_Molaritaet.equals("Wert") == true)
-		{
-			prefEditor.putString("MolaritaetEG_1", strMolmasse);
-			
-			//Intent myIntent = new Intent(this, MolaritaetActivity.class);
-			Intent myIntent = new Intent(this, GleichungActivity.class);
-			myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-			startActivity(myIntent);
-		}
-
-		if(strMM_Substanz.equals("Wert") == true)
-		{
-			prefEditor.putString("Molmasse_Substanz", strMolmasse);
-			
-			//Intent myIntent = new Intent(this, FaktorActivity.class);
-			Intent myIntent = new Intent(this, GleichungActivity.class);
-			myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-			startActivity(myIntent);
-		}
-		*/
-		
-	
     } // btnWeiter
 	
 	/********************************************

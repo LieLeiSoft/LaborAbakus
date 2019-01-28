@@ -182,6 +182,11 @@ public class QuizActivity extends Activity {
 		strLevel = prefs.getString("Level", "1");
 		intLevel = Integer.parseInt(strLevel);
 
+		if (intLevel <= 2) {
+			tv = (TextView) findViewById(R.id.btnSZ_06);
+			tv.setVisibility(View.INVISIBLE); // "Clear"-Schaltfläche UNSICHTBAR MACHEN
+		}
+
 		if (intLevel == 2)
 		{
 			tv = (TextView) findViewById(R.id.btnHauptgruppenelemente);
@@ -230,12 +235,13 @@ public class QuizActivity extends Activity {
 			prefEditor.putInt("btnSZ_0", 0);
 		}
 		
-		if (strPSE.equals("Hauptgruppenelemente" ) == true)
-		{
-			tv = (TextView) findViewById(R.id.btnPSE_43);
-			tv.setText("(");
-			tv.setVisibility(View.VISIBLE);
-		}
+		if (intLevel > 2) {
+            if (strPSE.equals("Hauptgruppenelemente") == true) {
+                tv = (TextView) findViewById(R.id.btnPSE_43);
+                tv.setText("(");
+                tv.setVisibility(View.VISIBLE);
+            }
+        }
 
 		tv = (TextView) findViewById(R.id.tvFormel);
 		tv.setText("");
@@ -368,15 +374,32 @@ public class QuizActivity extends Activity {
 			tv.setVisibility(View.INVISIBLE);
 			prefEditor.putInt("btnSZ_0", 0);
 		}
-		
-		if (strPSE.equals("Hauptgruppenelemente" ) == true)
-		{
-			tv = (TextView) findViewById(R.id.btnPSE_43);
-			tv.setText("(");
-			tv.setVisibility(View.VISIBLE);
-		}
+
+		if (intLevel > 2) {
+            if (strPSE.equals("Hauptgruppenelemente") == true) {
+                tv = (TextView) findViewById(R.id.btnPSE_43);
+                tv.setText("(");
+                tv.setVisibility(View.VISIBLE);
+            }
+        }
 	} // onPause
-		
+
+	@Override
+	public void onDestroy() {
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences.Editor prefEditor = prefs.edit();
+
+		// Sicherstellen, dass beim nächsten Aufruf der Activity nicht versehentlich Haupt- statt
+		// Nebengruppenelemente angezeigt werden (Eintrag für "PSE" wieder auf Grundstellung)
+		prefEditor.putString("PSE", "Hauptgruppenelemente");
+		prefEditor.apply();
+
+		// Timer explizit beenden, weil es sonst vibriert (nach Ablauf des Timers)
+		timerHandler.removeCallbacks(timerRunnable);
+
+		super.onPause();
+	} // onDestroy
+
 	 /************************************************************************************
 	  ************** Button Haupt- / Nebengruppenelemente ********************************
 	  *************************************************************************************/
@@ -403,32 +426,31 @@ public class QuizActivity extends Activity {
 		// ******************************************************
 		// *** Anzeige Routine für den Button SZ_0 (0 oder 5) ***
 		// ******************************************************
-		
-		if (strPSE.equals("Hauptgruppenelemente"))				// Istzustand: Nebengruppenelemente
-		{
-			if (intbtnSZ_0 == 0)
-			{
-				tv = (TextView) findViewById(R.id.btnSZ_0); 	// bei den Nebengruppen wird die 5 ausgeblendet, wenn noch kein Element angezeigt wird.
-				tv.setVisibility(View.INVISIBLE);
-			}
-			else // intbtnSZ_0 == 1 oder 2
-			{
-				tv = (TextView) findViewById(R.id.btnSZ_0); 	// bei den Nebengruppen wird die 5 angezeigt, wenn ein Element oder eine Zahl angezeigt wird.
-				tv.setVisibility(View.VISIBLE);
-			}
 
-		}
-		else													// Istzustand: Hauptgruppenelemente
-		{
-			if (intbtnSZ_0 == 2)
+		if (intLevel > 2) {
+			if (strPSE.equals("Hauptgruppenelemente"))				// Istzustand: Nebengruppenelemente
 			{
-				tv = (TextView) findViewById(R.id.btnSZ_0); 	// bei den Hauptgruppen wird die 0 angezeigt, wenn eine Zahl angezeigt wird.
-				tv.setVisibility(View.VISIBLE);
+				if (intbtnSZ_0 == 0)
+				{
+					tv = (TextView) findViewById(R.id.btnSZ_0); 	// bei den Nebengruppen wird die 5 ausgeblendet, wenn noch kein Element angezeigt wird.
+					tv.setVisibility(View.INVISIBLE);
+				}
+				else // intbtnSZ_0 == 1 oder 2
+				{
+					tv = (TextView) findViewById(R.id.btnSZ_0); 	// bei den Nebengruppen wird die 5 angezeigt, wenn ein Element oder eine Zahl angezeigt wird.
+					tv.setVisibility(View.VISIBLE);
+				}
 			}
-			else // intbtnSZ_0 == 0 oder 1
+			else													// Istzustand: Hauptgruppenelemente
 			{
-				tv = (TextView) findViewById(R.id.btnSZ_0); 	// bei den Hauptgruppen wird die 0 ausgeblendet, wenn noch kein Element oder noch keine Zahl angezeigt wird.
-				tv.setVisibility(View.INVISIBLE);
+				if (intbtnSZ_0 == 2) {
+					tv = (TextView) findViewById(R.id.btnSZ_0);    // bei den Hauptgruppen wird die 0 angezeigt, wenn eine Zahl angezeigt wird.
+					tv.setVisibility(View.VISIBLE);
+				} else // intbtnSZ_0 == 0 oder 1
+				{
+					tv = (TextView) findViewById(R.id.btnSZ_0);    // bei den Hauptgruppen wird die 0 ausgeblendet, wenn noch kein Element oder noch keine Zahl angezeigt wird.
+					tv.setVisibility(View.INVISIBLE);
+				}
 			}
 		}
 		
@@ -572,11 +594,10 @@ public class QuizActivity extends Activity {
 		
 		tv = (TextView) findViewById(R.id.btnHauptgruppenelemente);
 		tv.setText(strPSE2);
-		
-		prefEditor.putString("PSE", strPSE2); 
+
+		prefEditor.putString("PSE", strPSE2);
 		prefEditor.apply();
-	
-    } // btnPSE
+    } // btnHauptgruppenelemente
 
 	 /************************************************************************************
 	  ******************************* Button Element *************************************
@@ -691,9 +712,11 @@ public class QuizActivity extends Activity {
 			}
 			else
 			{
-				tv = (TextView) findViewById(R.id.btnSZ_0);				// Wird ein bei den Nebengruppenelementen ein Element eingegeben
-				tv.setVisibility(View.VISIBLE);							// wird die "5" eingeblendet
-				prefEditor.putInt("btnSZ_0", 1);						// Zustand wird in den Speicher übertragen, falls zu den Hauptgruppenelementen gewechselt wird
+				if (intLevel > 2) {
+					tv = (TextView) findViewById(R.id.btnSZ_0);                // Wird ein bei den Nebengruppenelementen ein Element eingegeben
+					tv.setVisibility(View.VISIBLE);                            // wird die "5" eingeblendet
+					prefEditor.putInt("btnSZ_0", 1);                        // Zustand wird in den Speicher übertragen, falls zu den Hauptgruppenelementen gewechselt wird
+				}
 				intAnzahlElemente = intAnzahlElemente +1;				// AnzahlElemente wird um 1 addiert
 			}
 
@@ -837,15 +860,15 @@ public class QuizActivity extends Activity {
 				tv = (TextView) findViewById(R.id.btnWeiter);
 				tv.setVisibility(View.VISIBLE);
 			}
-		
-		
-		for (int x=1; x<=4; x++)
-		{
-			if (strElement.equals("(") == false)
-			{
-				int viewId = getResources().getIdentifier("btnSZ_"+x, "id", getPackageName());
-				tv = (TextView) findViewById(viewId);
-				tv.setVisibility(View.VISIBLE);
+
+
+		if (intLevel > 2) {
+			for (int x=1; x<=4; x++) {
+				if (strElement.equals("(") == false) {
+					int viewId = getResources().getIdentifier("btnSZ_" + x, "id", getPackageName());
+					tv = (TextView) findViewById(viewId);
+					tv.setVisibility(View.VISIBLE);
+				}
 			}
 		}
 
@@ -868,22 +891,13 @@ public class QuizActivity extends Activity {
 			
 			else
 			{
-				tv = (TextView) findViewById(R.id.btnPSE_43);
-				tv.setText("(");
-				tv.setVisibility(View.VISIBLE);
+				if (intLevel > 2) {
+                    tv = (TextView) findViewById(R.id.btnPSE_43);
+                    tv.setText("(");
+                    tv.setVisibility(View.VISIBLE);
+                }
 			}
 		}
-
-		
-		// ************************************************
-		// ********* Ausgabe der Molmasse *****************
-		// ************************************************
-		
-		/*
-		strMM = Float.toString(fltMM);
-		tv = (TextView) findViewById(R.id.tvMolmasse);
-		tv.setText(strMM+" g/mol");
-		*/
 
         // ********************************************************************
         // ********* Vergleich der Eingabe mit der strAntwort *****************
@@ -920,7 +934,6 @@ public class QuizActivity extends Activity {
 			tv = (TextView) findViewById(R.id.tvFormel);
 			tv.setText("");
 
-			strLevel = Integer.toString(intLevel);
 			strHighscore = prefs.getString("Highscore"+strLevel, "0");
 
 			intHighscore = Integer.parseInt(strHighscore);
@@ -989,12 +1002,13 @@ public class QuizActivity extends Activity {
 			tv.setVisibility(View.INVISIBLE);
 			prefEditor.putInt("btnSZ_0", 0);
 		}
-		
-		if (strPSE.equals("Hauptgruppenelemente" ) == true)
-		{
-			tv = (TextView) findViewById(R.id.btnPSE_43);
-			tv.setText("(");
-			tv.setVisibility(View.VISIBLE);
+
+		if (intLevel > 2) {
+            if (strPSE.equals("Hauptgruppenelemente" ) == true) {
+                tv = (TextView) findViewById(R.id.btnPSE_43);
+                tv.setText("(");
+                tv.setVisibility(View.VISIBLE);
+            }
 		}
 
 		tv = (TextView) findViewById(R.id.tvFormel);

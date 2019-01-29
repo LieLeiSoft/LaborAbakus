@@ -110,11 +110,11 @@
     <string name="Vorlage">Vorlage / Blindwerte</string>
     <string name="UrtiterHilfe">Urtiter</string>
     <string name="Vorlagevolumen">Vorlagevolumen</string>
-    <color name="cOrange">#ff8800</color>
+    <color name="cOrange">#FF8800</color>
     <color name="cHellorange">#ffbb33</color>
     <color name="cHellgruen">#99CC00</color>
-    <color name="cHellbraun">#c2bc3d</color>
-    <color name="cHellblau">#6590ea</color>
+    <color name="cHellbraun">#C2BC3D</color>
+    <color name="cHellblau">#6590EA</color>
     <string name="Titrationsart">Titrationsart:</string>
     <string name="Beschriftung_Vorlage">Vorlage?</string>
     <string name="Direkte_Titration">Direkte Titration</string>
@@ -228,6 +228,7 @@
     <color name="cGrau">#707070</color>
     <color name="cHellgrau">#989898</color>
     <color name="cDunkelgrau">#484848</color>
+    <color name="cLeichtblau">#4A7EEB</color>
     <string name="nul">0</string>
     <string name="Stoffmengenkonzentration">Stoffmengenkonzentration Maßlösung</string>
     <string name="Molmasse_Eingabe">Molmasse (g/mol)</string>

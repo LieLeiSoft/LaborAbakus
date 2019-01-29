@@ -945,12 +945,13 @@ public class QuizActivity extends Activity {
 				prefEditor.putString("Highscore"+strLevel, strPunkte);
 			}
 
-
+			// üüüüüüüüüüü
 			prefEditor.putInt("Runde_Klammer_auf", 0);
 			prefEditor.putInt("AnzahlElemente", 0);
 			prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
 			prefEditor.putFloat("Molmasse", 0);
 			prefEditor.apply();
+
 		}
         else
         {
@@ -963,13 +964,36 @@ public class QuizActivity extends Activity {
                 // Formel-Feld leeren
                 tv = (TextView) findViewById(R.id.tvFormel);
                 tv.setText("");
-
+				// üüüüüüüüüüüüüüüüüüüüü
 				prefEditor.putInt("Runde_Klammer_auf", 0);
 				prefEditor.putInt("AnzahlElemente", 0);
 				prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
 				prefEditor.putFloat("Molmasse", 0);
 				prefEditor.apply();
+
             }
+
+            // ************************************************
+            // ********* Auslesen der Formel ******************
+            // ************************************************
+
+            tv = (TextView) findViewById(R.id.tvFormel);
+            strFormel = tv.getText().toString();
+
+            // *************************************************************
+            // ********* Auslesen der Anzahl der Elemente ******************
+            // *************************************************************
+
+            prefEditor.putInt("Runde_Klammer_auf", intRK_auf);
+            prefEditor.putInt("AnzahlElemente", intAnzahlElemente);
+            prefEditor.putFloat("Molekuelmasse_Runde_Klammer", fltMolekuelmasse_RK);
+            prefEditor.putFloat("Molmasse_Runde_Klammer", fltMM_RK);
+            prefEditor.putFloat("Atommasse", fltAtommasse);
+            prefEditor.putFloat("Molekuelmasse", fltMolekuelmasse);
+            prefEditor.putFloat("Molmasse", fltMM);
+            prefEditor.putString("Formel", strFormel);
+
+            prefEditor.apply();
         }
 
         if (startTime == 0) {

@@ -26,7 +26,6 @@
             android:id="@+id/tvHighscore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:background="@color/cHellorange"
             android:gravity="center_horizontal"
             android:text="Highscore:"
@@ -38,7 +37,6 @@
             android:id="@+id/btnLevel_0"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:background="@color/cHellblau"
             android:onClick="btnLevel_1"
             android:text="Level 1 - Hauptgruppenelemente"
@@ -50,14 +48,15 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:background="@color/cHellblau"
+            android:textColor="@color/cSchwarz"
+            android:gravity="center_horizontal" />
 
         <Button
             android:id="@+id/btnLevel_1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@color/cHellblau"
+            android:background="@color/cOrange"
             android:onClick="btnLevel_2"
             android:text="Level 2 - Nebengruppenelemente"
             android:textAllCaps="false"
@@ -68,14 +67,16 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:background="@color/cOrange"
+            android:gravity="center_horizontal"
+            android:textColor="@color/cSchwarz"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btnLevel_2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@color/cHellblau"
+            android:background="@color/cHellbraun"
             android:onClick="btnLevel_3"
             android:text="Level 3 - Binäre Verbindungen"
             android:textAllCaps="false"
@@ -86,14 +87,16 @@
             android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:background="@color/cHellbraun"
+            android:gravity="center_horizontal"
+            android:textColor="@color/cSchwarz"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btnLevel_3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@color/cHellblau"
+            android:background="@color/cLeichtblau"
             android:onClick="btnLevel_4"
             android:text="Level 4 - Ternäre Verbindungen"
             android:textAllCaps="false"
@@ -104,14 +107,16 @@
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:background="@color/cLeichtblau"
+            android:gravity="center_horizontal"
+            android:textColor="@color/cSchwarz"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btnLevel_4"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@color/cHellblau"
+            android:background="@color/cHellgruen"
             android:onClick="btnLevel_5"
             android:text="Level 5 - Quaternäre Verbindungen"
             android:textAllCaps="false"
@@ -122,14 +127,16 @@
             android:id="@+id/textView12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:background="@color/cHellgruen"
+            android:gravity="center_horizontal"
+            android:textColor="@color/cSchwarz"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btnLevel_5"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@color/cHellblau"
+            android:background="@color/chellrot"
             android:onClick="btnLevel_6"
             android:text="Level 6 - Trivialnamen"
             android:textAllCaps="false"
@@ -140,7 +147,10 @@
             android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:background="@color/chellrot"
+            android:gravity="center_horizontal"
+            android:textColor="@color/cSchwarz"
+            android:visibility="gone" />
 
 
     </LinearLayout>

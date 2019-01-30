@@ -972,28 +972,31 @@ public class QuizActivity extends Activity {
 				prefEditor.apply();
 
             }
+			if (intLevel > 2)
+			{
+				// ************************************************
+				// ********* Auslesen der Formel ******************
+				// ************************************************
 
-            // ************************************************
-            // ********* Auslesen der Formel ******************
-            // ************************************************
+				tv = (TextView) findViewById(R.id.tvFormel);
+				strFormel = tv.getText().toString();
 
-            tv = (TextView) findViewById(R.id.tvFormel);
-            strFormel = tv.getText().toString();
+				// *************************************************************
+				// ********* Auslesen der Anzahl der Elemente ******************
+				// *************************************************************
 
-            // *************************************************************
-            // ********* Auslesen der Anzahl der Elemente ******************
-            // *************************************************************
+				prefEditor.putInt("Runde_Klammer_auf", intRK_auf);
+				prefEditor.putInt("AnzahlElemente", intAnzahlElemente);
+				prefEditor.putFloat("Molekuelmasse_Runde_Klammer", fltMolekuelmasse_RK);
+				prefEditor.putFloat("Molmasse_Runde_Klammer", fltMM_RK);
+				prefEditor.putFloat("Atommasse", fltAtommasse);
+				prefEditor.putFloat("Molekuelmasse", fltMolekuelmasse);
+				prefEditor.putFloat("Molmasse", fltMM);
+				prefEditor.putString("Formel", strFormel);
 
-            prefEditor.putInt("Runde_Klammer_auf", intRK_auf);
-            prefEditor.putInt("AnzahlElemente", intAnzahlElemente);
-            prefEditor.putFloat("Molekuelmasse_Runde_Klammer", fltMolekuelmasse_RK);
-            prefEditor.putFloat("Molmasse_Runde_Klammer", fltMM_RK);
-            prefEditor.putFloat("Atommasse", fltAtommasse);
-            prefEditor.putFloat("Molekuelmasse", fltMolekuelmasse);
-            prefEditor.putFloat("Molmasse", fltMM);
-            prefEditor.putString("Formel", strFormel);
+				prefEditor.apply();
+			}
 
-            prefEditor.apply();
         }
 
         if (startTime == 0) {

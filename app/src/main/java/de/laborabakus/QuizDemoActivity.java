@@ -41,7 +41,7 @@ public class QuizDemoActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.quizdemo);
+        setContentView(R.layout.quiz_pse);
 
         timerTextView = (TextView) findViewById(R.id.timerTextView);
 

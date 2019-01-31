@@ -26,6 +26,13 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="12sp" />
 
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="12sp" />
+
         <Button
             android:id="@+id/btnWeiter"
             android:layout_width="wrap_content"
@@ -35,29 +42,10 @@
             android:background="@android:color/holo_red_dark"
             android:minEms="2"
             android:onClick="btnWeiter"
-            android:text="@string/Oxidationsstufen"
+            android:text="@string/Weiter"
             android:textColor="@color/cWeiss"
             tools:textColor="@color/cSchwarz" />
 
-        <TextView
-            android:id="@+id/timerTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="87dp"
-            android:layout_marginTop="13dp"
-            android:text="TextView" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="110dp"
-            android:text="Button" />
 
     </RelativeLayout>
 
@@ -76,29 +64,17 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="0dp"
-            android:ems="10"
-            android:hint="(Lösung)"
-            android:inputType="text" />
-
     </RelativeLayout>
 
     <TableLayout
-	    android:layout_width="fill_parent"
-    	android:layout_height="fill_parent" >
- 
-	    <TableRow
-	        android:id="@+id/tableRow1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" >
-	 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
             <Button
                 android:id="@+id/btnHauptgruppenelemente"
                 android:layout_width="0dp"
@@ -115,11 +91,11 @@
 
         </TableRow>
 
-	    <TableRow
-	        android:id="@+id/tableRow2"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" >
-            
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
             <Button
                 android:id="@+id/btnPSE_01"
                 style="android:attr/buttonBarButtonStyle"
@@ -231,9 +207,9 @@
         </TableRow>
 
         <TableRow
-	        android:id="@+id/tableRow3"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" >
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/btnPSE_02"
@@ -241,8 +217,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-				android:layout_weight="1"
-				android:textAllCaps="false"
+                android:layout_weight="1"
+                android:textAllCaps="false"
                 android:background="@color/cHellblau"
                 android:onClick="btnPSE"
                 android:text="@string/Li"
@@ -256,8 +232,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="1dp"
-				android:layout_weight="1"
-				android:textAllCaps="false"
+                android:layout_weight="1"
+                android:textAllCaps="false"
                 android:background="@color/cHellblau"
                 android:onClick="btnPSE"
                 android:text="@string/Be"
@@ -341,9 +317,9 @@
         </TableRow>
 
         <TableRow
-	        android:id="@+id/tableRow4"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" >
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/btnPSE_09"
@@ -451,9 +427,9 @@
         </TableRow>
 
         <TableRow
-	        android:id="@+id/tableRow5"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" >
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/btnPSE_16"
@@ -561,9 +537,9 @@
         </TableRow>
 
         <TableRow
-	        android:id="@+id/tableRow6"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" >
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/btnPSE_23"
@@ -671,9 +647,9 @@
         </TableRow>
 
         <TableRow
-	        android:id="@+id/tableRow7"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" >
+            android:id="@+id/tableRow7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/btnPSE_30"
@@ -781,9 +757,9 @@
         </TableRow>
 
         <TableRow
-	        android:id="@+id/tableRow8"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" >
+            android:id="@+id/tableRow8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/btnPSE_37"
@@ -841,7 +817,8 @@
                 android:background="@color/cSchwarz"
                 android:onClick="btnPSE"
                 android:textColor="@color/cEingabe"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="invisible"/>
 
             <Button
                 android:id="@+id/btnPSE_41"
@@ -855,7 +832,8 @@
                 android:background="@color/cSchwarz"
                 android:onClick="btnPSE"
                 android:textColor="@color/cEingabe"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="invisible"/>
 
             <Button
                 android:id="@+id/btnPSE_42"
@@ -869,7 +847,8 @@
                 android:background="@color/cSchwarz"
                 android:onClick="btnPSE"
                 android:textColor="@color/cEingabe"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:visibility="invisible"/>
 
             <Button
                 android:id="@+id/btnPSE_43"

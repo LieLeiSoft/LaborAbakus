@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class QuizDemoActivity extends Activity {
-
+/*
     TextView timerTextView;
     long startTime = 0;
 
@@ -71,5 +71,5 @@ public class QuizDemoActivity extends Activity {
         Button b = (Button)findViewById(R.id.button);
         b.setText("start");
     }
-
+*/
 }

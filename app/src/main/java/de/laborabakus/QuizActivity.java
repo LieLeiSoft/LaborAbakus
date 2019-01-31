@@ -88,7 +88,7 @@ public class QuizActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.molmassenbestimmung);       
+	    setContentView(R.layout.quiz_pse);
 
 		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);

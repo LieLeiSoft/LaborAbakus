@@ -911,7 +911,7 @@ public class QuizActivity extends Activity {
 			{
 				String text = "\n   Super!   \n   Richtig!   \n";
 				Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-				Meldung.setGravity(Gravity.TOP, 0, 0);
+				Meldung.setGravity(Gravity.BOTTOM, 0, 0);
 				Meldung.show();
 
 				intPunkte = intPunkte + 5;

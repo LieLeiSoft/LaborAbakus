@@ -582,6 +582,7 @@ public class QuizFragen {
        Quizfragen[intLfdNr_Gesamt][4] = "Hg";
         //endregion
 
+     
         //region Fragen für Level 3
 		/**********************************
 		 ****** Binäre Verbindungen *******

@@ -34,16 +34,15 @@
             android:textSize="12sp" />
 
         <Button
-            android:id="@+id/btnWeiter"
+            android:id="@+id/btnWeiter2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
             android:background="@android:color/holo_red_dark"
             android:minEms="2"
-            android:onClick="btnWeiter"
-            android:text="@string/Weiter"
             android:textColor="@color/cWeiss"
+            android:visibility="invisible"
             tools:textColor="@color/cSchwarz" />
 
 
@@ -73,21 +72,31 @@
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:background="@color/cEingabe">
 
             <Button
                 android:id="@+id/btnHauptgruppenelemente"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textAllCaps="false"
                 android:background="@color/cEingabe"
                 android:gravity="center_vertical|center_horizontal"
                 android:minEms="2"
+                android:lineSpacingExtra="5sp"
                 android:onClick="btnHauptgruppenelemente"
                 android:text="@string/Hauptgruppenelemente"
+                android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnWeiter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnWeiter"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/Weiter"/>
 
         </TableRow>
 

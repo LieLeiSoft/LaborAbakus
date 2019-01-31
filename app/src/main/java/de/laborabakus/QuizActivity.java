@@ -68,7 +68,7 @@ public class QuizActivity extends Activity {
 			}
 			else
 			{
-				timerTextView.setText("GAME OVER");
+				timerTextView.setText("END");
 				timerHandler.removeCallbacks(timerRunnable);
 				startTime = 0;
 
@@ -624,7 +624,7 @@ public class QuizActivity extends Activity {
 		Float fltMolekuelmasse_RK;
 
 		tv = (TextView) findViewById(R.id.timerTextView);
-		if (tv.getText().equals("GAME OVER"))
+		if (tv.getText().equals("END"))
 		{
 			return;
 		}
@@ -940,12 +940,14 @@ public class QuizActivity extends Activity {
 
 			strPunkte = Integer.toString(intPunkte);
 
+			tv = (TextView) findViewById(R.id.tvPunkte);
+			tv.setText("Score: "+strPunkte);
+
 			if(intHighscore < intPunkte)     // die neuen Punkte werden in die Highscore gespeichert, wenn sie höher sind
 			{
 				prefEditor.putString("Highscore"+strLevel, strPunkte);
 			}
 
-			// üüüüüüüüüüü
 			prefEditor.putInt("Runde_Klammer_auf", 0);
 			prefEditor.putInt("AnzahlElemente", 0);
 			prefEditor.putFloat("Molmasse_Runde_Klammer", 0);

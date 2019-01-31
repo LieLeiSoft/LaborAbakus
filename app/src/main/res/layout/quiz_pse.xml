@@ -10,28 +10,21 @@
         android:layout_height="wrap_content" >
 
         <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/cGold"
+            android:background="@color/cDunkelblau"
+            android:textSize="15sp" />
+
+        <TextView
             android:id="@+id/tvMolmasse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="30dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/TextViewTest01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/timerTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="12sp" />
+            android:layout_marginStart="50dp"
+            android:textColor="@color/cSchwarz"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/btnWeiter2"
@@ -53,15 +46,23 @@
         android:layout_height="50dp" >
 
         <TextView
+            android:id="@+id/tvPunkte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/cSchwarz"
+            android:background="@color/cHellblau"
+            android:textSize="15sp" />
+
+        <TextView
             android:id="@+id/tvFormel"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="100dp"
             android:lineSpacingExtra="5sp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="20sp" />
+            android:textColor="@color/cSchwarz"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 

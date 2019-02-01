@@ -15,23 +15,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="10dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/TextViewTest01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/timerTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="12sp" />
 
         <Button
             android:id="@+id/btnWeiter"
@@ -59,7 +45,7 @@
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="10dp"
             android:lineSpacingExtra="5sp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="20sp" />

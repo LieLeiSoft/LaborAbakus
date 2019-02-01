@@ -181,6 +181,15 @@ public class MolmassenActivity extends Activity {
 			
 			int intTextSize = Integer.parseInt(strTextSize);
 			int intButtonhoehe = Integer.parseInt(strButtonhoehe);
+
+			tv = (TextView) findViewById(R.id.tvMolmasse);
+			tv.setTextSize(intTextSize);
+
+			tv = (TextView) findViewById(R.id.tvFormel);
+			tv.setTextSize(intTextSize);
+
+			tv = (TextView) findViewById(R.id.btnWeiter);
+			tv.setTextSize(intTextSize);
 				
 			for (int x=1; x<=43; x++)															 
 			{

@@ -1,7 +1,7 @@
 package de.laborabakus;
 
 public class QuizFragen {
-	private static String[][] Quizfragen = new String[700][5];
+	private static String[][] Quizfragen = new String[800][5];
 	private static int[] LetzteQuizfragen = new int[10];
 	private static int intLfdNr_max = 0;
 	private static int intLfdNr_Gesamt = 0;
@@ -1909,6 +1909,151 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][2] = "Lithiumsulfid";
         Quizfragen[intLfdNr_Gesamt][3] = "45.942";
         Quizfragen[intLfdNr_Gesamt][4] = "Li2S";  // 2
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumbromid";
+     Quizfragen[intLfdNr_Gesamt][3] = "184.12999";
+     Quizfragen[intLfdNr_Gesamt][4] = "MgBr2";  // Elemente 2 – 184.113 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumchlorid";
+     Quizfragen[intLfdNr_Gesamt][3] = "95.218";
+     Quizfragen[intLfdNr_Gesamt][4] = "MgCl2";  // Elemente 2 – 95.211 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumfluorid";
+     Quizfragen[intLfdNr_Gesamt][3] = "62.308";
+     Quizfragen[intLfdNr_Gesamt][4] = "MgF2";  // Elemente 2 – 62.3018 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumhydrid";
+     Quizfragen[intLfdNr_Gesamt][3] = "26.328001";
+     Quizfragen[intLfdNr_Gesamt][4] = "MgH2";  // Elemente 2 – 26.3209 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumiodid";
+     Quizfragen[intLfdNr_Gesamt][3] = "278.112";
+     Quizfragen[intLfdNr_Gesamt][4] = "MgI2";  // Elemente 2 – 278.1139 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumnitrid";
+     Quizfragen[intLfdNr_Gesamt][3] = "100.9494";
+     Quizfragen[intLfdNr_Gesamt][4] = "Mg3N2";  // Elemente 2 – 100.9494 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumoxid";
+     Quizfragen[intLfdNr_Gesamt][3] = "40.311";
+     Quizfragen[intLfdNr_Gesamt][4] = "MgO";  // Elemente 2 – 40.3044 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumphosphid";
+     Quizfragen[intLfdNr_Gesamt][3] = "134.884";
+     Quizfragen[intLfdNr_Gesamt][4] = "Mg3P2";  // Elemente 2 – 134.86 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumsulfid";
+     Quizfragen[intLfdNr_Gesamt][3] = "56.376";
+     Quizfragen[intLfdNr_Gesamt][4] = "MgS";  // Elemente 2 – 56.38 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-bromid";
+     Quizfragen[intLfdNr_Gesamt][3] = "214.756";
+     Quizfragen[intLfdNr_Gesamt][4] = "MnBr2";  // Elemente 2 – 214.75 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-chlorid";
+     Quizfragen[intLfdNr_Gesamt][3] = "125.843994";
+     Quizfragen[intLfdNr_Gesamt][4] = "MnCl2";  // Elemente 2 – 125.84 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-fluorid";
+     Quizfragen[intLfdNr_Gesamt][3] = "92.93399";
+     Quizfragen[intLfdNr_Gesamt][4] = "MnF2";  // Elemente 2 – 92.93 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Mangan(IV)-fluorid";
+     Quizfragen[intLfdNr_Gesamt][3] = "130.93";
+     Quizfragen[intLfdNr_Gesamt][4] = "MnF4";  // Elemente 2 – 130.93 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-oxid";
+     Quizfragen[intLfdNr_Gesamt][3] = "70.937";
+     Quizfragen[intLfdNr_Gesamt][4] = "MnO";  // Elemente 2 – 70.94 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Mangan(III)-oxid";
+     Quizfragen[intLfdNr_Gesamt][3] = "157.873";
+     Quizfragen[intLfdNr_Gesamt][4] = "Mn2O3";  // Elemente 2 – 157.88 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Mangan(IV)-oxid";
+     Quizfragen[intLfdNr_Gesamt][3] = "86.936";
+     Quizfragen[intLfdNr_Gesamt][4] = "MnO2";  // Elemente 2 – 86.94 g/mol Braunstein
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Mangan(VII)-oxid";
+     Quizfragen[intLfdNr_Gesamt][3] = "221.86899";
+     Quizfragen[intLfdNr_Gesamt][4] = "Mn2O7";  // Elemente 2 – 221.87 g/mol
+
+     intLfdNr_Level++;
+     intLfdNr_Gesamt++;
+     Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+     Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+     Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-sulfid";
+     Quizfragen[intLfdNr_Gesamt][3] = "87.002";
+     Quizfragen[intLfdNr_Gesamt][4] = "MnS";  // Elemente 2 – 87.003 g/mol
+
         //endregion
 
         //region Fragen für Level 4
@@ -2893,6 +3038,118 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][2] = "Lithiumtetraborat";
         Quizfragen[intLfdNr_Gesamt][3] = "169.11499";
         Quizfragen[intLfdNr_Gesamt][4] = "Li2B4O7";  // 3
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumaluminat";
+        Quizfragen[intLfdNr_Gesamt][3] = "142.272";
+        Quizfragen[intLfdNr_Gesamt][4] = "MgAl2O4";  // Elemente 3 – 142.27 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumcarbonat";
+        Quizfragen[intLfdNr_Gesamt][3] = "84.31999";
+        Quizfragen[intLfdNr_Gesamt][4] = "MgCO3";  // Elemente 3 – 84.3139 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumhydroxid";
+        Quizfragen[intLfdNr_Gesamt][3] = "58.326";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mg(OH)2";  // Elemente 2 – 58.3197 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumnitrat";
+        Quizfragen[intLfdNr_Gesamt][3] = "148.31999";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mg(NO3)2";  // Elemente 3 – 148.3 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumphosphat";
+        Quizfragen[intLfdNr_Gesamt][3] = "262.876";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mg3(PO4)2";  // Elemente 3
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumperchlorat";
+        Quizfragen[intLfdNr_Gesamt][3] = "223.20999";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mg(ClO4)2";  // Elemente 3 – 223.206 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumsulfat";
+        Quizfragen[intLfdNr_Gesamt][3] = "120.371994";
+        Quizfragen[intLfdNr_Gesamt][4] = "MgSO4";  // Elemente 3 – 120.366 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumsulfit";
+        Quizfragen[intLfdNr_Gesamt][3] = "104.373";
+        Quizfragen[intLfdNr_Gesamt][4] = "MgSO3";  // Elemente 3 – 104.3682 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumthiosulfat";
+        Quizfragen[intLfdNr_Gesamt][3] = "136.437";
+        Quizfragen[intLfdNr_Gesamt][4] = "MgS2O3";  // Elemente 3 – 136.43 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumwolframat";
+        Quizfragen[intLfdNr_Gesamt][3] = "272.158";
+        Quizfragen[intLfdNr_Gesamt][4] = "MgWO4";  // Elemente 3 – 272.14 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-carbonat";
+        Quizfragen[intLfdNr_Gesamt][3] = "114.946";
+        Quizfragen[intLfdNr_Gesamt][4] = "MnCO3";  // Elemente 3 – 114.95 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-hydroxid";
+        Quizfragen[intLfdNr_Gesamt][3] = "88.951996";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mn(OH)2";  // Elemente 3 – 88.95 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-nitrat";
+        Quizfragen[intLfdNr_Gesamt][3] = "178.946";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mn(NO3)2";  // Elemente 3 – 178.95 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-sulfat";
+        Quizfragen[intLfdNr_Gesamt][3] = "150.001";
+        Quizfragen[intLfdNr_Gesamt][4] = "MnSO4";  // Elemente 3 – 151.001 g/mol
         //endregion
 
         //region Fragen für Level 5
@@ -3357,6 +3614,54 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][2] = "Lithiumeisenphosphat";
         Quizfragen[intLfdNr_Gesamt][3] = "157.756";
         Quizfragen[intLfdNr_Gesamt][4] = "LiFePO4";  // 4
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumacetat";
+        Quizfragen[intLfdNr_Gesamt][3] = "142.4";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mg(CH3COO)2";  // Elemente 4 142.394g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumhydrogencarbonat";
+        Quizfragen[intLfdNr_Gesamt][3] = "146.344";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mg(HCO3)2";  // Elemente 4
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumhydrogenphosphat";
+        Quizfragen[intLfdNr_Gesamt][3] = "120.28999";
+        Quizfragen[intLfdNr_Gesamt][4] = "MgHPO4";  // Elemente 4  - 120.33 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Magnesiumhydrogensulfat";
+        Quizfragen[intLfdNr_Gesamt][3] = "218.44798";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mg(HSO4)2";  // Elemente 4
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-acetat";
+        Quizfragen[intLfdNr_Gesamt][3] = "173.026";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mn(CH3COO)2";  // Elemente 4 – 173.03 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Mangan(III)-acetat";
+        Quizfragen[intLfdNr_Gesamt][3] = "232.06999";
+        Quizfragen[intLfdNr_Gesamt][4] = "Mn(CH3COO)3";  // Elemente 4
 
         //endregion
 

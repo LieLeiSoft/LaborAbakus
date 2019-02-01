@@ -265,7 +265,7 @@ public class QuizActivity extends Activity {
 		int intButtonhoehe = Integer.parseInt(strButtonhoehe);
 
 		tv = (TextView) findViewById(R.id.timerTextView);
-		tv.setTextSize(intTextSize);
+		tv.setTextSize(intTextSize+5);
 
 		tv = (TextView) findViewById(R.id.tvMolmasse);
 		tv.setTextSize(intTextSize);

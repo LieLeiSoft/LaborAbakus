@@ -20,16 +20,6 @@
             android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/timerTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:background="@color/cDunkelblau"
-            android:textColor="@color/cGold"
-            android:textSize="15sp" />
-
-        <TextView
             android:id="@+id/tvMolmasse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,13 +27,6 @@
             android:layout_marginStart="5dp"
             android:textColor="@color/cSchwarz"
             android:textSize="15sp" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="50dp">
 
         <TextView
             android:id="@+id/tvPunkte"
@@ -55,6 +38,12 @@
             android:textColor="@color/cSchwarz"
             android:textSize="15sp" />
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+
         <TextView
             android:id="@+id/tvFormel"
             android:layout_width="wrap_content"
@@ -62,6 +51,16 @@
             android:layout_marginStart="5dp"
             android:lineSpacingExtra="5sp"
             android:textColor="@color/cSchwarz"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/cDunkelblau"
+            android:textColor="@color/cGold"
             android:textSize="15sp" />
 
     </RelativeLayout>

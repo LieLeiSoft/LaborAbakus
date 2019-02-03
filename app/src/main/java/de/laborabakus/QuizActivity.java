@@ -265,13 +265,13 @@ public class QuizActivity extends Activity {
 		int intButtonhoehe = Integer.parseInt(strButtonhoehe);
 
 		tv = (TextView) findViewById(R.id.timerTextView);
-		tv.setTextSize(intTextSize+5);
+		tv.setTextSize(intTextSize+4);
 
 		tv = (TextView) findViewById(R.id.tvMolmasse);
 		tv.setTextSize(intTextSize);
 
 		tv = (TextView) findViewById(R.id.tvPunkte);
-		tv.setTextSize(intTextSize);
+		tv.setTextSize(intTextSize+4);
 
 		tv = (TextView) findViewById(R.id.tvFormel);
 		tv.setTextSize(intTextSize);
@@ -324,7 +324,7 @@ public class QuizActivity extends Activity {
 		params.height = intButtonhoehe;
 		tv.setLayoutParams(params);
 
-		tv.setTextSize(intTextSize);
+		tv.setTextSize(intTextSize-1);
 
 		tv = (TextView) findViewById(R.id.btnHauptgruppenelemente);
 		if (intLevel < 3) {
@@ -956,7 +956,7 @@ public class QuizActivity extends Activity {
 			strPunkte = Integer.toString(intPunkte);
 
 			tv = (TextView) findViewById(R.id.tvPunkte);
-			tv.setText("Score: "+strPunkte);
+			tv.setText(" " +strPunkte + " ");
 
 			if(intHighscore < intPunkte)     // die neuen Punkte werden in die Highscore gespeichert, wenn sie höher sind
 			{

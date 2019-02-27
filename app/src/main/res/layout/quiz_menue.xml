@@ -39,18 +39,9 @@
             android:layout_height="wrap_content"
             android:background="@color/cHellblau"
             android:onClick="btnLevel_1"
-            android:text="Level 1 - Hauptgruppenelemente"
             android:textAllCaps="false"
             android:textColor="@color/cSchwarz"
             android:textColorHighlight="@color/cSchwarz" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/cHellblau"
-            android:textColor="@color/cSchwarz"
-            android:gravity="center_horizontal" />
 
         <Button
             android:id="@+id/btnLevel_1"
@@ -58,17 +49,7 @@
             android:layout_height="wrap_content"
             android:background="@color/cOrange"
             android:onClick="btnLevel_2"
-            android:text="Level 2 - Nebengruppenelemente"
             android:textAllCaps="false"
-            android:textColor="@color/cSchwarz"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/cOrange"
-            android:gravity="center_horizontal"
             android:textColor="@color/cSchwarz"
             android:visibility="gone" />
 
@@ -78,17 +59,7 @@
             android:layout_height="wrap_content"
             android:background="@color/cHellbraun"
             android:onClick="btnLevel_3"
-            android:text="Level 3 - Binäre Verbindungen"
             android:textAllCaps="false"
-            android:textColor="@color/cSchwarz"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/cHellbraun"
-            android:gravity="center_horizontal"
             android:textColor="@color/cSchwarz"
             android:visibility="gone" />
 
@@ -98,17 +69,7 @@
             android:layout_height="wrap_content"
             android:background="@color/cLeichtblau"
             android:onClick="btnLevel_4"
-            android:text="Level 4 - Ternäre Verbindungen"
             android:textAllCaps="false"
-            android:textColor="@color/cSchwarz"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/cLeichtblau"
-            android:gravity="center_horizontal"
             android:textColor="@color/cSchwarz"
             android:visibility="gone" />
 
@@ -118,17 +79,7 @@
             android:layout_height="wrap_content"
             android:background="@color/cHellgruen"
             android:onClick="btnLevel_5"
-            android:text="Level 5 - Quaternäre Verbindungen"
             android:textAllCaps="false"
-            android:textColor="@color/cSchwarz"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/cHellgruen"
-            android:gravity="center_horizontal"
             android:textColor="@color/cSchwarz"
             android:visibility="gone" />
 
@@ -138,17 +89,7 @@
             android:layout_height="wrap_content"
             android:background="@color/chellrot"
             android:onClick="btnLevel_6"
-            android:text="Level 6 - Trivialnamen"
             android:textAllCaps="false"
-            android:textColor="@color/cSchwarz"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/chellrot"
-            android:gravity="center_horizontal"
             android:textColor="@color/cSchwarz"
             android:visibility="gone" />
 

@@ -46,6 +46,8 @@ public class QuizMenueActivity extends Activity {
 		int intHighscore = 0;
 		int intSpeicher;
 
+		int[] arrHighscore = new int[10];
+
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		SharedPreferences.Editor prefEditor = prefs.edit();
 
@@ -54,69 +56,58 @@ public class QuizMenueActivity extends Activity {
             strX = Integer.toString(x);
             strHighscore = prefs.getString("Highscore"+strX, "0");
 
-            intSpeicher = Integer.parseInt(strHighscore);
-            intHighscore = intHighscore + intSpeicher;
+            arrHighscore[x] = Integer.parseInt(strHighscore);
+            intHighscore = intHighscore + arrHighscore[x];
         }
-
-        // **********************************
-		strHighscore = prefs.getString("Highscore1", "0");
-		tv = (TextView) findViewById(R.id.textView8);
-		tv.setText("Highscore: "+strHighscore);
-
-		strHighscore = prefs.getString("Highscore2", "0");
-		tv = (TextView) findViewById(R.id.textView9);
-		tv.setText("Highscore: "+strHighscore);
-
-		strHighscore = prefs.getString("Highscore3", "0");
-		tv = (TextView) findViewById(R.id.textView10);
-		tv.setText("Highscore: "+strHighscore);
-
-		strHighscore = prefs.getString("Highscore4", "0");
-		tv = (TextView) findViewById(R.id.textView11);
-		tv.setText("Highscore: "+strHighscore);
-
-		strHighscore = prefs.getString("Highscore5", "0");
-		tv = (TextView) findViewById(R.id.textView12);
-		tv.setText("Highscore: "+strHighscore);
-
-		strHighscore = prefs.getString("Highscore6", "0");
-		tv = (TextView) findViewById(R.id.textView13);
-		tv.setText("Highscore: "+strHighscore);
-		// **********************************
 
 		strHighscore = Integer.toString(intHighscore);
 
 		tv = (TextView) findViewById(R.id.tvHighscore);
 		tv.setText("Highscore: "+strHighscore);
 
-		if(intHighscore > 10)
+		tv = (TextView) findViewById(R.id.btnLevel_0);
+		tv.setVisibility(View.VISIBLE);
+		strHighscore = Integer.toString(arrHighscore[1]);
+		tv.setText("\nLevel 1 - Hauptgruppenelemente\n Highscore: "+strHighscore+"\n");
+
+		if(arrHighscore[1] > 29)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_1);
 			tv.setVisibility(View.VISIBLE);
+			strHighscore = Integer.toString(arrHighscore[2]);
+			tv.setText("\nLevel 2 - Nebengruppenelemente\n Highscore: "+strHighscore+"\n");
 		}
 
-		if(intHighscore > 20)
+		if(arrHighscore[2] > 29)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_2);
 			tv.setVisibility(View.VISIBLE);
+			strHighscore = Integer.toString(arrHighscore[3]);
+			tv.setText("\nLevel 3 - Binäre Verbindungen\n Highscore: "+strHighscore+"\n");
 		}
 
-		if(intHighscore > 30)
+		if(arrHighscore[3] > 19)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_3);
 			tv.setVisibility(View.VISIBLE);
+			strHighscore = Integer.toString(arrHighscore[4]);
+			tv.setText("\nLevel 4 - Ternäre Verbindungen\n Highscore: "+strHighscore+"\n");
 		}
 
-		if(intHighscore > 40)
+		if(arrHighscore[4] > 19)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_4);
 			tv.setVisibility(View.VISIBLE);
+			strHighscore = Integer.toString(arrHighscore[5]);
+			tv.setText("\nLevel 5 - Quaternäre Verbindungen\n Highscore: "+strHighscore+"\n");
 		}
 
-		if(intHighscore > 50)
+		if(arrHighscore[5] > 19)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_5);
 			tv.setVisibility(View.VISIBLE);
+			strHighscore = Integer.toString(arrHighscore[6]);
+			tv.setText("\nLevel 6 - Trivialnamen\n Highscore: "+strHighscore+"\n");
 		}
 
 

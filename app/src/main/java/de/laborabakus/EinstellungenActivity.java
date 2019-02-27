@@ -346,7 +346,7 @@ public class EinstellungenActivity extends Activity {
     	strEingabe = tv.getText().toString();
     	intEingabe = Integer.parseInt(strEingabe);
     	
-     	if (intEingabe >=11)
+     	if (intEingabe >=6)
      	{
      		intEingabe = intEingabe - 1;
      	}
@@ -387,9 +387,9 @@ public class EinstellungenActivity extends Activity {
     	strEingabe = tv.getText().toString();
     	intEingabe = Integer.parseInt(strEingabe);
      	
-    	if (intEingabe >=100)
+    	if (intEingabe >=50)
      	{
-    	intEingabe = intEingabe - 10;
+    	intEingabe = intEingabe - 5;
      	}
     	
     	strEingabe = Integer.toString((int) intEingabe);

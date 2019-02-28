@@ -83,10 +83,10 @@ public class QuizMenueActivity extends Activity {
 			tv = (TextView) findViewById(R.id.btnLevel_2);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[3]);
-			tv.setText("\nLevel 3 - Binäre Verbindungen\n Highscore: "+strHighscore+"  (min. 20)\n");
+			tv.setText("\nLevel 3 - Binäre Verbindungen\n Highscore: "+strHighscore+"  (min. 30)\n");
 		}
 
-		if(arrHighscore[3] > 19)
+		if(arrHighscore[3] > 29)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_3);
 			tv.setVisibility(View.VISIBLE);
@@ -204,34 +204,6 @@ public class QuizMenueActivity extends Activity {
 	}
 
 
-
-/*
-	public void btnLevel(View v)
-	{
-
-		 // DAS KLAPPT IRGENDWIE NICHT BEI MIR!
-		String strFeldname = "";
-		int intPos = 0;
-		String strLevel = "";
-
-		// Feldnamen anhand der ID ermitteln
-		strFeldname = getResources().getResourceEntryName(v.getId());
-		// Feldnummer aus Feldnamen extrahieren und in strAuswahl speichern
-		intPos = strFeldname.indexOf("_")+1;
-		strLevel = strFeldname.substring(intPos);
-
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		SharedPreferences.Editor prefEditor = prefs.edit();
-
-		prefEditor.putString("Level", strLevel);
-		prefEditor.apply();
-
-		Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
-		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-		startActivity(myIntent);
-
-	}
-*/
 	/********************************************
 	 ************** Menue Button ****************
 	 ********************************************/

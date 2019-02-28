@@ -1081,6 +1081,13 @@ public class QuizActivity extends Activity {
             Meldung.show();
         }
 
+		intPunkte = intPunkte - 1;
+
+		strPunkte = Integer.toString(intPunkte);
+
+		tv = (TextView) findViewById(R.id.tvPunkte);
+		tv.setText(" " +strPunkte + " ");
+
         intFrageNr = QuizFragen.ermittel_LfdNr(intLevel);
         QuizFragen.lese_Quizfrage(intLevel, intFrageNr);
 

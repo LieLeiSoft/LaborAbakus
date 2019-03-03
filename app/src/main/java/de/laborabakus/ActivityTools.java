@@ -4,13 +4,21 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 public class ActivityTools {
-	// Gleitkommazahl runden
+	// Gleitkommazahl vom Typ Double runden
 	public static double fktRunden(double Zahl, int AnzahlStellen) {
 		long Dummy =  (long) Math.pow(10, AnzahlStellen);
 		double Ergebnis = (long) ((Zahl*Dummy) + (0.5*Math.signum(Zahl))) / (Dummy*1.0); // *1.0 damit's ein double wird!
 		
 		return Ergebnis;		
 	} // fktRunden
+
+	// Gleitkommazahl vom Typ Float runden
+	// https://www.java-forum.org/thema/float-auf-bestimmte-nachkommazahl-runden.102634/
+	public static float fktRundenFloat(final float number, final int decimalPlaces) {
+		float precision = 1.0F;
+		for (int i = 0; i < decimalPlaces; i++, precision *= 10);
+		return ((int) (number * precision + 0.5)  / precision);
+	}
 
 	/*
 	   Text duplizieren
@@ -21,7 +29,7 @@ public class ActivityTools {
     
 	   http://rosettacode.org/wiki/Repeat_a_string#Java
 	   Works with: Java version 1.5+
-	 */
+	*/
 	public static String repeat(String str, int times){
 		return new String(new char[times]).replace("\0", str);
 	} // repeat

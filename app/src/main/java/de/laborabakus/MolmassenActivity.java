@@ -40,8 +40,8 @@ public class MolmassenActivity extends Activity {
 
 		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
-	   
-	    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 	    SharedPreferences.Editor prefEditor = prefs.edit(); 											// Haupt- und Nebengruppenelemente inklusive ihrer Atommassen 
 	    																								// werden in die Konfigurationsdatei eingelesen.
 	    prefEditor.putInt("AnzahlElemente", 0);
@@ -619,56 +619,56 @@ public class MolmassenActivity extends Activity {
 			}
 
 
+			prefEditor.putString("Index", "");						// Der Index wird zurück gesetzt, weil ein neues Element ausgelesen wird
+
+			if (strPSE.equals("Hauptgruppenelemente" ) == true)
 			{
-				prefEditor.putString("Index", "");						// Der Index wird zurück gesetzt, weil ein neues Element ausgelesen wird
-				
-				if (strPSE.equals("Hauptgruppenelemente" ) == true)
-				{
-					strKey = "HE_";
-				}
-				else
-				{
-					strKey = "NE_";
-				}
-				strFeldname = getResources().getResourceName(v.getId());
-				intFeldNr = Integer.parseInt(strFeldname.substring(strFeldname.length()-2));
+				strKey = "HE_";
+			}
+			else
+			{
+				strKey = "NE_";
+			}
+			strFeldname = getResources().getResourceName(v.getId());
+			intFeldNr = Integer.parseInt(strFeldname.substring(strFeldname.length()-2));
 
-				strKey = strKey + "MM_"+Integer.toString(intFeldNr);
+			strKey = strKey + "MM_"+Integer.toString(intFeldNr);
 
-				fltAtommasse = prefs.getFloat(strKey, 0);				// Atommasse des gesuchten Elements aus der "Datenbank"
-				
-				switch (intRK_auf)										// Auswahl runde Klammer
+			fltAtommasse = prefs.getFloat(strKey, 0);				// Atommasse des gesuchten Elements aus der "Datenbank"
+
+			switch (intRK_auf)										// Auswahl runde Klammer
+			{
+			case 0:													// 0 , wenn die Klammer zu ist
+
+				fltMolekuelmasse = fltAtommasse;					// Die Molekuelmasse wird errechnet.
+				fltMolekuelmasse_RK = (float) 0;
+				fltMM = fltMM + fltMolekuelmasse;
+
+			break;
+
+			case 1:													// 1 , wenn die Klammer offen ist
+
+				fltMolekuelmasse_RK = fltAtommasse;					// Die Molekuelmasse wird errechnet.
+				fltMM_RK = fltMM_RK + fltMolekuelmasse_RK;
+				fltMM = fltMM + fltMolekuelmasse_RK;
+
+			break;
+
+			case 2:													// 2 , wenn die Klammer geschlossen ist
+
+				if (strElement.equals(")") == false)				// die Klammer ist geschlossen und ein neues Element wird eingegeben
 				{
-				case 0:													// 0 , wenn die Klammer zu ist
-					
-					fltMolekuelmasse = fltAtommasse;					// Die Molekuelmasse wird errechnet.
-					fltMolekuelmasse_RK = (float) 0;
+					intRK_auf = 0;
+					fltMM_RK = (float) 0;
+					fltMolekuelmasse = fltAtommasse;
 					fltMM = fltMM + fltMolekuelmasse;
-					
-				break;
-							
-				case 1:													// 1 , wenn die Klammer offen ist
-					
-					fltMolekuelmasse_RK = fltAtommasse;					// Die Molekuelmasse wird errechnet.
-					fltMM_RK = fltMM_RK + fltMolekuelmasse_RK;
-					fltMM = fltMM + fltMolekuelmasse_RK;
-						
-				break;
-					
-				case 2:													// 2 , wenn die Klammer geschlossen ist 
-					
-					if (strElement.equals(")") == false)				// die Klammer ist geschlossen und ein neues Element wird eingegeben
-					{
-						intRK_auf = 0;
-						fltMM_RK = (float) 0;
-						fltMolekuelmasse = fltAtommasse;
-						fltMM = fltMM + fltMolekuelmasse;
-					}
-					
-				break;
 				}
-			}	
-		}
+
+			break;
+			} // switch (intRK_auf)
+
+			fltMM = ActivityTools.fktRundenFloat(fltMM, 3);
+		} // if (strElement.matches("[0-9]") == false)
 		
 		// ************************************************
 		// ********* Button: Eingabe Zahl *****************
@@ -739,20 +739,18 @@ public class MolmassenActivity extends Activity {
 					fltMM = fltMM + fltMM_RK;
 				}
 
-				
 			break;
-			}
+			} // switch (intRK_auf)
 
-					
+			fltMM = ActivityTools.fktRundenFloat(fltMM, 3);
+
 			prefEditor.putString("Index", strElement); 					// Die Index Zahl wird in die Konfig Datei gespeichert, falls eine weitere Zahl als 10er Potenz eingegeben wird.
-			
-		}
+		} // if (strElement.matches("[0-9]") == true)
 		
 		// ************************************************
 		// ********* Anzeige der Buttons ******************
 		// ************************************************	
-		
-	
+
 		if (strElement.equals("") == false)
 			{
 				tv = (TextView) findViewById(R.id.btnWeiter);

@@ -736,56 +736,56 @@ public class QuizActivity extends Activity {
 			}
 
 
-			{
-				prefEditor.putString("Index", "");						// Der Index wird zurück gesetzt, weil ein neues Element ausgelesen wird
-				
-				if (strPSE.equals("Hauptgruppenelemente" ) == true)
-				{
-					strKey = "HE_";
-				}
-				else
-				{
-					strKey = "NE_";
-				}
-				strFeldname = getResources().getResourceName(v.getId());
-				intFeldNr = Integer.parseInt(strFeldname.substring(strFeldname.length()-2));
+            prefEditor.putString("Index", "");						// Der Index wird zurück gesetzt, weil ein neues Element ausgelesen wird
 
-				strKey = strKey + "MM_"+Integer.toString(intFeldNr);
+            if (strPSE.equals("Hauptgruppenelemente" ) == true)
+            {
+                strKey = "HE_";
+            }
+            else
+            {
+                strKey = "NE_";
+            }
+            strFeldname = getResources().getResourceName(v.getId());
+            intFeldNr = Integer.parseInt(strFeldname.substring(strFeldname.length()-2));
 
-				fltAtommasse = prefs.getFloat(strKey, 0);				// Atommasse des gesuchten Elements aus der "Datenbank"
-				
-				switch (intRK_auf)										// Auswahl runde Klammer
-				{
-				case 0:													// 0 , wenn die Klammer zu ist
-					
-					fltMolekuelmasse = fltAtommasse;					// Die Molekuelmasse wird errechnet.
-					fltMolekuelmasse_RK = (float) 0;
-					fltMM = fltMM + fltMolekuelmasse;
-					
-				break;
-							
-				case 1:													// 1 , wenn die Klammer offen ist
-					
-					fltMolekuelmasse_RK = fltAtommasse;					// Die Molekuelmasse wird errechnet.
-					fltMM_RK = fltMM_RK + fltMolekuelmasse_RK;
-					fltMM = fltMM + fltMolekuelmasse_RK;
-						
-				break;
-					
-				case 2:													// 2 , wenn die Klammer geschlossen ist 
-					
-					if (strElement.equals(")") == false)				// die Klammer ist geschlossen und ein neues Element wird eingegeben
-					{
-						intRK_auf = 0;
-						fltMM_RK = (float) 0;
-						fltMolekuelmasse = fltAtommasse;
-						fltMM = fltMM + fltMolekuelmasse;
-					}
-					
-				break;
-				}
-			}	
-		}
+            strKey = strKey + "MM_"+Integer.toString(intFeldNr);
+
+            fltAtommasse = prefs.getFloat(strKey, 0);				// Atommasse des gesuchten Elements aus der "Datenbank"
+
+            switch (intRK_auf)										// Auswahl runde Klammer
+            {
+            case 0:													// 0 , wenn die Klammer zu ist
+
+                fltMolekuelmasse = fltAtommasse;					// Die Molekuelmasse wird errechnet.
+                fltMolekuelmasse_RK = (float) 0;
+                fltMM = fltMM + fltMolekuelmasse;
+
+            break;
+
+            case 1:													// 1 , wenn die Klammer offen ist
+
+                fltMolekuelmasse_RK = fltAtommasse;					// Die Molekuelmasse wird errechnet.
+                fltMM_RK = fltMM_RK + fltMolekuelmasse_RK;
+                fltMM = fltMM + fltMolekuelmasse_RK;
+
+            break;
+
+            case 2:													// 2 , wenn die Klammer geschlossen ist
+
+                if (strElement.equals(")") == false)				// die Klammer ist geschlossen und ein neues Element wird eingegeben
+                {
+                    intRK_auf = 0;
+                    fltMM_RK = (float) 0;
+                    fltMolekuelmasse = fltAtommasse;
+                    fltMM = fltMM + fltMolekuelmasse;
+                }
+
+            break;
+            } // switch (intRK_auf)
+
+            fltMM = ActivityTools.fktRundenFloat(fltMM, 3);
+        } // if (strElement.matches("[0-9]") == false)
 		
 		// ************************************************
 		// ********* Button: Eingabe Zahl *****************
@@ -855,15 +855,14 @@ public class QuizActivity extends Activity {
 					
 					fltMM = fltMM + fltMM_RK;
 				}
-
 				
 			break;
-			}
+			} // switch (intRK_auf)
 
-					
+            fltMM = ActivityTools.fktRundenFloat(fltMM, 3);
+
 			prefEditor.putString("Index", strElement); 					// Die Index Zahl wird in die Konfig Datei gespeichert, falls eine weitere Zahl als 10er Potenz eingegeben wird.
-			
-		}
+		} // if (strElement.matches("[0-9]") == true)
 		
 		// ************************************************
 		// ********* Anzeige der Buttons ******************
@@ -875,7 +874,6 @@ public class QuizActivity extends Activity {
 				tv = (TextView) findViewById(R.id.btnWeiter);
 				tv.setVisibility(View.VISIBLE);
 			}
-
 
 		if (intLevel > 2) {
 			for (int x=1; x<=4; x++) {
@@ -968,7 +966,6 @@ public class QuizActivity extends Activity {
 			prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
 			prefEditor.putFloat("Molmasse", 0);
 			prefEditor.apply();
-
 		}
         else
         {

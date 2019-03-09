@@ -665,6 +665,14 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Ammoniak";
+        Quizfragen[intLfdNr_Gesamt][3] = "17.031";
+        Quizfragen[intLfdNr_Gesamt][4] = "NH3";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Antimon(III)-bromid";
         Quizfragen[intLfdNr_Gesamt][3] = "361.477";
         Quizfragen[intLfdNr_Gesamt][4] = "SbBr3";
@@ -1177,6 +1185,14 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Salzsäure";
+        Quizfragen[intLfdNr_Gesamt][3] = "36.461";
+        Quizfragen[intLfdNr_Gesamt][4] = "HCl";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Chlortrifluorid"; // ClF3
         Quizfragen[intLfdNr_Gesamt][3] = "92.447"; // 2
         Quizfragen[intLfdNr_Gesamt][4] = "ClF3";
@@ -1356,6 +1372,14 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][2] = "Eisen(III)-sulfid"; // Fe2S3
         Quizfragen[intLfdNr_Gesamt][3] = "207.886"; // 2
         Quizfragen[intLfdNr_Gesamt][4] = "Fe2S3";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Flusssäure";
+        Quizfragen[intLfdNr_Gesamt][3] = "20.006";
+        Quizfragen[intLfdNr_Gesamt][4] = "HF";
 
         intLfdNr_Level++;
         intLfdNr_Gesamt++;
@@ -2609,22 +2633,6 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Schweflige Säure";
-        Quizfragen[intLfdNr_Gesamt][3] = "82.077";
-        Quizfragen[intLfdNr_Gesamt][4] = "H2SO3";  // Elemente 3 – 82,07 g/mol
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Schwefelsäure";
-        Quizfragen[intLfdNr_Gesamt][3] = "98.076";
-        Quizfragen[intLfdNr_Gesamt][4] = "H2SO4";  // Elemente 3
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Schwefelkohlenstoff";
         Quizfragen[intLfdNr_Gesamt][3] = "76.139";
         Quizfragen[intLfdNr_Gesamt][4] = "CS2";  // Elemente 2 – 76,139 g/mol
@@ -3768,6 +3776,14 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Essigsäure";
+        Quizfragen[intLfdNr_Gesamt][3] = "60.052";
+        Quizfragen[intLfdNr_Gesamt][4] = "CH3COOH";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Galliumhydroxid";
         Quizfragen[intLfdNr_Gesamt][3] = "120.741";
         Quizfragen[intLfdNr_Gesamt][4] = "Ga(OH)3";  // 3
@@ -3859,6 +3875,14 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][2] = "Natriumsulfat";
         Quizfragen[intLfdNr_Gesamt][3] = "142.04";
         Quizfragen[intLfdNr_Gesamt][4] = "Na2SO4";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Kalilauge";
+        Quizfragen[intLfdNr_Gesamt][3] = "56.109";
+        Quizfragen[intLfdNr_Gesamt][4] = "KOH";
 
         intLfdNr_Level++;
         intLfdNr_Gesamt++;
@@ -4312,6 +4336,14 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Natronlauge";
+        Quizfragen[intLfdNr_Gesamt][3] = "39.997";
+        Quizfragen[intLfdNr_Gesamt][4] = "NaOH";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Natriumaluminat";
         Quizfragen[intLfdNr_Gesamt][3] = "81.97";
         Quizfragen[intLfdNr_Gesamt][4] = "NaAlO2";  // Elemente 3 – 81.97 g/mol
@@ -4659,6 +4691,38 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][4] = "RbNO3";  // Elemente 3 – 147.473 g/mol
 
         // S
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Schweflige Säure";
+        Quizfragen[intLfdNr_Gesamt][3] = "82.077";
+        Quizfragen[intLfdNr_Gesamt][4] = "H2SO3";  // Elemente 3 – 82,07 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Schwefelsäure";
+        Quizfragen[intLfdNr_Gesamt][3] = "98.076";
+        Quizfragen[intLfdNr_Gesamt][4] = "H2SO4";  // Elemente 3
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "schweflige Säure";
+        Quizfragen[intLfdNr_Gesamt][3] = "82.077";
+        Quizfragen[intLfdNr_Gesamt][4] = "H2SO3";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Salpetersäure";
+        Quizfragen[intLfdNr_Gesamt][3] = "63.012";
+        Quizfragen[intLfdNr_Gesamt][4] = "HNO3";
 
         intLfdNr_Level++;
         intLfdNr_Gesamt++;
@@ -5579,14 +5643,6 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Wasser";
-        Quizfragen[intLfdNr_Gesamt][3] = "18.015";
-        Quizfragen[intLfdNr_Gesamt][4] = "H2O";
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Antichlor";
         Quizfragen[intLfdNr_Gesamt][3] = "158.105";
         Quizfragen[intLfdNr_Gesamt][4] = "Na2S2O3";
@@ -5971,33 +6027,9 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Flusssäure";
-        Quizfragen[intLfdNr_Gesamt][3] = "20.006";
-        Quizfragen[intLfdNr_Gesamt][4] = "HF";
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Kalilauge";
-        Quizfragen[intLfdNr_Gesamt][3] = "56.109";
-        Quizfragen[intLfdNr_Gesamt][4] = "KOH";
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Magnesiamilch";
         Quizfragen[intLfdNr_Gesamt][3] = "58.326";
         Quizfragen[intLfdNr_Gesamt][4] = "Mg(OH)2";
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Natronlauge";
-        Quizfragen[intLfdNr_Gesamt][3] = "39.997";
-        Quizfragen[intLfdNr_Gesamt][4] = "NaOH";
 
         intLfdNr_Level++;
         intLfdNr_Gesamt++;
@@ -6019,49 +6051,9 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Salpetersäure";
-        Quizfragen[intLfdNr_Gesamt][3] = "63.012";
-        Quizfragen[intLfdNr_Gesamt][4] = "HNO3";
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Salzsäure";
-        Quizfragen[intLfdNr_Gesamt][3] = "36.461";
-        Quizfragen[intLfdNr_Gesamt][4] = "HCl";
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Schwefelsäure";
-        Quizfragen[intLfdNr_Gesamt][3] = "98.076";
-        Quizfragen[intLfdNr_Gesamt][4] = "H2SO4";
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Scheidewasser";
         Quizfragen[intLfdNr_Gesamt][3] = "63.012";
         Quizfragen[intLfdNr_Gesamt][4] = "HNO3";
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "schweflige Säure";
-        Quizfragen[intLfdNr_Gesamt][3] = "82.077";
-        Quizfragen[intLfdNr_Gesamt][4] = "H2SO3";
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Ammoniak";
-        Quizfragen[intLfdNr_Gesamt][3] = "17.031";
-        Quizfragen[intLfdNr_Gesamt][4] = "NH3";
 
         intLfdNr_Level++;
         intLfdNr_Gesamt++;
@@ -6142,14 +6134,6 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][2] = "Formaldehyd";
         Quizfragen[intLfdNr_Gesamt][3] = "30.026";
         Quizfragen[intLfdNr_Gesamt][4] = "CH2O";
-
-        intLfdNr_Level++;
-        intLfdNr_Gesamt++;
-        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
-        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Essigsäure";
-        Quizfragen[intLfdNr_Gesamt][3] = "60.052";
-        Quizfragen[intLfdNr_Gesamt][4] = "CH3COOH";
 
         intLfdNr_Level++;
         intLfdNr_Gesamt++;

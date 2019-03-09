@@ -68,41 +68,41 @@ public class QuizMenueActivity extends Activity {
 		tv = (TextView) findViewById(R.id.btnLevel_0);
 		tv.setVisibility(View.VISIBLE);
 		strHighscore = Integer.toString(arrHighscore[1]);
-		tv.setText("\nLevel 1 - Hauptgruppenelemente\n Highscore: "+strHighscore+"  (min. 30)\n");
+		tv.setText("\nLevel 1 - Hauptgruppenelemente\n Highscore: "+strHighscore+"  (min. 25)\n");
 
-		if(arrHighscore[1] > 29)
+		if(arrHighscore[1] > 24)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_1);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[2]);
-			tv.setText("\nLevel 2 - Nebengruppenelemente\n Highscore: "+strHighscore+"  (min. 30)\n");
+			tv.setText("\nLevel 2 - Nebengruppenelemente\n Highscore: "+strHighscore+"  (min. 25)\n");
 		}
 
-		if(arrHighscore[2] > 29)
+		if(arrHighscore[2] > 24)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_2);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[3]);
-			tv.setText("\nLevel 3 - Binäre Verbindungen\n Highscore: "+strHighscore+"  (min. 30)\n");
+			tv.setText("\nLevel 3 - Binäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
 		}
 
-		if(arrHighscore[3] > 29)
+		if(arrHighscore[3] > 24)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_3);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[4]);
-			tv.setText("\nLevel 4 - Ternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 20)\n");
+			tv.setText("\nLevel 4 - Ternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
 		}
 
-		if(arrHighscore[4] > 19)
+		if(arrHighscore[4] > 24)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_4);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[5]);
-			tv.setText("\nLevel 5 - Quaternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 20)\n");
+			tv.setText("\nLevel 5 - Quaternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
 		}
 
-		if(arrHighscore[5] > 19)
+		if(arrHighscore[5] > 24)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_5);
 			tv.setVisibility(View.VISIBLE);

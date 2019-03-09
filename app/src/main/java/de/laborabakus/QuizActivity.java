@@ -932,8 +932,15 @@ public class QuizActivity extends Activity {
 				Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
 				Meldung.setGravity(Gravity.BOTTOM, 0, 0);
 				Meldung.show();
+			}
 
-				intPunkte = intPunkte + 5;
+			if (intLevel == 3)
+			{
+				intPunkte = intPunkte + 3;
+			}
+			if (intLevel > 3)
+			{
+				intPunkte = intPunkte + 6;
 			}
 			else
 			{

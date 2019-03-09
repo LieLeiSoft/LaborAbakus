@@ -46,11 +46,23 @@ public class HilfeActivity extends Activity {
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Verdünnen von konzentrierten Lösungen";
+		Hilfe[intFeldNr][2] = "Verdünnen von konzentrierten Lösungen";
+		Hilfe[intFeldNr][3] = "xxxxxxxxxxxxxxxxx";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Molmasse und Oxidationsstufen";
 		Hilfe[intFeldNr][2] = "Molmasse und Oxidationsstufen";
 		Hilfe[intFeldNr][3] = "Mit dieser Routine lässt sich die Atommasse einzelner Elemente der " +
 				"Haupt- und Nebengruppen bestimmen. Ganze Molmassen von Formeln können ebenfalls " +
 				"über das PSE Eingabefeld berechnet werden.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "PSE - Quiz";
+		Hilfe[intFeldNr][2] = "PSE - Quiz";
+		Hilfe[intFeldNr][3] = "xxxxxxxxxxxxxxxxxxxxx";
 
 
 		intFeldNr_max = intFeldNr;

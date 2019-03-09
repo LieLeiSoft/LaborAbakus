@@ -1095,7 +1095,7 @@ public class QuizActivity extends Activity {
 			TextView tv = new TextView(QuizActivity.this);
 			tv.setBackgroundColor(Color.RED);
 			tv.setTextColor(Color.BLACK);
-			tv.setTextSize(intTextSize+5);
+			tv.setTextSize(intTextSize+8);
 
 			// Typeface t = Typeface.create("serif", Typeface.BOLD_ITALIC);
 			// tv.setTypeface(t);

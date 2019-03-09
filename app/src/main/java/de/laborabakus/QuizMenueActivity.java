@@ -107,7 +107,7 @@ public class QuizMenueActivity extends Activity {
 			tv = (TextView) findViewById(R.id.btnLevel_5);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[6]);
-			tv.setText("\nLevel 6 - Trivialnamen\n Highscore: "+strHighscore+"\n");
+			tv.setText("\nLevel 6 - Trivialnamen und\nenglisch Bezeichnungen\nHighscore: "+strHighscore+"\n");
 		}
 
 

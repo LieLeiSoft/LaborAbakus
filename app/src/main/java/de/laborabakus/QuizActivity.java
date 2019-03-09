@@ -4,17 +4,22 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.text.Html;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,8 +38,9 @@ public class QuizActivity extends Activity {
 	String strFrage;
     String strAntwort;
     String strLevel;
+    private Context context;
 
-	public enum Element 														// http://www.mindfiresolutions.com/How-to-handle-String-in-switch-case-of-JAVA-617.php
+    public enum Element 														// http://www.mindfiresolutions.com/How-to-handle-String-in-switch-case-of-JAVA-617.php
 	// emnum Aufzählungstyp Element
 	{
 	H, Li, Be, B, C, N, O, F, Na, Mg, Al, Si, P
@@ -1071,11 +1077,32 @@ public class QuizActivity extends Activity {
 	{
         if (QuizFragen.mAntwortText != null)
         {
-            String text = "Richtige Antwort für '"+strFrage+"' wäre gewesen:"
-                         +"\n"+QuizFragen.mAntwortText;
-            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-            Meldung.setGravity(Gravity.BOTTOM, 0, 0);
-            Meldung.show();
+			// Textgröße einstellen
+        	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+			SharedPreferences.Editor prefEditor = prefs.edit();
+
+			String strTextSize = prefs.getString("TG_Molmasse", "16");
+			int intTextSize = Integer.parseInt(strTextSize);
+
+			// Text tiefer stellen
+			String strAntwortText = QuizFragen.mAntwortText;
+			strAntwortText = ActivityTools.fktZiffernTiefstellen(strAntwortText);
+
+			// Toast anzeigen
+        	Toast toast = new Toast(getApplicationContext());
+			toast.setGravity(Gravity.BOTTOM,0,0);
+
+			TextView tv = new TextView(QuizActivity.this);
+			tv.setBackgroundColor(Color.RED);
+			tv.setTextColor(Color.BLACK);
+			tv.setTextSize(intTextSize+5);
+
+			// Typeface t = Typeface.create("serif", Typeface.BOLD_ITALIC);
+			// tv.setTypeface(t);
+			tv.setPadding(20,20,20,20);
+			tv.setText(Html.fromHtml(strAntwortText));
+			toast.setView(tv);
+			toast.show();
         }
 
 		intPunkte = intPunkte - 1;
@@ -1157,6 +1184,7 @@ public class QuizActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }	   
-} 
+    }
+}
+
 

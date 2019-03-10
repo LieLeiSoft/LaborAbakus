@@ -407,6 +407,7 @@ public class QuizActivity extends Activity {
 
 	@Override
 	public void onDestroy() {
+		super.onDestroy();
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		SharedPreferences.Editor prefEditor = prefs.edit();
 
@@ -417,8 +418,6 @@ public class QuizActivity extends Activity {
 
 		// Timer explizit beenden, weil es sonst vibriert (nach Ablauf des Timers)
 		timerHandler.removeCallbacks(timerRunnable);
-
-		super.onPause();
 	} // onDestroy
 
 	 /************************************************************************************

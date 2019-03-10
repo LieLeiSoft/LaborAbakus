@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,13 +16,33 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.Toast;
 
 public class HauptmenueActivity extends Activity {
-    
+    int intKEYCODE_BACK_Counter;
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-	if ((keyCode == KeyEvent.KEYCODE_BACK)){
-	}return false;}
+		if (keyCode == KeyEvent.KEYCODE_BACK){
+			intKEYCODE_BACK_Counter++;
+			switch (intKEYCODE_BACK_Counter) {
+				case 1: {
+							String text = "\n   Zum Beenden erneut drücken.   \n";
+							Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+							Meldung.setGravity(Gravity.BOTTOM, 0, 0);
+							Meldung.show();
+
+							break;
+ 						}
+				case 2: {
+							ActivityRegistry.finishAll();
+							finish();
+							System.exit(0);
+						}
+			} // switch
+		}
+		return true;
+	} // onKeyDown
 	
 	
 	/** Called when the activity is first created. */
@@ -38,7 +59,9 @@ public class HauptmenueActivity extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
-		
+
+		intKEYCODE_BACK_Counter = 0;
+
 		// bestimmte Einträge aus Konfigurationsdatei ("Preferences") entfernen
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
    		SharedPreferences.Editor prefEditor = prefs.edit();

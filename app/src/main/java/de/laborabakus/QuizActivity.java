@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -643,6 +644,8 @@ public class QuizActivity extends Activity {
 		Float fltMolekuelmasse;
 		Float fltMolekuelmasse_RK;
 
+		final MediaPlayer mpTonRichtig = MediaPlayer.create(this, R.raw.glocke_1);
+
 		tv = (TextView) findViewById(R.id.timerTextView);
 		if (tv.getText().equals("END"))
 		{
@@ -927,6 +930,7 @@ public class QuizActivity extends Activity {
 			// Antwort ist richtig
 			if (intLevel > 2)
 			{
+				mpTonRichtig.start();
 				String text = "\n   Super!   \n   Richtig!   \n";
 				Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
 				Meldung.setGravity(Gravity.BOTTOM, 0, 0);

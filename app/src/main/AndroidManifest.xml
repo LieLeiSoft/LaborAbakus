@@ -101,10 +101,6 @@
             android:name="QuizMenueActivity" android:windowSoftInputMode="stateHidden">
         </activity>
 
-        <activity
-            android:name="QuizDemoActivity" android:windowSoftInputMode="stateHidden">
-        </activity>
-
     </application>
 </manifest>
 

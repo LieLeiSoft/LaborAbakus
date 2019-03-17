@@ -1,10 +1,16 @@
 package de.laborabakus;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -210,6 +216,37 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         //prefEditor.apply();
 
     } // btnAuswahl
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mainmenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final Intent[] intent = {null};
+        switch (item.getItemId()) {
+            case R.id.menu_Hilfe:
+                intent[0] = new Intent(this, HilfeActivity.class);
+                intent[0].setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent[0].putExtra("Kapitel", "Konz_Lsg_Anpassung");
+                startActivity(intent[0]);
+                return true;
+
+            case R.id.menu_Menue:
+                ActivityRegistry.finishAll();
+                intent[0] = new Intent(this, HauptmenueActivity.class);
+                intent[0].setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent[0]);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 } // class Konz_lsg_Anpassung
 

@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 public class HilfeActivity extends Activity {
 	List<Map<String, String>> hilfeListe = new ArrayList<Map<String,String>>();
-	String[][] Hilfe = new String[10][4];
+	String[][] Hilfe = new String[30][4];
 	int intFeldNr_max = 0;
 
 	// 4 Spalten pro Hilfetext:
@@ -48,7 +48,9 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Verdünnen von konzentrierten Lösungen";
 		Hilfe[intFeldNr][2] = "Verdünnen von konzentrierten Lösungen";
-		Hilfe[intFeldNr][3] = "xxxxxxxxxxxxxxxxx";
+		Hilfe[intFeldNr][3] = "In dieser Routine lässt sich entweder die eingesetzte Menge einer" +
+				" vordefinierten konzentrierten Lösung oder die Masse, das Volumen oder der Gehalt" +
+				" der hergestellten Verdünnung berechnen.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
@@ -62,11 +64,138 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "PSE - Quiz";
 		Hilfe[intFeldNr][2] = "PSE - Quiz";
-		Hilfe[intFeldNr][3] = "xxxxxxxxxxxxxxxxxxxxx";
+		Hilfe[intFeldNr][3] = "Dies ist ein Quiz über die Formeln des Periodensystems der Elemente";
 
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Menue
+
+	private void erstelle_Hilfe_Konz_Lsg_Auswahl(String strKapitel)
+	{
+		int intFeldNr = 0;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Auswahl";
+		Hilfe[intFeldNr][2] = "Auswahl";
+		Hilfe[intFeldNr][3] = "In diesem Auswahlmenü wird eine konzentrierte" +
+				" Lösung, die verdünnt werden soll, ausgewählt. Jede Lösung" +
+				" kann individuell durch den >Anpassung< Button bei dem Gehalt," +
+				" der Dichte und der Molmasse eingestellt oder komplett mit neuem" +
+				" Namen verändert werden.";
+
+        intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "anpassen";
+		Hilfe[intFeldNr][2] = "anpassen";
+		Hilfe[intFeldNr][3] = "Jede Lösung kann individuell durch den >Anpassung<" +
+				" Button bei dem Gehalt, der Dichte und der Molmasse eingestellt" +
+				" oder komplett mit neuem Namen verändert werden. Da die Molmasse" +
+				" für jeden Stoff spezifisch ist und die Dichte zusätzlich noch von" +
+				" der Konzentration abhängt, sollten diese Werte nur mit Bedacht" +
+				" geändert werden. Mit Hilfe des grauen Buttons (% oder mol/L) lässt" +
+				" sie die Konzentration der Lösung bei vorhandener Molmasse und Dichte" +
+				" von Prozent auf die Stoffmengenkonzentration in mol/L bzw. von der" +
+				" Stoffmengenkonzentration auf Prozent unmittelbar umrechnen.";
+
+
+		intFeldNr_max = intFeldNr;
+	}  // erstelle_Hilfe_Konz_Lsg_Auswahl
+
+	private void erstelle_Hilfe_Konz_Lsg_Anpassung(String strKapitel)
+	{
+		int intFeldNr = 0;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "anpassen";
+		Hilfe[intFeldNr][2] = "anpassen";
+		Hilfe[intFeldNr][3] = "Jede Lösung kann individuell durch den >Anpassung<" +
+				" Button bei dem Gehalt, der Dichte und der Molmasse eingestellt" +
+				" oder komplett mit neuem Namen verändert werden. Da die Molmasse" +
+				" für jeden Stoff spezifisch ist und die Dichte zusätzlich noch von" +
+				" der Konzentration abhängt, sollten diese Werte nur mit Bedacht" +
+				" geändert werden. Mit Hilfe des grauen Buttons (% oder mol/L) lässt" +
+				" sie die Konzentration der Lösung bei vorhandener Molmasse und Dichte" +
+				" von Prozent auf die Stoffmengenkonzentration in mol/L bzw. von der" +
+				" Stoffmengenkonzentration auf Prozent unmittelbar umrechnen.";
+
+		intFeldNr_max = intFeldNr;
+	} // erstelle_Hilfe_Konz_Lsg_Anpassung
+
+	private void erstelle_Hilfe_Konz_Lsg_gesucht_wird(String strKapitel)
+	{
+		int intFeldNr = 0;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "... die Menge der konz. Lösung über eine prozentuale Verdünnung";
+		Hilfe[intFeldNr][2] = "... die Menge der konz. Lösung über eine prozentuale Verdünnung";
+		Hilfe[intFeldNr][3] = "Gesucht: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
+				"Gegeben: Masse (g) der Verdünnung\n" +
+				"Gegeben: Gehalt (%) der Verdünnung";
+
+        intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "... die Menge der konz. Lösung über eine molare Verdünnung";
+		Hilfe[intFeldNr][2] = "... die Menge der konz. Lösung über eine molare Verdünnung";
+		Hilfe[intFeldNr][3] = "Gesucht: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
+				"Gegeben: Volumen (ml) der Verdünnung\n" +
+				"Gegeben: Gehalt (mol/L) der Verdünnung";
+
+        intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "... die Masse der verdünnten prozentualen Lösung:";
+		Hilfe[intFeldNr][2] = "... die Masse der verdünnten prozentualen Lösung:";
+		Hilfe[intFeldNr][3] = "Gesucht: Masse (g) der Verdünnung\n" +
+				"Gegeben: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
+				"Gegeben: Gehalt (%) der Verdünnung";
+
+        intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "... das Volumen der verdünnten molaren Lösung:";
+		Hilfe[intFeldNr][2] = "... das Volumen der verdünnten molaren Lösung:";
+		Hilfe[intFeldNr][3] = "Gesucht: Volumen (ml) der Verdünnung\n" +
+				"Gegeben: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
+				"Gegeben: Gehalt (mol/L) der Verdünnung";
+
+        intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Gesucht wird der Gehalt der verdünnten Lösung in Prozent:";
+		Hilfe[intFeldNr][2] = "Gesucht wird der Gehalt der verdünnten Lösung in Prozent:";
+		Hilfe[intFeldNr][3] = "Gesucht: Gehalt (%) der Verdünnung\n" +
+				"Gegeben: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
+				"Gegeben: Masse (g) der Verdünnung";
+
+        intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Gesucht wird der Gehalt der verdünnten Lösung in mol/L:";
+		Hilfe[intFeldNr][2] = "Gesucht wird der Gehalt der verdünnten Lösung in mol/L:";
+		Hilfe[intFeldNr][3] = "Gesucht: Gehalt (mol/L) der Verdünnung\n" +
+				"Gegeben: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
+				"Gegeben: Volumen (ml) der Verdünnung";
+
+		intFeldNr_max = intFeldNr;
+	} // erstelle_Hilfe_Konz_Lsg_gesucht_wird
+
+	private void erstelle_Hilfe_Konz_Lsg_Eingabe(String strKapitel)
+	{
+		int intFeldNr = 0;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Eingabe";
+		Hilfe[intFeldNr][2] = "Eingabe";
+		Hilfe[intFeldNr][3] = "Nach Auswahl des gesuchten Parameters, werden hier in den grauen Feldern die" +
+				" gegebenen Parameter eingetippt. Mit dem Button (g/ml) kann entschieden werden, ob die Masse" +
+				" oder das Volumen der konzentrierten Lösung eingegeben bzw. berechnet werden soll. Sind alle" +
+				" Eingaben getätigt, kann mit dem Berechne Button der gesuchte Parameter berechnet werden.";
+
+		intFeldNr_max = intFeldNr;
+	} // erstelle_Hilfe_Konz_Lsg_EIngabe
+
+	private void erstelle_Hilfe_Quiz(String strKapitel)
+	{
+		int intFeldNr = 0;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "";
+		Hilfe[intFeldNr][2] = "";
+		Hilfe[intFeldNr][3] = "";
+
+		intFeldNr_max = intFeldNr;
+	} // erstelle_Hilfe_Quiz
 
 
 	private void erstelle_Hilfe_RSD(String strKapitel) {
@@ -701,6 +830,16 @@ public class HilfeActivity extends Activity {
 			erstelle_Hilfe_Oxidationsstufen(strKapitel);
 		} else if (strKapitel.equals("Berechnung") == true) {
 			erstelle_Hilfe_Berechnung(strKapitel);
+		} else if (strKapitel.equals("Konz_Lsg_Auswahl") == true) {
+			erstelle_Hilfe_Konz_Lsg_Auswahl(strKapitel);
+		} else if (strKapitel.equals("Konz_Lsg_Anpassung") == true) {
+			erstelle_Hilfe_Konz_Lsg_Anpassung(strKapitel);
+		} else if (strKapitel.equals("Konz_Lsg_gesucht wird") == true) {
+			erstelle_Hilfe_Konz_Lsg_gesucht_wird(strKapitel);
+		} else if (strKapitel.equals("Konz_Lsg_Eingabe") == true) {
+			erstelle_Hilfe_Konz_Lsg_Eingabe(strKapitel);
+		} else if (strKapitel.equals("Quiz") == true) {
+			erstelle_Hilfe_Quiz(strKapitel);
 		};
 
 		initList();

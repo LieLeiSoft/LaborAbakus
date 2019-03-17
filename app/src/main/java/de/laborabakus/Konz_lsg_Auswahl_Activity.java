@@ -267,7 +267,7 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
             case R.id.menu_Hilfe:
                 intent[0] = new Intent(this, HilfeActivity.class);
                 intent[0].setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                intent[0].putExtra("Kapitel", "RSD");
+                intent[0].putExtra("Kapitel", "Konz_Lsg_Auswahl");
                 startActivity(intent[0]);
                 return true;
 

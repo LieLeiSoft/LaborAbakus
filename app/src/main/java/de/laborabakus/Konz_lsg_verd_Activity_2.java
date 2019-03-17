@@ -320,7 +320,7 @@ public class Konz_lsg_verd_Activity_2 extends Activity /*implements OnFocusChang
             case R.id.menu_Hilfe:
                 intent = new Intent(this, HilfeActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                intent.putExtra("Kapitel", "RSD");
+                intent.putExtra("Kapitel", "Konz_Lsg_Eingabe");
                 startActivity(intent);
                 return true;
 

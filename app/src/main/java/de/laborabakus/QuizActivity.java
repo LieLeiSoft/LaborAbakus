@@ -1,7 +1,9 @@
 package de.laborabakus;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -39,6 +41,7 @@ public class QuizActivity extends Activity {
 	String strFrage;
     String strAntwort;
     String strLevel;
+    String strQuizHilfe;
     private Context context;
 
     public enum Element 														// http://www.mindfiresolutions.com/How-to-handle-String-in-switch-case-of-JAVA-617.php
@@ -199,6 +202,34 @@ public class QuizActivity extends Activity {
 			tv = (TextView) findViewById(R.id.btnHauptgruppenelemente);
 			btnHauptgruppenelemente(tv);
 		}
+
+		// ****************************************************
+		// **** Hilfe Alert Dialog nur im ersten Durchgang ****
+		// ****************************************************
+
+		strQuizHilfe = prefs.getString("QuizHilfe", "1");
+		strHighscore = prefs.getString("Highscore"+ strQuizHilfe, "0");
+
+		if (strHighscore.equals("0") == true) // Dialogbox wird nur angezeigt, wenn der aktuelle Highscore noch 0 ist.
+		{
+			AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
+			builder.setTitle("Hilfe zu Level " + strQuizHilfe);
+			builder.setMessage(R.string.QuizHilfe_1); // hier muss der jeweilige QuizHilfe Text 1 bis 6 angezeigt werden.
+			builder.setPositiveButton
+					("OK",
+							new DialogInterface.OnClickListener()
+							{
+								public void onClick(DialogInterface dialog, int id)
+								{
+									dialog.dismiss();
+								}
+							}
+					);
+
+			AlertDialog dialog = builder.create();
+			dialog.show();
+		}
+
 	} // onCreate
 
 	/***************************************************************

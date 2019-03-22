@@ -320,7 +320,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity /*implements OnFocusChang
         return true;
     }
 
-    
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent = null;

@@ -19,4 +19,38 @@
     <string name="Zurucksetzen_aller">Zurücksetzen aller Säuren und Laugen\nStandardwerte wiederherstellen?</string>
     <string name="ja">ja</string>
     <string name="nein">nein</string>
-</resources>
+    <string name="QuizHilfe_1">Auf deinem Display siehst du jetzt das Periodensystem der Elemente. Und zwar erst einmal nur die Hauptgruppenelemente!
+        Für jedes Element gibt es einen Button mit einem entsprechenden Symbol. Von "H" bis "Ra" unten links in der Ecke müssen alle Felder angezeigt werden.
+        Kannst du nicht das komplette PSE sehen, weil dein Bildschirn zu klein ist, musst du die Größe der Element-Felder mit dem weißen Schraubenschlüssel
+        auf blauen Grund anpassen.
+        Oben links in der Ecke wird dir der erste Name eines Elementes angezeigt. Für dieses Element musst du jetzt auf deinem Display das entsprechende
+        Symbol raussuchen und antippen. Achtung, hast du deinen ersten Tipp gemacht, läuft deine Zeit! Du hast genau 60 Sekunden. Deine verbleibende Zeit
+        siehst du in dem kleinen blauen Feld oben rechts in der Ecke. Liegst du mit deiner Wahl des Kurzzeichens richtig, erscheint oben links sofort das
+        nächste Element und du bekommst einen Punkt gutgeschrieben. Deinen aktuellen Punktestand siehst du ebenfalls in der rechten oberen Ecke.
+        War deine Auswahl des Kurzzeichens falsch, fängt dein Smartphone kurz an zu vibrieren und du kannst es erneut versuchen. Weißt du gar nicht weiter,
+        kommst du mit dem grauen „Weiter“ Button oben rechts zum nächsten Element. Danach wird dir unten Im Display kurz die richtige Formel als rote Meldung
+        angezeigt. Aber Vorsicht! Jedes Mal, wenn du den „Weiter“ Button drückst, wird dir zur Strafe wieder ein Punkt abgezogen. Wenn du es schaffst und
+        25 Punkte erreichst, darfst du Level 2 spielen. Was da kommt? Streng dich an und lass dich überraschen! Ach so, diese Anleitung findest du übrigens
+        auch in deiner Hilfe. So, und nun viel Spaß! Bist du bereit?
+    </string>
+    <string name="QuizHilfe_2">Prima! Du hast Level 1 geschafft! Jetzt testen wir bei dir die Symbole von den Nebengruppenelementen! Das PSE sieht jetzt
+        etwas anders aus. Aber du wirst die Symbole schon finden. Von der Bedienung hat sich nichts geändert! Kann es losgehen?</string>
+    <string name="QuizHilfe_3">Super! Level 2 ist geknackt!  Jetzt wird es etwas schwieriger und etwas anders. Etwas! In Level 3 werden dir
+        Nomenklatur-Namen von Verbindungen angezeigt und du musst die dazu gehörige Formel eingeben. Und zwar sowohl mit Elementen aus den Hauptgruppen,
+        als auch aus den Nebengruppen. Aber die kennst du ja jetzt. Willst du zu den Nebengruppenelementen wechseln, drückst du einfach den großen gelben
+        „Hauptgruppenelemente“ Button und noch einmal um wieder zu den Hauptgruppenelementen zurück zu kehren. Hast du das erste Element eingetippt,
+        erscheint es als Symbol oben links auf dem Display! Um die ganze Formel einzugeben, stehen dir zu den Symbolen ebenfalls die Klammern und die
+        Indexzahlen (Hauptgruppe Ziffer 0 bis 4 und Nebengruppe Ziffer 5 bis 9) zur Verfügung. Mit der ← Taste kannst du deine Eingabe wieder löschen.
+        In welcher Reihenfolge du die Elemente am Ende eingibst ist egal. Beispiel: NH3, HHHN, H3N oder HNHH führt zu dem gleichen Ergebnis!
+        Wenn deine Eingabe richtig ist, erscheint sofort die nächste Verbindung. Ab jetzt bekommst du für jede richtige Formeleingabe 4 Punkte.
+        Eine falsche Eingabe der Formel ist nicht möglich! Wenn du die Formel allerdings nicht heraus bekommst, kannst du auch hier mit dem „Weiter“
+        Button unter Abzug eines Strafpunktes, zur nächsten Verbindung springen. Alles andere ist gleich geblieben. Ready to Start?</string>
+    <string name="QuizHilfe_4">Hervorragend, du hast Level 3 geschafft. Jetzt werden chemische Formeln mit 3 Elementen abgefragt und du
+        bekommst jetzt für jede richtige Eingabe 6 Punkte. Bist du bereit?</string>
+    <string name="QuizHilfe_5">Super gut! Das war schwer! Du hast Level 4 geschafft! Genau, jetzt kommen chemische Formeln mit 4 Elementen dran.
+        Bei einigen Verbindungen könnte es sich um einen Komplex handeln, bei der eine Schreibweise mit eckigen Klammern geläufig ist.
+        Diese Klammern sind bei der Eingabe nicht relevant. Du kannst sie einfach weglassen.</string>
+    <string name="QuizHilfe_6">Das war grandios! Jetzt kommt der vorerst letzte Level. In Level 6 werden Trivialnamen und englische
+        Bezeichnungen abgefragt. Trivialnamen sind umgangssprachliche Bezeichnungen für chemische Verbindungen. Z.B. ist für
+        Natriumchlorid der Trivialname Kochsalz. </string>
+    </resources>

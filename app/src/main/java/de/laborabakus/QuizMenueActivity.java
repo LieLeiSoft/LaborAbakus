@@ -1,6 +1,8 @@
 package de.laborabakus;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ public class QuizMenueActivity extends Activity {
 
 	TextView tv;
 	String strHighscore;
+	String strQuizHilfe;
 
 
 	@Override
@@ -29,6 +32,33 @@ public class QuizMenueActivity extends Activity {
 		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
 		ActivityRegistry.register(this);
 
+
+        // ****************************************************
+        // *** Hilfe Alert Dialog nur beim ersten Durchgang ***
+        // ****************************************************
+
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		strQuizHilfe = prefs.getString("QuizHilfe", "1");
+
+		if (strQuizHilfe.equals("1") == true)
+		{
+			AlertDialog.Builder builder = new AlertDialog.Builder(QuizMenueActivity.this);
+			builder.setTitle("Hallo");
+			builder.setMessage("Für das ersten Mal erkläre ich dir kurz die Spielregeln. Tippe gleich auf das blaue Feld - Level 1");
+			builder.setPositiveButton
+					("OK",
+							new DialogInterface.OnClickListener()
+							{
+								public void onClick(DialogInterface dialog, int id)
+								{
+									dialog.dismiss();
+								}
+							}
+					);
+
+			AlertDialog dialog = builder.create();
+			dialog.show();
+		}
 	} // onCreate
 
 	/***************************************************************
@@ -76,6 +106,9 @@ public class QuizMenueActivity extends Activity {
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[2]);
 			tv.setText("\nLevel 2 - Nebengruppenelemente\n Highscore: "+strHighscore+"  (min. 25)\n");
+
+			prefEditor.putString("QuizHilfe", "2");
+			prefEditor.apply();
 		}
 
 		if(arrHighscore[2] > 24)
@@ -84,6 +117,9 @@ public class QuizMenueActivity extends Activity {
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[3]);
 			tv.setText("\nLevel 3 - Binäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+
+			prefEditor.putString("QuizHilfe", "3");
+			prefEditor.apply();
 		}
 
 		if(arrHighscore[3] > 24)
@@ -92,6 +128,9 @@ public class QuizMenueActivity extends Activity {
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[4]);
 			tv.setText("\nLevel 4 - Ternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+
+			prefEditor.putString("QuizHilfe", "4");
+			prefEditor.apply();
 		}
 
 		if(arrHighscore[4] > 24)
@@ -100,6 +139,9 @@ public class QuizMenueActivity extends Activity {
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[5]);
 			tv.setText("\nLevel 5 - Quaternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+
+			prefEditor.putString("QuizHilfe", "5");
+			prefEditor.apply();
 		}
 
 		if(arrHighscore[5] > 24)
@@ -108,6 +150,9 @@ public class QuizMenueActivity extends Activity {
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[6]);
 			tv.setText("\nLevel 6 - Trivialnamen und\nenglisch Bezeichnungen\nHighscore: "+strHighscore+"\n");
+
+			prefEditor.putString("QuizHilfe", "6");
+			prefEditor.apply();
 		}
 
 

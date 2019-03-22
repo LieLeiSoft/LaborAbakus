@@ -33,6 +33,7 @@ public class QuizActivity extends Activity {
 	TextView tv;
 	int intFrageNr;
     int intLevel;
+    int intLevelCounter;
 	int intPunkte;
 	int intHighscore;
 
@@ -41,6 +42,7 @@ public class QuizActivity extends Activity {
 	String strFrage;
     String strAntwort;
     String strLevel;
+    String strLevelCounter;
     String strQuizHilfe;
     private Context context;
 
@@ -190,6 +192,12 @@ public class QuizActivity extends Activity {
 		QuizFragen.erstelle_Quizfragen();
 
 		strLevel = prefs.getString("Level", "1");
+		strLevelCounter = prefs.getString("LevelCounter_"+strLevel, "0");
+		intLevelCounter = Integer.parseInt(strLevelCounter);
+		intLevelCounter = intLevelCounter + 1;
+		strLevelCounter = Integer.toString(intLevelCounter);
+		prefEditor.putString("LevelCounter_"+strLevel, strLevelCounter);
+		prefEditor.apply();
 		intLevel = Integer.parseInt(strLevel);
 
 		if (intLevel <= 2) {
@@ -203,18 +211,36 @@ public class QuizActivity extends Activity {
 			btnHauptgruppenelemente(tv);
 		}
 
+
+
 		// ****************************************************
 		// **** Hilfe Alert Dialog nur im ersten Durchgang ****
 		// ****************************************************
 
 		strQuizHilfe = prefs.getString("QuizHilfe", "1");
 		strHighscore = prefs.getString("Highscore"+ strQuizHilfe, "0");
+        int intQuizHilfe = Integer.parseInt(strQuizHilfe);
 
-		if (strHighscore.equals("0") == true) // Dialogbox wird nur angezeigt, wenn der aktuelle Highscore noch 0 ist.
+		if (strHighscore.equals("0") == true && intLevelCounter <= 2) // Dialogbox wird nur angezeigt, wenn der aktuelle Highscore noch 0 ist und das Level zum ersten oder zweiten Mal gespielt wurde.
 		{
 			AlertDialog.Builder builder = new AlertDialog.Builder(QuizActivity.this);
 			builder.setTitle("Hilfe zu Level " + strQuizHilfe);
-			builder.setMessage(R.string.QuizHilfe_1); // hier muss der jeweilige QuizHilfe Text 1 bis 6 angezeigt werden.
+
+            switch (intQuizHilfe) {
+                case 1:			builder.setMessage(R.string.QuizHilfe_1);
+                    break;
+                case 2:			builder.setMessage(R.string.QuizHilfe_2);
+                    break;
+                case 3:			builder.setMessage(R.string.QuizHilfe_3);
+                    break;
+                case 4:			builder.setMessage(R.string.QuizHilfe_4);
+                    break;
+                case 5:			builder.setMessage(R.string.QuizHilfe_5);
+                    break;
+                case 6:			builder.setMessage(R.string.QuizHilfe_6);
+                    break;
+            }
+
 			builder.setPositiveButton
 					("OK",
 							new DialogInterface.OnClickListener()
@@ -1206,7 +1232,7 @@ public class QuizActivity extends Activity {
             case R.id.menu_Hilfe:
             	intent = new Intent(this, HilfeActivity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	intent.putExtra("Kapitel", "Molmassen");
+            	intent.putExtra("Kapitel", "Quiz");
             	startActivity(intent);
                 return true;
                 

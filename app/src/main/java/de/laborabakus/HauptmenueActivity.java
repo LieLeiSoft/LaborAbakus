@@ -99,7 +99,7 @@ public class HauptmenueActivity extends Activity {
    			strKeyName = entry.getKey();
    			// prüfen, ob Parameter "NachkommastellenGehalt" oder "NachkommastellenRSD" ist
    			// (diese Parameter sollen NICHT entfernt werden)
-   			if (("QuizHilfe,Netto_Brutto,NachkommastellenGehalt,NachkommastellenRSD,Einstellungen,TG_Hauptmenue,BH_Hauptmenue,TG_Molmasse,BH_Molmasse,strCounter,VerdGehaltEinheit,Auswahl," +
+   			if (("QuizHilfe,LevelCounter_1,LevelCounter_2,LevelCounter_3,LevelCounter_4,LevelCounter_5,LevelCounter_6,LevelCounter_2,Netto_Brutto,NachkommastellenGehalt,NachkommastellenRSD,Einstellungen,TG_Hauptmenue,BH_Hauptmenue,TG_Molmasse,BH_Molmasse,strCounter,VerdGehaltEinheit,Auswahl," +
 				"KonzAuswahl_0,KonzAuswahl_1,KonzAuswahl_2,KonzAuswahl_3,KonzAuswahl_4,KonzAuswahl_5,KonzAuswahl_6,KonzAuswahl_7,KonzAuswahl_8,KonzAuswahl_9,KonzAuswahl_10,KonzAuswahl_11," +
 				"KonzGehalt_0,KonzGehalt_1,KonzGehalt_2,KonzGehalt_3,KonzGehalt_4,KonzGehalt_5,KonzGehalt_6,KonzGehalt_7,KonzGehalt_8,KonzGehalt_9,KonzGehalt_10,KonzGehalt_11," +
 				"KonzGehaltEinheit_0,KonzGehaltEinheit_1,KonzGehaltEinheit_2,KonzGehaltEinheit_3,KonzGehaltEinheit_4,KonzGehaltEinheit_5,KonzGehaltEinheit_6,KonzGehaltEinheit_7,KonzGehaltEinheit_8,KonzGehaltEinheit_9,KonzGehaltEinheit_10,KonzGehaltEinheit_11," +

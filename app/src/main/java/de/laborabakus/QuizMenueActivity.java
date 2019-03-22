@@ -22,6 +22,7 @@ public class QuizMenueActivity extends Activity {
 	TextView tv;
 	String strHighscore;
 	String strQuizHilfe;
+	String strLevelCounter;
 
 
 	@Override
@@ -39,8 +40,9 @@ public class QuizMenueActivity extends Activity {
 
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		strQuizHilfe = prefs.getString("QuizHilfe", "1");
+		strLevelCounter = prefs.getString("LevelCounter_1", "0");
 
-		if (strQuizHilfe.equals("1") == true)
+		if (strQuizHilfe.equals("1") == true && strLevelCounter.equals("0"))
 		{
 			AlertDialog.Builder builder = new AlertDialog.Builder(QuizMenueActivity.this);
 			builder.setTitle("Hallo");
@@ -105,7 +107,14 @@ public class QuizMenueActivity extends Activity {
 			tv = (TextView) findViewById(R.id.btnLevel_1);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[2]);
-			tv.setText("\nLevel 2 - Nebengruppenelemente\n Highscore: "+strHighscore+"  (min. 25)\n");
+			if (arrHighscore[2] == 0)
+			{
+				tv.setText("\nLevel 2\n Highscore: "+strHighscore+"  (min. 25)\n");
+			}
+			else
+			{
+				tv.setText("\nLevel 2 - Nebengruppenelemente\n Highscore: "+strHighscore+"  (min. 25)\n");
+			}
 
 			prefEditor.putString("QuizHilfe", "2");
 			prefEditor.apply();
@@ -116,7 +125,14 @@ public class QuizMenueActivity extends Activity {
 			tv = (TextView) findViewById(R.id.btnLevel_2);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[3]);
-			tv.setText("\nLevel 3 - Binäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+			if (arrHighscore[3] == 0)
+			{
+				tv.setText("\nLevel 3\n Highscore: "+strHighscore+"  (min. 25)\n");
+			}
+			else
+			{
+				tv.setText("\nLevel 3 - Binäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+			}
 
 			prefEditor.putString("QuizHilfe", "3");
 			prefEditor.apply();
@@ -127,7 +143,14 @@ public class QuizMenueActivity extends Activity {
 			tv = (TextView) findViewById(R.id.btnLevel_3);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[4]);
-			tv.setText("\nLevel 4 - Ternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+			if (arrHighscore[4] == 0)
+			{
+				tv.setText("\nLevel 4\n Highscore: "+strHighscore+"  (min. 25)\n");
+			}
+			else
+			{
+				tv.setText("\nLevel 4 - Ternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+			}
 
 			prefEditor.putString("QuizHilfe", "4");
 			prefEditor.apply();
@@ -138,7 +161,14 @@ public class QuizMenueActivity extends Activity {
 			tv = (TextView) findViewById(R.id.btnLevel_4);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[5]);
-			tv.setText("\nLevel 5 - Quaternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+			if (arrHighscore[5] == 0)
+			{
+				tv.setText("\nLevel 5\n Highscore: "+strHighscore+"  (min. 25)\n");
+			}
+			else
+			{
+				tv.setText("\nLevel 5 - Quaternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+			}
 
 			prefEditor.putString("QuizHilfe", "5");
 			prefEditor.apply();
@@ -149,7 +179,15 @@ public class QuizMenueActivity extends Activity {
 			tv = (TextView) findViewById(R.id.btnLevel_5);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[6]);
-			tv.setText("\nLevel 6 - Trivialnamen und\nenglisch Bezeichnungen\nHighscore: "+strHighscore+"\n");
+			if (arrHighscore[6] == 0)
+			{
+				tv.setText("\nLevel 6\nHighscore: "+strHighscore+"\n");
+			}
+			else
+			{
+				tv.setText("\nLevel 6 - Trivialnamen und\nenglisch Bezeichnungen\nHighscore: "+strHighscore+"\n");
+			}
+
 
 			prefEditor.putString("QuizHilfe", "6");
 			prefEditor.apply();
@@ -277,7 +315,7 @@ public class QuizMenueActivity extends Activity {
             case R.id.menu_Hilfe:
             	intent = new Intent(this, HilfeActivity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	intent.putExtra("Kapitel", "Molmassen");
+            	intent.putExtra("Kapitel", "Quiz");
             	startActivity(intent);
                 return true;
                 

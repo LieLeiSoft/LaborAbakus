@@ -8,7 +8,9 @@ import java.util.Map;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -64,7 +66,7 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "PSE - Quiz";
 		Hilfe[intFeldNr][2] = "PSE - Quiz";
-		Hilfe[intFeldNr][3] = "Dies ist ein Quiz über die Formeln des Periodensystems der Elemente";
+		Hilfe[intFeldNr][3] = "Dies ist ein Quiz über die Formelzeichen des Periodensystems der Elemente";
 
 
 		intFeldNr_max = intFeldNr;
@@ -188,11 +190,56 @@ public class HilfeActivity extends Activity {
 
 	private void erstelle_Hilfe_Quiz(String strKapitel)
 	{
-		int intFeldNr = 0;
-		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "";
-		Hilfe[intFeldNr][2] = "";
-		Hilfe[intFeldNr][3] = "";
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		String strQuizHilfe = prefs.getString("QuizHilfe", "1");
+		int intQuizHilfe = Integer.parseInt(strQuizHilfe);
+
+		int intFeldNr = -1;
+        String strHilfe;
+		switch (intQuizHilfe) {
+			case 6:
+                strHilfe = getResources().getString(R.string.QuizHilfe_6);
+                intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Level 6";
+				Hilfe[intFeldNr][2] = "Level 6";
+				Hilfe[intFeldNr][3] = strHilfe;
+			case 5:
+                strHilfe = getResources().getString(R.string.QuizHilfe_5);
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Level 5";
+				Hilfe[intFeldNr][2] = "Level 5";
+				Hilfe[intFeldNr][3] = strHilfe;
+			case 4:
+                strHilfe = getResources().getString(R.string.QuizHilfe_4);
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Level 4";
+				Hilfe[intFeldNr][2] = "Level 4";
+				Hilfe[intFeldNr][3] = strHilfe;
+			case 3:
+                strHilfe = getResources().getString(R.string.QuizHilfe_3);
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Level 3";
+				Hilfe[intFeldNr][2] = "Level 3";
+				Hilfe[intFeldNr][3] = strHilfe;
+			case 2:
+                strHilfe = getResources().getString(R.string.QuizHilfe_2);
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Level 2";
+				Hilfe[intFeldNr][2] = "Level 2";
+				Hilfe[intFeldNr][3] = strHilfe;
+			case 1:
+                strHilfe = getResources().getString(R.string.QuizHilfe_1);
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Level 1";
+				Hilfe[intFeldNr][2] = "Level 1";
+				Hilfe[intFeldNr][3] = strHilfe;
+		}
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Quiz

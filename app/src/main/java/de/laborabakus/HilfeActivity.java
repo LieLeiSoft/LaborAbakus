@@ -133,6 +133,14 @@ public class HilfeActivity extends Activity {
 				" von Prozent auf die Stoffmengenkonzentration in mol/L bzw. von der" +
 				" Stoffmengenkonzentration auf Prozent unmittelbar umrechnen.";
 
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einstellungen";
+		Hilfe[intFeldNr][2] = "Button > Einstellungen <";
+		Hilfe[intFeldNr][3] = "Hier können alle vorgenommenen Einstellungen (Name, " +
+				"Gehalt, Dichte und Molmasse) wieder auf Werkseinstellungen" +
+				" zurückgesetzt werden!";
+
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Konz_Lsg_Anpassung
 

@@ -2,7 +2,9 @@ package de.laborabakus;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -123,9 +125,17 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             tv = (TextView) findViewById(R.id.tvStandardabweichung);
             tv.setText(strAusgabetext);
 
+            //***********************************************************************
+            //********* Auslesen der Nachkommastellen *******************************
+            //***********************************************************************
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
+
+            //			    strRest = ActivityTools.fktDoubleToStringFormat(arrRest[x], AnzahlStellen);
+
             // *********** Ausgabe relative Standardabweichung % *************
             Speicher = RSD; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, AnzahlStellen);
             tv = (TextView) findViewById(R.id.tvRSD);
             tv.setText(strAusgabetext);
 
@@ -208,9 +218,17 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             tv = (TextView) findViewById(R.id.tvStandardabweichung);
             tv.setText(strAusgabetext);
 
+            //***********************************************************************
+            //********* Auslesen der Nachkommastellen *******************************
+            //***********************************************************************
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
+
+            //			    strRest = ActivityTools.fktDoubleToStringFormat(arrRest[x], AnzahlStellen);
+
             // *********** Ausgabe relative Standardabweichung % *************
             Speicher = RSD; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, AnzahlStellen);
             tv = (TextView) findViewById(R.id.tvRSD);
             tv.setText(strAusgabetext);
 
@@ -274,9 +292,17 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             tv = (TextView) findViewById(R.id.tvStandardabweichung);
             tv.setText(strAusgabetext);
 
+            //***********************************************************************
+            //********* Auslesen der Nachkommastellen *******************************
+            //***********************************************************************
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
+
+            //			    strRest = ActivityTools.fktDoubleToStringFormat(arrRest[x], AnzahlStellen);
+
             // *********** Ausgabe relative Standardabweichung % *************
             Speicher = RSD; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, AnzahlStellen);
             tv = (TextView) findViewById(R.id.tvRSD);
             tv.setText(strAusgabetext);
 
@@ -342,7 +368,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
         switch (item.getItemId()) 
         {
         	case R.id.menu_Einstellungen:
-            	intent = new Intent(this, Einstellungen_Gravi_Activity.class);
+            	intent = new Intent(this, Einstellungen_Nachkomma_Activity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             	startActivity(intent);
                 return true;

@@ -29,7 +29,8 @@
             android:layout_alignParentTop="true"
             android:onClick="btnBerechnung"
             android:text="@string/Berechnung"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            tools:textColor="@color/cWeiss" />
 
         <TextView
             android:id="@+id/tvVariante"

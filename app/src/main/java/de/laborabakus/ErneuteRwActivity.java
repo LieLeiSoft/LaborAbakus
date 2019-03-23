@@ -255,7 +255,7 @@ public class ErneuteRwActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
+        inflater.inflate(R.menu.mainmenu3, menu);
         return true;
     }   
     
@@ -264,16 +264,10 @@ public class ErneuteRwActivity extends Activity {
     	Intent intent = null;
         switch (item.getItemId()) 
         {
-        	case R.id.menu_Einstellungen:
-            	intent = new Intent(this, Einstellungen_Gravi_Activity.class);
-            	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	startActivity(intent);
-                return true;
-             
             case R.id.menu_Hilfe:
             	intent = new Intent(this, HilfeActivity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	intent.putExtra("Kapitel", "Berechnung");
+            	intent.putExtra("Kapitel", "Erneute_RW");
             	startActivity(intent);
                 return true;
                 
@@ -283,11 +277,6 @@ public class ErneuteRwActivity extends Activity {
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             	startActivity(intent);
                 return true;
-                
-            case R.id.menu_Aus:	
-                ActivityRegistry.finishAll();
-                finish(); 
-                System.exit(0);
                 
             default:
                 return super.onOptionsItemSelected(item);

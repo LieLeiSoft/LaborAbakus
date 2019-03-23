@@ -53,4 +53,20 @@
     <string name="QuizHilfe_6">Das war grandios! Jetzt kommt der vorerst letzte Level. In Level 6 werden Trivialnamen und englische
         Bezeichnungen abgefragt. Trivialnamen sind umgangssprachliche Bezeichnungen für chemische Verbindungen. Z.B. ist für
         Natriumchlorid der Trivialname Kochsalz. </string>
+    <string name="ButtonEinstellungen">(Button: weißer Schlüssel - blauer Hintergrund) Unter Einstellungen lässt sich die Anzahl der
+        gerundeten Nachkommastellen von dem errechneten Ergebnis einstellen. Desweiteren lässt sich bei einigen Layouts die Schriftgröße
+        und Buttonhöhe individuell anpassen.</string>
+    <string name="ButtonEinstellungen_0">Hier können keine Einstellungen vorgenommen werden!</string>
+    <string name="ButtonEinstellungen_NKS">(Button: weißer Schlüssel - blauer Hintergrund) Unter Einstellungen lässt sich die Anzahl der
+        gerundeten Nachkommastellen von dem errechneten Ergenis einstellen.</string>
+    <string name="ButtonEinstellungen_SG_BH">(Button: weißer Schlüssel - blauer Hintergrund) Unter Einstellungen lässt sich die
+        Schriftgröße und Buttonhöhe individuell anpassen.</string>
+    <string name="ButtonEinstellungen_NE_BE">Unter Einstellungen kann entweder die Netto- oder Bruttoeiwaage eingestellt werde.
+        Nettoeinwaage: Wurde die Nettoeinwaage ausgewählt, dann muss in diesem Eingabefeld das reine Gewicht
+        der Probe eingegeben werden. Das reine Nettogewicht erhält man in der Regel, wenn man vor der Einwaage der Probe auf der
+        Waage die Tara Taste betätigt, damit das Gewicht des Gefäßes auf 0,000 gesetzt wird. Bruttoeinwaage: Wurde die
+        Bruttoeinwaage ausgewählt, dann muss in diesem Eingabefeld das gesammte Gewicht der Probe inklusive des Probengefäßes
+        eingegeben werden.</string>
+    <string name="ButtonHome">(Button: schwarzes Haus - weißer Kreis) Mit diesem Button kehrt man zum Hauptmenü zurück.</string>
+    <string name="ButtonBeenden">(Button: weißes Kreuz - roter Hintergrund) Wird dieser Button betätigt, wird die App beendet.</string>
     </resources>

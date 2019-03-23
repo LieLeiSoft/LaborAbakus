@@ -215,18 +215,18 @@ public class BerechnungRueckwaageActivity extends Activity {
         switch (item.getItemId()) 
         {
         	case R.id.menu_Einstellungen:
-            	intent = new Intent(this, Einstellungen_Gravi_Activity.class);
+            	intent = new Intent(this, Einstellungen_Nachkomma_Activity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             	startActivity(intent);
                 return true;
-             
+
             case R.id.menu_Hilfe:
             	intent = new Intent(this, HilfeActivity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             	intent.putExtra("Kapitel", "Berechnung");
             	startActivity(intent);
                 return true;
-                
+
             case R.id.menu_Menue:
             	ActivityRegistry.finishAll();
             	intent = new Intent(this, HauptmenueActivity.class);

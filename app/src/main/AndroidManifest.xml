@@ -28,6 +28,10 @@
         <activity 
             android:name="EinstellungenActivity" android:windowSoftInputMode="stateHidden">
         </activity>
+
+        <activity
+            android:name="Einstellungen_Nachkomma_Activity" android:windowSoftInputMode="stateHidden">
+        </activity>
         
         <activity 
             android:name="EinwaageActivity" android:windowSoftInputMode="stateVisible">

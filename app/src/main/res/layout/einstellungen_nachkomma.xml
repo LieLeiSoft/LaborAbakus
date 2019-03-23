@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/cHellgruen"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cHellblau"
+        android:gravity="center_horizontal"
+        android:text="@string/Beschriftung_Einstellungen"
+        android:textColor="@color/cSchwarz"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cHellbraun" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cHellblau" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cHellgruen" >
+
+        <TextView
+            android:id="@+id/TextView07"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/Nachkommastellen"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/cSchwarz" />
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/TextView03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/Nachkommastellen_Gehalt"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cSchwarz" />
+
+            <Button
+                android:id="@+id/Button03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnGehaltMinus"
+                android:text="@string/minus"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/Gehalt"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/Button04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnGehaltPlus"
+                android:text="@string/plus"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cHellgruen" >
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/TextView05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Nachkommastellen_RSD"
+                android:textColor="@color/cSchwarz"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Button
+                android:id="@+id/Button06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnRSDMinus"
+                android:text="@string/minus"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/RSD"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/Button05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="btnRSDPlus"
+                android:text="@string/plus"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

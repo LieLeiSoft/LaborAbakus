@@ -36,6 +36,15 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.konz_lsg_auswahl);
 
+
+    } // onCreate
+
+    /** wird ausgef�hrt, wenn Activicty angezeigt wird */
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
@@ -127,16 +136,7 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
             // Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
             ActivityRegistry.register(this);
         } // if
-    } // onCreate
 
-    /** wird ausgef�hrt, wenn Activicty angezeigt wird */
-
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
         for (int x=0; x<=11; x++) // 12 Zeilen im Auswahl-Layout
         {
@@ -223,7 +223,7 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
+        inflater.inflate(R.menu.mainmenu4, menu);
         return true;
     }
 
@@ -232,38 +232,6 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
         final Intent[] intent = {null};
         switch (item.getItemId())
         {
-            case R.id.menu_Einstellungen:
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(Konz_lsg_Auswahl_Activity.this);
-                builder.setTitle("Zurücksetzen aller Säuren und Laugen?");
-                builder.setPositiveButton("Ja",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-                                SharedPreferences.Editor prefEditor = prefs.edit();
-                                prefEditor.putString("strCounter", "0");
-                                prefEditor.apply();
-                                dialog.dismiss();
-                                ActivityRegistry.finishAll();
-                                Intent myIntent = new Intent(Konz_lsg_Auswahl_Activity.this, HauptmenueActivity.class);
-                                myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                                startActivity(myIntent);
-                            }
-                        }
-                );
-                builder.setNegativeButton("Nein",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                            }
-                        }
-                );
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-
-                return true;
-
             case R.id.menu_Hilfe:
                 intent[0] = new Intent(this, HilfeActivity.class);
                 intent[0].setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

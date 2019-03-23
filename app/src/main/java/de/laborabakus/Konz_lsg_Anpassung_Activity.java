@@ -58,8 +58,9 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         strAuswahl = prefs.getString("Auswahl", "0");
 
         strKonzAuswahl = prefs.getString("KonzAuswahl_"+strAuswahl, strKonzAuswahl);
-        tv = (TextView) findViewById(R.id.etAnpassungName);
-        tv.setText(strKonzAuswahl);
+        et = (EditText) findViewById(R.id.etAnpassungName);
+        et.setText(strKonzAuswahl);
+        et.setSelection(et.getText().length());
 
         strKonzGehalt = prefs.getString("KonzGehalt_"+strAuswahl, strKonzGehalt);
         //dblKonzGehalt = ActivityTools.fktSignifikanteStellen(strKonzGehalt, 4);
@@ -236,12 +237,49 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
                 startActivity(intent[0]);
                 return true;
 
+            case R.id.menu_Einstellungen:
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Konz_lsg_Anpassung_Activity.this);
+                builder.setTitle("Zurücksetzen aller Säuren und Laugen?");
+                builder.setPositiveButton("Ja",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                                SharedPreferences.Editor prefEditor = prefs.edit();
+                                prefEditor.putString("strCounter", "0");
+                                prefEditor.apply();
+                                dialog.dismiss();
+                                ActivityRegistry.finishAll();
+                                Intent myIntent = new Intent(Konz_lsg_Anpassung_Activity.this, Konz_lsg_Auswahl_Activity.class);
+                                myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                                startActivity(myIntent);
+                            }
+                        }
+                );
+                builder.setNegativeButton("Nein",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                            }
+                        }
+                );
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+
+                return true;
+
             case R.id.menu_Menue:
                 ActivityRegistry.finishAll();
                 intent[0] = new Intent(this, HauptmenueActivity.class);
                 intent[0].setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent[0]);
                 return true;
+
+            case R.id.menu_Aus:
+                ActivityRegistry.finishAll();
+                finish();
+                System.exit(0);
 
             default:
                 return super.onOptionsItemSelected(item);

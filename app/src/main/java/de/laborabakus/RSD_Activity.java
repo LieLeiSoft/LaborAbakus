@@ -60,11 +60,35 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
     @Override
     protected void onResume() {
         super.onResume();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        // **************************************************************************************************************************
+        // ********* Hier wird festgelegt, welche TableLayout bei den Einstellungen (Nachkommastellen) angeziegt werden sollen ******
+        // **************************************************************************************************************************
+
+        prefEditor.putString("Einstellungen", "22"); // (“Name“ und “Wertname“)
+        prefEditor.apply();
+
+        //***********************************************************************
+        //********* Auslesen der Nachkommastellen *******************************
+        //***********************************************************************
+
+        int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
+
+        // *********** Ausgabe relative Standardabweichung % *************
+        Speicher = RSD; // nur die Ausgabe soll gerundet werden
+        strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, AnzahlStellen);
+        tv = (TextView) findViewById(R.id.tvRSD);
+        tv.setText(strAusgabetext);
+
     } // onResume
 
     @Override
     protected void onPause() {
         super.onPause();
+
     } // onPause
 
 
@@ -130,8 +154,6 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             //***********************************************************************
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
             int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
-
-            //			    strRest = ActivityTools.fktDoubleToStringFormat(arrRest[x], AnzahlStellen);
 
             // *********** Ausgabe relative Standardabweichung % *************
             Speicher = RSD; // nur die Ausgabe soll gerundet werden
@@ -224,8 +246,6 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
             int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
 
-            //			    strRest = ActivityTools.fktDoubleToStringFormat(arrRest[x], AnzahlStellen);
-
             // *********** Ausgabe relative Standardabweichung % *************
             Speicher = RSD; // nur die Ausgabe soll gerundet werden
             strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, AnzahlStellen);
@@ -297,8 +317,6 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             //***********************************************************************
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
             int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
-
-            //			    strRest = ActivityTools.fktDoubleToStringFormat(arrRest[x], AnzahlStellen);
 
             // *********** Ausgabe relative Standardabweichung % *************
             Speicher = RSD; // nur die Ausgabe soll gerundet werden

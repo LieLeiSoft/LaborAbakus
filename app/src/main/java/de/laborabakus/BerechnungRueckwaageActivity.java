@@ -57,6 +57,14 @@ public class BerechnungRueckwaageActivity extends Activity {
 
 		// Werte aus Konfigurationsdatei ("Preferences") auslesen und in Arrays eintragen
    		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        // **************************************************************************************************************************
+        // ********* Hier wird festgelegt, welche TableLayout bei den Einstellungen (Nachkommastellen) angeziegt werden sollen ******
+        // **************************************************************************************************************************
+
+        prefEditor.putString("Einstellungen", "21"); // (“Name“ und “Wertname“)
+        prefEditor.apply();
 
    		//***********************************************************************
    		//********* Auslesen der Ein- Rück- und Tarawaagen **********************

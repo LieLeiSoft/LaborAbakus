@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class Einstellungen_Nachkomma_Activity extends Activity {
@@ -14,7 +15,9 @@ public class Einstellungen_Nachkomma_Activity extends Activity {
      *****************************************/
 
     TextView tv;
+    TableRow tr;
     String strEingabe;
+    String strEinstellungen;
     int intEingabe;
 		
     /** Called when the activity is first created. */
@@ -36,7 +39,36 @@ public class Einstellungen_Nachkomma_Activity extends Activity {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
-        int intGehalt = prefs.getInt("NachkommastellenGehalt", 2);
+		// **************************************************************************************************************************
+		// ********* Hier wird festgelegt, welche TableLayout bei den Einstellungen (Nachkommastellen) angeziegt werden sollen ******
+		// **************************************************************************************************************************
+
+		strEinstellungen = prefs.getString("Einstellungen", "21");
+
+		int intEinstellungen = Integer.parseInt(strEinstellungen);
+
+		switch (intEinstellungen) {
+
+			// ****************************************************************************************
+			// ***************** Einstellungen für BerechnungenRueckwaageActivity  ********************
+			// ****************************************************************************************
+			case 21:
+				tr = (TableRow) findViewById(R.id.tableRow2);
+				tr.setVisibility(View.GONE);
+				break;
+
+			// **********************************************************************
+			// ***************** Einstellungen für RSD_Activity  ********************
+			// **********************************************************************
+			case 22:
+				tr = (TableRow) findViewById(R.id.tableRow1);
+				tr.setVisibility(View.GONE);
+				break;
+		}
+
+		// **************************************************************************************************************************
+
+		int intGehalt = prefs.getInt("NachkommastellenGehalt", 2);
         String strGehalt = Integer.toString((int) intGehalt);
 
         tv = (TextView) findViewById(R.id.Gehalt);

@@ -169,7 +169,7 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
+        inflater.inflate(R.menu.mainmenu4, menu);
         return true;
     }
 
@@ -178,38 +178,6 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
         final Intent[] intent = {null};
         switch (item.getItemId())
         {
-            case R.id.menu_Einstellungen:
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(Konz_lsg_Gegeben_Activity.this);
-                builder.setTitle("Zurücksetzen aller Säuren und Laugen?");
-                builder.setPositiveButton("Ja",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                intCounter = 0;
-                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-                                SharedPreferences.Editor prefEditor = prefs.edit();
-                                prefEditor.putInt("intCounter", intCounter);
-                                prefEditor.apply();
-                                dialog.dismiss();
-
-                               ActivityRegistry.finishAll();
-
-                            }
-                        }
-                );
-                builder.setNegativeButton("Nein",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                            }
-                        }
-                );
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-
-                return true;
-
             case R.id.menu_Hilfe:
                 intent[0] = new Intent(this, HilfeActivity.class);
                 intent[0].setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

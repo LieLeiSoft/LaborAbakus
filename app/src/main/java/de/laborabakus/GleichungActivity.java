@@ -12,6 +12,8 @@ import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.Spannable;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,9 +24,10 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GleichungActivity extends Activity {
-	
+
 	public TextView tv;
 	public EditText et;
 	public int intAnzahlOxi = 0;
@@ -592,6 +595,19 @@ public class GleichungActivity extends Activity {
 		    } while (bSchleifenEnde == false);
 	        
 	    } while (intElement_Aktuell != 0);
-	} // fktBerechne_OxiZahlen	
+	} // fktBerechne_OxiZahlen
+
+
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+		String text = "\n   Bitte Zurück Taste benutzen!   \n";
+		Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+		Meldung.setGravity(Gravity.BOTTOM, 0, 0);
+		Meldung.show();
+
+		return true;
+	} // onKeyDown
+
+
 } // GleichungActivity 
 

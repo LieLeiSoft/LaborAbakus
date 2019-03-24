@@ -302,7 +302,7 @@ public class Konz_lsg_verd_Activity_2 extends Activity /*implements OnFocusChang
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
+        inflater.inflate(R.menu.mainmenu4, menu);
         return true;
     }
 
@@ -311,12 +311,6 @@ public class Konz_lsg_verd_Activity_2 extends Activity /*implements OnFocusChang
         Intent intent = null;
         switch (item.getItemId())
         {
-            case R.id.menu_Einstellungen:
-                intent = new Intent(this, Einstellungen_Gravi_Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivity(intent);
-                return true;
-
             case R.id.menu_Hilfe:
                 intent = new Intent(this, HilfeActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

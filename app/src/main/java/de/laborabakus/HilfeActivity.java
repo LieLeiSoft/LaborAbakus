@@ -204,9 +204,21 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][1] = "Eingabe";
 		Hilfe[intFeldNr][2] = "Eingabe";
 		Hilfe[intFeldNr][3] = "Nach Auswahl des gesuchten Parameters, werden hier in den grauen Feldern die" +
-				" gegebenen Parameter eingetippt. Mit dem Button (g/ml) kann entschieden werden, ob die Masse" +
-				" oder das Volumen der konzentrierten Lösung eingegeben bzw. berechnet werden soll. Sind alle" +
-				" Eingaben getätigt, kann mit dem Berechne Button der gesuchte Parameter berechnet werden.";
+				" gegebenen Parameter eingetippt.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Button g/ml";
+		Hilfe[intFeldNr][2] = "Button g/ml";
+		Hilfe[intFeldNr][3] = "Mit dem Button (g/ml) kann entschieden werden, ob die Masse oder das " +
+				"Volumen der konzentrierten Lösung eingegeben bzw. berechnet werden soll.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Button Berechne";
+		Hilfe[intFeldNr][2] = "Button Berechne";
+		Hilfe[intFeldNr][3] = "Sind alle Eingaben getätigt, kann mit dem Berechne Button der gesuchte" +
+				" Parameter berechnet werden.";
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Konz_Lsg_EIngabe

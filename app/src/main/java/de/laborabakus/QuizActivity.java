@@ -36,6 +36,7 @@ public class QuizActivity extends Activity {
     int intLevelCounter;
 	int intPunkte;
 	int intHighscore;
+	int intTextSize;
 
 	String strPunkte;
 	String strHighscore;
@@ -44,6 +45,7 @@ public class QuizActivity extends Activity {
     String strLevel;
     String strLevelCounter;
     String strQuizHilfe;
+    String strAntwortText;
     private Context context;
 
     public enum Element 														// http://www.mindfiresolutions.com/How-to-handle-String-in-switch-case-of-JAVA-617.php
@@ -77,9 +79,17 @@ public class QuizActivity extends Activity {
 			{
 				timerTextView.setText(String.format("%d:%02d", minutes, seconds));
 				timerHandler.postDelayed(this, 500);
+
+				// ********************************************
+				// *************** Zeit läuft *****************
+				// ********************************************
 			}
 			else
 			{
+				// ********************************************
+				// ****** Zeit ist abgelaufen *****************
+				// ********************************************
+
 				timerTextView.setText("END");
 				timerHandler.removeCallbacks(timerRunnable);
 				startTime = 0;
@@ -89,6 +99,20 @@ public class QuizActivity extends Activity {
 
                 Vibrator vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 vi.vibrate(600);  // vibriert für 600ms
+
+				// ********************************************
+				// ****** Anzeigen der richtigen Antwort *****************
+				// ********************************************
+
+				strAntwortText = QuizFragen.mAntwortText;
+				strAntwortText = ActivityTools.fktZiffernTiefstellen(strAntwortText);
+
+				tv = (TextView) findViewById(R.id.tvFormel);
+				tv.setText("");		// bisherige Eingabe löschen strAntwort
+                tv.setTextColor(Color.RED);
+				tv.setTypeface(null, Typeface.BOLD);
+				tv.setTextSize(intTextSize+6);
+				tv.setText(Html.fromHtml(strAntwortText));
 			}
 		}
 	}; // timerRunnable
@@ -325,7 +349,7 @@ public class QuizActivity extends Activity {
 		String strTextSize = prefs.getString("TG_Molmasse", "16");
 		String strButtonhoehe = prefs.getString("BH_Molmasse", "130");
 
-		int intTextSize = Integer.parseInt(strTextSize);
+		intTextSize = Integer.parseInt(strTextSize);
 		int intButtonhoehe = Integer.parseInt(strButtonhoehe);
 
 		tv = (TextView) findViewById(R.id.timerTextView);
@@ -1152,7 +1176,7 @@ public class QuizActivity extends Activity {
 			int intTextSize = Integer.parseInt(strTextSize);
 
 			// Text tiefer stellen
-			String strAntwortText = QuizFragen.mAntwortText;
+			strAntwortText = QuizFragen.mAntwortText;
 			strAntwortText = ActivityTools.fktZiffernTiefstellen(strAntwortText);
 
 			// Toast anzeigen

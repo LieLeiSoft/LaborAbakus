@@ -5550,6 +5550,7 @@ public class QuizFragen {
 
         // P
 
+        
         intLfdNr_Level++;
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);

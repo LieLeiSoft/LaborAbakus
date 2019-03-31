@@ -14,15 +14,11 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.text.Html;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +33,7 @@ public class QuizActivity extends Activity {
 	int intHighscore;
 	int intTextSize;
 	int intHupe =0;
+	int intTicken =0;
 
 	String strPunkte;
 	String strHighscore;
@@ -47,6 +44,8 @@ public class QuizActivity extends Activity {
     String strQuizHilfe;
     String strAntwortText;
     private Context context;
+
+	public MediaPlayer mp;
 
 
     public enum Element 														// http://www.mindfiresolutions.com/How-to-handle-String-in-switch-case-of-JAVA-617.php
@@ -61,8 +60,6 @@ public class QuizActivity extends Activity {
 	}
 
 	public int[][] arrOxi = new int[100][9]; // Array für Oxidationszahlen (100 Zeilen, 9 Spalten)
-
-    //MediaPlayer mpTonEnde = MediaPlayer.create(this, R.raw.Wecker);
 
 	TextView timerTextView;
 	long startTime = 0;
@@ -83,9 +80,15 @@ public class QuizActivity extends Activity {
 
 			if (millis > 0)
 			{
-                // mpTonZeit.start();
+				if (intTicken == 0)
+				{
+					mp = MediaPlayer.create(getApplicationContext(), R.raw.ticken);
+					mp.start();
+					intTicken = 1;
+				}
 
-			    timerTextView.setText(String.format("%d:%02d", minutes, seconds));
+
+				timerTextView.setText(String.format("%d:%02d", minutes, seconds));
 				timerHandler.postDelayed(this, 500);
 
 				// ********************************************
@@ -98,7 +101,8 @@ public class QuizActivity extends Activity {
 				// ****** Zeit ist abgelaufen *****************
 				// ********************************************
 
-                //mpTonEnde.start();
+				mp = MediaPlayer.create(getApplicationContext(), R.raw.wecker);
+				mp.start();
 
 				timerTextView.setText("END");
 				timerHandler.removeCallbacks(timerRunnable);
@@ -513,7 +517,7 @@ public class QuizActivity extends Activity {
 		// Nebengruppenelemente angezeigt werden (Eintrag für "PSE" wieder auf Grundstellung)
 		prefEditor.putString("PSE", "Hauptgruppenelemente");
 		prefEditor.apply();
-
+		mp.stop();			// Töne werden ausgeschaltet!
 		// Timer explizit beenden, weil es sonst vibriert (nach Ablauf des Timers)
 		timerHandler.removeCallbacks(timerRunnable);
 	} // onDestroy
@@ -742,8 +746,6 @@ public class QuizActivity extends Activity {
 		Float fltMolekuelmasse_RK;
 
 		final MediaPlayer mpTonRichtig = MediaPlayer.create(this, R.raw.glocke_1);
-        //final MediaPlayer mpTonZeit = MediaPlayer.create(this, R.raw.ticken);
-
 		final MediaPlayer mpTonHighScore = MediaPlayer.create(this, R.raw.hupe);
 
 
@@ -1247,7 +1249,8 @@ public class QuizActivity extends Activity {
 		prefEditor.putFloat("Molmasse", 0);
 		prefEditor.apply();
     } // btnWeiter
-	
+
+
 	/********************************************
 	 ************** Menue Button ****************
 	 ********************************************/

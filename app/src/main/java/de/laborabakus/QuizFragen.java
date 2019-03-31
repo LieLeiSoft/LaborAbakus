@@ -5545,7 +5545,7 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Nickel(II)-acetat";
-        Quizfragen[intLfdNr_Gesamt][3] = "176.424";
+        Quizfragen[intLfdNr_Gesamt][3] = "176.778";
         Quizfragen[intLfdNr_Gesamt][4] = "Ni(CH3COO)2";  // Elemente 4 – 176.78 g/mol
 
         // P

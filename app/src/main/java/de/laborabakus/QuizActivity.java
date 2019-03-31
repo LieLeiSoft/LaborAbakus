@@ -1072,18 +1072,12 @@ public class QuizActivity extends Activity {
 			tv = (TextView) findViewById(R.id.tvPunkte);
 			tv.setText(" " +strPunkte + " ");
 
-            if(intPunkte >= 25 && intHupe == 0)     // spielt Hupe, wenn der Level geknackt wurde
+            if(intHupe == 0 && intPunkte >= 25 && intHighscore < intPunkte)     // spielt Hupe, wenn der Level geknackt wurde
             {
                 mpTonHighScore.start();
                 intHupe = 1;
             }
-/*
-			if(intHighscore < intPunkte)     // die neuen Punkte werden in die Highscore gespeichert, wenn sie höher sind
-			{
-			    prefEditor.putString("Highscore"+strLevel, strPunkte);
 
-			}
-*/
 			prefEditor.putInt("Runde_Klammer_auf", 0);
 			prefEditor.putInt("AnzahlElemente", 0);
 			prefEditor.putFloat("Molmasse_Runde_Klammer", 0);

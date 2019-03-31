@@ -29,7 +29,6 @@ import android.widget.Toast;
 
 public class QuizActivity extends Activity {
 
-
 	TextView tv;
 	int intFrageNr;
     int intLevel;
@@ -37,6 +36,7 @@ public class QuizActivity extends Activity {
 	int intPunkte;
 	int intHighscore;
 	int intTextSize;
+	int intHupe =0;
 
 	String strPunkte;
 	String strHighscore;
@@ -47,6 +47,7 @@ public class QuizActivity extends Activity {
     String strQuizHilfe;
     String strAntwortText;
     private Context context;
+
 
     public enum Element 														// http://www.mindfiresolutions.com/How-to-handle-String-in-switch-case-of-JAVA-617.php
 	// emnum Aufzählungstyp Element
@@ -61,6 +62,8 @@ public class QuizActivity extends Activity {
 
 	public int[][] arrOxi = new int[100][9]; // Array für Oxidationszahlen (100 Zeilen, 9 Spalten)
 
+    //MediaPlayer mpTonEnde = MediaPlayer.create(this, R.raw.Wecker);
+
 	TextView timerTextView;
 	long startTime = 0;
 
@@ -70,6 +73,9 @@ public class QuizActivity extends Activity {
 
 		@Override
 		public void run() {
+
+
+
 			long millis = startTime - System.currentTimeMillis();
 			int seconds = (int) (millis / 1000);
 			int minutes = seconds / 60;
@@ -77,7 +83,9 @@ public class QuizActivity extends Activity {
 
 			if (millis > 0)
 			{
-				timerTextView.setText(String.format("%d:%02d", minutes, seconds));
+                // mpTonZeit.start();
+
+			    timerTextView.setText(String.format("%d:%02d", minutes, seconds));
 				timerHandler.postDelayed(this, 500);
 
 				// ********************************************
@@ -89,6 +97,8 @@ public class QuizActivity extends Activity {
 				// ********************************************
 				// ****** Zeit ist abgelaufen *****************
 				// ********************************************
+
+                //mpTonEnde.start();
 
 				timerTextView.setText("END");
 				timerHandler.removeCallbacks(timerRunnable);
@@ -726,6 +736,10 @@ public class QuizActivity extends Activity {
 		Float fltMolekuelmasse_RK;
 
 		final MediaPlayer mpTonRichtig = MediaPlayer.create(this, R.raw.glocke_1);
+        //final MediaPlayer mpTonZeit = MediaPlayer.create(this, R.raw.ticken);
+
+		final MediaPlayer mpTonHighScore = MediaPlayer.create(this, R.raw.hupe);
+
 
 		tv = (TextView) findViewById(R.id.timerTextView);
 		if (tv.getText().equals("END"))
@@ -1008,8 +1022,7 @@ public class QuizActivity extends Activity {
 		strMM = Float.toString(fltMM);
 		if(strMM.equals(strAntwort))
 		{
-			// Antwort ist richtig
-			if (intLevel > 2)
+		    if (intLevel > 2)
 			{
 				mpTonRichtig.start();
 				String text = "\n   Super!   \n   Richtig!   \n";
@@ -1053,9 +1066,16 @@ public class QuizActivity extends Activity {
 			tv = (TextView) findViewById(R.id.tvPunkte);
 			tv.setText(" " +strPunkte + " ");
 
+            if(intPunkte >= 25 && intHupe == 0)     // spielt Hupe, wenn der Level geknackt wurde
+            {
+                mpTonHighScore.start();
+                intHupe = 1;
+            }
+
 			if(intHighscore < intPunkte)     // die neuen Punkte werden in die Highscore gespeichert, wenn sie höher sind
 			{
-				prefEditor.putString("Highscore"+strLevel, strPunkte);
+			    prefEditor.putString("Highscore"+strLevel, strPunkte);
+
 			}
 
 			prefEditor.putInt("Runde_Klammer_auf", 0);

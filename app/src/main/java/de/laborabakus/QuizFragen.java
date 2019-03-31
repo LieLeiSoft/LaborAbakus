@@ -5032,8 +5032,8 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Diammoniumhydrogenphosphat";
-        Quizfragen[intLfdNr_Gesamt][3] = "96.086";
-        Quizfragen[intLfdNr_Gesamt][4] = "NH4H2PO4";
+        Quizfragen[intLfdNr_Gesamt][3] = "132.056";
+        Quizfragen[intLfdNr_Gesamt][4] = "(NH4)2HPO4";
 
         intLfdNr_Level++;
         intLfdNr_Gesamt++;
@@ -5546,7 +5546,7 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Nickel(II)-acetat";
         Quizfragen[intLfdNr_Gesamt][3] = "176.424";
-        Quizfragen[intLfdNr_Gesamt][4] = "Ni2CH3COO";  // Elemente 4 – 176.78 g/mol
+        Quizfragen[intLfdNr_Gesamt][4] = "Ni(CH3COO)2";  // Elemente 4 – 176.78 g/mol
 
         // P
 

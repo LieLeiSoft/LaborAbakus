@@ -76,9 +76,84 @@ public class ActivityTools {
 		}    	
 		return strErgebnis;
 	} // fktZiffernTiefstellen
-/*
-	public static double fktSignifikanteStellen(String strZahl, int intAnzahlStellen)
+
+
+
+
+	public static String fktSignifikanteStellen(double dblZahl, int intSigniStellen)
 	{
+		int intAnzahlZeichen;
+		int intKeineNullMehr = 0;							// 0 = Nullen nach dem komma , 1 = Zahlen
+		int intAnzahlNullenNachKomma = 0;
+		int intAnzahlZeichenVorKomma = 0;
+		int intStellenRunden = 0;
+		double dblSignifikante;
+		String strZahl;
+		String strZ;
+		String strSignifikante ="";
+		char chZeichen;
+
+		strZahl = Double.toString(dblZahl);
+		String[] splitResult = strZahl.split(".", 2); // –> splitten am Punkt
+		 // strZahl = 123.456789
+		// splitResult[0] = 123
+		// splitResult[1] = 456789
+
+		if (splitResult[0].equals("0") == true)			// Wenn die Zahl nur Nachkomma enthällt, dann...
+		{
+			intAnzahlZeichen = strZahl.length();  		// die Zeichenlänge des Strings wird bestimmt
+
+			for (int x=1;x<=intAnzahlZeichen; x++) 		// eine Schleife für jedes Zeichen von links nach rechts
+			{
+				chZeichen = strZahl.charAt(x);    		// einzelne Zeichen werden mit char ermittelt
+				strZ = ""+chZeichen;                	// der char wird in einen String umgewandelt
+
+				if ((strZ.equals("0") == true) && (intKeineNullMehr == 0))			// Nullen vor dem ersten Zeichen
+				{
+					intAnzahlNullenNachKomma = intAnzahlNullenNachKomma + 1;		// Anzahl der Nullen nach dem Komma werden gezählt.
+				}
+				else 																// Zeichen nach den ersten Nullen
+				{
+					intKeineNullMehr = 1;											// Erstes Zeichen, ab jetzt werden auch Nullen gezählt.
+
+					// Berechnung
+					intStellenRunden = intSigniStellen + intAnzahlNullenNachKomma;	// z.B. 0.001234567 -> 2 Nullen werden dazu gezählt, damit richtig gerundet wird
+					dblSignifikante = Double.parseDouble(splitResult[1]);			// String umwandeln in double
+					strSignifikante = ActivityTools.fktDoubleToStringFormat(dblSignifikante, intStellenRunden);
+				}
+			}
+		}
+		else											// ...sonst
+		{
+			// Berechnung
+			intAnzahlZeichenVorKomma = splitResult[0].length();											// Länge des Strings vor dem Komma
+			intStellenRunden = intSigniStellen - intAnzahlZeichenVorKomma;								// z.B. 123.4567 -> Anzahl der Vorkommastellen werden von den
+																										// SignifikantenStellen abgezogen um die die zu rundenen
+																										// Stellen zu ermitteln.
+			dblZahl = Double.parseDouble(strZahl);														// String umwandeln in double
+			strSignifikante = ActivityTools.fktDoubleToStringFormat(dblZahl, intStellenRunden);
+		}
+
+		return strSignifikante;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/*
 		// int pos = strZahl.indexOf('.');
 		//int vorKomma = Integer.parseInt(strZahl.substring(0, pos));
 		//String strNachKomma = strZahl.substring(pos+1, strZahl.length());

@@ -15,6 +15,7 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -34,7 +35,8 @@ public class QuizActivity extends Activity {
 	int intTextSize;
 	int intHupe =0;
 	int intTicken =0;
-	
+	int intKEYCODE_BACK_Counter;
+
 	String strPunkte;
 	String strHighscore;
 	String strFrage;
@@ -80,7 +82,7 @@ public class QuizActivity extends Activity {
 
 			if (millis > 0)
 			{
-				if (intTicken == 0)
+				if (intTicken == 0)         // Damit das Ticken nur einmal gestartet wird
 				{
 					mp = MediaPlayer.create(getApplicationContext(), R.raw.ticken);
 					mp.start();
@@ -1155,7 +1157,7 @@ public class QuizActivity extends Activity {
 		tv = (TextView) findViewById(R.id.btnWeiter); // Button Oxidationstufen wird unsichtbar damit ohne Eingabe nicht abstürzt
 		tv.setVisibility(View.INVISIBLE);
 		
-		for (int x=0; x<=4; x++)
+		for (int x=0; x<=4; x++)        // Zahlen werden unsichtbar gemacht
 		{
             int viewId = getResources().getIdentifier("btnSZ_"+x, "id", getPackageName());
             tv = (TextView) findViewById(viewId);
@@ -1170,6 +1172,9 @@ public class QuizActivity extends Activity {
                 tv.setVisibility(View.VISIBLE);
             }
 		}
+
+        tv = (TextView) findViewById(R.id.btnWeiter);
+        tv.setVisibility(View.VISIBLE);
 
 		tv = (TextView) findViewById(R.id.tvFormel);
 		tv.setText("");
@@ -1250,6 +1255,27 @@ public class QuizActivity extends Activity {
 		prefEditor.apply();
     } // btnWeiter
 
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK){
+			intKEYCODE_BACK_Counter++;
+			switch (intKEYCODE_BACK_Counter) {
+				case 1: {
+					String text = "\n   Gibst du auf?  \n   Dann drücke erneut!   \n";
+					Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+					Meldung.setGravity(Gravity.BOTTOM, 0, 0);
+					Meldung.show();
+
+					break;
+				}
+				case 2: {
+					ActivityRegistry.register(this);
+					finish();
+				}
+			} // switch
+		}
+		return true;
+	} // onKeyDown
+
 
 	/********************************************
 	 ************** Menue Button ****************
@@ -1260,7 +1286,7 @@ public class QuizActivity extends Activity {
         inflater.inflate(R.menu.mainmenu, menu);
         return true;
     }   
-    
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	Intent intent = null;

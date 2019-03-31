@@ -34,7 +34,7 @@ public class QuizActivity extends Activity {
 	int intTextSize;
 	int intHupe =0;
 	int intTicken =0;
-
+	
 	String strPunkte;
 	String strHighscore;
 	String strFrage;

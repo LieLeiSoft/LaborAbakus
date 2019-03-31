@@ -73,8 +73,8 @@ public class QuizActivity extends Activity {
 
 		@Override
 		public void run() {
-
-
+			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+			SharedPreferences.Editor prefEditor = prefs.edit();
 
 			long millis = startTime - System.currentTimeMillis();
 			int seconds = (int) (millis / 1000);
@@ -123,6 +123,12 @@ public class QuizActivity extends Activity {
 				tv.setTypeface(null, Typeface.BOLD);
 				tv.setTextSize(intTextSize+6);
 				tv.setText(Html.fromHtml(strAntwortText));
+
+				if(intHighscore < intPunkte)     // die neuen Punkte werden in die Highscore gespeichert, wenn sie höher sind
+				{
+					prefEditor.putString("Highscore"+strLevel, strPunkte);
+					prefEditor.apply();
+				}
 			}
 		}
 	}; // timerRunnable
@@ -1071,13 +1077,13 @@ public class QuizActivity extends Activity {
                 mpTonHighScore.start();
                 intHupe = 1;
             }
-
+/*
 			if(intHighscore < intPunkte)     // die neuen Punkte werden in die Highscore gespeichert, wenn sie höher sind
 			{
 			    prefEditor.putString("Highscore"+strLevel, strPunkte);
 
 			}
-
+*/
 			prefEditor.putInt("Runde_Klammer_auf", 0);
 			prefEditor.putInt("AnzahlElemente", 0);
 			prefEditor.putFloat("Molmasse_Runde_Klammer", 0);

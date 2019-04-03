@@ -164,11 +164,18 @@ public class GleichungActivity extends Activity {
 		String strZeichen;
 		String strOxi;
 		String strIndex = "";
+		String strFrage;
+		String strAntwort;
+		String strMolmasse;
+		String strNomenklaturnamen;
+		float fltMolmasse;
 		int Position;
 		int Nummer;
 		int Element = 0;
 		int intIndex = 1;
 		int intAnzahlZeichen;
+		int intFrageNr;
+		int intLevel = 0;
 		
 		int intKlammerIndex = 1;
 		char chZeichen;
@@ -184,7 +191,22 @@ public class GleichungActivity extends Activity {
 		// **************************************************************
 
 		strFormel = prefs.getString("Formel", "");
-		
+		fltMolmasse = prefs.getFloat("Molmasse", 0);
+
+		strMolmasse = Float.toString(fltMolmasse);
+
+		// **************************************************************
+		// ********** Hier wir der anorganische Name ermittelt **********
+		// **************************************************************
+
+		strNomenklaturnamen = QuizFragen.suche_Nomenklaturnamen(strMolmasse);
+
+		tv = (TextView) findViewById(R.id.tvNomenklaturnamen);
+		tv.setText(strNomenklaturnamen);
+
+
+		// **************************************************************
+
 		intAnzahlZeichen = strFormel.length();
 				
 		//double[] arrZahl = new double[10]; // Erzeugt 10 Felder, keine 11!

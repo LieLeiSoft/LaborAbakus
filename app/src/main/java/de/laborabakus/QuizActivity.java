@@ -1193,7 +1193,7 @@ public class QuizActivity extends Activity {
 	
 	public void btnWeiter(View v) 
 	{
-        if (QuizFragen.mAntwortText != null)
+        if (QuizFragen.mAntwortText != null)			// Wenn Antwort nicht gewusst
         {
 			// Textgröße einstellen
         	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());

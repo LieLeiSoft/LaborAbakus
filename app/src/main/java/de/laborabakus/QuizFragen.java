@@ -6430,6 +6430,25 @@ public class QuizFragen {
     	intLfdNr_max = intLfdNr_Gesamt;
 	} // erstelle_Quizfragen
 
+    public static String suche_Nomenklaturnamen (String strMolmasse) {
+
+        String strNomenklaturnamen = "";
+
+        strNomenklaturnamen = QuizFragen.suche_Nomenklaturnamen(strMolmasse);
+        erstelle_Quizfragen();
+
+        for (int intFrageNr=1; intFrageNr <=200; intFrageNr++) {
+            if (   (strMolmasse.equals(Quizfragen[intFrageNr][3])))
+            {
+                strNomenklaturnamen = Quizfragen[intFrageNr][2];
+
+                break; // for-Schleife vorzeitig beenden
+            }
+        } // for...
+
+        return strNomenklaturnamen;
+    }
+
 	public static void lese_Quizfrage (int pLevel, int pLfdNr) {
 		mFrage       = "";
 		mAntwort     = "";
@@ -6445,6 +6464,7 @@ public class QuizFragen {
 			}
 		} // for...
 	} // lese_Quizfrage
+
 
 	public static int ermittel_LfdNr (int pLevel) {
 		int intZufallszahl = 0;

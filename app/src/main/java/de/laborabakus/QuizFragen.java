@@ -6434,10 +6434,11 @@ public class QuizFragen {
 
         String strNomenklaturnamen = "";
 
-        strNomenklaturnamen = QuizFragen.suche_Nomenklaturnamen(strMolmasse);
-        erstelle_Quizfragen();
+        if (intLfdNr_max == 0) {
+            erstelle_Quizfragen();
+        }
 
-        for (int intFrageNr=1; intFrageNr <=200; intFrageNr++) {
+        for (int intFrageNr=1; intFrageNr <=intLfdNr_max; intFrageNr++) {
             if (   (strMolmasse.equals(Quizfragen[intFrageNr][3])))
             {
                 strNomenklaturnamen = Quizfragen[intFrageNr][2];
@@ -6447,7 +6448,7 @@ public class QuizFragen {
         } // for...
 
         return strNomenklaturnamen;
-    }
+    } // suche_Nomenklaturnamen
 
 	public static void lese_Quizfrage (int pLevel, int pLfdNr) {
 		mFrage       = "";

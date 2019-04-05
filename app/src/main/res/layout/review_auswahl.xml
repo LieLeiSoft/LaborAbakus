@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/v_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/cHellblau"
+    android:stretchColumns="*"
+    android:shrinkColumns="0"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvReviewTitel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Wurden Waagen benutzt?"
+                android:textColor="@color/cSchwarz"
+                android:textSize="20dp" />
+        
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btnReviewBack"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:gravity="center_horizontal"
+                android:onClick="btnReviewBack"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnNochNix"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:gravity="center_horizontal"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnReviewWeiter"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:textColorHighlight="@color/cHellgruen"
+                android:gravity="center_horizontal"
+                android:onClick="btnReviewWeiter"
+                android:text="weiter"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tvTyp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Waage anpassen"
+                android:textColor="@color/cSchwarz"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvDatum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Datum wählen"
+                android:textColor="@color/cSchwarz"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvAuswahl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Daily check"
+                android:textColor="@color/cSchwarz"
+                android:textSize="10sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/chellrot">
+
+            <Button
+                android:id="@+id/btnTyp_1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 453"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="wird geprüft!"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 453"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 453"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 1327"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 1327"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_6"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 1327"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_6"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_6"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_7"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 1010"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_7"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_7"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_8"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 1010"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_8"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_8"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_9"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 1010"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_9"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_9"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_10"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 123"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_10"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_10"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_11"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 123"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_11"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_11"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_12"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 123"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_12"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_12"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_13"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 456"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_13"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_13"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_14"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 456"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_14"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_14"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnTyp_15"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnTyp"
+                android:text="KAL: 456"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnDatum_15"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnDatum"
+                android:text="Datum"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/btnAuswahl_15"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:onClick="btnAuswahl"
+                android:text="prüfen?"
+                android:textAllCaps="false"
+                android:textSize="14dp" />
+
+        </TableRow>
+    </LinearLayout>
+</ScrollView>

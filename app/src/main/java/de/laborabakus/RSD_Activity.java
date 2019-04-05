@@ -29,6 +29,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
     double d;   // absolute Abweichung der Einzelwerte vom Mittelwert
     double s;   // Standardabweichung
     double RSD; // relative Standardabweichung in Prozent
+    double dblErgebnis;
     boolean mainisopen = true;
 
     EditText et;
@@ -140,12 +141,14 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             // *********** Ausgabe Mittelwert *************
             Speicher = X; // nur die Ausgabe soll gerundet werden
             strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            // strAusgabetext = ActivityTools.fktSignifikanteStellen(Speicher, 4); // auf 5 Nachkommastellen
             tv = (TextView) findViewById(R.id.tv_Mittelwert);
             tv.setText(strAusgabetext);
 
             // *********** Ausgabe Standardabweichung *************
             Speicher = s; // nur die Ausgabe soll gerundet werden
             strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            // strAusgabetext = ActivityTools.fktSignifikanteStellen(Speicher, 4); // auf 5 Nachkommastellen
             tv = (TextView) findViewById(R.id.tvStandardabweichung);
             tv.setText(strAusgabetext);
 
@@ -158,6 +161,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             // *********** Ausgabe relative Standardabweichung % *************
             Speicher = RSD; // nur die Ausgabe soll gerundet werden
             strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, AnzahlStellen);
+            // strAusgabetext = ActivityTools.fktSignifikanteStellen(RSD, 4); // auf 5 Nachkommastellen
             tv = (TextView) findViewById(R.id.tvRSD);
             tv.setText(strAusgabetext);
 

@@ -320,7 +320,7 @@ public class GleichungActivity extends Activity {
 		{
 			strFormel = strFormel.replaceAll(Integer.toString(intIndex), "<sub><small>"+Integer.toString(intIndex)+"</sub></small>");				
 		}
-		tv.setText(Html.fromHtml("Formel = "+strFormel));
+		tv.setText(Html.fromHtml(strFormel));
 		
 
 		// ********************************************************************

@@ -94,18 +94,19 @@ public class ActivityTools {
 		char chZeichen;
 
 		strZahl = Double.toString(dblZahl);
-		String[] splitResult = strZahl.split(".", 2); // –> splitten am Punkt
+        strZahl = strZahl.replace(".", ",");
+		String[] splitResult = strZahl.split(",", 6); // –> splitten am Punkt
 		 // strZahl = 123.456789
 		// splitResult[0] = 123
 		// splitResult[1] = 456789
 
 		if (splitResult[0].equals("0") == true)			// Wenn die Zahl nur Nachkomma enthällt, dann...
 		{
-			intAnzahlZeichen = strZahl.length();  		// die Zeichenlänge des Strings wird bestimmt
+			intAnzahlZeichen = splitResult[1].length();  		// die Zeichenlänge des Strings wird bestimmt
 
-			for (int x=1;x<=intAnzahlZeichen; x++) 		// eine Schleife für jedes Zeichen von links nach rechts
+			for (int x=0;x<=intAnzahlZeichen-1; x++) 		// eine Schleife für jedes Zeichen von links nach rechts
 			{
-				chZeichen = strZahl.charAt(x);    		// einzelne Zeichen werden mit char ermittelt
+				chZeichen = splitResult[1].charAt(x);    		// einzelne Zeichen werden mit char ermittelt
 				strZ = ""+chZeichen;                	// der char wird in einen String umgewandelt
 
 				if ((strZ.equals("0") == true) && (intKeineNullMehr == 0))			// Nullen vor dem ersten Zeichen
@@ -130,7 +131,9 @@ public class ActivityTools {
 			intStellenRunden = intSigniStellen - intAnzahlZeichenVorKomma;								// z.B. 123.4567 -> Anzahl der Vorkommastellen werden von den
 																										// SignifikantenStellen abgezogen um die die zu rundenen
 																										// Stellen zu ermitteln.
-			dblZahl = Double.parseDouble(strZahl);														// String umwandeln in double
+
+			strZahl = strZahl.replace(",", ".");// String umwandeln in double
+			dblZahl = Double.parseDouble(strZahl);
 			strSignifikante = ActivityTools.fktDoubleToStringFormat(dblZahl, intStellenRunden);
 		}
 

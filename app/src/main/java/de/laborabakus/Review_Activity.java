@@ -26,23 +26,27 @@ import java.util.List;
 
 class ArrayComparator implements Comparator<Comparable[]> {
     private final int columnToSort;
+    private final int indexMax;
+    private int index;
     private final boolean ascending;
 
-    public ArrayComparator(int columnToSort, boolean ascending) {
+    public ArrayComparator(int columnToSort, int indexMax, boolean ascending) {
         this.columnToSort = columnToSort;
+        this.indexMax = indexMax;
         this.ascending = ascending;
+
+        this.index = 0;
     }
 
     public int compare(Comparable[] c1, Comparable[] c2) {
         int cmp;
-        if (c1[columnToSort].equals(null)) {
-            cmp = 0;
-        }
-        else if (c1[columnToSort].toString() == "") {
-            cmp = 0;
+
+        index++;
+        if (index <= indexMax) {
+            cmp = c1[columnToSort].compareTo(c2[columnToSort]);
         }
         else {
-            cmp = c1[columnToSort].compareTo(c2[columnToSort]);
+            cmp = 0;
         }
         return ascending ? cmp : -cmp;
     }
@@ -94,6 +98,9 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
         ReviewArray[3][1] = "03.01.2019";
         ReviewArray[3][2] = "banane";
 
+        ReviewArray[4][0] = "Chemikalie 2";
+        ReviewArray[4][1] = "04.01.2019";
+        ReviewArray[4][2] = "weiss nicht";
     } // onCreate
 
 	/** wird ausgef�hrt, wenn Activicty angezeigt wird */
@@ -157,9 +164,17 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
                 }
             });
 */
-            Arrays.sort(ReviewArray, new ArrayComparator(0, true));
+            int columnToSort = 0;
+            int indexMax = 0;
 
-            for (int t=0; t<=3; t++)
+            while ((indexMax < ReviewArray.length) && (ReviewArray[indexMax][columnToSort] != null)) {
+                indexMax++;
+            }
+            // bei 5 Elementen muss indexMaxx = 8 sein, damit richtig sortiert wird - warum???
+            indexMax = 8;
+            Arrays.sort(ReviewArray, new ArrayComparator(columnToSort, indexMax, true));
+
+            for (int t=0; t<indexMax; t++)
             {
                 Review_Liste.add(ReviewArray[t][0]);
                 Review_Liste.add(ReviewArray[t][1]);

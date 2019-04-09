@@ -41,13 +41,11 @@ class ArrayComparator implements Comparator<Comparable[]> {
     public int compare(Comparable[] c1, Comparable[] c2) {
         int cmp;
 
-        index++;
-        if (index <= indexMax) {
+        if ((c1[columnToSort].equals("")))
+            cmp = 1;
+        else
             cmp = c1[columnToSort].compareTo(c2[columnToSort]);
-        }
-        else {
-            cmp = 0;
-        }
+
         return ascending ? cmp : -cmp;
     }
 }
@@ -81,6 +79,12 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
 
     	// Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
+
+        for (int zeile=0; zeile<100; zeile++)
+        {
+            for (int spalte=0; spalte<3; spalte++)
+                ReviewArray[zeile][spalte] = "";
+        }
 
         ReviewArray[0][0] = "Waage 0";
         ReviewArray[0][1] = "01.01.2019";

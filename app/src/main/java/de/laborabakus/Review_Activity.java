@@ -94,17 +94,90 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
         ReviewArray[1][1] = "01.01.2019";
         ReviewArray[1][2] = "ja";
 
-        ReviewArray[2][0] = "Chemikalie";
-        ReviewArray[2][1] = "02.01.2019";
+        ReviewArray[2][0] = "KOH";
+        ReviewArray[2][1] = "(11335)";
         ReviewArray[2][2] = "nein";
 
-        ReviewArray[3][0] = "Reagenz";
+        ReviewArray[3][0] = "Salzsäure";
         ReviewArray[3][1] = "03.01.2019";
         ReviewArray[3][2] = "banane";
 
-        ReviewArray[4][0] = "Chemikalie 2";
-        ReviewArray[4][1] = "04.01.2019";
-        ReviewArray[4][2] = "weiss nicht";
+        ReviewArray[4][0] = "Titrant";
+        ReviewArray[4][1] = "(54321)";
+        ReviewArray[4][2] = "check";
+
+        ReviewArray[5][0] = "Aceton";
+        ReviewArray[5][1] = "(56765)";
+        ReviewArray[5][2] = "check";
+
+        ReviewArray[6][0] = "Na-sulfat";
+        ReviewArray[6][1] = "(65453)";
+        ReviewArray[6][2] = "check";
+
+        ReviewArray[7][0] = "Ether";
+        ReviewArray[7][1] = "(87678)";
+        ReviewArray[7][2] = "check";
+
+        ReviewArray[8][0] = "2-Propanol";
+        ReviewArray[8][1] = "(23423)";
+        ReviewArray[8][2] = "check";
+
+        ReviewArray[9][0] = "Methanol";
+        ReviewArray[9][1] = "(83423)";
+        ReviewArray[9][2] = "check";
+
+        ReviewArray[10][0] = "Ammoniak";
+        ReviewArray[10][1] = "(7554)";
+        ReviewArray[10][2] = "check";
+
+        ReviewArray[11][0] = "DMF";
+        ReviewArray[11][1] = "(35567)";
+        ReviewArray[11][2] = "check";
+
+        ReviewArray[12][0] = "TBAH";
+        ReviewArray[12][1] = "(376545)";
+        ReviewArray[12][2] = "check";
+
+        ReviewArray[13][0] = "Perchlors.";
+        ReviewArray[13][1] = "(66443)";
+        ReviewArray[13][2] = "check";
+
+        ReviewArray[14][0] = "Schwefels.";
+        ReviewArray[14][1] = "(7765)";
+        ReviewArray[14][2] = "check";
+
+        ReviewArray[15][0] = "Salpeters.";
+        ReviewArray[15][1] = "(5353)";
+        ReviewArray[15][2] = "check";
+
+        ReviewArray[16][0] = "Flusssäure";
+        ReviewArray[16][1] = "(57885)";
+        ReviewArray[16][2] = "check";
+
+        ReviewArray[17][0] = "Borsäure";
+        ReviewArray[17][1] = "(44567)";
+        ReviewArray[17][2] = "check";
+
+        ReviewArray[18][0] = "Kohlensäure";
+        ReviewArray[18][1] = "(23534)";
+        ReviewArray[18][2] = "check";
+
+        ReviewArray[19][0] = "Essigsäure";
+        ReviewArray[19][1] = "(84656)";
+        ReviewArray[19][2] = "check";
+
+        ReviewArray[20][0] = "Kalilauge";
+        ReviewArray[20][1] = "(45334)";
+        ReviewArray[20][2] = "check";
+
+        ReviewArray[21][0] = "Natronlauge";
+        ReviewArray[21][1] = "(76567)";
+        ReviewArray[21][2] = "check";
+
+        ReviewArray[22][0] = "Benzoes.";
+        ReviewArray[22][1] = "(34345)";
+        ReviewArray[22][2] = "check";
+
     } // onCreate
 
 	/** wird ausgef�hrt, wenn Activicty angezeigt wird */
@@ -175,7 +248,7 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
                 indexMax++;
             }
             // bei 5 Elementen muss indexMaxx = 8 sein, damit richtig sortiert wird - warum???
-            indexMax = 8;
+            indexMax = 23;
             Arrays.sort(ReviewArray, new ArrayComparator(columnToSort, indexMax, true));
 
             for (int t=0; t<indexMax; t++)

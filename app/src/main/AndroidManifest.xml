@@ -109,6 +109,10 @@
             android:name="Review_Activity" android:windowSoftInputMode="stateHidden">
         </activity>
 
+        <activity
+            android:name="KalenderActivity" android:windowSoftInputMode="stateHidden">
+        </activity>
+
     </application>
 </manifest>
 

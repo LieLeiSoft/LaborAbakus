@@ -116,6 +116,19 @@ public class HauptmenueActivity extends Activity {
 
 	} // onResume
 
+
+	public void btnOnClickReview(View v)
+	{
+		Intent myIntent = new Intent(v.getContext(), Review_Activity.class);
+
+		// verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
+		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+		// Activity aufrufen
+		startActivity(myIntent);
+	}
+
+
     public void btnOnClickGravi(View v)
     {
     	Intent myIntent = new Intent(v.getContext(), EinwaageActivity.class);
@@ -126,6 +139,7 @@ public class HauptmenueActivity extends Activity {
 		// Activity aufrufen
         startActivity(myIntent);
     }
+
 
     public void btnOnClickStatis(View v)
     {
@@ -138,6 +152,7 @@ public class HauptmenueActivity extends Activity {
         startActivity(myIntent);
     }
 
+
 	public void btnOnClickKonzLsg(View v)
 	{
 		Intent myIntent = new Intent(v.getContext(), Konz_lsg_Auswahl_Activity.class);
@@ -148,6 +163,7 @@ public class HauptmenueActivity extends Activity {
 		// Activity aufrufen
 		startActivity(myIntent);
 	}
+
 
 	public void btnOnClickMolmasse(View v)
 	{
@@ -160,9 +176,9 @@ public class HauptmenueActivity extends Activity {
 		startActivity(myIntent);
 	}
 
+
 	public void btnOnClickQuiz(View v)
 	{
-/*
 		Intent myIntent = new Intent(v.getContext(), QuizMenueActivity.class);
 
 		// verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
@@ -170,15 +186,6 @@ public class HauptmenueActivity extends Activity {
 
 		// Activity aufrufen
 		startActivity(myIntent);
-*/
-		Intent myIntent = new Intent(v.getContext(), Review_Activity.class);
-
-		// verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
-		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-
-		// Activity aufrufen
-		startActivity(myIntent);
-
 	}
 
 
@@ -188,7 +195,8 @@ public class HauptmenueActivity extends Activity {
         inflater.inflate(R.menu.mainmenu2, menu);
         return true;
     }    
-    
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	Intent intent = null;

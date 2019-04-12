@@ -3,6 +3,7 @@
     <string name="app_name">Abakus</string>
     <string name="Copyright">Ingo Leisner &amp; Frank Liekefett  © 2015</string>
     <string name="Beschriftung_Gravimetrie" >Gravimetrische Berechnungen</string>
+    <string name="Beschriftung_Review" >Review - Kontrolle von Analysenrohdaten</string>
     <string name="Beschriftung_Titer">Volumetrische Berechnung des Titers mit einer anderen Maßlösung</string>
     <string name="Beschriftung_Berechnung">Volumetrische Gehaltsbestimmung durch eine eingestellte Maßlösung</string>
     <string name="Beschriftung_Rueckwaage">Brutto-Rückwaage der Proben</string>

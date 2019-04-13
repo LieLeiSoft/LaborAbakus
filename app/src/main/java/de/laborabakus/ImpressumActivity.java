@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class ImpressumActivity extends Activity 
 {
@@ -35,27 +34,5 @@ public class ImpressumActivity extends Activity
 				startActivity(intent);
 			}
 		});
-    }	
-    
-	@Override
-	public void onResume() 
-	{
-		super.onResume();
-
-	}
-
-	public void btnDatum(View v) {
-
-
-
-	}
-
-	public void btnDatum_genommen(View v) {
-		setContentView(R.layout.gridlayout);
-
-		TextView tv = (TextView) findViewById(R.id.button2);
-		tv.setText("444");
-
-
-	}
+    }
 }

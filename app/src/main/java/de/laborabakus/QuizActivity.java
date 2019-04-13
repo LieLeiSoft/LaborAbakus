@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -15,10 +14,6 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.Gravity;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
@@ -35,7 +30,6 @@ public class QuizActivity extends Activity {
 	int intTextSize;
 	int intHupe =0;
 	int intTicken =0;
-	int intKEYCODE_BACK_Counter;
 
 	String strPunkte;
 	String strHighscore;
@@ -45,7 +39,6 @@ public class QuizActivity extends Activity {
     String strLevelCounter;
     String strQuizHilfe;
     String strAntwortText;
-    private Context context;
 
 	public MediaPlayer mp;
 
@@ -273,17 +266,17 @@ public class QuizActivity extends Activity {
 			builder.setTitle("Hilfe zu Level " + strQuizHilfe);
 
             switch (intQuizHilfe) {
-                case 1:			builder.setMessage(R.string.QuizHilfe_1);
+                case 1: 		builder.setMessage(R.string.QuizHilfe_1);
                     break;
-                case 2:			builder.setMessage(R.string.QuizHilfe_2);
+                case 2:			if(intLevel == 2){builder.setMessage(R.string.QuizHilfe_2);}
                     break;
-                case 3:			builder.setMessage(R.string.QuizHilfe_3);
+                case 3:			if(intLevel == 3){builder.setMessage(R.string.QuizHilfe_3);}
                     break;
-                case 4:			builder.setMessage(R.string.QuizHilfe_4);
+                case 4:			if(intLevel == 4){builder.setMessage(R.string.QuizHilfe_4);}
                     break;
-                case 5:			builder.setMessage(R.string.QuizHilfe_5);
+                case 5:			if(intLevel == 5){builder.setMessage(R.string.QuizHilfe_5);}
                     break;
-                case 6:			builder.setMessage(R.string.QuizHilfe_6);
+                case 6:			if(intLevel == 6){builder.setMessage(R.string.QuizHilfe_6);}
                     break;
             }
 
@@ -301,7 +294,6 @@ public class QuizActivity extends Activity {
 			AlertDialog dialog = builder.create();
 			dialog.show();
 		}
-
 	} // onCreate
 
 	/***************************************************************
@@ -509,20 +501,6 @@ public class QuizActivity extends Activity {
         }
 	} // onPause
 
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		SharedPreferences.Editor prefEditor = prefs.edit();
-
-		// Sicherstellen, dass beim nächsten Aufruf der Activity nicht versehentlich Haupt- statt
-		// Nebengruppenelemente angezeigt werden (Eintrag für "PSE" wieder auf Grundstellung)
-		prefEditor.putString("PSE", "Hauptgruppenelemente");
-		prefEditor.apply();
-		mp.stop();			// Töne werden ausgeschaltet!
-		// Timer explizit beenden, weil es sonst vibriert (nach Ablauf des Timers)
-		timerHandler.removeCallbacks(timerRunnable);
-	} // onDestroy
 
 	 /************************************************************************************
 	  ************** Button Haupt- / Nebengruppenelemente ********************************
@@ -1032,9 +1010,10 @@ public class QuizActivity extends Activity {
 		strMM = Float.toString(fltMM);
 		if(strMM.equals(strAntwort))
 		{
-		    if (intLevel > 2)
+			mpTonRichtig.start();
+
+			if (intLevel > 2)
 			{
-				mpTonRichtig.start();
 				String text = "\n   Super!   \n   Richtig!   \n";
 				Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
 				Meldung.setGravity(Gravity.BOTTOM, 0, 0);
@@ -1099,7 +1078,7 @@ public class QuizActivity extends Activity {
                 // Formel-Feld leeren
                 tv = (TextView) findViewById(R.id.tvFormel);
                 tv.setText("");
-				// üüüüüüüüüüüüüüüüüüüüü
+
 				prefEditor.putInt("Runde_Klammer_auf", 0);
 				prefEditor.putInt("AnzahlElemente", 0);
 				prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
@@ -1255,76 +1234,24 @@ public class QuizActivity extends Activity {
 		prefEditor.apply();
     } // btnWeiter
 
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK){
-			intKEYCODE_BACK_Counter++;
-			switch (intKEYCODE_BACK_Counter) {
-				case 1: {
-					String text = "\n   Gibst du auf?  \n   Dann drücke erneut!   \n";
-					Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-					Meldung.setGravity(Gravity.BOTTOM, 0, 0);
-					Meldung.show();
 
-					break;
-				}
-				case 2: {
-					ActivityRegistry.register(this);
-					finish();
-				}
-			} // switch
-		}
-		return true;
-	} // onKeyDown
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences.Editor prefEditor = prefs.edit();
+
+		// Sicherstellen, dass beim nächsten Aufruf der Activity nicht versehentlich Haupt- statt
+		// Nebengruppenelemente angezeigt werden (Eintrag für "PSE" wieder auf Grundstellung)
+		prefEditor.putString("PSE", "Hauptgruppenelemente");
+		prefEditor.apply();
+		mp.stop();			// Töne werden ausgeschaltet!
+		// Timer explizit beenden, weil es sonst vibriert (nach Ablauf des Timers)
+		timerHandler.removeCallbacks(timerRunnable);
+
+	} // onDestroy
 
 
-	/********************************************
-	 ************** Menue Button ****************
-	 ********************************************/
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
-        return true;
-    }   
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-    	Intent intent = null;
-        switch (item.getItemId()) 
-        {
-        	case R.id.menu_Einstellungen:
-           		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-           		SharedPreferences.Editor prefEditor = prefs.edit();
-           		prefEditor.putString("Einstellungen", "3");
-           		prefEditor.apply();
-            	intent = new Intent(this, EinstellungenActivity.class);
-            	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	startActivity(intent);
-                return true;
-             
-            case R.id.menu_Hilfe:
-            	intent = new Intent(this, HilfeActivity.class);
-            	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	intent.putExtra("Kapitel", "Quiz");
-            	startActivity(intent);
-                return true;
-                
-            case R.id.menu_Menue:
-            	ActivityRegistry.finishAll();
-            	intent = new Intent(this, HauptmenueActivity.class);
-            	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	startActivity(intent);
-                return true;
-                
-            case R.id.menu_Aus:	
-                ActivityRegistry.finishAll();
-                finish(); 
-                System.exit(0);
-                
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 }
 
 

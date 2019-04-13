@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -1245,13 +1246,11 @@ public class QuizActivity extends Activity {
 		// Nebengruppenelemente angezeigt werden (Eintrag für "PSE" wieder auf Grundstellung)
 		prefEditor.putString("PSE", "Hauptgruppenelemente");
 		prefEditor.apply();
-		mp.stop();			// Töne werden ausgeschaltet!
+		if(startTime != 0) {mp.stop();}			// Töne werden ausgeschaltet!
 		// Timer explizit beenden, weil es sonst vibriert (nach Ablauf des Timers)
 		timerHandler.removeCallbacks(timerRunnable);
 
 	} // onDestroy
-
-
 }
 
 

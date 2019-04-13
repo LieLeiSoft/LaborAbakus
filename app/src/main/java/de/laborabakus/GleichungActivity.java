@@ -60,7 +60,7 @@ public class GleichungActivity extends Activity {
 	    prefEditor.putString("Oxi_B" ,"3");
 	    prefEditor.putString("Oxi_C" ,"-4,-3,-2,-1,0,1,2,3,4");
 	    prefEditor.putString("Oxi_N" ,"-3,-2,-1,1,2,3,4,5");
-	    prefEditor.putString("Oxi_O" ,"-2,1");
+		// prefEditor.putString("Oxi_O" ,"-2,1");  wird im onResume gesetzt, weil der Wert bei Peroxiden umgeschrieben wird.
 	    prefEditor.putString("Oxi_F" ,"-1");
 	    prefEditor.putString("Oxi_Na","1");
 	    prefEditor.putString("Oxi_Mg","2");
@@ -155,6 +155,12 @@ public class GleichungActivity extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
+
+		SharedPreferences prefs2 = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences.Editor prefEditor = prefs2.edit();
+		prefEditor.putString("Oxi_O" ,"-2,1");
+		prefEditor.apply();
+
 	
 		TextView tv;
 		String strFormel;
@@ -201,221 +207,209 @@ public class GleichungActivity extends Activity {
 
 		strNomenklaturnamen = QuizFragen.suche_Nomenklaturnamen(strMolmasse);
 
-		tv = (TextView) findViewById(R.id.tvNomenklaturnamen);
-		tv.setText(strNomenklaturnamen);
+		boolean bo_peroxid = strNomenklaturnamen.contains("peroxid");
+
+		if(bo_peroxid == true)
+		{
+			prefEditor.putString("Oxi_O" ,"-1");
+			prefEditor.apply();
+
+			strNomenklaturnamen = strNomenklaturnamen + "\n\nIn Peroxiden hat Sauerstoff immer die Oxidationsstufe -I";
+		}
+
+			tv = (TextView) findViewById(R.id.tvNomenklaturnamen);
+			tv.setText(strNomenklaturnamen);
 
 
-		// **************************************************************
+			// **************************************************************
 
-		intAnzahlZeichen = strFormel.length();
-				
-		//double[] arrZahl = new double[10]; // Erzeugt 10 Felder, keine 11!
-		String [][] arrElement = new String [intAnzahlElemente + 1][3];
-		int[][] arrFormel = new int[intAnzahlElemente + 1][cMax_Oxi];		// Array [Anzahl Elemente][max Anzahl Oxidationsstufen]
-		
-		// *********************************************************************************************
-		// ********** Formel wird von hinten nach vorne Zeichen für Zeichen ausgelesen *****************
-		// *********************************************************************************************
-		
-		for (Position = intAnzahlZeichen; Position >= (1) ;Position-- ) 
-		{    
-			chZeichen = strFormel.charAt(Position -1); // charAt fängt bei 0 an zu zählen, wird durch +1 ausgegleichen.
-			strZeichen = "" + chZeichen;
-			
-			// ****************************************************************
-			// ********* Zeichen: Element oder Klammer ************************
-			// ****************************************************************
-			
-			if (strZeichen.matches("[0-9]") == false)
-			{
-				if(strZeichen.equals("("))	
-				{
-					intKlammerIndex = 1;				// Klammer wird geschlossen somit wird KlammerIndex wieder zu 1
-				}
-				else
-				{
-					if(strZeichen.equals(")"))	
-					{
-						intKlammerIndex = intIndex; 	// Index wird zum KlammerIndex 
-						intIndex = 1;					// Index selber wird wieder zu 1
-						strIndex = "";					// und string wird gelöscht
-					}
-					
-					// ****************************
-					// ***** Zeichen: Element *****
-					// ****************************
-					else 			
-					{
-						strElement = strZeichen + strElement;
-						
-						for (Nummer = 1; Nummer <= 38 ;Nummer++ )		// Hauptgruppenelemente
-						{
-							strKey = "HE_" + Integer.toString(Nummer);	// strKey ist ein zusammen gesetzter Name der Konfig Datei	
-							strName = prefs.getString(strKey, "");			
-						
-							if (strName.equals(strElement) == true)		// zusammen gesetzter Name wird wird Konfig Name verglichen
-							{
-								intIndex = intIndex * intKlammerIndex;	// Index wird mit KlammerIndex multipliziert
-								strIndex = Integer.toString(intIndex);
-								
-								Element = Element + 1;					
-								arrElement [Element][1] = strName;		// und in zweidimensionales array gespeichert
-								arrElement [Element][2] = strIndex;
-								
-								strIndex = "";							// altes Element abgeschlossen 
-								intIndex = 1;							// altes Element abgeschlossen 
-								strElement ="";							// altes Element abgeschlossen 
-								
-								break;
-							}	
+			intAnzahlZeichen = strFormel.length();
+
+			//double[] arrZahl = new double[10]; // Erzeugt 10 Felder, keine 11!
+			String[][] arrElement = new String[intAnzahlElemente + 1][3];
+			int[][] arrFormel = new int[intAnzahlElemente + 1][cMax_Oxi];        // Array [Anzahl Elemente][max Anzahl Oxidationsstufen]
+
+			// *********************************************************************************************
+			// ********** Formel wird von hinten nach vorne Zeichen für Zeichen ausgelesen *****************
+			// *********************************************************************************************
+
+			for (Position = intAnzahlZeichen; Position >= (1); Position--) {
+				chZeichen = strFormel.charAt(Position - 1); // charAt fängt bei 0 an zu zählen, wird durch +1 ausgegleichen.
+				strZeichen = "" + chZeichen;
+
+				// ****************************************************************
+				// ********* Zeichen: Element oder Klammer ************************
+				// ****************************************************************
+
+				if (strZeichen.matches("[0-9]") == false) {
+					if (strZeichen.equals("(")) {
+						intKlammerIndex = 1;                // Klammer wird geschlossen somit wird KlammerIndex wieder zu 1
+					} else {
+						if (strZeichen.equals(")")) {
+							intKlammerIndex = intIndex;    // Index wird zum KlammerIndex
+							intIndex = 1;                    // Index selber wird wieder zu 1
+							strIndex = "";                    // und string wird gelöscht
 						}
-						
-						if (strElement.equals("") == false)					// wenn die 38 Hauptgruppenelemente nicht durchlaufen wurden
-						{
-							for (Nummer = 1; Nummer <= 43 ;Nummer++ ) 		// Nebengruppenelemente
+
+						// ****************************
+						// ***** Zeichen: Element *****
+						// ****************************
+						else {
+							strElement = strZeichen + strElement;
+
+							for (Nummer = 1; Nummer <= 38; Nummer++)        // Hauptgruppenelemente
 							{
-								strKey = "NE_" + Integer.toString(Nummer);	// strKey ist ein zusammen gesetzter Name der Konfig Datei	
-								strName = prefs.getString(strKey, "");			
-							
-								if (strName.equals(strElement) == true)		// zusammen gesetzter Name wird wird Konfig Name verglichen
+								strKey = "HE_" + Integer.toString(Nummer);    // strKey ist ein zusammen gesetzter Name der Konfig Datei
+								strName = prefs.getString(strKey, "");
+
+								if (strName.equals(strElement) == true)        // zusammen gesetzter Name wird wird Konfig Name verglichen
 								{
-									intIndex = intIndex * intKlammerIndex;	// Index wird mit KlammerIndex multipliziert
+									intIndex = intIndex * intKlammerIndex;    // Index wird mit KlammerIndex multipliziert
 									strIndex = Integer.toString(intIndex);
-									
-									Element = Element + 1;					
-									arrElement [Element][1] = strName;		// und in zweidimensionales array gespeichert
-									arrElement [Element][2] = strIndex;
-									
-									strIndex = "";							// altes Element abgeschlossen 
-									intIndex = 1;							// altes Element abgeschlossen 
-									strElement ="";							// altes Element abgeschlossen 
-									
+
+									Element = Element + 1;
+									arrElement[Element][1] = strName;        // und in zweidimensionales array gespeichert
+									arrElement[Element][2] = strIndex;
+
+									strIndex = "";                            // altes Element abgeschlossen
+									intIndex = 1;                            // altes Element abgeschlossen
+									strElement = "";                            // altes Element abgeschlossen
+
 									break;
-								}	
+								}
+							}
+
+							if (strElement.equals("") == false)                    // wenn die 38 Hauptgruppenelemente nicht durchlaufen wurden
+							{
+								for (Nummer = 1; Nummer <= 43; Nummer++)        // Nebengruppenelemente
+								{
+									strKey = "NE_" + Integer.toString(Nummer);    // strKey ist ein zusammen gesetzter Name der Konfig Datei
+									strName = prefs.getString(strKey, "");
+
+									if (strName.equals(strElement) == true)        // zusammen gesetzter Name wird wird Konfig Name verglichen
+									{
+										intIndex = intIndex * intKlammerIndex;    // Index wird mit KlammerIndex multipliziert
+										strIndex = Integer.toString(intIndex);
+
+										Element = Element + 1;
+										arrElement[Element][1] = strName;        // und in zweidimensionales array gespeichert
+										arrElement[Element][2] = strIndex;
+
+										strIndex = "";                            // altes Element abgeschlossen
+										intIndex = 1;                            // altes Element abgeschlossen
+										strElement = "";                            // altes Element abgeschlossen
+
+										break;
+									}
+								}
 							}
 						}
 					}
 				}
-			}
-			 
-			// ************************************************
-			// ********* Zeichen: Zahl ************************
-			// ************************************************
-			
-			if (strZeichen.matches("[0-9]") == true)						
-			{
-				strIndex = strZeichen + strIndex;						// bei mehrstelligen Zahlen wird strIndex zusammen addiert
-				intIndex = Integer.parseInt(strIndex);
-			}
-		}
-	
-		// *********************************************	
-		// ******* Formel Textfeld wird angezeigt ******
-		// *********************************************
-		
-		tv = (TextView) findViewById(R.id.tvEdukt_1);
 
-		// Ziffern 0 bis 9 werden mittels HTML-Code tiefgestellt
-		for (intIndex = 0; intIndex <= (9); intIndex++)
-		{
-			strFormel = strFormel.replaceAll(Integer.toString(intIndex), "<sub><small>"+Integer.toString(intIndex)+"</sub></small>");				
-		}
-		tv.setText(Html.fromHtml(strFormel));
-		
+				// ************************************************
+				// ********* Zeichen: Zahl ************************
+				// ************************************************
 
-		// ********************************************************************
-		// ********** Oxidationszahlen der Formel werden raus gesucht *********
-		// ********** und als Integer in ein Formel Array gespeichert *********
-		// ********************************************************************
-		
-		for (Element = 1; Element <= intAnzahlElemente; Element++ )
-		{
-			strKey = "Oxi_" + arrElement [Element][1];				// strKey ist ein zusammen gesetzter Name ...	
-			strOxi = prefs.getString(strKey, "");					// ... für die Konfig Datei
-			
-			String[] items = strOxi.split(",");						// String wird beim "," aufgesplittet ...
-				
-			for (int i = 1; i < cMax_Oxi; i++)
-			{
-				if (i <= items.length)
-				{
-					arrFormel[Element][i] = Integer.parseInt(items[i-1]);	// ... und einzeln in Array gespeichert
-				}
-				else
-				{
-					arrFormel[Element][i] = 99;						// Abbruchzahl für später und damit er die Oxidationsstufe 0 von einem nicht belegtem Array unterscheiden kann.								
+				if (strZeichen.matches("[0-9]") == true) {
+					strIndex = strZeichen + strIndex;                        // bei mehrstelligen Zahlen wird strIndex zusammen addiert
+					intIndex = Integer.parseInt(strIndex);
 				}
 			}
-		}
-		
-		
-		// *****************************************************************
-		// ********** Oxidationszahlen der Formel werden berechnet *********
-		// *****************************************************************
-				
-		Zaehler = 0;
-		intAnzahlOxi = 0;
 
-		fktBerechne_OxiZahlen(arrFormel, arrElement, OxiListe);
-		
-		String strAnzahlOxi = Integer.toString(intAnzahlOxi);
-		String strZaehler = Integer.toString(Zaehler);
-		
-		// *****************************************************************
-		// ********** Ausgabe eines Dialogfeldes bei AnzahlOxi 0 ***********
-		// *****************************************************************
-		if (intAnzahlElemente == 1)
-		{
-			AlertDialog.Builder builder = new AlertDialog.Builder(GleichungActivity.this);
-			builder.setTitle("Oxidationsstufe = ±0");
-			builder.setMessage("Da es sich um keine Verbindung handelt,"
-					+ " sondern um ein einzelnes Element, ist die Oxidationsstufe immer ±0.");
-			builder.setPositiveButton("OK",
-					new DialogInterface.OnClickListener()
-						{
-							public void onClick(DialogInterface dialog, int id)
-							{
-								dialog.dismiss();
-							}		
-						});
-			AlertDialog dialog = builder.create();
-			dialog.show();
-		}
-		else
-		{
-			if (intAnzahlOxi == 0)
-			{
+			// *********************************************
+			// ******* Formel Textfeld wird angezeigt ******
+			// *********************************************
+
+			tv = (TextView) findViewById(R.id.tvEdukt_1);
+
+			// Ziffern 0 bis 9 werden mittels HTML-Code tiefgestellt
+			for (intIndex = 0; intIndex <= (9); intIndex++) {
+				strFormel = strFormel.replaceAll(Integer.toString(intIndex), "<sub><small>" + Integer.toString(intIndex) + "</sub></small>");
+			}
+			tv.setText(Html.fromHtml(strFormel));
+
+
+			// ********************************************************************
+			// ********** Oxidationszahlen der Formel werden raus gesucht *********
+			// ********** und als Integer in ein Formel Array gespeichert *********
+			// ********************************************************************
+
+			for (Element = 1; Element <= intAnzahlElemente; Element++) {
+				strKey = "Oxi_" + arrElement[Element][1];                // strKey ist ein zusammen gesetzter Name ...
+				strOxi = prefs.getString(strKey, "");                    // ... für die Konfig Datei
+
+				String[] items = strOxi.split(",");                        // String wird beim "," aufgesplittet ...
+
+				for (int i = 1; i < cMax_Oxi; i++) {
+					if (i <= items.length) {
+						arrFormel[Element][i] = Integer.parseInt(items[i - 1]);    // ... und einzeln in Array gespeichert
+					} else {
+						arrFormel[Element][i] = 99;                        // Abbruchzahl für später und damit er die Oxidationsstufe 0 von einem nicht belegtem Array unterscheiden kann.
+					}
+				}
+			}
+
+
+			// *****************************************************************
+			// ********** Oxidationszahlen der Formel werden berechnet *********
+			// *****************************************************************
+
+			Zaehler = 0;
+			intAnzahlOxi = 0;
+
+			fktBerechne_OxiZahlen(arrFormel, arrElement, OxiListe);
+
+			String strAnzahlOxi = Integer.toString(intAnzahlOxi);
+			String strZaehler = Integer.toString(Zaehler);
+
+			// *****************************************************************
+			// ********** Ausgabe eines Dialogfeldes bei AnzahlOxi 0 ***********
+			// *****************************************************************
+			if (intAnzahlElemente == 1) {
 				AlertDialog.Builder builder = new AlertDialog.Builder(GleichungActivity.this);
-				builder.setTitle("Formel korrekt?");
-				builder.setMessage("Achtung! Eine Berechnung der Oxidationsstufen der Elemente"
-						+ " ist bei der eingegebenen Formel nicht möglich. Wahrscheinliche Ursache:"
-						+ " Fehlerhafte Formel!");
+				builder.setTitle("Oxidationsstufe = ±0");
+				builder.setMessage("Da es sich um keine Verbindung handelt,"
+						+ " sondern um ein einzelnes Element, ist die Oxidationsstufe immer ±0.");
 				builder.setPositiveButton("OK",
-						new DialogInterface.OnClickListener()
-							{
-								public void onClick(DialogInterface dialog, int id)
-								{
-									dialog.dismiss();
-								}		
-							});
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								dialog.dismiss();
+							}
+						});
 				AlertDialog dialog = builder.create();
-				dialog.show(); 
+				dialog.show();
+			} else {
+				if (intAnzahlOxi == 0) {
+					AlertDialog.Builder builder = new AlertDialog.Builder(GleichungActivity.this);
+					builder.setTitle("Formel korrekt?");
+					builder.setMessage("Achtung! Eine Berechnung der Oxidationsstufen der Elemente"
+							+ " ist bei der eingegebenen Formel nicht möglich. Wahrscheinliche Ursache:"
+							+ " Fehlerhafte Formel!");
+					builder.setPositiveButton("OK",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog, int id) {
+									dialog.dismiss();
+								}
+							});
+					AlertDialog dialog = builder.create();
+					dialog.show();
+				}
 			}
-		}
 
-	
-		tv = (TextView) findViewById(R.id.tvAnzahlOxi);
-		tv.setText("Anzahl mögliche Kombination:  "+strAnzahlOxi);
 
-		tv = (TextView) findViewById(R.id.tvZaehler);
-		tv.setText("Anzahl Kombination insgesamt: "+strZaehler);
-			
-		ListAdapter listenAdapter = new ArrayAdapter<Spannable> (this, android.R.layout.simple_list_item_1, OxiListe);
-			 
-		// Die ListView-Komponente kommt aus dem Layout
-		ListView lv = (ListView) findViewById(R.id.lvOxiListe);
-		lv.setAdapter(listenAdapter);
-	
+			tv = (TextView) findViewById(R.id.tvAnzahlOxi);
+			tv.setText("Anzahl mögliche Kombination:  " + strAnzahlOxi);
+
+			tv = (TextView) findViewById(R.id.tvZaehler);
+			tv.setText("Anzahl Kombination insgesamt: " + strZaehler);
+
+			ListAdapter listenAdapter = new ArrayAdapter<Spannable>(this, android.R.layout.simple_list_item_1, OxiListe);
+
+			// Die ListView-Komponente kommt aus dem Layout
+			ListView lv = (ListView) findViewById(R.id.lvOxiListe);
+			lv.setAdapter(listenAdapter);
+
 	} // onResume
 
 	/*******************************************************************************

@@ -54,13 +54,13 @@ public class GleichungActivity extends Activity {
 	    SharedPreferences.Editor prefEditor = prefs.edit(); 											// Haupt- und Nebengruppenelemente inklusive ihrer Atommassen 
 	    																								// werden in die Konfigurationsdatei eingelesen.
 	    // 375  // PONSO (alt)
-	    prefEditor.putString("Oxi_H" ,"1,-1");		
+	    // prefEditor.putString("Oxi_H" ,"1,-1");
 	    prefEditor.putString("Oxi_Li","1");
 	    prefEditor.putString("Oxi_Be","2");
 	    prefEditor.putString("Oxi_B" ,"3");
-	    prefEditor.putString("Oxi_C" ,"-4,-3,-2,-1,0,1,2,3,4");
+	    // prefEditor.putString("Oxi_C" ,"-4,-3,-2,-1,0,1,2,3,4");
 	    prefEditor.putString("Oxi_N" ,"-3,-2,-1,1,2,3,4,5");
-		// prefEditor.putString("Oxi_O" ,"-2,1");  wird im onResume gesetzt, weil der Wert bei Peroxiden umgeschrieben wird.
+		// prefEditor.putString("Oxi_O" ,"-2,1");  wird im onResume gesetzt, weil der Wert bei einigen Verbindungen umgeschrieben wird.
 	    prefEditor.putString("Oxi_F" ,"-1");
 	    prefEditor.putString("Oxi_Na","1");
 	    prefEditor.putString("Oxi_Mg","2");
@@ -72,7 +72,7 @@ public class GleichungActivity extends Activity {
 	    prefEditor.putString("Oxi_K" ,"1");
 	    prefEditor.putString("Oxi_Ca","2");
 	    prefEditor.putString("Oxi_Sc","3");
-	    prefEditor.putString("Oxi_Ti","3,4");
+	    prefEditor.putString("Oxi_Ti","2,3,4");
 	    prefEditor.putString("Oxi_V" ,"0,2,3,4,5");
 	    prefEditor.putString("Oxi_Cr","0,2,3,4,5,6");
 	    prefEditor.putString("Oxi_Mn","-1,0,2,3,4,6,7");
@@ -90,7 +90,7 @@ public class GleichungActivity extends Activity {
 	    prefEditor.putString("Oxi_Sr","2");
 	    prefEditor.putString("Oxi_Y" ,"3");
 	    prefEditor.putString("Oxi_Zr","2,3,4");
-	    prefEditor.putString("Oxi_Nb","3,5");
+	    prefEditor.putString("Oxi_Nb","2,3,5");
 	    prefEditor.putString("Oxi_Mo","0,2,3,4,5,6");
 	    prefEditor.putString("Oxi_Tc","4,7");
 	    prefEditor.putString("Oxi_Ru","-2,0,2,3,4,5,6,7,8");
@@ -106,7 +106,7 @@ public class GleichungActivity extends Activity {
 	    prefEditor.putString("Oxi_Cs","1");
 	    prefEditor.putString("Oxi_Ba","2");
 	    prefEditor.putString("Oxi_La","3");
-	    prefEditor.putString("Oxi_Hf","4");
+	    prefEditor.putString("Oxi_Hf","2,4");
 	    prefEditor.putString("Oxi_Ta","5");
 	    prefEditor.putString("Oxi_W" ,"0,2,3,4,5,6");
 	    prefEditor.putString("Oxi_Re","0,2,3,4,6,7");
@@ -158,8 +158,10 @@ public class GleichungActivity extends Activity {
 
 		SharedPreferences prefs2 = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		SharedPreferences.Editor prefEditor = prefs2.edit();
-		prefEditor.putString("Oxi_O" ,"-2,1");
-		prefEditor.apply();
+		prefEditor.putString("Oxi_O" ,"-2");
+        prefEditor.putString("Oxi_C" ,"-4,-3,-2,-1,0,1,2,3,4");
+        prefEditor.putString("Oxi_H" ,"1");
+        prefEditor.apply();
 
 	
 		TextView tv;
@@ -170,8 +172,6 @@ public class GleichungActivity extends Activity {
 		String strZeichen;
 		String strOxi;
 		String strIndex = "";
-		String strFrage;
-		String strAntwort;
 		String strMolmasse;
 		String strNomenklaturnamen;
 		float fltMolmasse;
@@ -180,8 +180,6 @@ public class GleichungActivity extends Activity {
 		int Element = 0;
 		int intIndex = 1;
 		int intAnzahlZeichen;
-		int intFrageNr;
-		int intLevel = 0;
 		
 		int intKlammerIndex = 1;
 		char chZeichen;
@@ -207,14 +205,47 @@ public class GleichungActivity extends Activity {
 
 		strNomenklaturnamen = QuizFragen.suche_Nomenklaturnamen(strMolmasse);
 
-		boolean bo_peroxid = strNomenklaturnamen.contains("peroxid");
+        // **************************************************************
+        // ********** Ausnahmen für bestimmte Oxidationsstufen **********
+        // **************************************************************
+
+		boolean bo_hydride1 = strNomenklaturnamen.contains("Monosilan");
+        boolean bo_hydride2 = strNomenklaturnamen.contains("Stannan");
+        boolean bo_hydride3 = strNomenklaturnamen.contains("hydrid");
+
+		if((bo_hydride1 == true )||(bo_hydride2 == true )||(bo_hydride3 == true ))
+		{
+            prefEditor.putString("Oxi_H" ,"-1");
+            prefEditor.apply();
+		}
+
+		boolean bo_acetat1 = strNomenklaturnamen.contains("acetat");
+        boolean bo_acetat2 = strNomenklaturnamen.contains("Essigsäure");
+
+        if((bo_acetat1 == true )||(bo_acetat2 == true ))
+        {
+            prefEditor.putString("Oxi_C" ,"3,-3");
+            prefEditor.apply();
+        }
+
+        boolean bo_peroxid = strNomenklaturnamen.contains("peroxid");
 
 		if(bo_peroxid == true)
 		{
 			prefEditor.putString("Oxi_O" ,"-1");
 			prefEditor.apply();
+		}
 
-			strNomenklaturnamen = strNomenklaturnamen + "\n\nIn Peroxiden hat Sauerstoff immer die Oxidationsstufe -I";
+		if(strMolmasse.equals("69.994"))                   		      //strFormel.equals("O2F2"))
+		{
+			prefEditor.putString("Oxi_O" ,"1");
+			prefEditor.apply();
+		}
+
+		if(strMolmasse.equals("53.995"))              					//strFormel.equals("OF2"))
+		{
+			prefEditor.putString("Oxi_O" ,"2");
+			prefEditor.apply();
 		}
 
 			tv = (TextView) findViewById(R.id.tvNomenklaturnamen);

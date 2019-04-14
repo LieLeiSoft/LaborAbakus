@@ -4717,6 +4717,14 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "Natriumdithionat";
+        Quizfragen[intLfdNr_Gesamt][3] = "206.102";
+        Quizfragen[intLfdNr_Gesamt][4] = "Na2S2O6";  // Elemente 3 – 174.107 g/mol
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Natriumdisulfit";
         Quizfragen[intLfdNr_Gesamt][3] = "190.103";
         Quizfragen[intLfdNr_Gesamt][4] = "Na2S2O5";  // Elemente 3 – 190.107 g/mol
@@ -5549,7 +5557,7 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Calciumthiosulfat"; // Ca(SCN)2
+        Quizfragen[intLfdNr_Gesamt][2] = "Calciumthiocyanat"; // Ca(SCN)2
         Quizfragen[intLfdNr_Gesamt][3] = "156.244"; // 4
         Quizfragen[intLfdNr_Gesamt][4] = "Ca(SCN)2";
 

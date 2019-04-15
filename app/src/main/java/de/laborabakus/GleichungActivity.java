@@ -238,18 +238,11 @@ public class GleichungActivity extends Activity {
             prefEditor.apply();
         }
 
-		bo_suche1 = strNomenklaturnamen.contains("cyanat");
-
-		if(bo_suche1 == true )
-		{
-			prefEditor.putString("Oxi_C" ,"4");
-			prefEditor.apply();
-		}
-
 		bo_suche1 = strNomenklaturnamen.contains("cyanid");
 		bo_suche2 = strNomenklaturnamen.contains("cyano");
+		bo_suche3 = strNomenklaturnamen.contains("Cyanwasserstoff");
 
-		if((bo_suche1 == true )||(bo_suche2 == true ))
+		if((bo_suche1 == true )||(bo_suche2 == true )||(bo_suche3 == true ))
 		{
 			prefEditor.putString("Oxi_C" ,"2");
 			prefEditor.apply();

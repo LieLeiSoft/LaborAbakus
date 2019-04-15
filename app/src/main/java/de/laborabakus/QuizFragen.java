@@ -6706,6 +6706,14 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
+        Quizfragen[intLfdNr_Gesamt][2] = "sulfurous acid";
+        Quizfragen[intLfdNr_Gesamt][3] = "82.077";
+        Quizfragen[intLfdNr_Gesamt][4] = "H2SO3";
+
+        intLfdNr_Level++;
+        intLfdNr_Gesamt++;
+        Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
+        Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "hydrochloric acid";
         Quizfragen[intLfdNr_Gesamt][3] = "36.461";
         Quizfragen[intLfdNr_Gesamt][4] = "HCl";

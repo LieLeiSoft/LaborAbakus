@@ -119,7 +119,9 @@ public class ActivityTools {
 
 					// Berechnung
 					intStellenRunden = intSigniStellen + intAnzahlNullenNachKomma;	// z.B. 0.001234567 -> 2 Nullen werden dazu gezählt, damit richtig gerundet wird
-					dblSignifikante = Double.parseDouble(splitResult[1]);			// String umwandeln in double
+					//dblSignifikante = Double.parseDouble(splitResult[1]);			// String umwandeln in double
+					strZahl = strZahl.replace(",", ".");
+					dblSignifikante = Double.parseDouble(strZahl);			// String umwandeln in double
 					strSignifikante = ActivityTools.fktDoubleToStringFormat(dblSignifikante, intStellenRunden);
 				}
 			}
@@ -134,17 +136,59 @@ public class ActivityTools {
 
 			strZahl = strZahl.replace(",", ".");// String umwandeln in double
 			dblZahl = Double.parseDouble(strZahl);
-			strSignifikante = ActivityTools.fktDoubleToStringFormat(dblZahl, intStellenRunden);
+
+			dblSignifikante = Math.round(dblZahl * Math.pow(10, intStellenRunden)) / Math.pow(10, intStellenRunden);
+
+			strSignifikante = Double.toString(dblSignifikante);
 		}
+
+		if (dblZahl==0)
+		{
+			strSignifikante = "0,0";    // Damit bei 0 kein Leer angezeigt wird
+		}
+
+		strSignifikante = strSignifikante.replace(".", ",");
 
 		return strSignifikante;
 	}
 
 
 
+	// **********************************************************************************************
+	// ***** Darstellung eines Strings in exponentialer Schreibweise in x Zeichen, ab x Zeichen *****
+	// **********************************************************************************************
 
+	public static String fktDarstellungEponential(String strZahl, int intExpoAbZeichen)
+	{
+		String strExpo = "";
+		String strZeichenkette ="";
+		double dblZahl;
+		int intIstZeichen;
 
+		intIstZeichen = strZahl.length();
+		if(intIstZeichen > intExpoAbZeichen)
+		{
+			strZahl = strZahl.replace(",", ".");// String umwandeln in double
+			dblZahl = Double.parseDouble(strZahl);
 
+			intIstZeichen =0;
+
+			while(intExpoAbZeichen != intIstZeichen)
+			{
+				strZeichenkette = strZeichenkette + "#";
+				strExpo = "#." + strZeichenkette + "E0";
+				intIstZeichen = strExpo.length();
+			}
+
+			strExpo = new DecimalFormat(strExpo).format(dblZahl);
+		}
+		else
+		{
+			strExpo = strZahl;
+		}
+
+		return strExpo;
+	}
 
 
 

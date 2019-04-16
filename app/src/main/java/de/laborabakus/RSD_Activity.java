@@ -139,29 +139,21 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             tv.setText(strAusgabetext);
 
             // *********** Ausgabe Mittelwert *************
-            Speicher = X; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
-            // strAusgabetext = ActivityTools.fktSignifikanteStellen(Speicher, 4); // auf 5 Nachkommastellen
+            Speicher = X;
+            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
             tv = (TextView) findViewById(R.id.tv_Mittelwert);
             tv.setText(strAusgabetext);
 
             // *********** Ausgabe Standardabweichung *************
-            Speicher = s; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
-            // strAusgabetext = ActivityTools.fktSignifikanteStellen(Speicher, 4); // auf 5 Nachkommastellen
+            Speicher = s;
+            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
             tv = (TextView) findViewById(R.id.tvStandardabweichung);
             tv.setText(strAusgabetext);
 
-            //***********************************************************************
-            //********* Auslesen der Nachkommastellen *******************************
-            //***********************************************************************
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-            int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
-
             // *********** Ausgabe relative Standardabweichung % *************
-            Speicher = RSD; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, AnzahlStellen);
-            // strAusgabetext = ActivityTools.fktSignifikanteStellen(RSD, 4); // auf 5 Nachkommastellen
+            Speicher = RSD;
+            strAusgabetext = ActivityTools.fktSignifikanteStellen(RSD, 4);
+            strAusgabetext = ActivityTools.fktDarstellungEponential(strAusgabetext, 6); // Exponentielle Darstellung auf 6 Zeichen bei größer 6 Zeichen
             tv = (TextView) findViewById(R.id.tvRSD);
             tv.setText(strAusgabetext);
 
@@ -233,26 +225,21 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             tv.setText(strAusgabetext);
 
             // *********** Ausgabe Mittelwert *************
-            Speicher = X; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            Speicher = X;
+            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
             tv = (TextView) findViewById(R.id.tv_Mittelwert);
             tv.setText(strAusgabetext);
 
             // *********** Ausgabe Standardabweichung *************
-            Speicher = s; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            Speicher = s;
+            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
             tv = (TextView) findViewById(R.id.tvStandardabweichung);
             tv.setText(strAusgabetext);
 
-            //***********************************************************************
-            //********* Auslesen der Nachkommastellen *******************************
-            //***********************************************************************
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-            int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
-
             // *********** Ausgabe relative Standardabweichung % *************
-            Speicher = RSD; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, AnzahlStellen);
+            Speicher = RSD;
+            strAusgabetext = ActivityTools.fktSignifikanteStellen(RSD, 4);
+            strAusgabetext = ActivityTools.fktDarstellungEponential(strAusgabetext, 6); // Exponentielle Darstellung auf 6 Zeichen bei größer 6 Zeichen
             tv = (TextView) findViewById(R.id.tvRSD);
             tv.setText(strAusgabetext);
 
@@ -305,26 +292,22 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             tv.setText(strAusgabetext);
 
             // *********** Ausgabe Mittelwert *************
-            Speicher = X; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            Speicher = X;
+            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
             tv = (TextView) findViewById(R.id.tv_Mittelwert);
             tv.setText(strAusgabetext);
 
             // *********** Ausgabe Standardabweichung *************
-            Speicher = s; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, 4); // 4 Nachkommastellen
+            Speicher = s;
+            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
             tv = (TextView) findViewById(R.id.tvStandardabweichung);
             tv.setText(strAusgabetext);
 
-            //***********************************************************************
-            //********* Auslesen der Nachkommastellen *******************************
-            //***********************************************************************
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-            int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
 
             // *********** Ausgabe relative Standardabweichung % *************
-            Speicher = RSD; // nur die Ausgabe soll gerundet werden
-            strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, AnzahlStellen);
+            Speicher = RSD;
+            strAusgabetext = ActivityTools.fktSignifikanteStellen(RSD, 4);
+            strAusgabetext = ActivityTools.fktDarstellungEponential(strAusgabetext, 6); // Exponentielle Darstellung auf 6 Zeichen bei größer 6 Zeichen
             tv = (TextView) findViewById(R.id.tvRSD);
             tv.setText(strAusgabetext);
 
@@ -380,7 +363,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
+        inflater.inflate(R.menu.mainmenu4, menu);
         return true;
     }   
     
@@ -389,12 +372,6 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
     	Intent intent = null;
         switch (item.getItemId()) 
         {
-        	case R.id.menu_Einstellungen:
-            	intent = new Intent(this, Einstellungen_Nachkomma_Activity.class);
-            	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	startActivity(intent);
-                return true;
-             
             case R.id.menu_Hilfe:
             	intent = new Intent(this, HilfeActivity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

@@ -88,8 +88,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
         double dblEingabewert = 0;
         double dblAbsolAbweich = 0;
         String strMittelwert;
-
-
+        
         try {
             tv = (TextView) findViewById(R.id.tv_Mittelwert);
             strMittelwert = tv.getText().toString();

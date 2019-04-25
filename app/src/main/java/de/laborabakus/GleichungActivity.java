@@ -66,7 +66,7 @@ public class GleichungActivity extends Activity {
 	    prefEditor.putString("Oxi_Mg","2");
 	    prefEditor.putString("Oxi_Al","3");
 	    prefEditor.putString("Oxi_Si","-4,4");
-	    prefEditor.putString("Oxi_P" ,"-3,3,5");
+	    // prefEditor.putString("Oxi_P" ,"-3,3,5");
 	    // prefEditor.putString("Oxi_S" ,"-2,2,4,6");
 	    prefEditor.putString("Oxi_Cl","-1,1,3,5,7");
 	    prefEditor.putString("Oxi_K" ,"1");
@@ -163,6 +163,7 @@ public class GleichungActivity extends Activity {
 		prefEditor.putString("Oxi_N" ,"-3,-2,-1,1,2,3,4,5");
 		prefEditor.putString("Oxi_S" ,"-2,2,4,6");
         prefEditor.putString("Oxi_H" ,"1");
+		prefEditor.putString("Oxi_P" ,"-3,3,5");
         prefEditor.apply();
 
 	
@@ -230,6 +231,15 @@ public class GleichungActivity extends Activity {
             prefEditor.apply();
         }
 
+		bo_suche1 = strNomenklaturnamen.contains("carbonat");
+		bo_suche2 = strNomenklaturnamen.contains("Kohlensäure");
+
+		if((bo_suche1 == true )||(bo_suche2 == true ))
+		{
+			prefEditor.putString("Oxi_C" ,"4");
+			prefEditor.apply();
+		}
+
         bo_suche1 = strNomenklaturnamen.contains("cyanat");
 
         if(bo_suche1 == true )
@@ -257,11 +267,35 @@ public class GleichungActivity extends Activity {
 			prefEditor.apply();
 		}
 
+		bo_suche1 = strNomenklaturnamen.contains("nitrat");
+
+		if(bo_suche1 == true)
+		{
+			prefEditor.putString("Oxi_N" ,"5");
+			prefEditor.apply();
+		}
+
+		bo_suche1 = strNomenklaturnamen.contains("Ammoniumnitrat");
+
+		if(bo_suche1 == true)
+		{
+			prefEditor.putString("Oxi_N" ,"-3,5");
+			prefEditor.apply();
+		}
+
         bo_suche1 = strNomenklaturnamen.contains("peroxid");
 
 		if(bo_suche1 == true)
 		{
 			prefEditor.putString("Oxi_O" ,"-1");
+			prefEditor.apply();
+		}
+
+		bo_suche1 = strNomenklaturnamen.contains("sulfat");
+
+		if(bo_suche1 == true)
+		{
+			prefEditor.putString("Oxi_S" ,"6");
 			prefEditor.apply();
 		}
 
@@ -281,13 +315,21 @@ public class GleichungActivity extends Activity {
 			prefEditor.apply();
 		}
 
-        bo_suche1 = strNomenklaturnamen.contains("dithionat");
+		bo_suche1 = strNomenklaturnamen.contains("dithionat");
 
-        if(bo_suche1 == true)
-        {
-            prefEditor.putString("Oxi_S" ,"5");
-            prefEditor.apply();
-        }
+		if(bo_suche1 == true)
+		{
+			prefEditor.putString("Oxi_S" ,"5");
+			prefEditor.apply();
+		}
+
+		bo_suche1 = strNomenklaturnamen.contains("phosphat");
+
+		if(bo_suche1 == true)
+		{
+			prefEditor.putString("Oxi_P" ,"5");
+			prefEditor.apply();
+		}
 
 		if(strMolmasse.equals("69.994"))                   		      //strFormel.equals("O2F2"))
 		{

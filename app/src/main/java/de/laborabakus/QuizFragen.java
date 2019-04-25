@@ -4789,7 +4789,7 @@ public class QuizFragen {
         intLfdNr_Gesamt++;
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
-        Quizfragen[intLfdNr_Gesamt][2] = "Natriumpersulfat";
+        Quizfragen[intLfdNr_Gesamt][2] = "Natriumperoxodisulfat";
         Quizfragen[intLfdNr_Gesamt][3] = "238.1";
         Quizfragen[intLfdNr_Gesamt][4] = "Na2S2O8";  // Elemente 3 – 238.03 g/mol
 

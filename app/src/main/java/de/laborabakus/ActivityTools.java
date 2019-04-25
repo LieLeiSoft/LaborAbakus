@@ -168,7 +168,7 @@ public class ActivityTools {
 		intIstZeichen = strZahl.length();
 		if(intIstZeichen > intExpoAbZeichen)
 		{
-			strZahl = strZahl.replace(",", ".");// String umwandeln in double
+			strZahl = strZahl.replace(",", ".");
 			dblZahl = Double.parseDouble(strZahl);
 
 			intIstZeichen =0;
@@ -181,9 +181,11 @@ public class ActivityTools {
 			}
 
 			strExpo = new DecimalFormat(strExpo).format(dblZahl);
+			strExpo = strExpo.replace(",", ".");
 		}
 		else
 		{
+			strZahl = strZahl.replace(".", ",");
 			strExpo = strZahl;
 		}
 

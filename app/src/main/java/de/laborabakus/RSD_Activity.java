@@ -59,31 +59,10 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
 	/** wird ausgef�hrt, wenn Activicty angezeigt wird */
 
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         super.onResume();
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        SharedPreferences.Editor prefEditor = prefs.edit();
-
-        // **************************************************************************************************************************
-        // ********* Hier wird festgelegt, welche TableLayout bei den Einstellungen (Nachkommastellen) angeziegt werden sollen ******
-        // **************************************************************************************************************************
-
-        prefEditor.putString("Einstellungen", "22"); // (“Name“ und “Wertname“)
-        prefEditor.apply();
-
-        //***********************************************************************
-        //********* Auslesen der Nachkommastellen *******************************
-        //***********************************************************************
-
-        int AnzahlStellen = prefs.getInt("NachkommastellenRSD", 2);
-
-        // *********** Ausgabe relative Standardabweichung % *************
-        Speicher = RSD; // nur die Ausgabe soll gerundet werden
-        strAusgabetext = ActivityTools.fktDoubleToStringFormat(Speicher, AnzahlStellen);
-        tv = (TextView) findViewById(R.id.tvRSD);
-        tv.setText(strAusgabetext);
-
+        fktBerechnen();
     } // onResume
 
     @Override
@@ -92,76 +71,9 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
 
     } // onPause
 
-
-    // ******************************************************************************************
-	// ******************* Button Weiter ********************************************************
-	// ******************************************************************************************
-
-	public void btnWeiter(View v) {
-
-        // *********** Eingabewert wird ausgelesen *************
-        et = (EditText) findViewById(R.id.Eingabewert);
-        Eingabetext = et.getText().toString();
-
-        // *********** Weiter nur bei Eingabe *************
-        if (Eingabetext.equals("") == false)
-        {
-            // *********** alte Werte werden gel�scht und neu berechnet *************
-
-            arr_x[0] = 0;
-            X = 0;
-            d = 0;
-
-            // *********** RSD wird berechnet *************
-            n = n + 1;
-            arr_x[n] = Double.parseDouble(Eingabetext); //Eingabewert wird in Zahl umgewandelt
-
-            for (int t=1; t<=n; t++)
-            {
-                arr_x[0] = arr_x[0] + arr_x[t];
-            }
-
-            X = arr_x[0] / n;
-
-            for (int t=1; t<=n; t++)
-            {
-                d = d + Math.pow((arr_x[t] - X), 2);   //d hoch 2
-            }
-
-            s = Math.sqrt(d / (n - 1));
-            RSD = (s * 100 / X);
-
-            // strErgebnis = Double.toString(dblErgebnis);
-
-            // *********** Ausgabe Anzahl Me�werte *************
-            strAusgabetext = Integer.toString(n);; // 0 Nachkommastellen
-            tv = (TextView) findViewById(R.id.tvAnzahl_Messwert);
-            tv.setText(strAusgabetext);
-
-            // *********** Ausgabe Mittelwert *************
-            Speicher = X;
-            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
-            tv = (TextView) findViewById(R.id.tv_Mittelwert);
-            tv.setText(strAusgabetext);
-
-            // *********** Ausgabe Standardabweichung *************
-            Speicher = s;
-            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
-            tv = (TextView) findViewById(R.id.tvStandardabweichung);
-            tv.setText(strAusgabetext);
-
-            // *********** Ausgabe relative Standardabweichung % *************
-            Speicher = RSD;
-            strAusgabetext = ActivityTools.fktSignifikanteStellen(RSD, 4);
-            strAusgabetext = ActivityTools.fktDarstellungEponential(strAusgabetext, 6); // Exponentielle Darstellung auf 6 Zeichen bei größer 6 Zeichen
-            tv = (TextView) findViewById(R.id.tvRSD);
-            tv.setText(strAusgabetext);
-
-            // *********** Eingabefeld f�r n�chste Eingabe leeren *************
-            et = (EditText) findViewById(R.id.Eingabewert);
-            et.setText("");
-        }
-
+	public void btnWeiter(View v)
+    {
+        fktBerechnen();
     } // btnWeiter
 
     // ******************************************************************************************
@@ -219,29 +131,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             mainisopen = true;
             setContentView(R.layout.eingabe_rsd);
 
-            // *********** Ausgabe Anzahl Me�werte *************
-            strAusgabetext = Integer.toString(n);; // 0 Nachkommastellen
-            tv = (TextView) findViewById(R.id.tvAnzahl_Messwert);
-            tv.setText(strAusgabetext);
-
-            // *********** Ausgabe Mittelwert *************
-            Speicher = X;
-            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
-            tv = (TextView) findViewById(R.id.tv_Mittelwert);
-            tv.setText(strAusgabetext);
-
-            // *********** Ausgabe Standardabweichung *************
-            Speicher = s;
-            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
-            tv = (TextView) findViewById(R.id.tvStandardabweichung);
-            tv.setText(strAusgabetext);
-
-            // *********** Ausgabe relative Standardabweichung % *************
-            Speicher = RSD;
-            strAusgabetext = ActivityTools.fktSignifikanteStellen(RSD, 4);
-            strAusgabetext = ActivityTools.fktDarstellungEponential(strAusgabetext, 6); // Exponentielle Darstellung auf 6 Zeichen bei größer 6 Zeichen
-            tv = (TextView) findViewById(R.id.tvRSD);
-            tv.setText(strAusgabetext);
+            fktAusgabe();
 
             // Cursor in erstes Eingabefeld setzen und numerische Tastatur einschalten
             et = (EditText) findViewById(R.id.Eingabewert);
@@ -286,34 +176,7 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
             s = Math.sqrt(d / (n - 1));
             RSD = (s * 100 / X);
 
-            // *********** Ausgabe Anzahl Me�werte *************
-            strAusgabetext = Integer.toString(n);; // 0 Nachkommastellen
-            tv = (TextView) findViewById(R.id.tvAnzahl_Messwert);
-            tv.setText(strAusgabetext);
-
-            // *********** Ausgabe Mittelwert *************
-            Speicher = X;
-            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
-            tv = (TextView) findViewById(R.id.tv_Mittelwert);
-            tv.setText(strAusgabetext);
-
-            // *********** Ausgabe Standardabweichung *************
-            Speicher = s;
-            strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
-            tv = (TextView) findViewById(R.id.tvStandardabweichung);
-            tv.setText(strAusgabetext);
-
-
-            // *********** Ausgabe relative Standardabweichung % *************
-            Speicher = RSD;
-            strAusgabetext = ActivityTools.fktSignifikanteStellen(RSD, 4);
-            strAusgabetext = ActivityTools.fktDarstellungEponential(strAusgabetext, 6); // Exponentielle Darstellung auf 6 Zeichen bei größer 6 Zeichen
-            tv = (TextView) findViewById(R.id.tvRSD);
-            tv.setText(strAusgabetext);
-
-            // *********** Eingabefeld f�r n�chste Eingabe leeren *************
-            et = (EditText) findViewById(R.id.Eingabewert);
-            et.setText("");
+            fktAusgabe();
         }
 
     } // btnClear_last
@@ -414,5 +277,83 @@ public class RSD_Activity extends Activity /*implements OnFocusChangeListener */
         view.requestFocus();
         inputMethodManager.showSoftInput(view, 0);
     }
+
+    // ******************************************************************************************
+    // ******************* Funktion Berechnen ***************************************************
+    // ******************************************************************************************
+
+    public void fktBerechnen()
+    {
+        // *********** Eingabewert wird ausgelesen *************
+        et = (EditText) findViewById(R.id.Eingabewert);
+        Eingabetext = et.getText().toString();
+
+        // *********** Weiter nur bei Eingabe *************
+        if (Eingabetext.equals("") == false)
+        {
+            // *********** alte Werte werden gel�scht und neu berechnet *************
+
+            arr_x[0] = 0;
+            X = 0;
+            d = 0;
+
+            // *********** RSD wird berechnet *************
+            n = n + 1;
+            arr_x[n] = Double.parseDouble(Eingabetext); //Eingabewert wird in Zahl umgewandelt
+
+            for (int t=1; t<=n; t++)
+            {
+                arr_x[0] = arr_x[0] + arr_x[t];
+            }
+
+            X = arr_x[0] / n;
+
+            for (int t=1; t<=n; t++)
+            {
+                d = d + Math.pow((arr_x[t] - X), 2);   //d hoch 2
+            }
+
+            s = Math.sqrt(d / (n - 1));
+            RSD = (s * 100 / X);
+
+            fktAusgabe();
+        }
+    }
+
+    // ******************************************************************************************
+    // ********************* Funktion Ausgabe ***************************************************
+    // ******************************************************************************************
+
+    public void fktAusgabe()
+    {
+        // *********** Ausgabe Anzahl Me�werte *************
+        strAusgabetext = Integer.toString(n);; // 0 Nachkommastellen
+        tv = (TextView) findViewById(R.id.tvAnzahl_Messwert);
+        tv.setText(strAusgabetext);
+
+        // *********** Ausgabe Mittelwert *************
+        Speicher = X;
+        strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
+        tv = (TextView) findViewById(R.id.tv_Mittelwert);
+        tv.setText(strAusgabetext);
+
+        // *********** Ausgabe Standardabweichung *************
+        Speicher = s;
+        strAusgabetext = ActivityTools.fktDarstellungEponential(Double.toString(Speicher), 8); // Exponentielle Darstellung bei größer 8 Zeichen
+        tv = (TextView) findViewById(R.id.tvStandardabweichung);
+        tv.setText(strAusgabetext);
+
+        // *********** Ausgabe relative Standardabweichung % *************
+        Speicher = RSD;
+        strAusgabetext = ActivityTools.fktSignifikanteStellen(RSD, 4);
+        strAusgabetext = ActivityTools.fktDarstellungEponential(strAusgabetext, 6); // Exponentielle Darstellung auf 6 Zeichen bei größer 6 Zeichen
+        tv = (TextView) findViewById(R.id.tvRSD);
+        tv.setText(strAusgabetext);
+
+        // *********** Eingabefeld f�r n�chste Eingabe leeren *************
+        et = (EditText) findViewById(R.id.Eingabewert);
+        et.setText("");
+    }
+
 } // class RSD_Activity
 

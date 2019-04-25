@@ -189,6 +189,11 @@ public class ActivityTools {
 			strExpo = strZahl;
 		}
 
+		if (strExpo.equals("NaN")==true)
+		{
+			strExpo ="0,0";
+		}
+
 		return strExpo;
 	}
 

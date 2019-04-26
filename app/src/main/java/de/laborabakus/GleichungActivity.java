@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Html;
@@ -177,6 +178,7 @@ public class GleichungActivity extends Activity {
 		String strIndex = "";
 		String strMolmasse;
 		String strNomenklaturnamen;
+		String strKohlenstoff = "organisch";
 		float fltMolmasse;
 		int Position;
 		int Nummer;
@@ -229,6 +231,7 @@ public class GleichungActivity extends Activity {
         {
             prefEditor.putString("Oxi_C" ,"3,-3");
             prefEditor.apply();
+            strKohlenstoff = "anorganisch";
         }
 
 		bo_suche1 = strNomenklaturnamen.contains("carbonat");
@@ -238,6 +241,7 @@ public class GleichungActivity extends Activity {
 		{
 			prefEditor.putString("Oxi_C" ,"4");
 			prefEditor.apply();
+            strKohlenstoff = "anorganisch";
 		}
 
         bo_suche1 = strNomenklaturnamen.contains("cyanat");
@@ -246,7 +250,31 @@ public class GleichungActivity extends Activity {
         {
             prefEditor.putString("Oxi_C" ,"4");
             prefEditor.apply();
+            strKohlenstoff = "anorganisch";
         }
+
+        bo_suche1 = strFormel.contains("C");
+		bo_suche2 = strNomenklaturnamen.contains("Kohlenmonoxid");
+		bo_suche3 = strNomenklaturnamen.contains("Kohlendioxid");
+		boolean bo_suche4 = strNomenklaturnamen.contains("cyanid");
+
+        if((bo_suche1 == true) && (bo_suche2 == false) && (bo_suche3 == false) && (bo_suche4 == false) && (strKohlenstoff.equals("organisch") == true ))
+        {
+			AlertDialog.Builder builder = new AlertDialog.Builder(GleichungActivity.this);
+			builder.setTitle("Organische Verbindung!");
+			builder.setMessage("Da es sich um eine Organische Verbindung handelt, kann die Oxidationsstufe der Kohlenstoffatome nicht sicher bestimmt werden! " +
+					"Siehe auch unter Hilfe: Oxidationsstufen bei organischen Verbindungen");
+			builder.setPositiveButton("OK",
+					new DialogInterface.OnClickListener()
+					{
+						public void onClick(DialogInterface dialog, int id)
+						{
+							dialog.dismiss();
+						}
+					});
+			AlertDialog dialog = builder.create();
+			dialog.show();
+		}
 
 		bo_suche1 = strNomenklaturnamen.contains("cyanid");
 		bo_suche2 = strNomenklaturnamen.contains("cyano");

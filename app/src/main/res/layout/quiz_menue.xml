@@ -93,6 +93,36 @@
             android:textColor="@color/cSchwarz"
             android:visibility="gone" />
 
+        <Button
+            android:id="@+id/btnLevel_6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/chellhellgrau"
+            android:onClick="btnLevel_7"
+            android:textAllCaps="false"
+            android:textColor="@color/cSchwarz"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnLevel_7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cHellblau"
+            android:onClick="btnLevel_8"
+            android:textAllCaps="false"
+            android:textColor="@color/cSchwarz"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnLevel_8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cHellbraun"
+            android:onClick="btnLevel_9"
+            android:textAllCaps="false"
+            android:textColor="@color/cSchwarz"
+            android:visibility="gone" />
+
 
     </LinearLayout>
 </ScrollView>

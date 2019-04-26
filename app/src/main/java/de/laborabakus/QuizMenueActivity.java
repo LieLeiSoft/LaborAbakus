@@ -194,6 +194,24 @@ public class QuizMenueActivity extends Activity {
 		}
 
 
+		if(arrHighscore[6] > 24)
+		{
+			tv = (TextView) findViewById(R.id.btnLevel_6);
+			tv.setVisibility(View.VISIBLE);
+			strHighscore = Integer.toString(arrHighscore[7]);
+			if (arrHighscore[7] == 0)
+			{
+				tv.setText("\nLevel 7\nHighscore: "+strHighscore+"\n");
+			}
+			else
+			{
+				tv.setText("\nLevel 7 - Alkane, \n Alkene und Alkine \nHighscore: "+strHighscore+"\n");
+			}
+
+
+			prefEditor.putString("QuizHilfe", "6");
+			prefEditor.apply();
+		}
 
 	} // onResume
 
@@ -279,6 +297,45 @@ public class QuizMenueActivity extends Activity {
 		SharedPreferences.Editor prefEditor = prefs.edit();
 
 		prefEditor.putString("Level", "6");
+		prefEditor.apply();
+
+		Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
+		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+		startActivity(myIntent);
+	}
+
+    public void btnLevel_7(View v)
+    {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        prefEditor.putString("Level", "7");
+        prefEditor.apply();
+
+        Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
+        myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(myIntent);
+    }
+
+	public void btnLevel_8(View v)
+	{
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences.Editor prefEditor = prefs.edit();
+
+		prefEditor.putString("Level", "7");
+		prefEditor.apply();
+
+		Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
+		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+		startActivity(myIntent);
+	}
+
+	public void btnLevel_9(View v)
+	{
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences.Editor prefEditor = prefs.edit();
+
+		prefEditor.putString("Level", "7");
 		prefEditor.apply();
 
 		Intent myIntent = new Intent(v.getContext(), QuizActivity.class);

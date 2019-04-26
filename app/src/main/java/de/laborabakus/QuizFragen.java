@@ -6695,7 +6695,7 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "formic acid";
-        Quizfragen[intLfdNr_Gesamt][3] = "36.461";
+        Quizfragen[intLfdNr_Gesamt][3] = "46.025";
         Quizfragen[intLfdNr_Gesamt][4] = "CH2O2";
 
         intLfdNr_Level++;
@@ -7125,9 +7125,14 @@ public class QuizFragen {
         for (int intFrageNr=1; intFrageNr <=intLfdNr_max; intFrageNr++) {
             if (   (strMolmasse.equals(Quizfragen[intFrageNr][3])))
             {
-                strNomenklaturnamen = Quizfragen[intFrageNr][2];
-
-                break; // for-Schleife vorzeitig beenden
+                if(strNomenklaturnamen.equals(""))
+                {
+                    strNomenklaturnamen = Quizfragen[intFrageNr][2];
+                }
+                else
+                {
+                    strNomenklaturnamen = strNomenklaturnamen + ", " + Quizfragen[intFrageNr][2];   // bei mehreren Einträgen
+                }
             }
         } // for...
 

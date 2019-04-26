@@ -231,6 +231,13 @@ public class HilfeActivity extends Activity {
 
 		int intFeldNr = -1;
 		switch (intQuizHilfe) {
+			case 7:
+				strHilfe = getResources().getString(R.string.QuizHilfe_7);
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Level 7";
+				Hilfe[intFeldNr][2] = "Level 7";
+				Hilfe[intFeldNr][3] = strHilfe;
 			case 6:
                 strHilfe = getResources().getString(R.string.QuizHilfe_6);
                 intFeldNr++;

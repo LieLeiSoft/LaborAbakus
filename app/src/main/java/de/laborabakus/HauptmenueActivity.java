@@ -107,7 +107,7 @@ public class HauptmenueActivity extends Activity {
 				"KonzGehaltEinheit_9,KonzGehaltEinheit_10,KonzGehaltEinheit_11," +
 				"Dichte_0,Dichte_1,Dichte_2,Dichte_3,Dichte_4,Dichte_5,Dichte_6,Dichte_7,Dichte_8,Dichte_9,Dichte_10,Dichte_11," +
 				"Molmasse_0,Molmasse_1,Molmasse_2,Molmasse_3,Molmasse_4,Molmasse_5,Molmasse_6,Molmasse_7,Molmasse_8,Molmasse_9,Molmasse_10,Molmasse_11,Level,Highscore,Highscore1,Highscore2,Highscore3," +
-				"Highscore4,Highscore5,Highscore6").indexOf(strKeyName) == -1) {
+				"Highscore4,Highscore5,Highscore6,Highscore7,Highscore8,Highscore9").indexOf(strKeyName) == -1) {
    				// Parameter entfernen
    				prefEditor.remove(strKeyName);
    			}

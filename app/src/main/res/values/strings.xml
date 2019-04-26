@@ -21,8 +21,8 @@
     <string name="nein">nein</string>
     <string name="QuizHilfe_1">Auf deinem Display siehst du jetzt das Periodensystem der Elemente. Und zwar erst einmal nur die Hauptgruppenelemente!
         Für jedes Element gibt es einen Button mit einem entsprechenden Symbol. Von "H" bis "Ra" unten links in der Ecke müssen alle Felder angezeigt werden.
-        Kannst du nicht das komplette PSE sehen, weil dein Bildschirn zu klein ist, musst du die Größe der Element-Felder mit dem weißen Schraubenschlüssel
-        auf blauen Grund anpassen.
+        Kannst du nicht das komplette PSE sehen, weil dein Bildschirn zu klein ist, musst du die Größe der Element-Felder im Menue "Molmassen" oder im Hauptmenue
+        vom Quiz mit dem weißen Schraubenschlüssel auf blauen Grund anpassen.
         Oben links in der Ecke wird dir der erste Name eines Elementes angezeigt. Für dieses Element musst du jetzt auf deinem Display das entsprechende
         Symbol raussuchen und antippen. Achtung, hast du deinen ersten Tipp gemacht, läuft deine Zeit! Du hast genau 60 Sekunden. Deine verbleibende Zeit
         siehst du in dem kleinen blauen Feld oben rechts in der Ecke. Liegst du mit deiner Wahl des Kurzzeichens richtig, ertönt eine Glocke und es
@@ -32,12 +32,11 @@
         Danach wird dir unten Im Display kurz die richtige Formel als rote Meldung
         angezeigt. Aber Vorsicht! Jedes Mal, wenn du den „Weiter“ Button drückst, wird dir zur Strafe wieder ein Punkt abgezogen. Ist deine Zeit um, wird dir
         im Anzeigefeld deiner Eingabe noch das richtige Zeichen angezeigt. Wenn du es schaffst 25 Punkte zu erreichen ertönt eine Hupe und du darfst
-        Level 2 spielen. Was da kommt? Streng dich an und lass dich überraschen! Ach so, diese Anleitung findest du übrigens
-        auch in deiner Hilfe. So, und nun viel Spaß! Bist du bereit?
+        Level 2 spielen. Was da kommt? Streng dich an und lass dich überraschen!
     </string>
-    <string name="QuizHilfe_2">Prima! Du hast Level 1 geschafft! Jetzt testen wir bei dir die Symbole von den Nebengruppenelementen! Das PSE sieht jetzt
-        etwas anders aus. Aber du wirst die Symbole schon finden. Von der Bedienung hat sich nichts geändert! Kann es losgehen?</string>
-    <string name="QuizHilfe_3">Super! Level 2 ist geknackt!  Jetzt wird es etwas schwieriger und etwas anders. Etwas! In Level 3 werden dir
+    <string name="QuizHilfe_2"> Jetzt testen wir bei dir die Symbole von den Nebengruppenelementen! Das PSE sieht jetzt
+        etwas anders aus. Aber du wirst die Symbole schon finden. Von der Bedienung hat sich nichts geändert! </string>
+    <string name="QuizHilfe_3">Jetzt wird es etwas schwieriger und etwas anders. Etwas! In Level 3 werden dir
         Nomenklatur-Namen von Verbindungen angezeigt und du musst die dazu gehörige Formel eingeben. Und zwar sowohl mit Elementen aus den Hauptgruppen,
         als auch aus den Nebengruppen. Aber die kennst du ja jetzt. Willst du zu den Nebengruppenelementen wechseln, drückst du einfach den großen gelben
         „Hauptgruppenelemente“ Button und noch einmal um wieder zu den Hauptgruppenelementen zurück zu kehren. Hast du das erste Element eingetippt,
@@ -46,15 +45,24 @@
         In welcher Reihenfolge du die Elemente am Ende eingibst ist egal. Beispiel: NH3, HHHN, H3N oder HNHH führt zu dem gleichen Ergebnis!
         Wenn deine Eingabe richtig ist, erscheint sofort die nächste Verbindung. Ab jetzt bekommst du für jede richtige Formeleingabe 4 Punkte.
         Eine falsche Eingabe der Formel ist nicht möglich! Wenn du die Formel allerdings nicht heraus bekommst, kannst du auch hier mit dem „Weiter“
-        Button unter Abzug eines Strafpunktes, zur nächsten Verbindung springen. Alles andere ist gleich geblieben. Ready to Start?</string>
-    <string name="QuizHilfe_4">Hervorragend, du hast Level 3 geschafft. Jetzt werden chemische Formeln mit 3 Elementen abgefragt und du
-        bekommst jetzt für jede richtige Eingabe 6 Punkte. Bist du bereit?</string>
-    <string name="QuizHilfe_5">Super gut! Das war schwer! Du hast Level 4 geschafft! Genau, jetzt kommen chemische Formeln mit 4 Elementen dran.
+        Button unter Abzug eines Strafpunktes, zur nächsten Verbindung springen. Alles andere ist gleich geblieben. </string>
+    <string name="QuizHilfe_4"> Jetzt werden chemische Formeln mit 3 Elementen abgefragt und du
+        bekommst jetzt für jede richtige Eingabe 6 Punkte. </string>
+    <string name="QuizHilfe_5">Genau, jetzt kommen chemische Formeln mit 4 Elementen dran.
         Bei einigen Verbindungen könnte es sich um einen Komplex handeln, bei der eine Schreibweise mit eckigen Klammern geläufig ist.
-        Diese Klammern sind bei der Eingabe nicht relevant. Du kannst sie einfach weglassen.</string>
-    <string name="QuizHilfe_6">Das war grandios! Jetzt kommt der vorerst letzte Level. In Level 6 werden Trivialnamen und englische
+        Diese Klammern sind bei der Eingabe nicht relevant. Du kannst sie einfach weglassen. </string>
+    <string name="QuizHilfe_6">In Level 6 werden Trivialnamen und englische
         Bezeichnungen abgefragt. Trivialnamen sind umgangssprachliche Bezeichnungen für chemische Verbindungen. Z.B. ist für
         Natriumchlorid der Trivialname Kochsalz. </string>
+    <string name="QuizHilfe_7"> Jetzt kommt ein ganz neues Gebiet. Die Organische Chemie! Da es in der organischen Chemie viele Isomere gibt,
+        das sind Verbindungen mit der gleichen Gesamtzusammensetzung (Summenformel), aber unterschiedlicher Struktur (Strukturformel), können diese
+        durch die Summenformelschreibweise nicht erkannt werden und bleiben unberücksichtigt! In diesem ersten Level der Organischen Chemie werden
+        die einfachen Kohlenwasserstoffe abgefragt. Kohlenstoffverbindungen bestehend NUR aus Kohlenstoff und Wasserstoff. Alkane, Alkene und Alkine.
+        Einfach- Doppel- und Dreifachbindungen von C-Atomen. Wenn du die Homologe Reihe kennst, lässt sich die Anzahl der Wasserstoffatome in der
+        Formel ganz einfach bestimmen. Alkane: Anzahl H-Atome = C-Atome x 2 + 2, Alkene: Anzahl H-Atome = C-Atome x 2,
+        Alkine: Anzahl H-Atome = C-Atome x 2 - 2. Beispiel Hexin: Hex, also gleich C6. -in, also eine Dreifachbindung. Das heißt zweimal 6 gleich
+        12. Minus 2 gleich 10. Die Formel lautet C6H10. Du musst ab jetzt also mehr rechnen, dann ist es ganz einfach! </string>
+
     <string name="ButtonEinstellungen">(Button: weißer Schlüssel - blauer Hintergrund) Unter Einstellungen lässt sich die Anzahl der
         gerundeten Nachkommastellen von dem errechneten Ergebnis einstellen. Desweiteren lässt sich bei einigen Layouts die Schriftgröße
         und Buttonhöhe individuell anpassen.</string>

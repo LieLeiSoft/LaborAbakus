@@ -83,7 +83,7 @@ public class QuizMenueActivity extends Activity {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		SharedPreferences.Editor prefEditor = prefs.edit();
 
-        for (int x=1; x<=6; x++)
+        for (int x=1; x<=7; x++)
         {
             strX = Integer.toString(x);
             strHighscore = prefs.getString("Highscore"+strX, "0");
@@ -185,7 +185,7 @@ public class QuizMenueActivity extends Activity {
 			}
 			else
 			{
-				tv.setText("\nLevel 6 - Trivialnamen und\nenglisch Bezeichnungen\nHighscore: "+strHighscore+"\n");
+				tv.setText("\nLevel 6 - Trivialnamen und\nenglisch Bezeichnungen\nHighscore: "+strHighscore+"  (min. 25)\n");
 			}
 
 
@@ -205,11 +205,11 @@ public class QuizMenueActivity extends Activity {
 			}
 			else
 			{
-				tv.setText("\nLevel 7 - Alkane, \n Alkene und Alkine \nHighscore: "+strHighscore+"\n");
+				tv.setText("\nLevel 7 - Alkane, \n Alkene und Alkine \nHighscore: "+strHighscore+"  (min. 25)\n");
 			}
 
 
-			prefEditor.putString("QuizHilfe", "6");
+			prefEditor.putString("QuizHilfe", "7");
 			prefEditor.apply();
 		}
 
@@ -322,7 +322,7 @@ public class QuizMenueActivity extends Activity {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		SharedPreferences.Editor prefEditor = prefs.edit();
 
-		prefEditor.putString("Level", "7");
+		prefEditor.putString("Level", "8");
 		prefEditor.apply();
 
 		Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
@@ -335,7 +335,7 @@ public class QuizMenueActivity extends Activity {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		SharedPreferences.Editor prefEditor = prefs.edit();
 
-		prefEditor.putString("Level", "7");
+		prefEditor.putString("Level", "9");
 		prefEditor.apply();
 
 		Intent myIntent = new Intent(v.getContext(), QuizActivity.class);

@@ -167,6 +167,7 @@ public class MolmassenActivity extends Activity {
 		prefEditor.putInt("Runde_Klammer_auf", 0);
 		prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
 		prefEditor.putFloat("Molmasse", 0);
+		prefEditor.putString("Formelzeichen", "unbekannt"); // ZC Zeichen wird zurück gesetzt auf anorganisch
 		prefEditor.apply();
 		
 		/*		*************************************************
@@ -518,6 +519,7 @@ public class MolmassenActivity extends Activity {
 		String strKey;
 		String strPSE; 
 		String strFeldname;
+		String strFeldNr;
 		String strMM;
 		String strIndex;
 		int intFeldNr;
@@ -531,7 +533,37 @@ public class MolmassenActivity extends Activity {
 		Float fltMolekuelmasse;
 		Float fltMolekuelmasse_RK;
 
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences.Editor prefEditor = prefs.edit();
+		intRK_auf = prefs.getInt("Runde_Klammer_auf", 0);
+		intAnzahlElemente = prefs.getInt("AnzahlElemente", 0);
+		strPSE = prefs.getString("PSE", "Hauptgruppenelemente");
+		strIndex = prefs.getString("Index", "");
+		fltAtommasse = prefs.getFloat("Atommasse", 0);							// Die "alte" Atommasse wird aus Konfig Datei ausgelesen
+		fltMolekuelmasse = prefs.getFloat("Molekuelmasse", 0);					// Die Molekülmasse wird aus Konfig Datei ausgelesen
+		fltMolekuelmasse_RK = prefs.getFloat("Molekuelmasse_Runde_Klammer", 0);	// Die Molekülmasse wird aus Konfig Datei ausgelesen
+		fltMM = prefs.getFloat("Molmasse", 0);									// Die Molmasse wird aus Konfig Datei ausgelesen
+		fltMM_RK = prefs.getFloat("Molmasse_Runde_Klammer", 0);
+
+
 		tv = (TextView) v;
+
+		/****************************************************************************************************************
+		 Hier wird geprüft ob die Formel Kohlenstoff enthällt, für spätere Prüfung auf org.Verd. bei den Oxidationsstufen
+		 ****************************************************************************************************************/
+
+
+		strFeldname = getResources().getResourceEntryName(v.getId());
+		strFeldNr = strFeldname.substring(strFeldname.length()-2);
+
+		if (strPSE.equals("Hauptgruppenelemente")&& (strFeldNr.equals("05"))) // bei btnPSE_05 in der Hauptgruppe
+		{
+			prefEditor.putString("Formelzeichen", "C"); // (“Name“ und “Wertname“)
+			prefEditor.apply();
+		}
+
+		// ***************************************************************************************************************
+
 		strElement = tv.getText().toString();
 		if (strElement.equals("") == false)
 		{
@@ -558,20 +590,7 @@ public class MolmassenActivity extends Activity {
 			
 		} // if (strElement.equals("") == false)
 		
-	
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		SharedPreferences.Editor prefEditor = prefs.edit();
-		intRK_auf = prefs.getInt("Runde_Klammer_auf", 0);
-		intAnzahlElemente = prefs.getInt("AnzahlElemente", 0); 
-		strPSE = prefs.getString("PSE", "Hauptgruppenelemente"); 
-		strIndex = prefs.getString("Index", "");
-		fltAtommasse = prefs.getFloat("Atommasse", 0);							// Die "alte" Atommasse wird aus Konfig Datei ausgelesen
-		fltMolekuelmasse = prefs.getFloat("Molekuelmasse", 0);					// Die Molekülmasse wird aus Konfig Datei ausgelesen
-		fltMolekuelmasse_RK = prefs.getFloat("Molekuelmasse_Runde_Klammer", 0);	// Die Molekülmasse wird aus Konfig Datei ausgelesen
-		fltMM = prefs.getFloat("Molmasse", 0);									// Die Molmasse wird aus Konfig Datei ausgelesen
-		fltMM_RK = prefs.getFloat("Molmasse_Runde_Klammer", 0);
-		
-		
+
 		if(strElement.equals("("))	
 		{
 			intRK_auf = 1;
@@ -869,6 +888,7 @@ public class MolmassenActivity extends Activity {
 		prefEditor.putInt("AnzahlElemente", 0);
 		prefEditor.putFloat("Molmasse_Runde_Klammer", 0);
 		prefEditor.putFloat("Molmasse", 0);
+		prefEditor.putString("Formelzeichen", "unbekannt"); // (“Name“ und “Wertname“)
 		prefEditor.apply();
 
 		

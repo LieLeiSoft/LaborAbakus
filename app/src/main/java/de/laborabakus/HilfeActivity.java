@@ -639,9 +639,9 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][3] = "In organischen Verbindungen kann der Kohlenstoff in mehreren verschiedenen"
 				+ " Oxidiationsstufen vorkommen. Eine genaue Aussage hierüber kann nur in der Strukturformel"
 				+ " gezeigt werden, nicht aber wie hier in der Summenformel. Bei der Eingabe EINES Kohlenstoffzeichens"
-				+ " wird auch immer nur EINE Oxidationsstufe für dieses Zeichen errechnet."
-				+ " Eine korrekte Ausgabe der Oxidationsstufen von"
-				+ " organischen Verbindungen ist der Summenformel somit nicht möglich!";
+				+ " welches mehrfach vorhanden ist, wird immer nur EINE Oxidationsstufe für dieses Zeichen errechnet."
+				+ " Eine korrekte Anzeige der Oxidationsstufen von meheren C-Atomen mit verschiedenen Oxidationsstufen wie in"
+				+ " organischen Verbindungen ist in der Summenformel somit nicht möglich!";
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Molmassen

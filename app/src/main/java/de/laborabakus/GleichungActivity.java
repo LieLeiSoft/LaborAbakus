@@ -179,6 +179,7 @@ public class GleichungActivity extends Activity {
 		String strMolmasse;
 		String strNomenklaturnamen;
 		String strKohlenstoff = "organisch";
+		String strFormelzeichen;
 		float fltMolmasse;
 		int Position;
 		int Nummer;
@@ -194,6 +195,7 @@ public class GleichungActivity extends Activity {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		
 		intAnzahlElemente = prefs.getInt("AnzahlElemente", 1);
+		strFormelzeichen = prefs.getString("Formelzeichen","unbekannt");
 		
 		// **************************************************************
 		// ********** Zeichenlänge der Formel bestimmen *****************
@@ -253,16 +255,22 @@ public class GleichungActivity extends Activity {
             strKohlenstoff = "anorganisch";
         }
 
-        bo_suche1 = strFormel.contains("C");
-		bo_suche2 = strNomenklaturnamen.contains("Kohlenmonoxid");
-		bo_suche3 = strNomenklaturnamen.contains("Kohlendioxid");
-		boolean bo_suche4 = strNomenklaturnamen.contains("cyanid");
+		bo_suche1 = strNomenklaturnamen.contains("cyanid");
+		bo_suche2 = strNomenklaturnamen.contains("Blausäure");
+		bo_suche3 = strNomenklaturnamen.contains("Kohlenmonoxid");
+		boolean bo_suche4 = strNomenklaturnamen.contains("Kohlendioxid");
 
-        if((bo_suche1 == true) && (bo_suche2 == false) && (bo_suche3 == false) && (bo_suche4 == false) && (strKohlenstoff.equals("organisch") == true ))
+		if((bo_suche1 == true )||(bo_suche2 == true )||(bo_suche3 == true )||(bo_suche4 == true ))
+		{
+			strKohlenstoff = "anorganisch";
+		}
+
+        if((strFormelzeichen.equals("C") == true) && (strKohlenstoff.equals("organisch") == true ))
         {
 			AlertDialog.Builder builder = new AlertDialog.Builder(GleichungActivity.this);
-			builder.setTitle("Organische Verbindung!");
-			builder.setMessage("Da es sich um eine Organische Verbindung handelt, kann die Oxidationsstufe der Kohlenstoffatome nicht sicher bestimmt werden! " +
+			builder.setTitle("Organische Verbindung?");
+			builder.setMessage("Da es sich möglicherweise um eine Organische Verbindung handelt, kann die Oxidationsstufe " +
+					"bei mehreren Kohlenstoffatomen nicht sicher bestimmt werden! " +
 					"Siehe auch unter Hilfe: Oxidationsstufen bei organischen Verbindungen");
 			builder.setPositiveButton("OK",
 					new DialogInterface.OnClickListener()

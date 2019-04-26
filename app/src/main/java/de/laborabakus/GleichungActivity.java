@@ -543,19 +543,43 @@ public class GleichungActivity extends Activity {
 				dialog.show();
 			} else {
 				if (intAnzahlOxi == 0) {
-					AlertDialog.Builder builder = new AlertDialog.Builder(GleichungActivity.this);
-					builder.setTitle("Formel korrekt?");
-					builder.setMessage("Achtung! Eine Berechnung der Oxidationsstufen der Elemente"
-							+ " ist bei der eingegebenen Formel nicht möglich. Wahrscheinliche Ursache:"
-							+ " Fehlerhafte Formel!");
-					builder.setPositiveButton("OK",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog, int id) {
-									dialog.dismiss();
-								}
-							});
-					AlertDialog dialog = builder.create();
-					dialog.show();
+
+					bo_suche1 = strNomenklaturnamen.contains("thiosulfat");
+
+					if(bo_suche1 == true)
+					{
+						AlertDialog.Builder builder = new AlertDialog.Builder(GleichungActivity.this);
+						builder.setTitle("Thiosulfat");
+						builder.setMessage("Schwefel kommt hier in zwei verschiedenen Oxidationstufen vor. " +
+								"In +IV und 0. Der zentrale Schwefel hat +IV (O=S-(OH)₂)=S, der äussere Schwefel 0. " +
+								"Die Ladung des Thiosulfates nach außen ist -2. Eine normale Berechnung ist hier nicht möglich!");
+						builder.setPositiveButton("OK",
+								new DialogInterface.OnClickListener()
+								{
+									public void onClick(DialogInterface dialog, int id)
+									{
+										dialog.dismiss();
+									}
+								});
+						AlertDialog dialog = builder.create();
+						dialog.show();
+					}
+					else
+					{
+						AlertDialog.Builder builder = new AlertDialog.Builder(GleichungActivity.this);
+						builder.setTitle("Formel korrekt?");
+						builder.setMessage("Achtung! Eine Berechnung der Oxidationsstufen der Elemente"
+								+ " ist bei der eingegebenen Formel nicht möglich. Mögliche Ursache:"
+								+ " Fehlerhafte Formel!");
+						builder.setPositiveButton("OK",
+								new DialogInterface.OnClickListener() {
+									public void onClick(DialogInterface dialog, int id) {
+										dialog.dismiss();
+									}
+								});
+						AlertDialog dialog = builder.create();
+						dialog.show();
+					}
 				}
 			}
 

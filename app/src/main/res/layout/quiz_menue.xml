@@ -107,7 +107,7 @@
             android:id="@+id/btnLevel_7"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@color/cHellblau"
+            android:background="@color/cGrau"
             android:onClick="btnLevel_8"
             android:textAllCaps="false"
             android:textColor="@color/cSchwarz"
@@ -117,12 +117,11 @@
             android:id="@+id/btnLevel_8"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@color/cHellbraun"
+            android:background="@color/cDunkelgrau"
             android:onClick="btnLevel_9"
             android:textAllCaps="false"
-            android:textColor="@color/cSchwarz"
+            android:textColor="@color/cGold"
             android:visibility="gone" />
-
 
     </LinearLayout>
 </ScrollView>

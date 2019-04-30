@@ -272,7 +272,7 @@ public class QuizActivity extends Activity {
                     break;
                 case 2:			if(intLevel == 2){builder.setMessage("Prima! Du hast Level 1 geschafft! "+R.string.QuizHilfe_2+" Kann es losgehen?");}
                     break;
-                case 3:			if(intLevel == 3){builder.setMessage("Super! Level 2 ist geknackt! "+R.string.QuizHilfe_3+" Bist du bereit?");}
+                case 3:			if(intLevel == 3){builder.setMessage("Super! Level 2 ist geknackt! "+R.string.QuizHilfe_3+" Startklar?");}
                     break;
                 case 4:			if(intLevel == 4){builder.setMessage("Hervorragend, du hast Level 3 geschafft. "+R.string.QuizHilfe_4+" Ready to Start?");}
                     break;
@@ -280,7 +280,11 @@ public class QuizActivity extends Activity {
                     break;
                 case 6:			if(intLevel == 6){builder.setMessage("Das war grandios! "+R.string.QuizHilfe_6+" Startklar?");}
                     break;
-				case 7:			if(intLevel == 7){builder.setMessage("Heureka! "+R.string.QuizHilfe_7+"Bist du soweit?");}
+				case 7:			if(intLevel == 7){builder.setMessage("Heureka! "+R.string.QuizHilfe_7+" Bist du soweit?");}
+					break;
+				case 8:			if(intLevel == 8){builder.setMessage("Das war hammergut! "+R.string.QuizHilfe_8+" Fertig?");}
+					break;
+				case 9:			if(intLevel == 9){builder.setMessage("Du bist absolute Spitzenklasse! "+R.string.QuizHilfe_9+" Achtung, letzter Level - Startklar!");}
 					break;
             }
 

@@ -78,12 +78,12 @@ public class QuizMenueActivity extends Activity {
 		int intHighscore = 0;
 		int intSpeicher;
 
-		int[] arrHighscore = new int[10];
+		int[] arrHighscore = new int[11];
 
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		SharedPreferences.Editor prefEditor = prefs.edit();
 
-        for (int x=1; x<=7; x++)
+        for (int x=1; x<=9; x++)
         {
             strX = Integer.toString(x);
             strHighscore = prefs.getString("Highscore"+strX, "0");
@@ -185,14 +185,13 @@ public class QuizMenueActivity extends Activity {
 			}
 			else
 			{
-				tv.setText("\nLevel 6 - Trivialnamen und\nenglisch Bezeichnungen\nHighscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 6 - Trivialnamen und \n englisch Bezeichnungen \nHighscore: "+strHighscore+"  (min. 25)\n");
 			}
 
 
 			prefEditor.putString("QuizHilfe", "6");
 			prefEditor.apply();
 		}
-
 
 		if(arrHighscore[6] > 24)
 		{
@@ -205,11 +204,49 @@ public class QuizMenueActivity extends Activity {
 			}
 			else
 			{
-				tv.setText("\nLevel 7 - Alkane, \n Alkene und Alkine \nHighscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 7 - Alkane, \n Alkene, Alkine \n und Cycloalkane \nHighscore: "+strHighscore+"  (min. 25)\n");
 			}
 
 
 			prefEditor.putString("QuizHilfe", "7");
+			prefEditor.apply();
+		}
+
+		if(arrHighscore[7] > 24)
+		{
+			tv = (TextView) findViewById(R.id.btnLevel_7);
+			tv.setVisibility(View.VISIBLE);
+			strHighscore = Integer.toString(arrHighscore[8]);
+			if (arrHighscore[8] == 0)
+			{
+				tv.setText("\nLevel 8\nHighscore: "+strHighscore+"\n");
+			}
+			else
+			{
+				tv.setText("\nLevel 8 - Alkohole, \n Aldehyde, Ketone, \n Ether und Ester \nHighscore: "+strHighscore+"  (min. 25)\n");
+			}
+
+
+			prefEditor.putString("QuizHilfe", "8");
+			prefEditor.apply();
+		}
+
+		if(arrHighscore[8] > 24)
+		{
+			tv = (TextView) findViewById(R.id.btnLevel_8);
+			tv.setVisibility(View.VISIBLE);
+			strHighscore = Integer.toString(arrHighscore[9]);
+			if (arrHighscore[9] == 0)
+			{
+				tv.setText("\nLevel 9\nHighscore: "+strHighscore+"\n");
+			}
+			else
+			{
+				tv.setText("\nLevel 9 - Carbonsäuren, \n Amine und Nitrile, \n Phenole und Halogenide u.a. \nHighscore: "+strHighscore+ "\n");
+			}
+
+
+			prefEditor.putString("QuizHilfe", "9");
 			prefEditor.apply();
 		}
 

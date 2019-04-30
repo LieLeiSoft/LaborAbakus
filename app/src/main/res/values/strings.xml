@@ -57,12 +57,21 @@
     <string name="QuizHilfe_7"> Jetzt kommt ein ganz neues Gebiet. Die Organische Chemie! Da es in der organischen Chemie viele Isomere gibt,
         das sind Verbindungen mit der gleichen Gesamtzusammensetzung (Summenformel), aber unterschiedlicher Struktur (Strukturformel), können diese
         durch die Summenformelschreibweise nicht erkannt werden und bleiben unberücksichtigt! In diesem ersten Level der Organischen Chemie werden
-        die einfachen Kohlenwasserstoffe abgefragt. Kohlenstoffverbindungen bestehend NUR aus Kohlenstoff und Wasserstoff. Alkane, Alkene und Alkine.
-        Einfach- Doppel- und Dreifachbindungen von C-Atomen. Wenn du die Homologe Reihe kennst, lässt sich die Anzahl der Wasserstoffatome in der
+        die einfachen Kohlenwasserstoffe abgefragt. Kohlenstoffverbindungen bestehend NUR aus Kohlenstoff und Wasserstoff. Alkane, Alkene, Alkine und Cycloalkane.
+        Einfach-, Doppel-, Dreifach, und Ringverbindungen von C-Atomen. Wenn du die Homologe Reihe kennst, lässt sich die Anzahl der Wasserstoffatome in der
         Formel ganz einfach bestimmen. Alkane: Anzahl H-Atome = C-Atome x 2 + 2, Alkene: Anzahl H-Atome = C-Atome x 2,
-        Alkine: Anzahl H-Atome = C-Atome x 2 - 2. Beispiel Hexin: Hex, also gleich C6. -in, also eine Dreifachbindung. Das heißt zweimal 6 gleich
-        12. Minus 2 gleich 10. Die Formel lautet C6H10. Du musst ab jetzt also mehr rechnen, dann ist es ganz einfach! </string>
-
+        Alkine: Anzahl H-Atome = C-Atome x 2 - 2 und Cycloalkane: Anzahl H-Atome = C-Atome x 2. Beispiel Hexin: Hex, also gleich C6.
+        -in, also eine Dreifachbindung. Das heißt zweimal 6 gleich 12. Minus 2 gleich 10. Die Formel lautet C6H10.
+        Du musst ab jetzt also mehr rechnen, dann ist es ganz einfach! </string>
+    <string name="QuizHilfe_8">In Level 8 wird dein Wissen über Alkohole, Aldehyde, Ketone, Ether und Ester getestet. Eine kurze Erläuterung zu den Gruppen:
+        \n Alkohole: R-OH \n Aldehyde: R-COH \n Ketone: R-CO \n Ether: R-O-R’ \n Ester: R-COO-R’ \n R ist immer eine Kohlenwassersoffrest, der unterschiedlich
+        lang sein kann. Da die Verbindung ja wieder als Summenformel eingibst, spielt es keine Rolle an welcher Stelle du die Elemente setzt. \n
+        Beispiel: Ethanol würde man als Strukturformel ungefähr so schreiben: CH3-CH2-OH. Ob du jetzt CH3CH2OH schreibst, C2H5OH oder OC2H6 ist egal.</string>
+    <string name="QuizHilfe_9">In Level 9 wird es sehr schwer. Hier geht es um folgende funktionelle Gruppen: \n
+        Carbonsäuren: R-COOH \n Amine: R-NH2 \n Nitrile: R-C≡N \n Nitroverbidungen: R-NO2 \n Halogenide: R-Hal \n
+        In einigen Carbonsäuren sind auch Doppelbindungen versteckt. Also auf die genaue Bezeichnung achten!</string>
+    <string name="QuizHilfe_0">Jetzt kommt der letzte Level. In Level 10 geht es um Alles. Alle funktionelle Gruppen mit Einfach-, Doppel- und Dreifachbindungen.
+        Keine leichte Aufgabe.</string>
     <string name="ButtonEinstellungen">(Button: weißer Schlüssel - blauer Hintergrund) Unter Einstellungen lässt sich die Anzahl der
         gerundeten Nachkommastellen von dem errechneten Ergebnis einstellen. Desweiteren lässt sich bei einigen Layouts die Schriftgröße
         und Buttonhöhe individuell anpassen.</string>

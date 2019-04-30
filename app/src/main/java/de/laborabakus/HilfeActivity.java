@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 public class HilfeActivity extends Activity {
 	List<Map<String, String>> hilfeListe = new ArrayList<Map<String,String>>();
-	String[][] Hilfe = new String[30][4];
+	String[][] Hilfe = new String[40][4];
 	int intFeldNr_max = 0;
 	String strHilfe;
 
@@ -231,6 +231,20 @@ public class HilfeActivity extends Activity {
 
 		int intFeldNr = -1;
 		switch (intQuizHilfe) {
+			case 9:
+				strHilfe = getResources().getString(R.string.QuizHilfe_9);
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Level 9";
+				Hilfe[intFeldNr][2] = "Level 9";
+				Hilfe[intFeldNr][3] = strHilfe;
+			case 8:
+				strHilfe = getResources().getString(R.string.QuizHilfe_8);
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Level 8";
+				Hilfe[intFeldNr][2] = "Level 8";
+				Hilfe[intFeldNr][3] = strHilfe;
 			case 7:
 				strHilfe = getResources().getString(R.string.QuizHilfe_7);
 				intFeldNr++;

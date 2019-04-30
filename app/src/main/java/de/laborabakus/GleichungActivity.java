@@ -270,8 +270,8 @@ public class GleichungActivity extends Activity {
 			AlertDialog.Builder builder = new AlertDialog.Builder(GleichungActivity.this);
 			builder.setTitle("Organische Verbindung?");
 			builder.setMessage("Da es sich wahrschinlich um eine Organische Verbindung handelt, kann die Oxidationsstufe " +
-					"bei mehreren Kohlenstoffatomen nicht sicher bestimmt werden! " +
-					"Siehe auch unter Hilfe: Oxidationsstufen bei organischen Verbindungen");
+					"bei Verbindungen mit mehreren Kohlenstoffatomen nicht sicher bestimmt werden! " +
+					"Siehe auch unter Hilfe: Oxidationsstufen von organischen Verbindungen");
 			builder.setPositiveButton("OK",
 					new DialogInterface.OnClickListener()
 					{

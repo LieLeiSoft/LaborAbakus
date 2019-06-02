@@ -16,11 +16,11 @@ public class ImpressumActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-     	setContentView(R.layout.gridlayout);
+     	setContentView(R.layout.quiz_pse2);
      	
 		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
-
+/*
 		btnDatum = (Button) findViewById(R.id.button2);
 
 		Intent incomingIntent = getIntent();
@@ -34,5 +34,7 @@ public class ImpressumActivity extends Activity
 				startActivity(intent);
 			}
 		});
+		*/
     }
+
 }

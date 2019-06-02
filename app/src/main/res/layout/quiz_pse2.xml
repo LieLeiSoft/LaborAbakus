@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/chellhellgrau">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="30dp">
+
+        <TextView
+            android:id="@+id/tvFormel"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="5dp"
+            android:lineSpacingExtra="5sp"
+            android:text="Toluol"
+            android:textColor="@color/cSchwarz"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/cDunkelblau"
+            android:text="Methylbenzen"
+            android:textColor="@color/cGold"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_11"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_13"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/kohlenstoff3"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_14"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/kohlenstoff1"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_15"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_17"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_21"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_22"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_23"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/ethen1"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_24"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/ethen"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_25"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_26"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_27"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe10a"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_31"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_32"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe6"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_33"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_34"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_35"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe10"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_36"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_37"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe3a"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_41"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_42"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe6"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_43"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_44"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_45"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe10"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_46"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_47"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe3a"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_51"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_52"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe6"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_53"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_54"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_55"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe10"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_56"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_57"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe3a"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_61"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_62"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe6"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_63"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_64"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_65"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe10"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_66"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_67"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe3a"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_71"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_72"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe6"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_73"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_74"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_75"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe10"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                style="?android:borderlessButtonStyle"
+                android:id="@+id/ibtFeld_76"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp"
+                android:src="@drawable/alkylgruppe1" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_77"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/alkylgruppe3a"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+        </TableRow>
+
+    </TableLayout>
+
+</TableLayout>

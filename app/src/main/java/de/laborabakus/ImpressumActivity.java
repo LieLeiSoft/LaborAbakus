@@ -2,9 +2,7 @@ package de.laborabakus;
 
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 public class ImpressumActivity extends Activity 
@@ -16,7 +14,7 @@ public class ImpressumActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-     	setContentView(R.layout.quiz_pse2);
+     	setContentView(R.layout.strukturformel);
      	
 		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);

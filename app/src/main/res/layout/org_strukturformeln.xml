@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/tv_C_H"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Kohlenstoff und Wasserstoff" />
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_11"
+                android:id="@+id/co1111a12_011"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -32,77 +32,77 @@
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/co1111a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_12"
+                android:id="@+id/ibtZelle_12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_13"
+                android:id="@+id/ibtZelle_13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/hh1000a1_008"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_14"
+                android:id="@+id/ibtZelle_14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/hh0100a1_008"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_15"
+                android:id="@+id/ibtZelle_15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/hh0010a1_008"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_16"
+                android:id="@+id/ibtZelle_16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/hh0001a1_008"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
@@ -111,10 +111,10 @@
         </TableRow>
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/tv_Alkylgruppen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Alkylgruppen" />
+            android:text="-Cx-Hx- Alkylgruppen" />
 
         <TableRow
             android:id="@+id/tableRow2"
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_21"
+                android:id="@+id/ibtZelle_21"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -130,77 +130,77 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1101a13_019"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_22"
+                android:id="@+id/ibtZelle_22"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1110a13_019"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_23"
+                android:id="@+id/ibtZelle_23"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0111a13_019"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_24"
+                android:id="@+id/ibtZelle_24"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1011a13_019"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_25"
+                android:id="@+id/ibtZelle_25"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0101a14_027"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_26"
+                android:id="@+id/ibtZelle_26"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1010a14_027"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
@@ -214,7 +214,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_31"
+                android:id="@+id/ibtZelle_31"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -222,77 +222,77 @@
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1000a15_035"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_32"
+                android:id="@+id/ibtZelle_32"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0100a15_035"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_33"
+                android:id="@+id/ibtZelle_33"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0010a15_035"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_34"
+                android:id="@+id/ibtZelle_34"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0001a15_035"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_35"
+                android:id="@+id/ibtZelle_35"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0101a28_054"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_36"
+                android:id="@+id/ibtZelle_36"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1010a28_054"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
@@ -306,7 +306,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_41"
+                android:id="@+id/ibtZelle_41"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -314,77 +314,77 @@
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0101a42_081"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_42"
+                android:id="@+id/ibtZelle_42"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1010a42_081"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_43"
+                android:id="@+id/ibtZelle_43"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0101a56_108"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_44"
+                android:id="@+id/ibtZelle_44"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1010a56_108"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_45"
+                android:id="@+id/ibtZelle_45"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0101a70_135"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_46"
+                android:id="@+id/ibtZelle_46"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1010a70_135"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
@@ -398,7 +398,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_51"
+                android:id="@+id/ibtZelle_51"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -406,77 +406,77 @@
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0101a84_162"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_52"
+                android:id="@+id/ibtZelle_52"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1010a84_162"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_53"
+                android:id="@+id/ibtZelle_53"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0101a98_189"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_54"
+                android:id="@+id/ibtZelle_54"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1010a98_189"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_55"
+                android:id="@+id/ibtZelle_55"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0101a112_216"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_56"
+                android:id="@+id/ibtZelle_56"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1010a112_216"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
@@ -490,7 +490,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_61"
+                android:id="@+id/ibtZelle_61"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -498,77 +498,77 @@
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0101a126_243"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_62"
+                android:id="@+id/ibtZelle_62"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1010a126_243"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_63"
+                android:id="@+id/ibtZelle_63"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an0101a140_27"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_64"
+                android:id="@+id/ibtZelle_64"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/an1010a140_27"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_65"
+                android:id="@+id/ibtZelle_65"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_66"
+                android:id="@+id/ibtZelle_66"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
@@ -577,10 +577,10 @@
         </TableRow>
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/tvDoppelbindungen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Doppelbindungen" />
+            android:text="-C=C- Doppelbindungen" />
 
         <TableRow
             android:id="@+id/tableRow7"
@@ -588,7 +588,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_71"
+                android:id="@+id/ibtZelle_71"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -596,78 +596,78 @@
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en2101a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_72"
+                android:id="@+id/ibtZelle_72"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en1210a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_73"
+                android:id="@+id/ibtZelle_73"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en0121a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_74"
+                android:id="@+id/ibtZelle_74"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en1012a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_75"
+                android:id="@+id/ibtZelle_75"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/grau"
+                android:onClick="btnZelle"
+                android:src="@drawable/en2020a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_76"
+                android:id="@+id/ibtZelle_76"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/grau"
+                android:onClick="btnZelle"
+                android:src="@drawable/en0202a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -680,7 +680,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_81"
+                android:id="@+id/ibtZelle_81"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -688,77 +688,77 @@
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en2110a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_82"
+                android:id="@+id/ibtZelle_82"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en2011a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_83"
+                android:id="@+id/ibtZelle_83"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en1120a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_84"
+                android:id="@+id/ibtZelle_84"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en1021a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_85"
+                android:id="@+id/ibtZelle_85"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_86"
+                android:id="@+id/ibtZelle_86"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en1111a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
@@ -772,7 +772,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_91"
+                android:id="@+id/ibtZelle_91"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -780,77 +780,77 @@
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en0211a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_92"
+                android:id="@+id/ibtZelle_92"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en1201a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_93"
+                android:id="@+id/ibtZelle_93"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en1102a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_94"
+                android:id="@+id/ibtZelle_94"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en0112a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_95"
+                android:id="@+id/ibtZelle_95"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_96"
+                android:id="@+id/ibtZelle_96"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:src="@drawable/en1111b24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
@@ -858,85 +858,97 @@
 
         </TableRow>
 
+        <TextView
+            android:id="@+id/tvDreifachbindungen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-C≡C- Dreifachbindungen" />
+
         <TableRow
             android:id="@+id/tableRow10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_101"
+                android:id="@+id/ibtZelle_101"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="2dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
+                android:src="@drawable/in1010a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_102"
+                android:id="@+id/ibtZelle_102"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
+                android:src="@drawable/in0101a24_022"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_103"
+                android:id="@+id/ibtZelle_103"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
+                android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_104"
+                android:id="@+id/ibtZelle_104"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
+                android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_105"
+                android:id="@+id/ibtZelle_105"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
+                android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_106"
+                android:id="@+id/ibtZelle_106"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
+                android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -949,7 +961,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_111"
+                android:id="@+id/ibtZelle_111"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -957,72 +969,72 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_112"
+                android:id="@+id/ibtZelle_112"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_113"
+                android:id="@+id/ibtZelle_113"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_114"
+                android:id="@+id/ibtZelle_114"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp"/>
 
             <ImageButton
-                android:id="@+id/ibtFeld_115"
+                android:id="@+id/ibtZelle_115"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_116"
+                android:id="@+id/ibtZelle_116"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -1035,7 +1047,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_121"
+                android:id="@+id/ibtZelle_121"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1043,72 +1055,72 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_122"
+                android:id="@+id/ibtZelle_122"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_123"
+                android:id="@+id/ibtZelle_123"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_124"
+                android:id="@+id/ibtZelle_124"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_125"
+                android:id="@+id/ibtZelle_125"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_126"
+                android:id="@+id/ibtZelle_126"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
-                android:onClick="btnFeld"
+                android:onClick="btnZelle"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />

@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:id="@+id/ibtFeld_11"
+                android:id="@+id/ibtFeld_011"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_12"
+                android:id="@+id/ibtFeld_012"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_13"
+                android:id="@+id/ibtFeld_013"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_14"
+                android:id="@+id/ibtFeld_014"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_15"
+                android:id="@+id/ibtFeld_015"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -89,20 +89,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_16"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
-
-            <ImageButton
-                android:id="@+id/ibtFeld_17"
+                android:id="@+id/ibtFeld_016"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -122,7 +109,7 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:id="@+id/ibtFeld_21"
+                android:id="@+id/ibtFeld_021"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -135,7 +122,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_22"
+                android:id="@+id/ibtFeld_022"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -148,7 +135,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_23"
+                android:id="@+id/ibtFeld_023"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -161,7 +148,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_24"
+                android:id="@+id/ibtFeld_024"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -174,7 +161,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_25"
+                android:id="@+id/ibtFeld_025"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -187,7 +174,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_26"
+                android:id="@+id/ibtFeld_026"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -199,18 +186,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
-            <ImageButton
-                android:id="@+id/ibtFeld_27"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -219,7 +194,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_31"
+                android:id="@+id/ibtFeld_031"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -232,7 +207,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_32"
+                android:id="@+id/ibtFeld_032"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -245,7 +220,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_33"
+                android:id="@+id/ibtFeld_033"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -258,7 +233,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_34"
+                android:id="@+id/ibtFeld_034"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -271,7 +246,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_35"
+                android:id="@+id/ibtFeld_035"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -284,7 +259,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_36"
+                android:id="@+id/ibtFeld_036"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -296,18 +271,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
-            <ImageButton
-                android:id="@+id/ibtFeld_37"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -316,7 +279,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_41"
+                android:id="@+id/ibtFeld_041"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -329,7 +292,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_42"
+                android:id="@+id/ibtFeld_042"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -342,7 +305,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_43"
+                android:id="@+id/ibtFeld_043"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -355,7 +318,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_44"
+                android:id="@+id/ibtFeld_044"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -368,7 +331,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_45"
+                android:id="@+id/ibtFeld_045"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -381,7 +344,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_46"
+                android:id="@+id/ibtFeld_046"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -393,18 +356,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
-            <ImageButton
-                android:id="@+id/ibtFeld_47"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -413,7 +364,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtFeld_51"
+                android:id="@+id/ibtFeld_051"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -426,7 +377,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_52"
+                android:id="@+id/ibtFeld_052"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -439,7 +390,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_53"
+                android:id="@+id/ibtFeld_053"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -452,7 +403,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_54"
+                android:id="@+id/ibtFeld_054"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -465,7 +416,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_55"
+                android:id="@+id/ibtFeld_055"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -478,7 +429,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_56"
+                android:id="@+id/ibtFeld_056"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -490,18 +441,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
-            <ImageButton
-                android:id="@+id/ibtFeld_57"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -511,7 +450,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_61"
+                android:id="@+id/ibtFeld_061"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -523,7 +462,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_62"
+                android:id="@+id/ibtFeld_062"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -536,20 +475,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_63"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
-
-            <ImageButton
-                android:id="@+id/ibtFeld_64"
+                android:id="@+id/ibtFeld_063"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -562,7 +488,20 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_65"
+                android:id="@+id/ibtFeld_064"
+                style="?android:borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnFeld"
+                android:src="@drawable/weiss"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/ibtFeld_065"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -576,7 +515,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_66"
+                android:id="@+id/ibtFeld_066"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -587,18 +526,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
-            <ImageButton
-                android:id="@+id/ibtFeld_67"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -608,7 +535,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_71"
+                android:id="@+id/ibtFeld_071"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -620,7 +547,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_72"
+                android:id="@+id/ibtFeld_072"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -634,7 +561,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_73"
+                android:id="@+id/ibtFeld_073"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -647,7 +574,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_74"
+                android:id="@+id/ibtFeld_074"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -659,7 +586,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_75"
+                android:id="@+id/ibtFeld_075"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -673,7 +600,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_76"
+                android:id="@+id/ibtFeld_076"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -684,18 +611,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
-            <ImageButton
-                android:id="@+id/ibtFeld_77"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -705,7 +620,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_81"
+                android:id="@+id/ibtFeld_081"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -717,7 +632,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_82"
+                android:id="@+id/ibtFeld_082"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -731,7 +646,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_83"
+                android:id="@+id/ibtFeld_083"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -744,7 +659,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_84"
+                android:id="@+id/ibtFeld_084"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -756,7 +671,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_85"
+                android:id="@+id/ibtFeld_085"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -770,7 +685,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_86"
+                android:id="@+id/ibtFeld_086"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -781,18 +696,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp"/>
 
-            <ImageButton
-                android:id="@+id/ibtFeld_87"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -802,7 +705,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_91"
+                android:id="@+id/ibtFeld_091"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -814,7 +717,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_92"
+                android:id="@+id/ibtFeld_092"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -828,7 +731,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_93"
+                android:id="@+id/ibtFeld_093"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -841,7 +744,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_94"
+                android:id="@+id/ibtFeld_094"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -853,7 +756,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtFeld_95"
+                android:id="@+id/ibtFeld_095"
                 style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -867,7 +770,7 @@
 
             <ImageButton
                 style="?android:borderlessButtonStyle"
-                android:id="@+id/ibtFeld_96"
+                android:id="@+id/ibtFeld_096"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -878,18 +781,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
-            <ImageButton
-                android:id="@+id/ibtFeld_97"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -974,18 +865,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
-            <ImageButton
-                android:id="@+id/ibtFeld_107"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -1071,18 +950,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
-            <ImageButton
-                android:id="@+id/ibtFeld_117"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
         <TableRow
@@ -1168,18 +1035,6 @@
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
-            <ImageButton
-                android:id="@+id/ibtFeld_127"
-                style="?android:borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/cWeiss"
-                android:onClick="btnFeld"
-                android:src="@drawable/weiss"
-                android:textAllCaps="false"
-                android:textColor="@color/cSchwarz"
-                android:textSize="15sp" />
         </TableRow>
 
     </LinearLayout>

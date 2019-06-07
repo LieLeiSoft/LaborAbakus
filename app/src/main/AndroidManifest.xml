@@ -117,6 +117,14 @@
             android:name="KalenderActivity" android:windowSoftInputMode="stateHidden">
         </activity>
 
+        <activity
+            android:name="Org_Generator_Activity" android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
+            android:name="Org_Strukturformeln_Activity" android:windowSoftInputMode="stateHidden">
+        </activity>
+
     </application>
 </manifest>
 

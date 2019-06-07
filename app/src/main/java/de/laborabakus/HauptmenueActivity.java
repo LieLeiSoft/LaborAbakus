@@ -220,7 +220,7 @@ public class HauptmenueActivity extends Activity {
                 return true;
                 
             case R.id.menu_Impressum:            	
-            	intent = new Intent(this, ImpressumActivity.class);
+            	intent = new Intent(this, Org_Generator_Activity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             	startActivity(intent);
             	return true;

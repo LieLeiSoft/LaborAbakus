@@ -12,8 +12,6 @@ public class Org_Strukturformeln_Activity extends Activity {
 
 
     String strZellenname;
-    int resIdZelle;
-    int resIdBild;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -45,14 +43,10 @@ public class Org_Strukturformeln_Activity extends Activity {
     {
         strZellenname = getResources().getResourceEntryName(v.getId());  // Der ID Zellenname wird in einen String umgewandelt
 
-        resIdZelle = getResources().getIdentifier(strZellenname, "id", getPackageName());
-
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
         prefEditor.putString("Strukturformel", strZellenname);
-        prefEditor.putInt("resIdZelle", resIdZelle);
         prefEditor.apply();
 
 

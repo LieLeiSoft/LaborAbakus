@@ -24,7 +24,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/co1111a12_011"
+                android:id="@+id/ibtZelle_011"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -39,7 +39,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_12"
+                android:id="@+id/ibtZelle_012"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -53,12 +53,12 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_13"
+                android:id="@+id/ibtZelle_013"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="2dp"
                 android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
                 android:src="@drawable/hh1000a1_008"
@@ -67,7 +67,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_14"
+                android:id="@+id/ibtZelle_014"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -81,7 +81,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_15"
+                android:id="@+id/ibtZelle_015"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -95,7 +95,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_16"
+                android:id="@+id/ibtZelle_016"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtZelle_21"
+                android:id="@+id/ibtZelle_021"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -137,7 +137,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_22"
+                android:id="@+id/ibtZelle_022"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -151,7 +151,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_23"
+                android:id="@+id/ibtZelle_023"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -165,7 +165,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_24"
+                android:id="@+id/ibtZelle_024"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -179,7 +179,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_25"
+                android:id="@+id/ibtZelle_025"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -193,7 +193,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_26"
+                android:id="@+id/ibtZelle_026"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -214,7 +214,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtZelle_31"
+                android:id="@+id/ibtZelle_031"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -229,7 +229,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_32"
+                android:id="@+id/ibtZelle_032"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -243,7 +243,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_33"
+                android:id="@+id/ibtZelle_033"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -257,7 +257,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_34"
+                android:id="@+id/ibtZelle_034"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -271,7 +271,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_35"
+                android:id="@+id/ibtZelle_035"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -285,7 +285,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_36"
+                android:id="@+id/ibtZelle_036"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -306,7 +306,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtZelle_41"
+                android:id="@+id/ibtZelle_041"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -321,7 +321,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_42"
+                android:id="@+id/ibtZelle_042"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -335,7 +335,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_43"
+                android:id="@+id/ibtZelle_043"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -349,7 +349,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_44"
+                android:id="@+id/ibtZelle_044"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -363,7 +363,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_45"
+                android:id="@+id/ibtZelle_045"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -377,7 +377,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_46"
+                android:id="@+id/ibtZelle_046"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -398,7 +398,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtZelle_51"
+                android:id="@+id/ibtZelle_051"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -413,7 +413,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_52"
+                android:id="@+id/ibtZelle_052"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -427,7 +427,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_53"
+                android:id="@+id/ibtZelle_053"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -441,7 +441,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_54"
+                android:id="@+id/ibtZelle_054"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -455,7 +455,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_55"
+                android:id="@+id/ibtZelle_055"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -469,7 +469,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_56"
+                android:id="@+id/ibtZelle_056"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -490,7 +490,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtZelle_61"
+                android:id="@+id/ibtZelle_061"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -505,7 +505,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_62"
+                android:id="@+id/ibtZelle_062"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -519,7 +519,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_63"
+                android:id="@+id/ibtZelle_063"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -533,7 +533,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_64"
+                android:id="@+id/ibtZelle_064"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -547,7 +547,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_65"
+                android:id="@+id/ibtZelle_065"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -561,7 +561,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_66"
+                android:id="@+id/ibtZelle_066"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -588,7 +588,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtZelle_71"
+                android:id="@+id/ibtZelle_071"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -603,7 +603,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_72"
+                android:id="@+id/ibtZelle_072"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -617,7 +617,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_73"
+                android:id="@+id/ibtZelle_073"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -631,7 +631,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_74"
+                android:id="@+id/ibtZelle_074"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -645,7 +645,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_75"
+                android:id="@+id/ibtZelle_075"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -659,7 +659,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_76"
+                android:id="@+id/ibtZelle_076"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -680,7 +680,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtZelle_81"
+                android:id="@+id/ibtZelle_081"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -695,7 +695,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_82"
+                android:id="@+id/ibtZelle_082"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -709,7 +709,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_83"
+                android:id="@+id/ibtZelle_083"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -723,7 +723,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_84"
+                android:id="@+id/ibtZelle_084"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -737,7 +737,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_85"
+                android:id="@+id/ibtZelle_085"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -751,7 +751,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_86"
+                android:id="@+id/ibtZelle_086"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -772,7 +772,7 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/ibtZelle_91"
+                android:id="@+id/ibtZelle_091"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
@@ -787,7 +787,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_92"
+                android:id="@+id/ibtZelle_092"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -801,7 +801,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_93"
+                android:id="@+id/ibtZelle_093"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -815,7 +815,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_94"
+                android:id="@+id/ibtZelle_094"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -829,7 +829,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_95"
+                android:id="@+id/ibtZelle_095"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"
@@ -843,7 +843,7 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                android:id="@+id/ibtZelle_96"
+                android:id="@+id/ibtZelle_096"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="2dp"

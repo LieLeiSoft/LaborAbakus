@@ -22,7 +22,8 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
     TextView tv;
     EditText et;
     String strVerdMasse;
-    String strVerdGehalt;
+String strVerdGehalt;
+    String strVerdGehaltEinheit ="mol/l";
     String strAuswahl;
     String strKonzGehalt;
     String strKonzGehaltEinheit;
@@ -85,8 +86,11 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
 
             tv = (TextView) findViewById(R.id.tvNameVerd);
             tv.setText("Masse");
+
+            tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);  // Button verschwinden lassen
+            tv.setVisibility(View.GONE);
         }
-        else
+        else // Berechnung über mol/l g/l
         {
             tv = (TextView) findViewById(R.id.tvEinheitVerd);
             tv.setText("ml");
@@ -96,6 +100,9 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
 
             tv = (TextView) findViewById(R.id.tvNameVerd);
             tv.setText("Volumen");
+
+            tv = (TextView) findViewById(R.id.tvEinheitVerdGehalt); // Textfeld % verschwinden lassen
+            tv.setVisibility(View.GONE);
         }
 
         tv = (TextView) findViewById(R.id.tvAcidBase);
@@ -119,6 +126,62 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
 
 
     /* *********************************************************************************************
+     ***************** Button % oder g/l oder mol/l ************************************************
+     ***********************************************************************************************/
+
+    public void btnEinheitVerdGehalt(View v)
+    {
+        TextView tv;
+        tv = (TextView) v;
+        strVerdGehaltEinheit = tv.getText().toString();
+
+        if (strVerdGehaltEinheit.equals("g/l") == true)   // Wenn das Feld auf g/l steht ...
+        {
+            strVerdGehaltEinheit = "mol/l";             // ...umschalten auf mol/l
+
+            tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);
+            tv.setText(strVerdGehaltEinheit);
+
+            et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);
+            strVerdGehalt = et.getText().toString();
+
+            if (strVerdGehalt.equals("") == false)      // Nur wenn das Feld voll ist, dann ...
+            {
+                dblVerdGehalt = Double.parseDouble(strVerdGehalt);
+                dblVerdGehalt = dblVerdGehalt / dblMolmasse;   // ...g/l auf mol/l umrechnen
+                dblErgebnis = ActivityTools.fktRunden(dblVerdGehalt, 3); // 2 Nachkommastellen
+                strVerdGehalt = Double.toString(dblErgebnis);
+                et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);
+                et.setText(strVerdGehalt);
+                et.setSelection(et.getText().length());     // Cursor nach rechts setzen
+            }
+
+        }
+        else
+        {
+            strVerdGehaltEinheit = "g/l";                 // ...umschalten auf g/l
+
+            tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);
+            tv.setText(strVerdGehaltEinheit);
+
+            et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);
+            strVerdGehalt = et.getText().toString();
+
+            if (strVerdGehalt.equals("") == false)      // Nur wenn das Feld voll ist, dann ...
+            {
+                dblVerdGehalt = Double.parseDouble(strVerdGehalt);
+                dblVerdGehalt = dblVerdGehalt * dblMolmasse;   // ...mol/l auf g/l umrechnen
+                dblErgebnis = ActivityTools.fktRunden(dblVerdGehalt, 3); // 2 Nachkommastellen
+                strVerdGehalt = Double.toString(dblErgebnis);
+                et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);
+                et.setText(strVerdGehalt);
+                et.setSelection(et.getText().length());     // Cursor nach rechts setzen
+            }
+
+        }
+    } // btn g/l / mol/l
+
+    /* *********************************************************************************************
      ***************** Button g / ml ***************************************************************
      ***********************************************************************************************/
 
@@ -127,9 +190,6 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
         TextView tv;
         tv = (TextView) v;
         strKonzEinheit = tv.getText().toString();
-
-        tv = (TextView) findViewById(R.id.tvErgebnis1);
-        tv.setText("");    // Beim Wechsel von g auf ml oder umgekehrt, das Ergebnisfeld löschen
 
         if (strKonzEinheit.equals("g") == true)   // Wenn das Feld auf g steht ...
         {
@@ -164,9 +224,6 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
         et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);
         strVerdGehalt = et.getText().toString();
 
-        tv = (TextView) findViewById(R.id.tvErgebnis1);
-        tv.setText("");    // das Ergebnisfeld löschen
-
         if ((strVerdMasse.equals("") == false) && (strVerdGehalt.equals("") == false)) // Wenn beide Felder voll sind ...
         {
             dblVerdMasse = Double.parseDouble(strVerdMasse);
@@ -174,86 +231,114 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
 
             if ((dblVerdMasse != 0) && (dblVerdGehalt != 0)) // Wenn eines der Felder <> 0 ist ...
             {
-                if (dblVerdGehalt >= dblKonzGehalt) // Wenn der Gehalt der Verd größer der Konz ist ...
+                InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+
+                /*******************************************************************
+                 ****** Berechnung der Masse Konz über prozentuale Verdünnung ******
+                 *******************************************************************/
+
+                if(strBerechnung_ueber.equals("Proz") == true)    // Wenn Einheit der Verd % ist
                 {
-                    String text = "\nDer Gehalt der Verdünnung ist größer, als der Gehalt der " + strKonzAuswahl +" "+ strKonzGehalt + strKonzGehaltEinheit + " Da gibt es nichts zu verdünnen!\n";
-                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
-                    Meldung.setGravity(Gravity.TOP, 0, 0);
-                    Meldung.show();
+                    switch (strKonzGehaltEinheit)
+                    {
+                        case "%":
+
+                            dblErgebnis = dblKonzGehalt;                                    // keine Umrechnung notwendig
+
+                            break;
+                        case "g/l":
+
+                            dblErgebnis = dblKonzGehalt / (10 * dblDichte); // wird auf % umgerechnet
+
+                            break;
+                        case "mol/l":
+
+                            dblErgebnis = (dblKonzGehalt * dblMolmasse) / (10 * dblDichte); // wird auf % umgerechnet
+
+                            break;
+                    }
+
+                    dblKonzMasse = (dblVerdMasse * dblVerdGehalt) / dblErgebnis;
+
+
+                    if (strKonzEinheit.equals("ml") == true)  // generell auf g umrechnen (proz!!!)
+                    {
+                        dblKonzMasse = dblKonzMasse / dblDichte;
+                    }
+
+                    strErgebnis = ActivityTools.fktDoubleToStringFormat(dblKonzMasse, 2); // 1 Nachkommastellen
+
+                    setContentView(R.layout.konz_lsg_ergebnis);
+
+                    tv = (TextView) findViewById(R.id.tvKonzErgebnis);
+
+                    tv.setText("Für den Ansatz einer " + strKonzAuswahl + " " + strVerdGehalt + " %" +
+                            ", benötigt man " + strErgebnis + " " + strKonzEinheit + " einer " + strKonzAuswahl + " " + strKonzGehalt + " " +
+                            strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMasse + " g verdünnt werden muss.");
                 }
+
+                /***************************************************************************
+                 ********* Berechnung der Masse Konz über Verdünnung mol/l oder g/l ********
+                 ***************************************************************************/
                 else
                 {
-                    InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-                    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
-
-                    /*******************************************************************
-                     ****** Berechnung der Masse Konz über prozentuale Verdünnung ******
-                     *******************************************************************/
-
-                    if(strBerechnung_ueber.equals("Proz") == true)    // Wenn Einheit der Verd % ist
+                    switch (strKonzGehaltEinheit)
                     {
-                        if(strKonzGehaltEinheit.equals("mol/l") == true)  // Wenn Einheit der Konz mol/l ist
-                        {
-                            dblErgebnis = (dblKonzGehalt * dblMolmasse * 100) / (1000 * dblDichte); // wird auf % umgerechnet
-                        }
-                        else
-                        {
-                            dblErgebnis = dblKonzGehalt;
-                        }
+                        case "%":
 
-                        dblKonzMasse = (dblVerdMasse * dblVerdGehalt) / dblErgebnis;
+                            dblErgebnis = (dblKonzGehalt * dblDichte * 1000) / (100 * dblMolmasse);  //wird auf mol/l umgerechnet
 
-                        if (strKonzEinheit.equals("ml") == true)  // generell auf g umrechnen (proz!!!)
-                        {
-                            dblKonzMasse = dblKonzMasse / dblDichte;
-                        }
+                            break;
+                        case "g/l":
 
-                        strErgebnis = ActivityTools.fktDoubleToStringFormat(dblKonzMasse, 2); // 1 Nachkommastellen
+                            dblErgebnis = dblKonzGehalt / dblMolmasse;                               // wird auf mol/l umgerechnet
 
-                        setContentView(R.layout.konz_lsg_ergebnis);
+                            break;
+                        case "mol/l":
 
-                        tv = (TextView) findViewById(R.id.tvKonzErgebnis);
+                            dblErgebnis = dblKonzGehalt;                                              // keine Umrechnung notwendig
 
-                        tv.setText("Für den Ansatz einer " + strKonzAuswahl + " " + strVerdGehalt + " %" +
-                                ", benötigt man " + strErgebnis + " " + strKonzEinheit + " einer " + strKonzAuswahl + " " + strKonzGehalt + " " +
-                                strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMasse + " g verdünnt werden muss.");
+                            break;
                     }
 
-                    /*******************************************************************
-                     ********* Berechnung der Masse Konz über molare Verdünnung ********
-                     *******************************************************************/
+                    if (strVerdGehaltEinheit.equals("g/l") == true)                                    // Wenn das Feld auf g/l steht ...
+                    {
+                            dblVerdGehalt = dblVerdGehalt / dblMolmasse;                               // Umrechnung auf mol/l
+                    }
+
+                    dblKonzMasse = (dblVerdMasse * dblVerdGehalt) / dblErgebnis;
+
+                    /*
+                    if(strKonzGehaltEinheit.equals("%") == true)  // Wenn Einheit der Konz % ist
+                    {
+                        dblErgebnis = (dblKonzGehalt * dblDichte * 1000) / (100 * dblMolmasse);  //wird auf mol/l umgerechnet
+                    }
                     else
                     {
-                        if(strKonzGehaltEinheit.equals("%") == true)  // Wenn Einheit der Konz % ist
-                        {
-                            dblErgebnis = (dblKonzGehalt * dblDichte * 1000) / (100 * dblMolmasse);  //wird auf mol/l umgerechnet
-                        }
-                        else
-                        {
-                            dblErgebnis = dblKonzGehalt;
-                        }
-
-                        dblKonzMasse = (dblVerdMasse * dblVerdGehalt) / dblErgebnis;
-
-                        // Berechnung der Masse der Konzentrierten Lösung
-                        // Masse Konz = (MasseVerd * GehaltVerd) / KonzGehalt
-
-
-                        if (strKonzEinheit.equals("g") == true)
-                        {
-                            dblKonzMasse = dblKonzMasse * dblDichte;
-                        }
-
-                        strErgebnis = ActivityTools.fktDoubleToStringFormat(dblKonzMasse, 2); // 1 Nachkommastellen
-
-                        setContentView(R.layout.konz_lsg_ergebnis);
-
-                        tv = (TextView) findViewById(R.id.tvKonzErgebnis);
-                        tv.setText("Für den Ansatz einer " + strKonzAuswahl + " " + strVerdGehalt + " mol/l" +
-                                ", benötigt man " + strErgebnis + " " + strKonzEinheit + " einer " + strKonzAuswahl + " " + strKonzGehalt + " " +
-                                strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMasse + " ml verdünnt werden muss.");
+                        dblErgebnis = dblKonzGehalt;
                     }
+                    */
+
+                    // Berechnung der Masse der Konzentrierten Lösung
+                    // Masse Konz = (MasseVerd * GehaltVerd) / KonzGehalt
+
+
+                    if (strKonzEinheit.equals("g") == true)
+                    {
+                        dblKonzMasse = dblKonzMasse * dblDichte;
+                    }
+
+                    strErgebnis = ActivityTools.fktDoubleToStringFormat(dblKonzMasse, 2); // 1 Nachkommastellen
+
+                    setContentView(R.layout.konz_lsg_ergebnis);
+
+                    tv = (TextView) findViewById(R.id.tvKonzErgebnis);
+                    tv.setText("Für den Ansatz einer " + strKonzAuswahl + " " + strVerdGehalt + " " + strVerdGehaltEinheit +
+                            ", benötigt man " + strErgebnis + " " + strKonzEinheit + " einer " + strKonzAuswahl + " " + strKonzGehalt + " " +
+                            strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMasse + " ml verdünnt werden muss.");
                 }
+
             }
             else
             {

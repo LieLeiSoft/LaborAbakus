@@ -46,10 +46,10 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         strKonzGehaltEinheit = prefs.getString("KonzGehaltEinheit_"+strAuswahl, strKonzGehaltEinheit);
 
         tv = (TextView) findViewById(R.id.AcidAuswahl_0);
-        tv.setText(" ... die Menge der \n"+ strKonzAuswahl+ " ("+ strKonzGehalt + strKonzGehaltEinheit +")\n für den Ansatz einer prozentualen Verdünnung.");
+        tv.setText(" ... die Menge an \n"+ strKonzAuswahl+ " ("+ strKonzGehalt + strKonzGehaltEinheit +")\n für den Ansatz einer Verdünnung in % \n (g in 100g Lösungsmittel).");
 
         tv = (TextView) findViewById(R.id.AcidAuswahl_1);
-        tv.setText(" ... die Menge der \n"+ strKonzAuswahl+ " ("+ strKonzGehalt + strKonzGehaltEinheit +")\n für den Ansatz einer molaren Verdünnung.");
+        tv.setText(" ... die Menge an \n"+ strKonzAuswahl+ " ("+ strKonzGehalt + strKonzGehaltEinheit +")\n für den Ansatz einer Verdünnung \n in g/l oder mol/l.");
 
     } // onResume
 

@@ -58,7 +58,7 @@
             android:text="ml"
             android:onClick="btnEinheitKonz"
             android:textAllCaps="false"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView5"
@@ -148,7 +148,7 @@
             android:gravity="center_horizontal"
             android:text="g"
             android:textColor="@color/cSchwarz"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView6"
@@ -195,7 +195,17 @@
             android:gravity="center_horizontal"
             android:text="%"
             android:textColor="@color/cSchwarz"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/tvAnpassungEinheitVerdGehalt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:onClick="btnEinheitVerdGehalt"
+            android:text="mol/l"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView7"

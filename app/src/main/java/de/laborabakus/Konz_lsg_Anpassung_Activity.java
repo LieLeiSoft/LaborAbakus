@@ -118,6 +118,55 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         {
             if (strAlteKonzGehaltEinheit.equals(strKonzGehaltEinheit) == false)
             {
+                switch (strKonzGehaltEinheit)
+                {
+                    case "g/l":
+                        if (strAlteKonzGehaltEinheit.equals("mol/l") == true)
+                        {
+                            // Umrechnung von mol/l auf g/L
+                            dblAlterKonzGehalt = dblAlterKonzGehalt * dblMolmasse;
+                        }
+                        else
+                        {
+                            // Umrechnung von % auf g/l
+                            dblAlterKonzGehalt = dblAlterKonzGehalt * 10 * dblDichte;
+                        }
+
+                        break;
+
+                    case "mol/l":
+                        if (strAlteKonzGehaltEinheit.equals("%") == true)
+                        {
+                            // Umrechnung von % auf mol/l
+                            dblAlterKonzGehalt = (dblAlterKonzGehalt * 10 * dblDichte) / dblMolmasse;
+                        }
+                        else
+                        {
+                            // Umrechnung von g/l auf mol/l
+                            dblAlterKonzGehalt = dblAlterKonzGehalt / dblMolmasse;
+                        }
+                        break;
+
+                    case "%":
+                        if (strAlteKonzGehaltEinheit.equals("g/l") == true)
+                        {
+                            // Umrechnung von g/l auf %
+                            dblAlterKonzGehalt = dblAlterKonzGehalt / (10 * dblDichte);
+                        }
+                        else
+                        {
+                            // Umrechnung von mol/l auf %
+                            dblAlterKonzGehalt = (dblAlterKonzGehalt * dblMolmasse) / (10 * dblDichte);
+                        }
+                        break;
+                }
+
+
+
+
+
+
+                /*
                 if (strKonzGehaltEinheit.equals("%"))
                 {
                     dblAlterKonzGehalt = (dblAlterKonzGehalt * dblMolmasse) / (10 * dblDichte);
@@ -126,6 +175,8 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
                 {
                     dblAlterKonzGehalt = (dblAlterKonzGehalt * dblDichte * 10) / dblMolmasse;
                 }
+                */
+
             }
             if (dblAlterKonzGehalt >= dblKonzGehalt)
             {
@@ -189,29 +240,43 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        if (strKonzGehaltEinheit.equals("%") == true)
+        switch (strKonzGehaltEinheit)
         {
-            strKonzGehaltEinheit = "mol/l";
+            case "%":
+                strKonzGehaltEinheit = "g/l";
 
-            tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-            tv.setText(strKonzGehaltEinheit);
+                tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+                tv.setText(strKonzGehaltEinheit);
 
-            // Umrechnung auf mol/l
+                // Umrechnung auf g/l
 
-            dblKonzGehalt = (dblKonzGehalt * dblDichte * 10) / dblMolmasse;
-            dblKonzGehalt = ActivityTools.fktRunden(dblKonzGehalt, 4); // 2 Nachkommastellen
-        }
-        else
-        {
-            strKonzGehaltEinheit = "%";
+                dblKonzGehalt = (dblKonzGehalt * dblDichte * 10);
+                dblKonzGehalt = ActivityTools.fktRunden(dblKonzGehalt, 2); // 4 Nachkommastellen
+                break;
 
-            tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-            tv.setText(strKonzGehaltEinheit);
+            case "g/l":
+                strKonzGehaltEinheit = "mol/l";
 
-            // Umrechnung auf %
+                tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+                tv.setText(strKonzGehaltEinheit);
 
-            dblKonzGehalt = (dblKonzGehalt * dblMolmasse) / (10 * dblDichte);
-            dblKonzGehalt = ActivityTools.fktRunden(dblKonzGehalt, 4); // 2 Nachkommastellen
+                // Umrechnung auf mol/l
+
+                dblKonzGehalt = dblKonzGehalt / dblMolmasse;
+                dblKonzGehalt = ActivityTools.fktRunden(dblKonzGehalt, 4); // 2 Nachkommastellen
+                break;
+
+            case "mol/l":
+                strKonzGehaltEinheit = "%";
+
+                tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+                tv.setText(strKonzGehaltEinheit);
+
+                // Umrechnung auf %
+
+                dblKonzGehalt = (dblKonzGehalt * dblMolmasse) / (10 * dblDichte);
+                dblKonzGehalt = ActivityTools.fktRunden(dblKonzGehalt, 3); // 2 Nachkommastellen
+                break;
         }
 
         strKonzGehalt = Double.toString(dblKonzGehalt);

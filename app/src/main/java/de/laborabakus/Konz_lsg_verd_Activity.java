@@ -308,20 +308,7 @@ String strVerdGehalt;
                     }
 
                     dblKonzMasse = (dblVerdMasse * dblVerdGehalt) / dblErgebnis;
-
-                    /*
-                    if(strKonzGehaltEinheit.equals("%") == true)  // Wenn Einheit der Konz % ist
-                    {
-                        dblErgebnis = (dblKonzGehalt * dblDichte * 1000) / (100 * dblMolmasse);  //wird auf mol/l umgerechnet
-                    }
-                    else
-                    {
-                        dblErgebnis = dblKonzGehalt;
-                    }
-                    */
-
-                    // Berechnung der Masse der Konzentrierten Lösung
-                    // Masse Konz = (MasseVerd * GehaltVerd) / KonzGehalt
+                    
 
 
                     if (strKonzEinheit.equals("g") == true)

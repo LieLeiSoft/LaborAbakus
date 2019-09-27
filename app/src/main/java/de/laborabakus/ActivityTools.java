@@ -1,5 +1,8 @@
 package de.laborabakus;
 
+import android.view.Gravity;
+import android.widget.Toast;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -203,5 +206,6 @@ public class ActivityTools {
 
 
 
-	
+
+
 } // ActivityTools

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+
 public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeListener */
 {
     View v;
@@ -231,8 +232,8 @@ String strVerdGehalt;
 
             if ((dblVerdMasse != 0) && (dblVerdGehalt != 0)) // Wenn eines der Felder <> 0 ist ...
             {
-                InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+                //InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+                //imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 
                 /*******************************************************************
                  ****** Berechnung der Masse Konz über prozentuale Verdünnung ******
@@ -267,15 +268,26 @@ String strVerdGehalt;
                         dblKonzMasse = dblKonzMasse / dblDichte;
                     }
 
-                    strErgebnis = ActivityTools.fktDoubleToStringFormat(dblKonzMasse, 2); // 1 Nachkommastellen
+                    if (dblKonzGehalt < dblVerdGehalt)
+                    {
+                        String text = "\nDie Konzentration der " + strKonzAuswahl +" "+ strKonzGehalt + " ist größer," +
+                                " als die Konzentration der Verdünnung! Das ist nicht möglich!\n";
+                        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
+                        Meldung.setGravity(Gravity.TOP, 0, 0);
+                        Meldung.show();
+                    }
+                    else
+                    {
+                        strErgebnis = ActivityTools.fktDoubleToStringFormat(dblKonzMasse, 2); // 1 Nachkommastellen
 
-                    setContentView(R.layout.konz_lsg_ergebnis);
+                        setContentView(R.layout.konz_lsg_ergebnis);
 
-                    tv = (TextView) findViewById(R.id.tvKonzErgebnis);
+                        tv = (TextView) findViewById(R.id.tvKonzErgebnis);
 
-                    tv.setText("Für den Ansatz einer " + strKonzAuswahl + " " + strVerdGehalt + " %" +
-                            ", benötigt man " + strErgebnis + " " + strKonzEinheit + " einer " + strKonzAuswahl + " " + strKonzGehalt + " " +
-                            strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMasse + " g verdünnt werden muss.");
+                        tv.setText("Für den Ansatz einer " + strKonzAuswahl + " " + strVerdGehalt + " %" +
+                                ", benötigt man " + strErgebnis + " " + strKonzEinheit + " einer " + strKonzAuswahl + " " + strKonzGehalt + " " +
+                                strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMasse + " g verdünnt werden muss.");
+                    }
                 }
 
                 /***************************************************************************
@@ -308,7 +320,7 @@ String strVerdGehalt;
                     }
 
                     dblKonzMasse = (dblVerdMasse * dblVerdGehalt) / dblErgebnis;
-                    
+
 
 
                     if (strKonzEinheit.equals("g") == true)
@@ -316,14 +328,25 @@ String strVerdGehalt;
                         dblKonzMasse = dblKonzMasse * dblDichte;
                     }
 
-                    strErgebnis = ActivityTools.fktDoubleToStringFormat(dblKonzMasse, 2); // 1 Nachkommastellen
+                    if (dblErgebnis < dblVerdGehalt)
+                    {
+                        String text = "\nDie Konzentration der" + strKonzAuswahl +  " "+ strKonzGehalt + " ist größer," +
+                                      " als die Konzentration der Verdünnung! Das ist nicht möglich!\n";
+                        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
+                        Meldung.setGravity(Gravity.TOP, 0, 0);
+                        Meldung.show();
+                    }
+                    else
+                    {
+                        strErgebnis = ActivityTools.fktDoubleToStringFormat(dblKonzMasse, 2); // 1 Nachkommastellen
 
-                    setContentView(R.layout.konz_lsg_ergebnis);
+                        setContentView(R.layout.konz_lsg_ergebnis);
 
-                    tv = (TextView) findViewById(R.id.tvKonzErgebnis);
-                    tv.setText("Für den Ansatz einer " + strKonzAuswahl + " " + strVerdGehalt + " " + strVerdGehaltEinheit +
-                            ", benötigt man " + strErgebnis + " " + strKonzEinheit + " einer " + strKonzAuswahl + " " + strKonzGehalt + " " +
-                            strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMasse + " ml verdünnt werden muss.");
+                        tv = (TextView) findViewById(R.id.tvKonzErgebnis);
+                        tv.setText("Für den Ansatz einer " + strKonzAuswahl + " " + strVerdGehalt + " " + strVerdGehaltEinheit +
+                                ", benötigt man " + strErgebnis + " " + strKonzEinheit + " einer " + strKonzAuswahl + " " + strKonzGehalt + " " +
+                                strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMasse + " ml verdünnt werden muss.");
+                    }
                 }
 
             }
@@ -343,6 +366,8 @@ String strVerdGehalt;
             Meldung.show();
         }
     }
+
+
     /********************************************
      ************** Menue Button ****************
      ********************************************/

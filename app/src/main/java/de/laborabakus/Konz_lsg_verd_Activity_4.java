@@ -360,7 +360,7 @@ public class Konz_lsg_verd_Activity_4 extends Activity
                                             double dblDummy = 0;
                                             if (strVerdGehaltEinheit.equals("g/l") == true)
                                             {
-                                                strVerdGehaltneu = Double.toString(dblVerdGehalt / dblMolmasse);
+                                                strVerdGehaltneu = Double.toString((Double.parseDouble(strVerdGehalt)) / dblMolmasse);
                                             }
                                             else
                                             {

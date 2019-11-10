@@ -266,24 +266,24 @@ public class QuizActivity2 extends Activity {
 			builder.setTitle("Hilfe zu Level " + strQuizHilfe);
 
             switch (intQuizHilfe) {
-                case 1: 		builder.setMessage(getResources().getString(R.string.QuizHilfe_1)
+                case 1: 		builder.setMessage(R.string.QuizHilfe_1
 								+" Ach so, diese Anleitung findest du übrigens auch in deiner Hilfe. So, und nun viel Spaß! Bist du bereit?");
                     break;
-                case 2:			if(intLevel == 2){builder.setMessage("Prima! Du hast Level 1 geschafft! "+getResources().getString(R.string.QuizHilfe_2)+" Kann es losgehen?");}
+                case 2:			if(intLevel == 2){builder.setMessage("Prima! Du hast Level 1 geschafft! "+R.string.QuizHilfe_2+" Kann es losgehen?");}
                     break;
-                case 3:			if(intLevel == 3){builder.setMessage("Super! Level 2 ist geknackt! "+getResources().getString(R.string.QuizHilfe_3)+" Startklar?");}
+                case 3:			if(intLevel == 3){builder.setMessage("Super! Level 2 ist geknackt! "+R.string.QuizHilfe_3+" Startklar?");}
                     break;
-                case 4:			if(intLevel == 4){builder.setMessage("Hervorragend, du hast Level 3 geschafft. "+getResources().getString(R.string.QuizHilfe_4)+" Ready to Start?");}
+                case 4:			if(intLevel == 4){builder.setMessage("Hervorragend, du hast Level 3 geschafft. "+R.string.QuizHilfe_4+" Ready to Start?");}
                     break;
-                case 5:			if(intLevel == 5){builder.setMessage("Super gut! Das war schwer! Du hast Level 4 geschafft! "+getResources().getString(R.string.QuizHilfe_5)+" Ready?");}
+                case 5:			if(intLevel == 5){builder.setMessage("Super gut! Das war schwer! Du hast Level 4 geschafft! "+R.string.QuizHilfe_5+" Ready?");}
                     break;
-                case 6:			if(intLevel == 6){builder.setMessage("Das war grandios! "+getResources().getString(R.string.QuizHilfe_6)+" Startklar?");}
+                case 6:			if(intLevel == 6){builder.setMessage("Das war grandios! "+R.string.QuizHilfe_6+" Startklar?");}
                     break;
-				case 7:			if(intLevel == 7){builder.setMessage("Heureka! "+getResources().getString(R.string.QuizHilfe_7)+" Bist du soweit?");}
+				case 7:			if(intLevel == 7){builder.setMessage("Heureka! "+R.string.QuizHilfe_7+" Bist du soweit?");}
 					break;
-				case 8:			if(intLevel == 8){builder.setMessage("Das war hammergut! "+getResources().getString(R.string.QuizHilfe_8)+" Fertig?");}
+				case 8:			if(intLevel == 8){builder.setMessage("Das war hammergut! "+R.string.QuizHilfe_8+" Fertig?");}
 					break;
-				case 9:			if(intLevel == 9){builder.setMessage("Du bist absolute Spitzenklasse! "+getResources().getString(R.string.QuizHilfe_9)+" Achtung, letzter Level - Startklar!");}
+				case 9:			if(intLevel == 9){builder.setMessage("Du bist absolute Spitzenklasse! "+R.string.QuizHilfe_9+" Achtung, letzter Level - Startklar!");}
 					break;
             }
 

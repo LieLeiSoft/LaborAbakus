@@ -92,7 +92,7 @@
     <string name="Rueckwaage_bis_zur_Massenkonstanz">Einmalig /\nMassekonstanz?</string>
     <string name="Massenkonstanz_in_mg">aktuell: Massekonstanz</string>
     <string name="Milligramm">mg</string>
-    <color name="cBlau">#0000ff</color>
+    <color name="cBlau">#0000FF</color>
     <color name="cDunkelblau">#0d0166</color>
     <color name="cGold">#FFCC00</color>
     <color name="cSchwarz">#000000</color>

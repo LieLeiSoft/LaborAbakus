@@ -62,11 +62,27 @@
         </activity>
 
         <activity
+            android:name="Konz_lsg_verd_Activity_1" android:windowSoftInputMode="stateVisible">
+        </activity>
+
+        <activity
             android:name="Konz_lsg_verd_Activity_2" android:windowSoftInputMode="stateVisible">
         </activity>
 
         <activity
             android:name="Konz_lsg_verd_Activity_3" android:windowSoftInputMode="stateVisible">
+        </activity>
+
+        <activity
+            android:name="Konz_lsg_verd_Activity_4" android:windowSoftInputMode="stateVisible">
+        </activity>
+
+        <activity
+            android:name="Konz_lsg_verd_Activity_5" android:windowSoftInputMode="stateVisible">
+        </activity>
+
+        <activity
+            android:name="Konz_lsg_verd_Activity_6" android:windowSoftInputMode="stateVisible">
         </activity>
 
         <activity

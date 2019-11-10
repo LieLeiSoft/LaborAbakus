@@ -65,7 +65,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         prefEditor.apply();
 
 
-        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity.class);
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_1.class);
 
         // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -83,7 +83,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         prefEditor.putString("Berechnung_ueber", "Mol"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
-        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity.class);
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_2.class);
 
         // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -101,7 +101,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         prefEditor.putString("Berechnung_ueber", "Proz"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
-        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_2.class);
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_3.class);
 
         // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -119,7 +119,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         prefEditor.putString("Berechnung_ueber", "Mol"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
-        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_2.class);
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_4.class);
 
         // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -137,7 +137,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         prefEditor.putString("Berechnung_ueber", "Masse"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
-        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_3.class);
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_5.class);
 
         // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -155,7 +155,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         prefEditor.putString("Berechnung_ueber", "Volumen"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
-        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_3.class);
+        Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_6.class);
 
         // verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);

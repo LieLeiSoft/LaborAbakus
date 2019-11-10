@@ -1,8 +1,5 @@
 package de.laborabakus;
 
-import android.view.Gravity;
-import android.widget.Toast;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -208,4 +205,80 @@ public class ActivityTools {
 
 
 
+
+
+		/*
+		// int pos = strZahl.indexOf('.');
+		//int vorKomma = Integer.parseInt(strZahl.substring(0, pos));
+		//String strNachKomma = strZahl.substring(pos+1, strZahl.length());
+		//int NachKomma = Integer.parseInt(strNachKomma);
+		char chZeichen;
+		String strZ; 			    // einzelnes Zeichen
+		int intAnzahlZeichen;
+		int intCounter=0;
+		int intNachkomma =0;
+		String strNeuesZeichen ="";
+
+		intAnzahlStellen = intAnzahlStellen + 1; // wichtig für Runden
+
+		intAnzahlZeichen = strZahl.length();   // die Zeichenlänge des Strings wird bestimmt
+
+		for (int x=1;x<=intAnzahlZeichen; x++) // eine Schleife für jedes Zeichen von links
+		// nach rechts
+		{
+			chZeichen = strZahl.charAt(x);      // einzelne Zeichen werden mit char ermittelt
+			strZ = ""+chZeichen;                // der char wird in einen String umgewandelt
+
+			if (strZ != "." && intNachkomma =0)
+			// wenn das Zeichen keinen . enthält
+			{				           // oder man noch vor dem Komma ist
+				intCounter = intCounter + 1;     // dann Counter = Counter +1
+			}
+
+			if (strZ.equals("0") && strNeuesZeichen.equals("") == true) // wenn am Anfang
+			// eine 0 steht
+			{
+				strZ = "";                       // wird die 0 gelöscht
+				intCounter = 0;                  // und der Counter auf 0 gesetzt
+			}
+			if (intCounter == intAnzahlStellen) // wenn der Counter die Anzahl Stellen hat
+			{
+				strZ = "0";			    // wird für das Zeichen eine 0 gesetzt
+
+			}
+			if (strZ == ".")                    // wird die Nachkommastelle erreicht
+			{
+				if (strNeuesZeichen.equals(""))  // … und die Ganzzahl ist 0
+				{
+					strNeuesZeichen = "0";       // … wird eine 0 vor dem Komma gesetzt
+				}
+
+				intNachkomma =1;                // und sich gemerkt das man nach dem Komma ist
+
+			}
+			if (strZ != "." && intNachkomma =1) 	 // wenn das Zeichen keinen "." enthält
+			{				          				 // oder man noch nach dem Komma ist
+				intCounter = intCounter + 1;     	 // dann Counter = Counter +1
+			}
+
+
+			strNeuesZeichen = strNeuesZeichen + strZ;  // neues Zeichen wird zusammen gesetzt
+
+
+		}
+
+
+
+
+
+		double dblSignifikante;
+		dblSignifikante = Double.parseDouble(strZahl);       //  String wird in Zahl umgewandelt
+
+		dblSignifikante = (Math.round(dblSignifikante));      //  Zahl wird auf Ganzzahl gerundet
+
+		return dblSignifikante;
+	}
+*/
+
+	
 } // ActivityTools

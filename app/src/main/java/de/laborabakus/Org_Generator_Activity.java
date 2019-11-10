@@ -51,19 +51,13 @@ public class Org_Generator_Activity extends Activity {
 
             intZelle = Integer.parseInt(strZelle);
 
-            String strBildname = "hh0001a1_008";
-            int intBildId = 4711;
-
             switch (intZelle)
             {
                 case 11: ibt.setImageResource(R.drawable.co1111a12_011); break;
                 case 13: ibt.setImageResource(R.drawable.hh1000a1_008); break;
                 case 14: ibt.setImageResource(R.drawable.hh0100a1_008); break;
                 case 15: ibt.setImageResource(R.drawable.hh0010a1_008); break;
-
-
-//                case 16: ibt.setImageResource(R.drawable.hh0001a1_008); break;
-                case 16: ibt.setImageResource(intBildId); break;
+                case 16: ibt.setImageResource(R.drawable.hh0001a1_008); break;
 
                 case 21: ibt.setImageResource(R.drawable.an1101a13_019); break;
                 case 22: ibt.setImageResource(R.drawable.an1110a13_019); break;

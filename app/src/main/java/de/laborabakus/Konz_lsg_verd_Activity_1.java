@@ -20,7 +20,7 @@ import android.widget.Toast;
 import static de.laborabakus.Konz_lsg_Gegeben_Activity.fktDichtetabellen;
 
 
-public class Konz_lsg_verd_Activity_3 extends Activity
+public class Konz_lsg_verd_Activity_1 extends Activity
 {
     // *************************************************************************************************
     // ************* Variablendeklaration **************************************************************
@@ -51,6 +51,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity
     double dblVerdGehalt;
     double dblVerdDichte;
     double dblVerdMenge;
+    double dblDummy = 0;
 
 
     /** wird ausgef?hrt, wenn Activicty erstellt wird */
@@ -86,28 +87,31 @@ public class Konz_lsg_verd_Activity_3 extends Activity
         tv = (TextView) findViewById(R.id.tvAcidBase);                      // Überschrift mit der Konz. Lösung
         tv.setText(strKonzAuswahl + " " + strKonzGehalt + strKonzGehaltEinheit);
 
-        View b = findViewById(R.id.tvBerechnungKonz);                      // "Berechnung Button" der Konz unsichtbar machen
-        b.setVisibility(View.GONE);
+        et = (EditText) findViewById(R.id.etAnpassungMasseKonz);            // Eingabefeld Masse der Konzentrierten Lösung unsichtbar machen
+        et.setVisibility(View.GONE);
+
+        tv = (TextView) findViewById(R.id.tvNameKonz);                       // Textfeld "ist gesucht" sichtbar machen
+        tv.setText("Volumen in ");
+
+        tv = (TextView) findViewById(R.id.textView5);                       // Textfeld "ist gesucht" sichtbar machen
+        tv.setVisibility(View.VISIBLE);
 
         // Verdünnung
+
+        View b = findViewById(R.id.tvBerechnungKonz5);                      // "Berechnung Button" der Verdünnung unsichtbar machen
+        b.setVisibility(View.INVISIBLE);
 
         tv = (TextView) findViewById(R.id.tvEinheitVerdGehalt);             // Textfeld % bei dem Gehalt der Verdünnung
         tv.setText("%");
 
         tv = (TextView) findViewById(R.id.tvNameVerd);                      // Textfeld Masse bei der Verdünnung
-        tv.setText("Masse in");
+        tv.setText("Masse");
 
         tv = (TextView) findViewById(R.id.tvEinheitVerd);                   // Textfeld g bei Masse der Verdünnung
         tv.setText("g");
 
-        tv = (TextView) findViewById(R.id.textView6);                       // Textfeld "ist gesucht" sichtbar machen
-        tv.setVisibility(View.VISIBLE);
-
         tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);    // Button mol/l / g/l verschwinden lassen
         tv.setVisibility(View.GONE);
-
-        et = (EditText) findViewById(R.id.etAnpassungMasseVerd);            // Eingabefeld Masse Verdünnung verschwinden lassen
-        et.setVisibility(View.GONE);
 
         // Spezieller Menge Button (g / ml) für die Dichtetabelle nur bri folgenden Säuren
         if(strKonzAuswahl.equals("Salzsäure") || strKonzAuswahl.equals("Schwefelsäure") || strKonzAuswahl.equals("Salpetersäure") == true)
@@ -142,7 +146,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity
         switch (strKonzGehaltEinheit)
         {
             case "%":
-                // keine Umrechnung notwendig
+                        // keine Umrechnung notwendig
                 break;
             case "g/l":
 
@@ -182,22 +186,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity
             tv.setText(strKonzMengeEinheit);
 
             tv = (TextView) findViewById(R.id.tvNameKonz);
-            tv.setText("Volumen");
-
-            et = (EditText) findViewById(R.id.etAnpassungMasseKonz);
-            strKonzMenge = et.getText().toString();
-
-            if (strKonzMenge.equals("") == false)      // Nur wenn das Feld voll ist, dann ...
-            {
-                dblKonzMenge = Double.parseDouble(strKonzMenge);
-                dblKonzMenge = dblKonzMenge / dblKonzDichte;   // ...die Masse auf Volumen umrechnen
-                strKonzMenge = ActivityTools.fktSignifikanteStellen(dblKonzMenge, 5); // 4 Stellen
-                strKonzMenge = strKonzMenge.replace(",", ".");
-                et = (EditText) findViewById(R.id.etAnpassungMasseKonz);
-                et.setText(strKonzMenge);
-                et.setSelection(et.getText().length());     // Cursor nach rechts setzen
-            }
-
+            tv.setText("Volumen in");
         }
         else
         {
@@ -207,22 +196,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity
             tv.setText(strKonzMengeEinheit);
 
             tv = (TextView) findViewById(R.id.tvNameKonz);
-            tv.setText("Masse");
-
-            et = (EditText) findViewById(R.id.etAnpassungMasseKonz);
-            strKonzMenge = et.getText().toString();
-
-            if (strKonzMenge.equals("") == false)      // Nur wenn das Feld voll ist, dann ...
-            {
-                dblKonzMenge = Double.parseDouble(strKonzMenge);
-                dblKonzMenge = dblKonzMenge * dblKonzDichte;   // ...die Volumen auf Masse umrechnen
-                strKonzMenge = ActivityTools.fktSignifikanteStellen(dblKonzMenge, 5); // 2 Stellen
-                strKonzMenge = strKonzMenge.replace(",", ".");
-                et = (EditText) findViewById(R.id.etAnpassungMasseKonz);
-                et.setText(strKonzMenge);
-                et.setSelection(et.getText().length());     // Cursor nach rechts setzen
-            }
-
+            tv.setText("Masse in");
         }
     } // btn g / ml
 
@@ -251,11 +225,11 @@ public class Konz_lsg_verd_Activity_3 extends Activity
             {
                 if(strVerdMengeEinheit.equals("g") == true)         // Wenn das Feld auf g steht ...
                 {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Konz_lsg_verd_Activity_3.this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Konz_lsg_verd_Activity_1.this);
                     builder.setTitle("Dichtetabelle\n" + strKonzAuswahl);
                     builder.setMessage("Das Volumen der verdünnten " + strKonzAuswahl + " kann nicht direkt berechnet werden! " +
                             "Man kann jedoch die Dichte der entsprechnenden Konzentration mit einer Tabelle ermitteln, interpolieren und " +
-                            "zum Schluß das Volumen auf die Masse umgerechnen! Soll die Tabelle angewendet werden?");
+                            "dann das Volumen auf die Masse umgerechnen! Soll die Tabelle angewendet werden?");
                     builder.setPositiveButton
                             ("Ja",
                                     new DialogInterface.OnClickListener()
@@ -267,7 +241,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity
                                             tv.setText(strVerdMengeEinheit);
 
                                             tv = (TextView) findViewById(R.id.tvNameVerd);                                          // und das Textfeld auf Volumen umgeschaltet
-                                            tv.setText("Volumen in");
+                                            tv.setText("Volumen");
 
                                             et = (EditText) findViewById(R.id.etAnpassungMasseVerd);                                // Die Masse der Verdünnung wird ausgelesen
                                             strVerdMenge = et.getText().toString();
@@ -281,7 +255,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity
 
                                             double dblDummy = 0;
                                             dblVerdDichte = fktDichtetabellen(strKonzAuswahl, dblDummy, dblKonzMenge, dblVerdMenge, strVerdGehalt, strVerdGehaltEinheit); // Aufruf der Funktion Dichtetabelle
-                                            // Dichte wurde ermittelt
+                                                // Dichte wurde ermittelt
 
                                             tr = (TableRow) findViewById(R.id.trDichteVerd);                                        // TableRow für die Dichte wird sichtbar gemacht.
                                             tr.setVisibility(View.VISIBLE);
@@ -289,6 +263,19 @@ public class Konz_lsg_verd_Activity_3 extends Activity
                                             tv = (TextView) findViewById(R.id.tvDichteVerd);
                                             tv.setText(strVerdDichte);
 
+                                        if (strVerdMenge.equals("") == false)                                                   // Nur wenn das Feld voll ist, dann ...
+                                            {
+                                                dblVerdMenge = Double.parseDouble(strVerdMenge);                                // ... wird von der eingegebenen Menge ein Double erzeugt, ...
+
+                                                dblVerdMenge = dblVerdMenge / dblVerdDichte;                                    // ... schon gleich die Masse auf das Volumen umgerechnet.
+
+                                                strVerdMenge = ActivityTools.fktSignifikanteStellen(dblVerdMenge, 4); // Auf 4 signifiknte Stellen gerundet, ...
+
+                                                strVerdMenge = strVerdMenge.replace(",", ".");                  // ... Komma durch Punkt ersetzt ...
+
+                                                et = (EditText) findViewById(R.id.etAnpassungMasseVerd);                        // ... und im Eingabefeld angezeigt.
+                                                et.setText(strVerdMenge);
+                                            }
                                             dialog.dismiss();
                                         }
                                     }
@@ -314,7 +301,10 @@ public class Konz_lsg_verd_Activity_3 extends Activity
                     tv.setText(strVerdMengeEinheit);
 
                     tv = (TextView) findViewById(R.id.tvNameVerd);                      // und das Textfeld wieder auf Masse umgeschaltet
-                    tv.setText("Masse in");
+                    tv.setText("Masse");
+
+                    et = (EditText) findViewById(R.id.etAnpassungMasseVerd);            // Das Masse-Eingabefeld wird geleert
+                    et.setText("");
 
                     et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);           // Das Eingabefeld für den Gehalt der Verdünnung wieder sichtbar gemacht
                     et.setVisibility(View.VISIBLE);
@@ -340,30 +330,28 @@ public class Konz_lsg_verd_Activity_3 extends Activity
 
 
     /* *********************************************************************************************
-     ***************** Button Berechnung Verd Menge ************************************************
+     ***************** Button Berechnung Konz Menge ************************************************
      ***********************************************************************************************/
 
-    public void btnBerechneKonz(View v)
+    public void btnBerechneMasseKonz(View v)
     {
-        et = (EditText) findViewById(R.id.etAnpassungMasseKonz);                           // Auslesen der Menge der Konz. Lösung in g oder ml
-        strKonzMenge = et.getText().toString();
-        tv = (TextView) findViewById(R.id.tvAnpassungEinheitKonz);                          // Auslesen der Einheit der Menge der Konze. Lösung in g oder ml
-        strKonzMengeEinheit = tv.getText().toString();
+        et = (EditText) findViewById(R.id.etAnpassungMasseVerd);                            // Auslesen der aktuellen Menge der Verdünnung
+        strVerdMenge = et.getText().toString();
         et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);                           // Auslesen des Gehaltes der Verdünnung in %
         strVerdGehalt = et.getText().toString();
-        tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdMenge);                     // Auslesen der Einheit der Menge der Konzentration in g oder ml
-        strVerdMengeEinheit = tv.getText().toString();
+        tv = (TextView) findViewById(R.id.tvAnpassungEinheitKonz);                          // Auslesen der Einheit der Menge der Konzentration in g oder ml
+        strKonzMengeEinheit = tv.getText().toString();;
 
-        if ((strKonzMenge.equals("") == false) && (strVerdGehalt.equals("") == false))      // Wenn beide Felder voll sind ...
+        if ((strVerdMenge.equals("") == false) && (strVerdGehalt.equals("") == false))      // Wenn beide Felder voll sind ...
         {
-            dblKonzMenge = Double.parseDouble(strKonzMenge);                                // Aus String ein Double erzeugen
+            dblVerdMenge = Double.parseDouble(strVerdMenge);                                // Aus String ein Double erzeugen
             dblVerdGehalt = Double.parseDouble(strVerdGehalt);                              // Aus String ein Double erzeugen
 
-            if ((dblKonzMenge != 0) && (dblVerdGehalt != 0))                                // Wenn eines der Felder <> 0 ist, dann ...
+            if ((dblVerdMenge != 0) && (dblVerdGehalt != 0))                                // Wenn eines der Felder <> 0 ist, dann ...
             {
-                if (strKonzMengeEinheit.equals("ml") == true)                               // Wenn die Einheit der Verdünnung ml ist
+                if (strVerdMengeEinheit.equals("ml") == true)                               // Wenn die Einheit der Verdünnung ml ist
                 {
-                    dblKonzMenge = dblKonzMenge * dblKonzDichte;                            // ... auf g umrechnen (für die Berechung!!!)
+                    dblVerdMenge = dblVerdMenge * dblVerdDichte;                            // ... auf g umrechnen (für die Berechung!!!)
                 }                                                                           // (dies betrifft nur den Doublewert der String bleibt für die Anzeige unverändert)
 
                 dblVerdGehalt = Double.parseDouble(strVerdGehalt);
@@ -374,27 +362,27 @@ public class Konz_lsg_verd_Activity_3 extends Activity
                 else
                 {
                     /* **************************************************************************************
-                     ***************** Berechnung Verd Menge ************************************************
+                     ***************** Berechnung Konz Menge ************************************************
                      ****************************************************************************************/
-                    dblVerdMenge = (dblKonzMenge * dblKonzGehalt) / dblVerdGehalt;
+                    dblKonzMenge = (dblVerdMenge * dblVerdGehalt) / dblKonzGehalt;
 
-                    if (strVerdMengeEinheit.equals("ml") == true)                               // Wenn die Einheit der Verd Lösung ml ist
+                    if (strKonzMengeEinheit.equals("ml") == true)                               // Wenn die Einheit der Konz Lösung ml ist
                     {                                                                           // (Also wenn die Berechnung in ml gewünscht ist...)
-                        dblVerdMenge = dblVerdMenge / dblVerdDichte;                            // ... die Verd Menge auf ml umrechnen
+                        dblKonzMenge = dblKonzMenge / dblKonzDichte;                            // ... die Konz Menge auf ml umrechnen
                     }
 
                     /* **************************************************************************************
                      ***************** Anzeige im neuen Display (Layout) ************************************
                      ****************************************************************************************/
 
-                    strVerdMenge = ActivityTools.fktSignifikanteStellen(dblVerdMenge, 4); // 4 Stellen
+                    strKonzMenge = ActivityTools.fktSignifikanteStellen(dblKonzMenge, 4); // 3 Stellen
 
                     setContentView(R.layout.konz_lsg_ergebnis);
 
                     tv = (TextView) findViewById(R.id.tvKonzErgebnis);
-                    tv.setText("Um aus " + strKonzMenge + strKonzMengeEinheit+ " einer " + strKonzAuswahl + " (" + strKonzGehalt
-                            + strKonzGehaltEinheit + ") eine " + strVerdGehalt +"%ige Verdünnung herzustellen," +
-                            " muss man die konzentrierte " + strKonzAuswahl + " zusammen mit Wasser zu " + strVerdMenge + strVerdMengeEinheit + " verdünnen.");
+                    tv.setText("Für den Ansatz einer " + strKonzAuswahl + " " + strVerdGehalt + strVerdGehaltEinheit +
+                            ", benötigt man " + strKonzMenge + strKonzMengeEinheit + " einer " + strKonzAuswahl + " " + strKonzGehalt + " " +
+                            strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMenge + strVerdMengeEinheit +" verdünnt werden muss.");
                 }
             }
         }
@@ -409,7 +397,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity
         String text = "\nDie Konzentration der " + strVerdGehalt + "%igen Verdünnung ist nicht kleiner, als die" +
                 " Konzentration der " + strKonzAuswahl +" "+ strKonzGehalt + strKonzGehaltEinheit + ". Eine Verdünnung " +
                 "ist nicht möglich!\n";
-        Toast Meldung = Toast.makeText(Konz_lsg_verd_Activity_3.this, text, Toast.LENGTH_LONG);
+        Toast Meldung = Toast.makeText(Konz_lsg_verd_Activity_1.this, text, Toast.LENGTH_LONG);
         Meldung.setGravity(Gravity.TOP, 0, 0);
         Meldung.show();
     }

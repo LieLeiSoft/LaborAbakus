@@ -10,21 +10,35 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
     public static double fktDichtetabellen(String strKonzAuswahl, double dblKonzGehalt, double dblKonzMenge, double dblVerdMenge, String strVerdGehalt, String strVerdGehaltEinheit)
     {
         double dblVerdDichte = 1;
-        double dblVerdMasse;
+        double dblVerdDichte1 = 1;
+        double dblVerdDichte2 = 1;
+       // double dblVerdMasse;
+        double dblGehalt = 0;
         double dblVerdGehalt = 0;
+        double dblVerdGehalt1 = 0;
+        double dblVerdGehalt2 = 0;
+        double dblVerdMenge1 = 0;
+        //double dblVerdMenge2 = 0;
         double dblObereDichte = 0;
         double dblUntereDichte = 0;
         double dblUntererGehalt = 0;
         double dblObererGehalt = 0;
-        double dblWert1;
-        double dblWert2;
-        int intCounter = 0;
-        int d = 0;
-        int w = 0;
-        int x = 0;
-        int y = 0;
-        int z = 0;
-        // String [] splitResult = new String [2];
+       // double dblWert1;
+       // double dblWert2;
+       // int intCounter = 0;
+       // int d = 0;
+        int intProzent = 0;
+        int intStop = 0;
+        int intGehalt = 0;
+        int intObererGehalt = 0;
+        int intUntererGehalt = 0;
+       // int x = 0;
+       // int y = 0;
+        int intAuswahl = 0;
+
+        String strGehalt;
+
+        String [] splitResult = new String [2];
         String[][] arrWert = new String [4][102];
 
         arrWert [2][0]  = "1_0";             arrWert [3][0]  = "1_0";               arrWert [1][0]  = "1_0";
@@ -131,184 +145,111 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
         arrWert [2][101]= "Schwefelsäure";   arrWert [3][101]= "Salpetersäure";     arrWert [1][101]= "Salzsäure";
 
 
-        double dblVerdMenge1 = 0;
-        double dblVerdMenge2;
-        double dblWert = 0;
-        int intUntereDichte = 1;
-        int intObereDichte = 1;
-        int intUntererGehalt = 1;
-        int intObererGehalt = 1;
-
-
-
-        if(dblKonzGehalt != 0) // Bei Routine 5 und 6, wo die Masse (das Volumen) unbekannt ist und der Gehalt gesucht wird.
+        for (intAuswahl=1; intAuswahl<=3; intAuswahl++)
         {
-            for (z=1; z<=3; z++)
+            if (arrWert[intAuswahl][101].equals(strKonzAuswahl) == true)    // Hier wird die entspechende Tabelle (Salzsäure etc) ausgewählt
             {
-                if (arrWert[z][101].equals(strKonzAuswahl) == true)             // Hier wird die entspechende Tabelle (Salzsäure etc) ausgewählt
+                for (intProzent = 0; intProzent <= 100; intProzent++)
                 {
-                    for (w = 0; w <= 100; w++)
+                    if (intStop == 0)
                     {
-                        String[] splitResult = arrWert[z][w].split("_");
+                        splitResult = arrWert[intAuswahl][intProzent].split("_"); // splitt funktioniert nicht mit Punkt .
 
-                        dblVerdDichte = Double.parseDouble(splitResult[0]);
-
-                        if(strVerdGehaltEinheit.equals("%") == true)                // wenn die Einheit % ist
+                        if (dblKonzGehalt != 0) // Wenn der Gehalt berechnet werden soll Routine 5 oder 6
                         {
-                            dblVerdGehalt = w;                                      // dblVerdGehalt = % Wert
-                            dblVerdMenge1 = dblVerdMenge * dblVerdDichte;           // Masse wird berechnet
-                        }
-                        else                                                        // wenn die Einheit mol/l ist
-                        {
-                            dblVerdGehalt = Double.parseDouble(splitResult[1]);     // dblVerdGehalt = mol/l Wert
-                            dblVerdMenge1 = dblVerdMenge / dblVerdDichte;           // Volumen wird berechnet
-                        }
+                            dblVerdDichte = Double.parseDouble(splitResult[0]);
 
-                        dblVerdMenge2 = (dblKonzGehalt * dblKonzMenge) / dblVerdGehalt;
-
-                        if ((dblVerdMenge1 > dblVerdMenge2)&& (intCounter == 0))
-                        {
-                            intCounter = 1;
-                            dblObereDichte = dblVerdDichte;
-                            dblObererGehalt = dblVerdGehalt;
-                            intObereDichte = fktvomDoublezumInt(dblVerdDichte, 10000);
-                            intObererGehalt = fktvomDoublezumInt(dblVerdGehalt, 10000);
-
-                        }
-                        if ((dblVerdMenge1 <= dblVerdMenge2) && (intCounter == 0))
-                        {
-                            dblUntereDichte = dblVerdDichte;
-                            intUntereDichte = fktvomDoublezumInt(dblVerdDichte, 10000);
-
-
-                            if (dblVerdGehalt != 0)
+                            if(strVerdGehaltEinheit.equals("%") == true)                // wenn die Einheit % ist
                             {
-                                dblUntererGehalt = dblVerdGehalt;
-                                intUntererGehalt = fktvomDoublezumInt(dblVerdGehalt, 10000);
+                                dblVerdGehalt1 = (double) intProzent;                    // dblVerdGehalt = % Wert
+                                dblVerdGehalt2 = (dblKonzGehalt * dblKonzMenge) / (dblVerdMenge * dblVerdDichte);// % wird berechnet
+
+                            }
+                            else                                                        // wenn die Einheit mol/l ist
+                            {
+                                dblVerdGehalt1 = Double.parseDouble(splitResult[1]);     // dblVerdGehalt = mol/l Wert
+                                dblVerdGehalt2 = (dblKonzGehalt * dblKonzMenge) / (dblVerdMenge / dblVerdDichte);// mol/l wird berechnet           // Volumen wird berechnet
+                            }
+
+                            if (dblVerdGehalt1 > dblVerdGehalt2)
+                            {
+                                dblObereDichte = dblVerdDichte;
+                                dblObererGehalt = dblVerdGehalt1;
+                                intObererGehalt = fktvomDoublezumInt(dblVerdGehalt1, 100000);
+                                intStop = 1;
+
+                                for (intGehalt = intUntererGehalt; intGehalt <= intObererGehalt; intGehalt++)
+                                {
+                                    dblGehalt = intGehalt; // aktueller Gehalt
+
+                                    dblGehalt = dblGehalt / 100000;
+
+                                    dblVerdMenge1 = (dblKonzGehalt * dblKonzMenge) / dblGehalt;
+
+                                    if (strVerdGehaltEinheit.equals("%") == true)
+                                    {
+                                        dblVerdDichte2 = dblVerdMenge1 / dblVerdMenge;  // dblVerdMenge1 = Masse
+
+                                        // Interpolation
+                                        dblVerdDichte1 = dblUntereDichte + (((dblObereDichte - dblUntereDichte) / (dblObererGehalt - dblUntererGehalt)) * (dblGehalt - dblUntererGehalt));
+
+                                        if((dblVerdDichte1 > dblVerdDichte2) && (intStop == 1))
+                                        {
+                                            dblVerdDichte = dblVerdDichte1;
+                                            intStop = 2;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        dblVerdDichte2 = dblVerdMenge / dblVerdMenge1;  // dblVerdMenge1 = Volumen
+
+                                        // Interpolation
+                                        dblVerdDichte1 = dblUntereDichte + (((dblObereDichte - dblUntereDichte) / (dblObererGehalt - dblUntererGehalt)) * (dblGehalt - dblUntererGehalt));
+
+                                        if((dblVerdDichte1 < dblVerdDichte2) && (intStop == 1))
+                                        {
+                                            dblVerdDichte = dblVerdDichte1;
+                                            intStop = 2;
+                                        }
+                                    }
+                                }
                             }
                             else
                             {
-                                intUntererGehalt = 0;
+                                dblUntereDichte = dblVerdDichte;
+                                dblUntererGehalt = dblVerdGehalt1;
+                                intUntererGehalt = fktvomDoublezumInt(dblVerdGehalt1, 100000);
                             }
                         }
-                    }
-
-                    for (d = intUntererGehalt; d <= intObererGehalt; d++)
-                    {
-                        dblWert = (((double) d) / 10000); // aktueller Gehalt
-
-                        // Interpolation
-                        dblWert1 = dblUntereDichte + ((dblObereDichte - dblUntereDichte) / (dblObererGehalt - dblUntererGehalt)) * (dblWert - dblUntererGehalt);
-
-                        dblWert2 = (dblKonzMenge * dblKonzGehalt) / (dblVerdMenge * dblWert);
-
-                        if (dblWert1 >= dblWert2 && (intCounter == 1))
+                        else                                // Wenn der Gehalt bekannt ist: Routine 1 bis 4
                         {
-                            dblVerdDichte = dblWert1;
-                            intCounter = 2;
-                        }
+                            // intProzent Schleife von 0 bis 100
 
-                    }
-
-
-                    /*
-                    intUntereDichte = intUntereDichte * 100;
-                    intObereDichte = intObereDichte * 100;
-
-                    for (d = intUntereDichte; d <= intObereDichte; d++)
-                    {
-                        dblWert1 = (((double) d) / 1000000); // aktuelle Dichte
-
-                        // Interpolation
-                        dblVerdGehalt = dblUntererGehalt + ((dblObererGehalt - dblUntererGehalt) / (dblObereDichte - dblUntereDichte)) * (dblWert1 - dblUntereDichte);
-
-                        dblVerdMasse = (dblKonzMenge * dblKonzGehalt) / dblVerdGehalt;   // Masse Verd = (Gehalt Konz x Masse Konz) / Gehalt Verd
-
-                        dblWert2 = dblVerdMasse / dblVerdMenge;             // Dichte = Masse / Volumen
-
-                        if (dblWert1 >= dblWert2 && (intCounter == 1))
-                        {
-                            dblVerdDichte = dblWert1;
-                            intCounter = 2;
-                        }
-                    }*/
-                }
-            }
-        }
-        else
-        {
-            if(strVerdGehaltEinheit.equals("%") == true) // Bei Routine 1 bis 4
-            {
-                for (x=1; x<=3; x++)
-                {
-                    if (arrWert[x][101].equals(strKonzAuswahl) == true)
-                    {
-                        strVerdGehalt = strVerdGehalt.replace(".", "_");
-                        String[] splitResult = strVerdGehalt.split("_");   // splitt funktioniert nicht mit Punkt .
-
-                        String strUntererGehalt = splitResult[0];
-                        intUntererGehalt = Integer.parseInt(strUntererGehalt);
-
-                        // **************************************
-                        // ************ untere Dichte ***********
-                        // **************************************
-                        String strUntererWert = arrWert [x][intUntererGehalt];
-
-                        splitResult = strUntererWert.split("_");
-
-                        dblUntereDichte = Double.parseDouble(splitResult[0]);
-
-                        // **************************************
-                        // ************ obere Dichte ***********
-                        // **************************************
-                        String strObererWert = arrWert [x][intUntererGehalt + 1];
-
-                        splitResult = strObererWert.split("_");
-
-                        dblObereDichte = Double.parseDouble(splitResult[0]);
-
-                        strVerdGehalt = strVerdGehalt.replace("_", ".");
-
-                        dblVerdGehalt = Double.parseDouble(strVerdGehalt);
-
-                        dblUntererGehalt = Double.parseDouble(strUntererGehalt);
-
-                        // **************************************
-                        // ************ Interpolieren ***********
-                        // **************************************
-
-                        dblVerdDichte = dblUntereDichte + ((dblObereDichte - dblUntereDichte)/((dblUntererGehalt +1) - dblUntererGehalt)) * (dblVerdGehalt - dblUntererGehalt);
-                    }
-                }
-            }
-            else
-            {
-                dblVerdGehalt = Double.parseDouble(strVerdGehalt);
-
-                for (x=1; x<=3; x++)
-                {
-                    if (arrWert[x][101].equals(strKonzAuswahl) == true)
-                    {
-                        for (y = 0; y <= 100; y++)
-                        {
-                            String[] splitResult = arrWert[x][y].split("_");
-
-                            dblObereDichte = Double.parseDouble(splitResult[0]);
-                            dblObererGehalt = Double.parseDouble(splitResult[1]);
-
-
-                            if ((dblObererGehalt > dblVerdGehalt) && (intCounter == 0))
+                            if (strVerdGehaltEinheit.equals("%") == true)                   // wenn die Einheit der Verdünnung % ist
                             {
-                                // **************************************
-                                // ************ Interpolieren ***********
-                                // **************************************
-
-                                dblVerdDichte = dblUntereDichte + ((dblObereDichte - dblUntereDichte)/((dblObererGehalt) - dblUntererGehalt)) * (dblVerdGehalt - dblUntererGehalt);
-
-                                intCounter = 1;
+                                dblGehalt = (double) intProzent; // aktueller Gehalt
                             }
-                            dblUntereDichte = dblObereDichte;
-                            dblUntererGehalt = dblObererGehalt;
+                            else
+                            {
+                                dblGehalt = Double.parseDouble(splitResult[1]);
+                            }
+
+
+                            dblVerdGehalt = Double.parseDouble(strVerdGehalt);
+
+                            if (dblGehalt > dblVerdGehalt)
+                            {
+                                dblObererGehalt  = dblGehalt;               // oberer Gehalt
+                                dblObereDichte = Double.parseDouble(splitResult[0]);
+                                // Interpolation
+                                dblVerdDichte = dblUntereDichte + (((dblObereDichte - dblUntereDichte) / (dblObererGehalt - dblUntererGehalt)) * (dblVerdGehalt - dblUntererGehalt));
+                                intStop = 1;
+                            }
+                            else
+                            {
+                                dblUntererGehalt = dblGehalt;               // unterer Gehalt
+                                dblUntereDichte = Double.parseDouble(splitResult[0]);
+                            }
                         }
                     }
                 }
@@ -328,6 +269,7 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
 
         return intIntega;
     }
+
 
 } // class Konz_lsg_Auswahl
 

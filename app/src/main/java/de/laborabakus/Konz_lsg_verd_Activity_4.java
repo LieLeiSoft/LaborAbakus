@@ -481,10 +481,10 @@ public class Konz_lsg_verd_Activity_4 extends Activity
                      ****************************************************************************************/
                     dblVerdMenge = (dblKonzMenge * dblKonzGehalt) / dblVerdKonzMol;
 
-                    /*if (strVerdMengeEinheit.equals("g") == true)                               // Wenn die Einheit der Verd Lösung g ist
-                    {                                                                           // (Also wenn die Berechnung in g gewünscht ist...)
-                        dblVerdMenge = dblVerdMenge * dblVerdDichte;                            // ... die Verd Menge auf ml umrechnen
-                    }*/
+                    if (strVerdMengeEinheit.equals("g") == true)                     // Wenn die Einheit der Verd Lösung g ist
+                    {                                                                 // (Also, wenn die Berechnung in g gewünscht ist...)
+                        dblVerdMenge = dblVerdMenge * dblVerdDichte;                  // ... die Verd Menge auf g umrechnen
+                    }
 
                     /* **************************************************************************************
                      ***************** Anzeige im neuen Display (Layout) ************************************

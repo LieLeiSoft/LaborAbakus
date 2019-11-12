@@ -140,7 +140,7 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
         int intObererGehalt = 1;
 
 
-        if(dblKonzGehalt != 0)
+        if(dblKonzGehalt != 0) // Bei Routine 5 und 6, wo die Masse (das Volumen) unbekannt ist und der Gehalt gesucht wird.
         {
             for (z=1; z<=3; z++)
             {
@@ -171,7 +171,7 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
                             dblObereDichte = dblVerdDichte;
                             dblObererGehalt = dblVerdGehalt;
                             intObereDichte = fktvomDoublezumInt(dblVerdDichte, 10000);
-                            //intObererGehalt = fktvomDoublezumInt(dblVerdGehalt, 100);
+                            intObererGehalt = fktvomDoublezumInt(dblVerdGehalt, 10000);
 
                         }
                         if ((dblVerdMenge1 <= dblVerdMenge2) && (intCounter == 0))
@@ -183,7 +183,7 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
                             if (dblVerdGehalt != 0)
                             {
                                 dblUntererGehalt = dblVerdGehalt;
-                                intUntererGehalt = fktvomDoublezumInt(dblVerdGehalt, 100);
+                                intUntererGehalt = fktvomDoublezumInt(dblVerdGehalt, 10000);
                             }
                             else
                             {
@@ -192,12 +192,31 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
                         }
                     }
 
-                    intUntereDichte = intUntereDichte * 10;
-                    intObereDichte = intObereDichte * 10;
+                    for (d = intUntererGehalt; d <= intObererGehalt; d++)
+                    {
+                        dblWert = (((double) d) / 10000); // aktueller Gehalt
+
+                        // Interpolation
+                        dblWert1 = dblUntereDichte + ((dblObereDichte - dblUntereDichte) / (dblObererGehalt - dblUntererGehalt)) * (dblWert - dblUntererGehalt);
+
+                        dblWert2 = (dblKonzMenge * dblKonzGehalt) / (dblVerdMenge * dblWert);
+
+                        if (dblWert1 >= dblWert2 && (intCounter == 1))
+                        {
+                            dblVerdDichte = dblWert1;
+                            intCounter = 2;
+                        }
+
+                    }
+
+
+                    /*
+                    intUntereDichte = intUntereDichte * 100;
+                    intObereDichte = intObereDichte * 100;
 
                     for (d = intUntereDichte; d <= intObereDichte; d++)
                     {
-                        dblWert1 = (((double) d) / 100000); // aktuelle Dichte
+                        dblWert1 = (((double) d) / 1000000); // aktuelle Dichte
 
                         // Interpolation
                         dblVerdGehalt = dblUntererGehalt + ((dblObererGehalt - dblUntererGehalt) / (dblObereDichte - dblUntereDichte)) * (dblWert1 - dblUntereDichte);
@@ -211,13 +230,13 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
                             dblVerdDichte = dblWert1;
                             intCounter = 2;
                         }
-                    }
+                    }*/
                 }
             }
         }
         else
         {
-            if(strVerdGehaltEinheit.equals("%") == true)
+            if(strVerdGehaltEinheit.equals("%") == true) // Bei Routine 1 bis 4
             {
                 for (x=1; x<=3; x++)
                 {

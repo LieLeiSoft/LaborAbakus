@@ -140,6 +140,7 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
         int intObererGehalt = 1;
 
 
+
         if(dblKonzGehalt != 0) // Bei Routine 5 und 6, wo die Masse (das Volumen) unbekannt ist und der Gehalt gesucht wird.
         {
             for (z=1; z<=3; z++)

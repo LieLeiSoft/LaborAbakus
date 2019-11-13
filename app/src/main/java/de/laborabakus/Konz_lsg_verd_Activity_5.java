@@ -7,6 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.StyleSpan;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +21,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.graphics.Typeface.BOLD;
 import static de.laborabakus.Konz_lsg_Gegeben_Activity.fktDichtetabellen;
 
 
@@ -367,22 +372,31 @@ public class Konz_lsg_verd_Activity_5 extends Activity /*implements OnFocusChang
 
                     tv = (TextView) findViewById(R.id.tvKonzErgebnis);
 
+                    Spannable span = new SpannableString(strVerdGehalt + strVerdGehaltEinheit);
+                    span.setSpan(new StyleSpan(BOLD), 0, span.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
                     if (strVerdDichte.equals("") == false)
                     {
-                        tv.setText("Wenn man " + strKonzMenge + strKonzMengeEinheit + " einer " + strKonzAuswahl +
+                        CharSequence finalText = TextUtils.concat("Wenn man " + strKonzMenge
+                                + strKonzMengeEinheit + " einer " + strKonzAuswahl +
                                 " (" +strKonzGehalt + strKonzGehaltEinheit + ") mit Wasser" +
                                 " zu " + strVerdMenge + strVerdMengeEinheit +" verdünnt, erhält man eine verdünnte " +
                                 strKonzAuswahl +" mit einem Gehalt von "
-                                + strVerdGehalt + strVerdGehaltEinheit + ". Die interpolierte Dichte der verdünnten "
+                                , span , ". Die interpolierte Dichte der verdünnten "
                                 + strKonzAuswahl + " aus der Tabelle ist "  + strVerdDichte + "g/ml.");
+
+                        tv.setText(finalText);
                     }
                     else
                     {
-                        tv.setText("Wenn man " + strKonzMenge + strKonzMengeEinheit + " einer " + strKonzAuswahl +
+                        CharSequence finalText = TextUtils.concat("Wenn man " + strKonzMenge
+                                + strKonzMengeEinheit + " einer " + strKonzAuswahl +
                                 " (" +strKonzGehalt + strKonzGehaltEinheit + ") mit Wasser" +
                                 " zu " + strVerdMenge + strVerdMengeEinheit +" verdünnt, erhält man eine verdünnte " +
                                 strKonzAuswahl +" mit einem Gehalt von "
-                                + strVerdGehalt + strVerdGehaltEinheit + ".");
+                                , span , ".");
+
+                        tv.setText(finalText);
                     }
                 }
             }

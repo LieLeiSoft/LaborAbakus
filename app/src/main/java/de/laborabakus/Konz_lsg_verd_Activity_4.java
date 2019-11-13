@@ -7,6 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.StyleSpan;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +21,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.graphics.Typeface.BOLD;
 import static de.laborabakus.Konz_lsg_Gegeben_Activity.fktDichtetabellen;
 
 
@@ -495,9 +500,17 @@ public class Konz_lsg_verd_Activity_4 extends Activity
                     setContentView(R.layout.konz_lsg_ergebnis);
 
                     tv = (TextView) findViewById(R.id.tvKonzErgebnis);
-                    tv.setText("Um aus " + strKonzMenge + strKonzMengeEinheit+ " einer " + strKonzAuswahl + " (" + strKonzGehalt
-                            + strKonzGehaltEinheit + ") eine Verdünnung " + strVerdGehalt + strVerdGehaltEinheit +" herzustellen," +
-                            " muss man die konzentrierte " + strKonzAuswahl + " zusammen mit Wasser zu " + strVerdMenge + strVerdMengeEinheit + " verdünnen.");
+
+                    Spannable span = new SpannableString(strVerdMenge + strVerdMengeEinheit);
+                    span.setSpan(new StyleSpan(BOLD), 0, span.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    CharSequence finalText = TextUtils.concat("Um aus " + strKonzMenge + strKonzMengeEinheit +
+                            " einer " + strKonzAuswahl + " (" + strKonzGehalt + strKonzGehaltEinheit +
+                            ") eine Verdünnung " + strVerdGehalt + strVerdGehaltEinheit +" herzustellen," +
+                            " muss man die konzentrierte " + strKonzAuswahl + " zusammen mit Wasser zu "
+                            , span , " verdünnen.");
+
+                    tv.setText(finalText);
                 }
             }
         }

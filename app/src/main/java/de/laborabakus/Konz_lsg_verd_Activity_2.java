@@ -7,6 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.StyleSpan;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +21,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.graphics.Typeface.BOLD;
 import static de.laborabakus.Konz_lsg_Gegeben_Activity.fktDichtetabellen;
 
 
@@ -482,9 +487,18 @@ public class Konz_lsg_verd_Activity_2 extends Activity
                     setContentView(R.layout.konz_lsg_ergebnis);
 
                     tv = (TextView) findViewById(R.id.tvKonzErgebnis);
-                    tv.setText("Für den Ansatz einer " + strKonzAuswahl + " " + strVerdGehalt + strVerdGehaltEinheit +
-                            ", benötigt man " + strKonzMenge + strKonzMengeEinheit + " einer " + strKonzAuswahl + " " + strKonzGehalt + " " +
-                            strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMenge + strVerdMengeEinheit +" verdünnt werden muss.");
+
+                    Spannable span = new SpannableString(strKonzMenge + strKonzMengeEinheit);
+                    span.setSpan(new StyleSpan(BOLD), 0, span.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    CharSequence finalText = TextUtils.concat("Für den Ansatz einer " + strKonzAuswahl +
+                            " " + strVerdGehalt + strVerdGehaltEinheit +
+                            ", benötigt man " , span , " einer " +
+                            strKonzAuswahl + " " + strKonzGehalt + " " +
+                            strKonzGehaltEinheit + ", die zusammen mit Wasser zu " + strVerdMenge +
+                            strVerdMengeEinheit +" verdünnt werden muss.");
+
+                    tv.setText(finalText);
                 }
 
 

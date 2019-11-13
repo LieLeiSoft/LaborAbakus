@@ -19,7 +19,7 @@
             android:layout_marginLeft="1dp"
             android:gravity="center_horizontal"
             android:text="Name"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/etAnpassungName"
@@ -29,7 +29,7 @@
             android:layout_span="3"
             android:gravity="center_horizontal"
             android:inputType="textNoSuggestions"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
     </TableRow>
 
@@ -44,7 +44,7 @@
             android:layout_marginLeft="1dp"
             android:gravity="center_horizontal"
             android:text="Gehalt"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/etAnpassungGehalt"
@@ -54,17 +54,17 @@
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
             android:minWidth="80dp"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
         <Button
             android:id="@+id/tvAnpassungEinheit"
             android:layout_width="69dp"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="1dp"
             android:gravity="center_horizontal"
             android:onClick="btnEinheitGehalt"
             android:textAllCaps="false"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
     </TableRow>
 
@@ -79,7 +79,7 @@
             android:layout_marginLeft="1dp"
             android:gravity="center_horizontal"
             android:text="Dichte"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/etAnpassungDichte"
@@ -88,7 +88,7 @@
             android:layout_marginLeft="1dp"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/textView"
@@ -97,7 +97,7 @@
             android:layout_marginLeft="1dp"
             android:gravity="center_horizontal"
             android:text="g/ml"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
     </TableRow>
 
@@ -112,7 +112,7 @@
             android:layout_marginLeft="1dp"
             android:gravity="center_horizontal"
             android:text="Molmasse"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/etAnpassungMolmasse"
@@ -121,7 +121,7 @@
             android:layout_marginLeft="1dp"
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/textView4"
@@ -130,7 +130,7 @@
             android:layout_marginLeft="1dp"
             android:gravity="center_horizontal"
             android:text="g/mol"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
     </TableRow>
 

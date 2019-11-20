@@ -115,7 +115,9 @@ public class Konz_lsg_verd_Activity_3 extends Activity
         et.setVisibility(View.GONE);
 
         // Spezieller Menge Button (g / ml) für die Dichtetabelle nur bri folgenden Säuren
-        if(strKonzAuswahl.equals("Salzsäure") || strKonzAuswahl.equals("Schwefelsäure") || strKonzAuswahl.equals("Salpetersäure") == true)
+        if(strKonzAuswahl.equals("Salzsäure") || strKonzAuswahl.equals("Schwefelsäure") ||
+                strKonzAuswahl.equals("Salpetersäure") || strKonzAuswahl.equals("Phosphorsäure")
+                || strKonzAuswahl.equals("Essigsäure")|| strKonzAuswahl.equals("Natronlauge") == true)
         {
             // Menge Button der Verdünnung sichtbar machen
             b = findViewById(R.id.tvAnpassungEinheitVerdMenge);

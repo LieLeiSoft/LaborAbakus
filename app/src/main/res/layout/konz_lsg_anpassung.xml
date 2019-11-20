@@ -31,6 +31,16 @@
             android:inputType="textNoSuggestions"
             android:textSize="18dp" />
 
+        <TextView
+            android:id="@+id/tvAnpassungName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:minEms="5"
+            android:gravity="center_horizontal"
+            android:textSize="18dp"
+            android:visibility="gone"/>
+
     </TableRow>
 
     <TableRow
@@ -91,6 +101,16 @@
             android:textSize="18dp" />
 
         <TextView
+            android:id="@+id/tvAnpassungDichte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:minEms="5"
+            android:gravity="center_horizontal"
+            android:textSize="18dp"
+            android:visibility="gone"/>
+
+        <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,6 +122,7 @@
     </TableRow>
 
     <TableRow
+        android:id="@+id/trMolmasse"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -122,6 +143,16 @@
             android:gravity="center_horizontal"
             android:inputType="numberDecimal"
             android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tvAnpassungMolmasse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_horizontal"
+            android:minEms="5"
+            android:textSize="18dp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textView4"

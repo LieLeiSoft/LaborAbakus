@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import static de.laborabakus.Konz_lsg_Gegeben_Activity.fktDichtetabellen;
+
 
 public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusChangeListener */ {
 
@@ -36,6 +38,9 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
     String strAlterKonzGehalt;
     String strAlteKonzGehaltEinheit;
     String strAlteDichte;
+    String strGehaltEinheit;    // für die Ermittlung der Dichte
+    String strGehalt;           // für die Ermittlung der Dichte
+    double dblGehalt;           // für die Ermittlung der Dichte
     double dblKonzGehalt;
     double dblAlterKonzGehalt;
     double dblDichte;
@@ -158,13 +163,56 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         strKonzGehalt = et.getText().toString();
         dblKonzGehalt = Double.parseDouble(strKonzGehalt);
 
+       // Hier neu beginnen!!!!!!!!!!!!!!!!!!
+        // Abfangen einer Fehleingabe zum Beispiel keine EIngabe, 0 oder größer 100 bei Gehalt.
+
+
+
         if (strAuswahl.equals("0") || strAuswahl.equals("1") || strAuswahl.equals("2")
                 || strAuswahl.equals("3") || strAuswahl.equals("4")|| strAuswahl.equals("8") == true)
         {
-
-
             tv = (TextView) findViewById(R.id.tvAnpassungDichte);
             strDichte = tv.getText().toString();
+
+            if (strKonzGehaltEinheit.equals("g/l") == true)
+            {
+                strGehaltEinheit = "mol/l";
+                dblGehalt = dblKonzGehalt / dblMolmasse; // auf mol/l umrechnen
+                strGehalt = Double.toString(dblGehalt);
+            }
+            else
+            {
+                strGehaltEinheit = strKonzGehaltEinheit;
+                strGehalt = Double.toString(dblKonzGehalt);
+            }
+
+            double dblDummy = 0; double dblVerdMenge = 0; double dblKonzMenge = 0;
+            dblDichte = fktDichtetabellen(strKonzAuswahl, dblDummy, dblVerdMenge, dblKonzMenge, strGehalt, strGehaltEinheit); // Aufruf der Funktion Dichtetabelle
+            // Dichte wurde ermittelt
+            dblDichte = ActivityTools.fktRunden(dblDichte,5);
+            // strDichte = ActivityTools.fktSignifikanteStellen(dblDichte, 5);
+            strDichte = Double.toString(dblDichte);
+
+            if (dblDichte <= 1.0)
+            {
+                String text = "\n   Achtung! Die Dichte konnte   \n   aus dem eingegebenen   \n   Gehalt nicht ermittelt   \n   werde! Eingabefehler?   \n   Die Dichte wurde auf 1  \n   gesetzt! \n";
+                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
+                Meldung.setGravity(Gravity.TOP, 0, 0);
+                Meldung.show();
+
+                strDichte = "1.0";
+            }
+            else
+            {
+                if (dblAlterKonzGehalt != dblKonzGehalt)
+                {
+                    String text = "\n   Der Gehalt wurde angepasst   \n   und die Dichte aus der   \n   Dichtetabelle neu ermittelt!   \n   Dichte = " + strDichte + "g/ml   \n";
+                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
+                    Meldung.setGravity(Gravity.TOP, 0, 0);
+                    Meldung.show();
+                }
+            }
+            tv.setText(strDichte);
         }
         else
         {

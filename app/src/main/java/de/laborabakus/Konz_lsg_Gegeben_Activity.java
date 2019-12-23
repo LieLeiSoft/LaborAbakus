@@ -30,7 +30,7 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
 
 
         String [] splitResult = new String [2];
-        String[][] arrWert = new String [7][102];
+        String[][] arrWert = new String [10][102];
 
         arrWert [2][0]  = "1_0";             arrWert [3][0]  = "1_0";               arrWert [1][0]  = "1_0";
         arrWert [2][1]  = "1.0051_0.1025";   arrWert [3][1]  = "1.004_0.1593";      arrWert [1][1]  = "1.003_0.2751";
@@ -241,9 +241,113 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
 
         // Kontrolle der Eingaben!
 
+        arrWert [7][0]  = "1_0";            arrWert [8][0]  = "1_0";               arrWert [9][0]  = "1_0";
+        arrWert [7][1]  = "1.003_0.2949";   arrWert [8][1]  = "1.007_0.1795";      arrWert [9][1]  = "0.994_0.5837";
+        arrWert [7][2]  = "1.006_0.5915";   arrWert [8][2]  = "1.016_0.3622";      arrWert [9][2]  = "0.990_1.1626";
+        arrWert [7][3]  = "1.010_0.8908";   arrWert [8][3]  = "1.024_0.5475";      arrWert [9][3]  = "0.985_1.7351";
+        arrWert [7][4]  = "1.013_1.1912";   arrWert [8][4]  = "1.033_0.7365";      arrWert [9][4]  = "0.981_2.3041";
+        arrWert [7][5]  = "1.017_1.4949";   arrWert [8][5]  = "1.042_0.9286";      arrWert [9][5]  = "0.977_2.8684";
+        arrWert [7][6]  = "1.020_1.7992";   arrWert [8][6]  = "1.051_1.1240";      arrWert [9][6]  = "0.973_3.4280";
+        arrWert [7][7]  = "1.024_2.1073";   arrWert [8][7]  = "1.060_1.3225";      arrWert [9][7]  = "0.969_3.9829";
+        arrWert [7][8]  = "1.028_2.4178";   arrWert [8][8]  = "1.069_1.5243";      arrWert [9][8]  = "0.965_4.5330";
+        arrWert [7][9]  = "1.031_2.7279";   arrWert [8][9]  = "1.078_1.7292";      arrWert [9][9]  = "0.961_5.0785";
+        arrWert [7][10] = "1.035_3.0428";   arrWert [8][10] = "1.087_1.9374";      arrWert [9][10] = "0.957_5.6193";
+        arrWert [7][11] = "1.039_3.3600";   arrWert [8][11] = "1.097_2.1508";      arrWert [9][11] = "0.954_6.1619";
+        arrWert [7][12] = "1.042_3.6761";   arrWert [8][12] = "1.106_2.3655";      arrWert [9][12] = "0.950_6.6939";
+        arrWert [7][13] = "1.046_3.9977";   arrWert [8][13] = "1.115_2.5835";      arrWert [9][13] = "0.946_7.2212";
+        arrWert [7][14] = "1.050_4.3217";   arrWert [8][14] = "1.125_2.8072";      arrWert [9][14] = "0.943_7.7520";
+        arrWert [7][15] = "1.054_4.6480";   arrWert [8][15] = "1.134_3.0318";      arrWert [9][15] = "0.940_8.2793";
+        arrWert [7][16] = "1.057_4.9720";   arrWert [8][16] = "1.144_3.2624";      arrWert [9][16] = "0.936_8.7936";
+        arrWert [7][17] = "1.061_5.3027";   arrWert [8][17] = "1.153_3.4936";      arrWert [9][17] = "0.933_9.3133";
+        arrWert [7][18] = "1.065_5.6358";   arrWert [8][18] = "1.163_3.7312";      arrWert [9][18] = "0.930_9.8294";
+        arrWert [7][19] = "1.069_5.9712";   arrWert [8][19] = "1.172_3.9689";      arrWert [9][19] = "0.926_10.3309";
+        arrWert [7][20] = "1.073_6.3090";   arrWert [8][20] = "1.182_4.2135";      arrWert [9][20] = "0.923_10.8394";
+        arrWert [7][21] = "1.076_6.6430";   arrWert [8][21] = "1.192_4.4616";      arrWert [9][21] = "0.919_11.3320";
+        arrWert [7][22] = "1.080_6.9852";   arrWert [8][22] = "1.201_4.7093";      arrWert [9][22] = "0.916_11.8329";
+        arrWert [7][23] = "1.084_7.3298";   arrWert [8][23] = "1.211_4.9644";      arrWert [9][23] = "0.913_12.3302";
+        arrWert [7][24] = "1.088_7.6767";   arrWert [8][24] = "1.221_5.4852";      arrWert [9][24] = "0.910_12.8241";
+        arrWert [7][25] = "1.092_8.0259";   arrWert [8][25] = "1.231_5.7509";      arrWert [9][25] = "0.907_13.3143";
+        arrWert [7][26] = "1.096_8.3776";   arrWert [8][26] = "1.241_6.0203";      arrWert [9][26] = "0.904_13.8011";
+        arrWert [7][27] = "1.100_8.7315";   arrWert [8][27] = "1.251_6.2931";      arrWert [9][27] = "0.901_14.2844";
+        arrWert [7][28] = "1.104_9.0878";   arrWert [8][28] = "1.261_6.2931";      arrWert [9][28] = "0.898_14.7641";
+        arrWert [7][29] = "1.108_9.4465";   arrWert [8][29] = "1.271_6.5696";      arrWert [9][29] = "0.895_15.2403";
+        arrWert [7][30] = "1.112_9.8075";   arrWert [8][30] = "1.281_6.8496";      arrWert [9][30] = "0.892_15.7130";
+        arrWert [7][31] = "1.116_10.9047";  arrWert [8][31] = "1.292_7.1387";      arrWert [9][31] = "0.889_16.1821";
+        arrWert [7][32] = "1.120_10.5366";  arrWert [8][32] = "1.302_7.4260";      arrWert [9][32] = "0.886_16.6478";
+        arrWert [7][33] = "1.124_10.9047";  arrWert [8][33] = "1.313_7.7228";      arrWert [9][33] = "0.883_17.1099";
+        arrWert [7][34] = "1.128_11.2751";  arrWert [8][34] = "1.323_8.0174";      arrWert [9][34] = "0.881_17.5884";
+        arrWert [7][35] = "1.132_11.6479";  arrWert [8][35] = "1.334_8.3218";      arrWert [9][35] = "0_0";
+        arrWert [7][36] = "1.136_12.0230";  arrWert [8][36] = "1.344_8.6237";      arrWert [9][36] = "0_0";
+        arrWert [7][37] = "1.140_12.4005";  arrWert [8][37] = "1.355_8.9358";      arrWert [9][37] = "0_0";
+        arrWert [7][38] = "1.145_12.7915";  arrWert [8][38] = "1.366_9.2518";      arrWert [9][38] = "0_0";
+        arrWert [7][39] = "1.149_13.1740";  arrWert [8][39] = "1.377_9.5718";      arrWert [9][39] = "0_0";
+        arrWert [7][40] = "1.153_13.5588";  arrWert [8][40] = "1.388_9.8956";      arrWert [9][40] = "0_0";
+        arrWert [7][41] = "1.157_13.9460";  arrWert [8][41] = "1.399_10.2234";     arrWert [9][41] = "0_0";
+        arrWert [7][42] = "1.161_14.3356";  arrWert [8][42] = "1.410_10.5551";     arrWert [9][42] = "0_0";
+        arrWert [7][43] = "1.166_14.7401";  arrWert [8][43] = "1.422_10.8984";     arrWert [9][43] = "0_0";
+        arrWert [7][44] = "1.170_15.1346";  arrWert [8][44] = "1.433_11.2381";     arrWert [9][44] = "0_0";
+        arrWert [7][45] = "1.174_15.5315";  arrWert [8][45] = "1.445_11.5898";     arrWert [9][45] = "0_0";
+        arrWert [7][46] = "1.179_15.9443";  arrWert [8][46] = "1.456_11.9375";     arrWert [9][46] = "0_0";
+        arrWert [7][47] = "1.183_16.3462";  arrWert [8][47] = "1.468_12.2975";     arrWert [9][47] = "0_0";
+        arrWert [7][48] = "1.187_16.7504";  arrWert [8][48] = "1.479_12.6533";     arrWert [9][48] = "0_0";
+        arrWert [7][49] = "1.192_17.1714";  arrWert [8][49] = "1.491_13.0217";     arrWert [9][49] = "0_0";
+        arrWert [7][50] = "1.196_17.5806";  arrWert [8][50] = "1.503_13.3944";     arrWert [9][50] = "0_0";
+        arrWert [7][51] = "1.201_18.0072";  arrWert [8][51] = "1.514_13.7623";     arrWert [9][51] = "0_0";
+        arrWert [7][52] = "1.205_18.4214";  arrWert [8][52] = "1.527_14.1526";     arrWert [9][52] = "0_0";
+        arrWert [7][53] = "1.210_18.8536";  arrWert [8][53] = "0_0";               arrWert [9][53] = "0_0";
+        arrWert [7][54] = "1.214_19.2728";  arrWert [8][54] = "0_0";               arrWert [9][54] = "0_0";
+        arrWert [7][55] = "1.219_19.7106";  arrWert [8][55] = "0_0";               arrWert [9][55] = "0_0";
+        arrWert [7][56] = "1.223_20.1348";  arrWert [8][56] = "0_0";               arrWert [9][56] = "0_0";
+        arrWert [7][57] = "1.228_20.5782";  arrWert [8][57] = "0_0";               arrWert [9][57] = "0_0";
+        arrWert [7][58] = "1.232_21.0074";  arrWert [8][58] = "0_0";               arrWert [9][58] = "0_0";
+        arrWert [7][59] = "1.237_21.4563";  arrWert [8][59] = "0_0";               arrWert [9][59] = "0_0";
+        arrWert [7][60] = "1.242_21.9082";  arrWert [8][60] = "0_0";               arrWert [9][60] = "0_0";
+        arrWert [7][61] = "1.247_22.3630";  arrWert [8][61] = "0_0";               arrWert [9][61] = "0_0";
+        arrWert [7][62] = "1.251_22.8025";  arrWert [8][62] = "0_0";               arrWert [9][62] = "0_0";
+        arrWert [7][63] = "1.256_23_2629";  arrWert [8][63] = "0_0";               arrWert [9][63] = "0_0";
+        arrWert [7][64] = "1.261_23.7262";  arrWert [8][64] = "0_0";               arrWert [9][64] = "0_0";
+        arrWert [7][65] = "1.266_24.1925";  arrWert [8][65] = "0_0";               arrWert [9][65] = "0_0";
+        arrWert [7][66] = "1.270_24.6423";  arrWert [8][66] = "0_0";               arrWert [9][66] = "0_0";
+        arrWert [7][67] = "1.275_25.1141";  arrWert [8][67] = "0_0";               arrWert [9][67] = "0_0";
+        arrWert [7][68] = "1.280_25.5889";  arrWert [8][68] = "0_0";               arrWert [9][68] = "0_0";
+        arrWert [7][69] = "1.285_26.0667";  arrWert [8][69] = "0_0";               arrWert [9][69] = "0_0";
+        arrWert [7][70] = "1.290_26.5473";  arrWert [8][70] = "0_0";               arrWert [9][70] = "0_0";
+        arrWert [7][71] = "1.295_27.0310";  arrWert [8][71] = "0_0";               arrWert [9][71] = "0_0";
+        arrWert [7][72] = "1.300_27.5175";  arrWert [8][72] = "0_0";               arrWert [9][72] = "0_0";
+        arrWert [7][73] = "1.305_28.0070";  arrWert [8][73] = "0_0";               arrWert [9][73] = "0_0";
+        arrWert [7][74] = "1.310_28.4994";  arrWert [8][74] = "0_0";               arrWert [9][74] = "0_0";
+        arrWert [7][75] = "1.315_28.9948";  arrWert [8][75] = "0_0";               arrWert [9][75] = "0_0";
+        arrWert [7][76] = "1.320_29.4931";  arrWert [8][76] = "0_0";               arrWert [9][76] = "0_0";
+        arrWert [7][77] = "1.325_29.9944";  arrWert [8][77] = "0_0";               arrWert [9][77] = "0_0";
+        arrWert [7][78] = "1.331_30.5215";  arrWert [8][78] = "0_0";               arrWert [9][78] = "0_0";
+        arrWert [7][79] = "1.336_31.0289";  arrWert [8][79] = "0_0";               arrWert [9][79] = "0_0";
+        arrWert [7][80] = "1.341_31.5393";  arrWert [8][80] = "0_0";               arrWert [9][80] = "0_0";
+        arrWert [7][81] = "1.346_32.0526";  arrWert [8][81] = "0_0";               arrWert [9][81] = "0_0";
+        arrWert [7][82] = "1.351_32.5689";  arrWert [8][82] = "0_0";               arrWert [9][82] = "0_0";
+        arrWert [7][83] = "1.357_33.1124";  arrWert [8][83] = "0_0";               arrWert [9][83] = "0_0";
+        arrWert [7][84] = "1.362_33.6349";  arrWert [8][84] = "0_0";               arrWert [9][84] = "0_0";
+        arrWert [7][85] = "1.368_34.1852";  arrWert [8][85] = "0_0";               arrWert [9][85] = "0_0";
+        arrWert [7][86] = "1.373_34.7138";  arrWert [8][86] = "0_0";               arrWert [9][86] = "0_0";
+        arrWert [7][87] = "1.378_35.2453";  arrWert [8][87] = "0_0";               arrWert [9][87] = "0_0";
+        arrWert [7][88] = "1.384_35.8057";  arrWert [8][88] = "0_0";               arrWert [9][88] = "0_0";
+        arrWert [7][89] = "1.389_36.3434";  arrWert [8][89] = "0_0";               arrWert [9][89] = "0_0";
+        arrWert [7][90] = "1.395_36.9105";  arrWert [8][90] = "0_0";               arrWert [9][90] = "0_0";
+        arrWert [7][91] = "1.400_37.4544";  arrWert [8][91] = "0_0";               arrWert [9][91] = "0_0";
+        arrWert [7][92] = "1.406_38.0283";  arrWert [8][92] = "0_0";               arrWert [9][92] = "0_0";
+        arrWert [7][93] = "1.412_38.6057";  arrWert [8][93] = "0_0";               arrWert [9][93] = "0_0";
+        arrWert [7][94] = "1.417_39.1590";  arrWert [8][94] = "0_0";               arrWert [9][94] = "0_0";
+        arrWert [7][95] = "1.423_39.7431";  arrWert [8][95] = "0_0";               arrWert [9][95] = "0_0";
+        arrWert [7][96] = "1.429_40.3308";  arrWert [8][96] = "0_0";               arrWert [9][96] = "0_0";
+        arrWert [7][97] = "1.435_40.9220";  arrWert [8][97] = "0_0";               arrWert [9][97] = "0_0";
+        arrWert [7][98] = "1.440_41.4879";  arrWert [8][98] = "0_0";               arrWert [9][98] = "0_0";
+        arrWert [7][99] = "1.446_42.0859";  arrWert [8][99] = "0_0";               arrWert [9][99] = "0_0";
+        arrWert [7][100]= "1.452_42.6874";  arrWert [8][100]= "0_0";               arrWert [9][100]= "0_0";
+        arrWert [7][101]= "Wasserstoffperoxid";arrWert [8][101]= "Kalilauge";      arrWert [9][101]= "Ammoniaklösung";
+
+        // Kontrolle der Eingaben!
 
 
-        for (intAuswahl=1; intAuswahl<=6; intAuswahl++)
+        for (intAuswahl=1; intAuswahl<=9; intAuswahl++)
         {
             if (arrWert[intAuswahl][101].equals(strKonzAuswahl) == true)    // Hier wird die entspechende Tabelle (Salzsäure etc) ausgewählt
             {
@@ -335,7 +439,7 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
 
                             dblVerdGehalt = Double.parseDouble(strVerdGehalt);
 
-                            if (dblGehalt > dblVerdGehalt)
+                            if (dblGehalt >= dblVerdGehalt)
                             {
                                 dblObererGehalt  = dblGehalt;               // oberer Gehalt
                                 dblObereDichte = Double.parseDouble(splitResult[0]);

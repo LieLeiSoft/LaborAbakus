@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import static android.graphics.Typeface.BOLD;
 import static de.laborabakus.Konz_lsg_Gegeben_Activity.fktDichtetabellen;
+import static de.laborabakus.Konz_lsg_verd_Activity.fktGehaltUmrechnenAufProzent;
 
 
 public class Konz_lsg_verd_Activity_3 extends Activity
@@ -48,6 +49,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity
     String strVerdMenge;
     String strVerdMengeEinheit = "g";
     String strVerdDichte;
+    String strStoWert;
 
     double dblKonzGehalt;
     double dblKonzDichte;
@@ -56,6 +58,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity
     double dblVerdGehalt;
     double dblVerdDichte;
     double dblVerdMenge;
+    double dblStoWert;
 
 
     /** wird ausgef?hrt, wenn Activicty erstellt wird */
@@ -81,6 +84,7 @@ public class Konz_lsg_verd_Activity_3 extends Activity
         strKonzGehaltEinheit = prefs.getString("KonzGehaltEinheit_"+strAuswahl, strKonzGehaltEinheit);
         strKonzDichte = prefs.getString("Dichte_"+strAuswahl, strKonzDichte);
         strKonzMolmasse = prefs.getString("Molmasse_"+strAuswahl, strKonzMolmasse);
+        strStoWert = prefs.getString("Wertigkeit_"+strAuswahl, strStoWert);
 
         // *************************************************************************************************
         // ******* Anzeige auf dem Bildschirm **************************************************************
@@ -114,10 +118,12 @@ public class Konz_lsg_verd_Activity_3 extends Activity
         et = (EditText) findViewById(R.id.etAnpassungMasseVerd);            // Eingabefeld Masse Verdünnung verschwinden lassen
         et.setVisibility(View.GONE);
 
-        // Spezieller Menge Button (g / ml) für die Dichtetabelle nur bri folgenden Säuren
+        // Spezieller Menge Button (g / ml) für die Dichtetabelle nur bei folgenden Säuren
         if(strKonzAuswahl.equals("Salzsäure") || strKonzAuswahl.equals("Schwefelsäure") ||
                 strKonzAuswahl.equals("Salpetersäure") || strKonzAuswahl.equals("Phosphorsäure")
-                || strKonzAuswahl.equals("Essigsäure")|| strKonzAuswahl.equals("Natronlauge") == true)
+                || strKonzAuswahl.equals("Essigsäure")|| strKonzAuswahl.equals("Natronlauge")||
+                strKonzAuswahl.equals("Wasserstoffperoxid") || strKonzAuswahl.equals("Kalilauge")
+                || strKonzAuswahl.equals("Ammoniaklösung") == true)
         {
             // Menge Button der Verdünnung sichtbar machen
             b = findViewById(R.id.tvAnpassungEinheitVerdMenge);
@@ -145,23 +151,10 @@ public class Konz_lsg_verd_Activity_3 extends Activity
         dblKonzGehalt = Double.parseDouble(strKonzGehalt);
         dblKonzDichte = Double.parseDouble(strKonzDichte);
         dblMolmasse = Double.parseDouble(strKonzMolmasse);
+        dblStoWert = Double.parseDouble(strStoWert);
 
-        switch (strKonzGehaltEinheit)
-        {
-            case "%":
-                // keine Umrechnung notwendig
-                break;
-            case "g/l":
+        dblKonzGehalt = fktGehaltUmrechnenAufProzent(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblKonzDichte);                 // ...mol/l auf g/l umrechnen
 
-                dblKonzGehalt = dblKonzGehalt / (10 * dblKonzDichte);                   // g/l wird auf % umgerechnet
-
-                break;
-            case "mol/l":
-
-                dblKonzGehalt = (dblKonzGehalt * dblMolmasse) / (10 * dblKonzDichte);   // mol/l wird auf % umgerechnet
-
-                break;
-        }
 
     } // onResume
 

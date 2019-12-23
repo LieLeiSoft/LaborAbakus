@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import static android.graphics.Typeface.BOLD;
 import static de.laborabakus.Konz_lsg_Gegeben_Activity.fktDichtetabellen;
+import static de.laborabakus.Konz_lsg_verd_Activity.fktGehaltUmrechnenAufMolar;
 
 
 public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChangeListener */
@@ -44,10 +45,11 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
     String strKonzMenge;
     String strKonzMengeEinheit;
     String strVerdGehalt;
-    String strVerdGehaltEinheit = "mol/l";
+    String strVerdGehaltEinheit = "g/l";
     String strVerdMenge;
     String strVerdMengeEinheit = "ml";
     String strVerdDichte = "";
+    String strStoWert;
 
     double dblKonzGehalt;
     double dblKonzDichte;
@@ -56,6 +58,7 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
     double dblVerdGehalt;
     double dblVerdDichte;
     double dblVerdMenge;
+    double dblStoWert;
 
 
 
@@ -82,6 +85,7 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
         strKonzGehaltEinheit = prefs.getString("KonzGehaltEinheit_"+strAuswahl, strKonzGehaltEinheit);
         strKonzDichte = prefs.getString("Dichte_"+strAuswahl, strKonzDichte);
         strKonzMolmasse = prefs.getString("Molmasse_"+strAuswahl, strKonzMolmasse);
+        strStoWert = prefs.getString("Wertigkeit_"+strAuswahl, strStoWert);
 
         // *************************************************************************************************
         // ******* Anzeige auf dem Bildschirm **************************************************************
@@ -116,10 +120,12 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
         et = (EditText) findViewById(R.id.etAnpassungGehaltVerd);            // Eingabefeld Gehalt Verdünnung verschwinden lassen
         et.setVisibility(View.GONE);
 
-        // Spezieller Menge Button (g / ml) für die Dichtetabelle nur bri folgenden Säuren
+        // Spezieller Menge Button (g / ml) für die Dichtetabelle nur bei folgenden Säuren
         if(strKonzAuswahl.equals("Salzsäure") || strKonzAuswahl.equals("Schwefelsäure") ||
                 strKonzAuswahl.equals("Salpetersäure") || strKonzAuswahl.equals("Phosphorsäure")
-                || strKonzAuswahl.equals("Essigsäure")|| strKonzAuswahl.equals("Natronlauge") == true)
+                || strKonzAuswahl.equals("Essigsäure")|| strKonzAuswahl.equals("Natronlauge")||
+                strKonzAuswahl.equals("Wasserstoffperoxid") || strKonzAuswahl.equals("Kalilauge")
+                || strKonzAuswahl.equals("Ammoniaklösung") == true)
         {
             // Menge Button der Verdünnung sichtbar machen
             b = findViewById(R.id.tvAnpassungEinheitVerdMenge);
@@ -140,31 +146,16 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
         super.onResume();
 
         /**********************************************************************************************************
-         *** Nur der DoubleWert vom Konz Gehalt wird hier auf Prozent umgerechnet *********************************
+         *** Nur der DoubleWert vom Konz Gehalt wird hier auf mol/l umgerechnet ***********************************
          **********************************************************************************************************/
 
         dblKonzGehalt = Double.parseDouble(strKonzGehalt);
         dblKonzDichte = Double.parseDouble(strKonzDichte);
         dblMolmasse = Double.parseDouble(strKonzMolmasse);
+        dblStoWert = Double.parseDouble(strStoWert);
 
-        switch (strKonzGehaltEinheit)
-        {
-            case "%":
+        dblKonzGehalt = fktGehaltUmrechnenAufMolar(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblKonzDichte);                 // ...mol/l auf g/l umrechnen
 
-                dblKonzGehalt = (dblKonzGehalt * 10 * dblKonzDichte) / dblMolmasse;   // % wird auf mol/l umgerechnet
-
-                break;
-            case "g/l":
-
-                dblKonzGehalt = dblKonzGehalt / dblMolmasse;                   // g/l wird auf mol/l umgerechnet
-
-                break;
-            case "mol/l":
-
-                // keine Umrechnung notwendig
-
-                break;
-        }
     } // onResume
 
     @Override
@@ -246,21 +237,37 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
         tv = (TextView) v;
         strVerdGehaltEinheit = tv.getText().toString();                                             // Buttoninhalt auslesen (mol/l oder g/l)
 
-        if (strVerdGehaltEinheit.equals("mol/l") == true)                                           // Wenn das Feld auf mol/l steht ...
+        switch (strVerdGehaltEinheit)
         {
-            strVerdGehaltEinheit = "g/l";                                                           // ...umschalten auf g/l
-
-            tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);                        // ... und g/l auf Button schreiben
-            tv.setText(strVerdGehaltEinheit);
+            case "mol/l":
+                strVerdGehaltEinheit = "N";                                                             // ...umschalten auf N
+                tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);
+                tv.setText(strVerdGehaltEinheit);
+                break;
+            case "M":
+                strVerdGehaltEinheit = "N";                                                           // ...umschalten auf N
+                tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);                        // ... und g/l auf Button schreiben
+                tv.setText(strVerdGehaltEinheit);
+                break;
+            case "N":
+                strVerdGehaltEinheit = "g/l";                                                           // ...umschalten auf g/l
+                tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);                        // ... und g/l auf Button schreiben
+                tv.setText(strVerdGehaltEinheit);
+                break;
+            case "g/l":
+                if (strStoWert.equals("1") == true)
+                {
+                    strVerdGehaltEinheit = "mol/l";                                                       // ...umschalten auf mol/l
+                }
+                else
+                {
+                    strVerdGehaltEinheit = "M";                                                         // ...umschalten auf M
+                }                                                      // ...umschalten auf mol/l
+                tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);
+                tv.setText(strVerdGehaltEinheit);
+                break;
         }
-        else
-        {
-            strVerdGehaltEinheit = "mol/l";                                                         // ...umschalten auf mol/l
-
-            tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);
-            tv.setText(strVerdGehaltEinheit);
-        }
-    } // btn g/l / mol/l
+    } // btn g/l / mol/l / N
 
     /***********************************************************************************************
      ***************** Button Verdünnung g oder ml *************************************************
@@ -390,6 +397,14 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
                     dblVerdGehalt = (dblKonzMenge * dblKonzGehalt) / dblVerdMenge;
 
                     /* **************************************************************************************
+                     ***************** Umrechnung des Gehaltes auf N der Verdünnung ************************
+                     ****************************************************************************************/
+                    if(strVerdGehaltEinheit.equals("N") == true)
+                    {
+                        dblVerdGehalt = dblVerdGehalt * dblStoWert;
+                    }
+
+                    /* **************************************************************************************
                      ***************** Umrechnung des Gehaltes auf g/l der Verdünnung ************************
                      ****************************************************************************************/
                     if(strVerdGehaltEinheit.equals("g/l") == true)
@@ -407,31 +422,67 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
 
                     tv = (TextView) findViewById(R.id.tvKonzErgebnis);
 
+                    if (strVerdGehaltEinheit.equals("M") == true) {strVerdGehaltEinheit = " molare";}
+                    if (strVerdGehaltEinheit.equals("N") == true) {strVerdGehaltEinheit = " normale";}
+
                     Spannable span = new SpannableString(strVerdGehalt + strVerdGehaltEinheit);
                     span.setSpan(new StyleSpan(BOLD), 0, span.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                     if (strVerdDichte.equals("") == false)
                     {
-                        CharSequence finalText = TextUtils.concat("Wenn man " + strKonzMenge
-                                + strKonzMengeEinheit + " einer " + strKonzAuswahl +
-                                " (" +strKonzGehalt + strKonzGehaltEinheit + ") mit Wasser" +
-                                " zu " + strVerdMenge + strVerdMengeEinheit +" verdünnt, erhält man eine verdünnte " +
-                                strKonzAuswahl +" mit einem Gehalt von "
-                                , span , ". Die interpolierte Dichte der verdünnten "
-                                + strKonzAuswahl + " aus der Tabelle ist "  + strVerdDichte + "g/ml.");
+                        if (strVerdGehaltEinheit.equals("g/l") == true)
+                        {
+                            CharSequence finalText = TextUtils.concat("Wenn man " + strKonzMenge
+                                            + strKonzMengeEinheit + " einer " + strKonzAuswahl +
+                                            " (" +strKonzGehalt + strKonzGehaltEinheit + ") mit Wasser" +
+                                            " zu " + strVerdMenge + strVerdMengeEinheit +" verdünnt, erhält man eine verdünnte " +
+                                            strKonzAuswahl +" mit einem Gehalt von "
+                                    , span , ". Die interpolierte Dichte der verdünnten "
+                                            + strKonzAuswahl + " aus der Tabelle ist "  + strVerdDichte + "g/ml.");
 
-                        tv.setText(finalText);
+                            tv.setText(finalText);
+                        }
+                        else
+                        {
+                            CharSequence finalText = TextUtils.concat("Wenn man " + strKonzMenge
+                                            + strKonzMengeEinheit + " einer " + strKonzAuswahl +
+                                            " (" +strKonzGehalt + strKonzGehaltEinheit + ") mit Wasser" +
+                                            " zu " + strVerdMenge + strVerdMengeEinheit +" verdünnt, erhält man eine verdünnte " +
+                                            "", span ," " + strKonzAuswahl +
+                                            ". Die interpolierte Dichte der verdünnten "
+                                            + strKonzAuswahl + " aus der Tabelle ist "  + strVerdDichte + "g/ml.");
+
+                            tv.setText(finalText);
+                        }
+
+
+
                     }
                     else
                     {
-                        CharSequence finalText = TextUtils.concat("Wenn man " + strKonzMenge
-                                + strKonzMengeEinheit + " einer " + strKonzAuswahl +
-                                " (" +strKonzGehalt + strKonzGehaltEinheit + ") mit Wasser" +
-                                " zu " + strVerdMenge + strVerdMengeEinheit +" verdünnt, erhält man eine verdünnte " +
-                                strKonzAuswahl +" mit einem Gehalt von "
-                                , span , ".");
+                        if (strVerdGehaltEinheit.equals("g/l") == true)
+                        {
+                            CharSequence finalText = TextUtils.concat("Wenn man " + strKonzMenge
+                                            + strKonzMengeEinheit + " einer " + strKonzAuswahl +
+                                            " (" +strKonzGehalt + strKonzGehaltEinheit + ") mit Wasser" +
+                                            " zu " + strVerdMenge + strVerdMengeEinheit +" verdünnt, erhält man eine verdünnte " +
+                                            strKonzAuswahl +" mit einem Gehalt von ", span , ".");
 
-                        tv.setText(finalText);
+                            tv.setText(finalText);
+                        }
+                        else
+                        {
+                            CharSequence finalText = TextUtils.concat("Wenn man " + strKonzMenge
+                                            + strKonzMengeEinheit + " einer " + strKonzAuswahl +
+                                            " (" +strKonzGehalt + strKonzGehaltEinheit + ") mit Wasser" +
+                                            " zu " + strVerdMenge + strVerdMengeEinheit +" verdünnt, erhält man eine verdünnte " +
+                                            "", span ," " + strKonzAuswahl  +".");
+
+                            tv.setText(finalText);
+                        }
+
+
+
                     }
                 }
             }

@@ -1,8 +1,6 @@
 package de.laborabakus;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,8 +14,6 @@ import android.widget.TextView;
 
 public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClickListener*/  {
 
-    //private View mButton;
-    // EditText et;
     TextView tv;
     String strKonzAuswahl = "";
     String strKonzGehalt;
@@ -65,72 +61,84 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
             prefEditor.putString("KonzGehaltEinheit_0", "%");
             prefEditor.putString("Dichte_0", "1.183");
             prefEditor.putString("Molmasse_0", "36.461");
+            prefEditor.putString("Wertigkeit_0", "1");
             // Schwefelsäure
             prefEditor.putString("KonzAuswahl_1", "Schwefelsäure");
             prefEditor.putString("KonzGehalt_1", "97");
             prefEditor.putString("KonzGehaltEinheit_1", "%");
             prefEditor.putString("Dichte_1", "1.8364");
             prefEditor.putString("Molmasse_1", "98.076");
+            prefEditor.putString("Wertigkeit_1", "2");
             // Salpetersäure
             prefEditor.putString("KonzAuswahl_2", "Salpetersäure");
             prefEditor.putString("KonzGehalt_2", "65");
             prefEditor.putString("KonzGehaltEinheit_2", "%");
             prefEditor.putString("Dichte_2", "1.391");
             prefEditor.putString("Molmasse_2", "63.012");
+            prefEditor.putString("Wertigkeit_2", "1");
             // Phosphorsäure
             prefEditor.putString("KonzAuswahl_3", "Phosphorsäure");
             prefEditor.putString("KonzGehalt_3", "85");
             prefEditor.putString("KonzGehaltEinheit_3", "%");
             prefEditor.putString("Dichte_3", "1.689");
             prefEditor.putString("Molmasse_3", "97.994");
+            prefEditor.putString("Wertigkeit_3", "3");
             // Essigsäure
             prefEditor.putString("KonzAuswahl_4", "Essigsäure");
             prefEditor.putString("KonzGehalt_4", "100");
             prefEditor.putString("KonzGehaltEinheit_4", "%");
             prefEditor.putString("Dichte_4", "1.048");
             prefEditor.putString("Molmasse_4", "60.052");
+            prefEditor.putString("Wertigkeit_4", "1");
             // Perchlorsäure
             prefEditor.putString("KonzAuswahl_5", "Perchlorsäure");
             prefEditor.putString("KonzGehalt_5", "71");
             prefEditor.putString("KonzGehaltEinheit_5", "%");
             prefEditor.putString("Dichte_5", "1.684");
             prefEditor.putString("Molmasse_5", "100.457");
+            prefEditor.putString("Wertigkeit_5", "1");
             // Wasserstoffperoxid
             prefEditor.putString("KonzAuswahl_6", "Wasserstoffperoxid");
             prefEditor.putString("KonzGehalt_6", "35");
             prefEditor.putString("KonzGehaltEinheit_6", "%");
             prefEditor.putString("Dichte_6", "1.132");
             prefEditor.putString("Molmasse_6", "34.014");
+            prefEditor.putString("Wertigkeit_6", "1");
             // Mustersäure
             prefEditor.putString("KonzAuswahl_7", "Mustersäure");
             prefEditor.putString("KonzGehalt_7", "1");
             prefEditor.putString("KonzGehaltEinheit_7", "mol/l");
             prefEditor.putString("Dichte_7", "1.0");
             prefEditor.putString("Molmasse_7", "1");
+            prefEditor.putString("Wertigkeit_7", "1");
             // Natronlauge
             prefEditor.putString("KonzAuswahl_8", "Natronlauge");
             prefEditor.putString("KonzGehalt_8", "40");
             prefEditor.putString("KonzGehaltEinheit_8", "%");
             prefEditor.putString("Dichte_8", "1.43");
             prefEditor.putString("Molmasse_8", "39.997");
+            prefEditor.putString("Wertigkeit_8", "1");
             // Kalilauge
             prefEditor.putString("KonzAuswahl_9", "Kalilauge");
             prefEditor.putString("KonzGehalt_9", "50");
             prefEditor.putString("KonzGehaltEinheit_9", "%");
             prefEditor.putString("Dichte_9", "1.503");
             prefEditor.putString("Molmasse_9", "56.109");
+            prefEditor.putString("Wertigkeit_9", "1");
             // Ammoniaklösung
             prefEditor.putString("KonzAuswahl_10", "Ammoniaklösung");
             prefEditor.putString("KonzGehalt_10", "32");
             prefEditor.putString("KonzGehaltEinheit_10", "%");
             prefEditor.putString("Dichte_10", "0.886");
             prefEditor.putString("Molmasse_10", "17.031");
+            prefEditor.putString("Wertigkeit_10", "1");
             // Musterlauge
             prefEditor.putString("KonzAuswahl_11", "Musterlauge");
             prefEditor.putString("KonzGehalt_11", "10");
             prefEditor.putString("KonzGehaltEinheit_11", "mol/l");
             prefEditor.putString("Dichte_11", "0.999");
             prefEditor.putString("Molmasse_11", "1");
+            prefEditor.putString("Wertigkeit_11", "1");
             prefEditor.apply();
 
             // Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann

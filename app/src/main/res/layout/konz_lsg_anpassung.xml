@@ -9,7 +9,7 @@
     android:weightSum="1">
 
     <TableRow
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
@@ -36,10 +36,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="1dp"
-            android:minEms="5"
             android:gravity="center_horizontal"
+            android:minEms="5"
             android:textSize="18dp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
     </TableRow>
 
@@ -105,10 +105,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:minEms="5"
             android:gravity="center_horizontal"
+            android:minEms="5"
             android:textSize="18dp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textView"
@@ -161,6 +161,49 @@
             android:layout_marginLeft="1dp"
             android:gravity="center_horizontal"
             android:text="g/mol"
+            android:textSize="18dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/trWertigkeit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:text="Stö.Wertigkeit"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/etAnpassungWertigkeit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
+            android:inputType="numberDecimal"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tvAnpassungWertigkeit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_horizontal"
+            android:minEms="5"
+            android:textSize="18dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:gravity="center_horizontal"
             android:textSize="18dp" />
 
     </TableRow>

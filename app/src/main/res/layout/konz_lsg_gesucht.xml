@@ -58,7 +58,7 @@
             android:layout_marginLeft="2dp"
             android:gravity="center_vertical|center_horizontal"
             android:onClick="btnGesuchtKonzUeberMol"
-            android:text="... die Masse bzw. das Volumen der konzentrierten Lösung über eine molare Verdünnung"
+            android:text="... die Masse bzw. das Volumen der konzentrierten Lösung über eine Verdünnung in g/l oder mol/l"
             android:textAllCaps="false"
             android:textSize="16dp" />
 
@@ -76,7 +76,7 @@
             android:layout_marginLeft="2dp"
             android:gravity="center_horizontal"
             android:onClick="btnGesuchtVerdUeberProz"
-            android:text="... die Masse der verdünnten Lösung \n in % (g in 100g Lösungsmittel)"
+            android:text="... die Masse der verdünnten Lösung \n in % (g in 100g Lösung)"
             android:textAllCaps="false"
             android:textSize="16dp" />
 
@@ -94,7 +94,7 @@
             android:layout_marginLeft="2dp"
             android:gravity="center_horizontal"
             android:onClick="btnGesuchtVerdUeberMol"
-            android:text="... das Volumen der verdünnten Lösung \n in mol/l oder g/l"
+            android:text="... das Volumen der verdünnten Lösung \n in g/l oder mol/l"
             android:textAllCaps="false"
             android:textSize="16dp" />
 
@@ -112,7 +112,7 @@
             android:layout_marginLeft="2dp"
             android:gravity="center_horizontal"
             android:onClick="btnGesuchtGehaltVerdinProz"
-            android:text="... der Gehalt der verdünnten Lösung \n in % (g in 100g Lösungsmittel)"
+            android:text="... der Gehalt der verdünnten Lösung \n in % (g in 100g Lösung)"
             android:textAllCaps="false"
             android:textSize="16dp" />
 
@@ -130,7 +130,7 @@
             android:layout_marginLeft="2dp"
             android:gravity="center_horizontal"
             android:onClick="btnGesuchtGehaltVerdinMolpL"
-            android:text="... der Gehalt der verdünnten Lösung \n in mol/l oder g/l"
+            android:text="... der Gehalt der verdünnten Lösung \n in g/l oder mol/l"
             android:textAllCaps="false"
             android:textSize="16dp" />
 

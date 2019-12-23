@@ -166,7 +166,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:onClick="btnEinheitVerdGehalt"
-            android:text="mol/l"
+            android:text="g/l"
             android:textAllCaps="false"
             android:textSize="16sp" />
 

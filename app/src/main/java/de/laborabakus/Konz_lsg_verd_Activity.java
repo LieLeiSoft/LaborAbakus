@@ -1,25 +1,243 @@
 package de.laborabakus;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import static de.laborabakus.ActivityTools.fktSignifikanteStellen;
 
 
 public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeListener */
 {
+    public static double fktGehaltUmrechnenAufProzent(double dblEingabewert, String strAuswahl, String strEinheit, double dblWertigkeit, double dblMolmasse, double dblDichte)
+    {
+        double dblGehalt = 0;
+        switch (strEinheit)
+        {
+            case "%":
+                dblGehalt = dblEingabewert;
+                break;
+
+            case "g/l":
+                dblGehalt = dblEingabewert / (dblDichte * 10);
+                break;
+
+            case "mol/l":
+                dblGehalt = (dblEingabewert * dblMolmasse) / (dblDichte * 10);
+                break;
+
+            case "M":
+                dblGehalt = (dblEingabewert * dblMolmasse) / (dblDichte * 10);
+                break;
+
+            case "N":
+                dblGehalt = ((dblEingabewert * dblMolmasse)) / (dblDichte * 10) / dblWertigkeit;
+                break;
+        }
+        return dblGehalt;
+    }
+
+    public static double fktGehaltUmrechnenAufGrammProLiter(double dblEingabewert, String strAuswahl, String strEinheit, double dblWertigkeit, double dblMolmasse, double dblDichte)
+    {
+        double dblGehalt = 0;
+        switch (strEinheit)
+        {
+            case "%":
+                dblGehalt = dblEingabewert * dblDichte *10 ;
+                break;
+
+            case "g/l":
+                dblGehalt = dblEingabewert;
+                break;
+
+            case "mol/l":
+                dblGehalt = dblEingabewert * dblMolmasse;
+                break;
+
+            case "M":
+                dblGehalt = dblEingabewert * dblMolmasse;
+                break;
+
+            case "N":
+                dblGehalt = (dblEingabewert * dblMolmasse) / dblWertigkeit;
+                break;
+        }
+        return dblGehalt;
+    }
+
+    public static double fktGehaltUmrechnenAufMolar(double dblEingabewert, String strAuswahl, String strEinheit, double dblWertigkeit, double dblMolmasse, double dblDichte)
+    {
+        double dblGehalt = 0;
+        switch (strEinheit)
+        {
+            case "%":
+                dblGehalt = (dblEingabewert * dblDichte *10) / dblMolmasse;
+                break;
+
+            case "g/l":
+                dblGehalt = dblEingabewert / dblMolmasse;
+                break;
+
+            case "mol/l":
+                dblGehalt = dblEingabewert;
+                break;
+
+            case "M":
+                dblGehalt = dblEingabewert;
+                break;
+
+            case "N":
+                dblGehalt = dblEingabewert / dblWertigkeit;
+                break;
+        }
+        return dblGehalt;
+    }
+
+    public static double fktGehaltUmrechnenAufNormal(double dblEingabewert, String strAuswahl, String strEinheit, double dblWertigkeit, double dblMolmasse, double dblDichte)
+    {
+        double dblGehalt = 0;
+
+        switch (strEinheit)
+        {
+            case "%":
+                dblGehalt = ((dblEingabewert * dblDichte * 10) / dblMolmasse);  // Umrechnung auf Molar
+                break;
+
+            case "g/l":
+                dblGehalt = (dblEingabewert / dblMolmasse);                     // Umrechnung auf g/l
+                break;
+
+            case "mol/l":
+                dblGehalt = dblEingabewert* dblWertigkeit;                      // Umrechnung auf Molar
+                break;
+
+            case "M":
+                dblGehalt = dblEingabewert* dblWertigkeit;                      // Umrechnung auf Molar
+                break;
+
+            case "N":
+                dblGehalt = dblEingabewert;
+                break;
+        }
+
+        return dblGehalt;
+    }
+
+    public static double fktStringZumDouble(String strWert)
+    {
+        double dblWert = 0;
+        strWert = strWert.replace(",", ".");
+        dblWert = Double.parseDouble(strWert);
+        return dblWert;
+    }
+
+    public static String fktDoubleZumString(double dblWert)
+    {
+        String strWert = "";
+        strWert = Double.toString(dblWert);
+        strWert = strWert.replace(".", ",");
+        return strWert;
+    }
+/*
+    public static String fktSignifikanteMitPunkt(double dblZahl, int intSigniStellen)
+    {
+        int intAnzahlZeichen;
+        int intKeineNullMehr = 0;							// 0 = Nullen nach dem komma , 1 = Zahlen
+        int intAnzahlNullenNachKomma = 0;
+        int intAnzahlZeichenVorKomma = 0;
+        int intStellenRunden = 0;
+        double dblSignifikante;
+        String strZahl;
+        String strZ;
+        String strSignifikante ="";
+        char chZeichen;
+
+        strZahl = Double.toString(dblZahl);
+        strZahl = strZahl.replace(".", ",");
+        String[] splitResult = strZahl.split(",", 6); // –> splitten am Punkt
+        // strZahl = 123.456789
+        // splitResult[0] = 123
+        // splitResult[1] = 456789
+
+        if (splitResult[0].equals("0") == true)			// Wenn die Zahl nur Nachkomma enthällt, dann...
+        {
+            intAnzahlZeichen = splitResult[1].length();  		// die Zeichenlänge des Strings wird bestimmt
+
+            for (int x=0;x<=intAnzahlZeichen-1; x++) 		// eine Schleife für jedes Zeichen von links nach rechts
+            {
+                chZeichen = splitResult[1].charAt(x);    		// einzelne Zeichen werden mit char ermittelt
+                strZ = ""+chZeichen;                	// der char wird in einen String umgewandelt
+
+                if ((strZ.equals("0") == true) && (intKeineNullMehr == 0))			// Nullen vor dem ersten Zeichen
+                {
+                    intAnzahlNullenNachKomma = intAnzahlNullenNachKomma + 1;		// Anzahl der Nullen nach dem Komma werden gezählt.
+                }
+                else 																// Zeichen nach den ersten Nullen
+                {
+                    intKeineNullMehr = 1;											// Erstes Zeichen, ab jetzt werden auch Nullen gezählt.
+
+                    // Berechnung
+                    intStellenRunden = intSigniStellen + intAnzahlNullenNachKomma;	// z.B. 0.001234567 -> 2 Nullen werden dazu gezählt, damit richtig gerundet wird
+                    //dblSignifikante = Double.parseDouble(splitResult[1]);			// String umwandeln in double
+                    strZahl = strZahl.replace(",", ".");
+                    dblSignifikante = Double.parseDouble(strZahl);			// String umwandeln in double
+                    strSignifikante = ActivityTools.fktDoubleToStringFormat(dblSignifikante, intStellenRunden);
+                }
+            }
+        }
+        else											// ...sonst
+        {
+            // Berechnung
+            intAnzahlZeichenVorKomma = splitResult[0].length();											// Länge des Strings vor dem Komma
+            intStellenRunden = intSigniStellen - intAnzahlZeichenVorKomma;								// z.B. 123.4567 -> Anzahl der Vorkommastellen werden von den
+            // SignifikantenStellen abgezogen um die die zu rundenen
+            // Stellen zu ermitteln.
+
+            strZahl = strZahl.replace(",", ".");// String umwandeln in double
+            dblZahl = Double.parseDouble(strZahl);
+
+            dblSignifikante = Math.round(dblZahl * Math.pow(10, intStellenRunden)) / Math.pow(10, intStellenRunden);
+
+            strSignifikante = Double.toString(dblSignifikante);
+        }
+
+        if (dblZahl==0)
+        {
+            strSignifikante = "0,0";    // Damit bei 0 kein Leer angezeigt wird
+        }
+
+        strSignifikante = strSignifikante.replace(",", ".");
+
+        return strSignifikante;
+    }
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     View v;
     TextView tv;
     EditText et;
@@ -46,8 +264,10 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
     double dblMolmasse;
     double dblErgebnis;
 
-
+*/
+    /*
     /** wird ausgef?hrt, wenn Activicty erstellt wird */
+    /*
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -132,8 +352,10 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
 
     } // onCreate
 
-    /** wird ausgef?hrt, wenn Activicty angezeigt wird */
+     */
 
+    /** wird ausgef?hrt, wenn Activicty angezeigt wird */
+/*
     @Override
     public void onResume() {
         super.onResume();
@@ -146,10 +368,12 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
 
     } // onPause
 
+
+ */
     /* *********************************************************************************************
      ***************** Button Verdünnung g oder ml ************************************************
      ***********************************************************************************************/
-
+/*
     public void btnEinheitVerdMenge(View v)
     {
         TextView tv;
@@ -421,10 +645,12 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
     } // btn g / ml
 
 
+ */
+
     /* *********************************************************************************************
      ***************** Button % oder g/l oder mol/l ************************************************
      ***********************************************************************************************/
-
+/*
     public void btnEinheitVerdGehalt(View v)
     {
         TextView tv;
@@ -482,10 +708,12 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
         }
     } // btn g/l / mol/l
 
+
+ */
     /* *********************************************************************************************
      ***************** Button g / ml ***************************************************************
      ***********************************************************************************************/
-
+/*
     public void btnEinheitKonz(View v)
     {
         TextView tv;
@@ -514,10 +742,12 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
         }
     } // btn g / ml
 
+
+ */
     /* *********************************************************************************************
      ***************** Button Berechnung ************************************************************
      ***********************************************************************************************/
-
+/*
     public void btnBerechneMasseKonz(View v)
     {
         et = (EditText) findViewById(R.id.etAnpassungMasseVerd);
@@ -535,10 +765,12 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
                 //InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                 //imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
 
+
+ */
                 /*******************************************************************
                  ****** Berechnung der Masse Konz über prozentuale Verdünnung ******
                  *******************************************************************/
-
+/*
                 if(strBerechnung_ueber.equals("Proz") == true)    // Wenn Einheit der Verd % ist
                 {
                     switch (strKonzGehaltEinheit)
@@ -597,9 +829,12 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
                     }
                 }
 
+
+ */
                 /***************************************************************************
                  ********* Berechnung der Masse Konz über Verdünnung mol/l oder g/l ********
                  ***************************************************************************/
+               /*
                 else
                 {
                     switch (strKonzGehaltEinheit)
@@ -677,7 +912,7 @@ public class Konz_lsg_verd_Activity extends Activity /*implements OnFocusChangeL
             Meldung.show();
         }
     }
-
+*/
 
     /********************************************
      ************** Menue Button ****************

@@ -23,6 +23,8 @@ public class HilfeActivity extends Activity {
 	String[][] Hilfe = new String[40][4];
 	int intFeldNr_max = 0;
 	String strHilfe;
+	String strAuswahl;
+	String strKonzAuswahl;
 
 	// 4 Spalten pro Hilfetext:
 	// Spalte 0: Kapitel
@@ -93,25 +95,17 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Auswahl";
 		Hilfe[intFeldNr][2] = "Auswahl";
-		Hilfe[intFeldNr][3] = "In diesem Auswahlmenü wird eine konzentrierte" +
-				" Lösung, die verdünnt werden soll, ausgewählt. Jede Lösung" +
-				" kann individuell durch den >Anpassung< Button bei dem Gehalt," +
-				" der Dichte und der Molmasse eingestellt oder komplett mit neuem" +
-				" Namen verändert werden.";
+		Hilfe[intFeldNr][3] = "In diesem Auswahlmenü wird ein Button einer konzentrierten " +
+				"Lösung, die verdünnt werden soll, für die weitere Berechnung " +
+				"ausgewählt.";
 
         intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "anpassen";
 		Hilfe[intFeldNr][2] = "anpassen";
-		Hilfe[intFeldNr][3] = "Jede Lösung kann individuell durch den >Anpassung<" +
-				" Button bei dem Gehalt, der Dichte und der Molmasse eingestellt" +
-				" oder komplett mit neuem Namen verändert werden. Da die Molmasse" +
-				" für jeden Stoff spezifisch ist und die Dichte zusätzlich noch von" +
-				" der Konzentration abhängt, sollten diese Werte nur mit Bedacht" +
-				" geändert werden. Mit Hilfe des grauen Buttons (% oder mol/L) lässt" +
-				" sie die Konzentration der Lösung bei vorhandener Molmasse und Dichte" +
-				" von Prozent auf die Stoffmengenkonzentration in mol/L bzw. von der" +
-				" Stoffmengenkonzentration auf Prozent unmittelbar umrechnen.";
+		Hilfe[intFeldNr][3] = "Beim Betätigen des anpassen-Buttons öffnet sich eine " +
+				"Eingabemaske, in der verschiedene Parameter der jeweiligen konzentrierten Lösung " +
+				"angepasst werden können.";
 
 
 		intFeldNr_max = intFeldNr;
@@ -121,17 +115,23 @@ public class HilfeActivity extends Activity {
 	{
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "anpassen";
-		Hilfe[intFeldNr][2] = "anpassen";
-		Hilfe[intFeldNr][3] = "Jede Lösung kann individuell durch den >Anpassung<" +
-				" Button bei dem Gehalt, der Dichte und der Molmasse eingestellt" +
-				" oder komplett mit neuem Namen verändert werden. Da die Molmasse" +
-				" für jeden Stoff spezifisch ist und die Dichte zusätzlich noch von" +
-				" der Konzentration abhängt, sollten diese Werte nur mit Bedacht" +
-				" geändert werden. Mit Hilfe des grauen Buttons (% oder mol/L) lässt" +
-				" sie die Konzentration der Lösung bei vorhandener Molmasse und Dichte" +
-				" von Prozent auf die Stoffmengenkonzentration in mol/L bzw. von der" +
-				" Stoffmengenkonzentration auf Prozent unmittelbar umrechnen.";
+		Hilfe[intFeldNr][1] = "Lösung anpassen";
+		Hilfe[intFeldNr][2] = "Lösung anpassen";
+		Hilfe[intFeldNr][3] = "Im Eingabefeld Gehalt kann dieser auf eine andere " +
+				"Konzentration geändert werden. Mithilfe des grauen Konzentrationsbuttons " +
+				"kann man die dazugehörige Einheit auf eine andere vorgegebene Einheit " +
+				"umstellen. Dabei wird ein eingegebener Gehalt automatisch umgerechnet. " +
+				"Bei allen vorgegebenen Säuren und Laugen ist eine Anpassung der " +
+				"Molmasse und der stöchiometrischen Wertigkeit nicht möglich. Eine Änderung " +
+				"der Dichte ist ebenfalls nicht möglich. Jedoch wird diese bei einer " +
+				"Änderung des Gehaltes automatisch aus einer Tabelle neu ermittelt. Ist " +
+				"die stöchiometrische Wertigkeit größer als 1, wird die Einheit mol/l " +
+				"im grauen Konzentrationsbutton in M für molare und N für normale Lösungen " +
+				"aufgeteilt. " +
+				"Alle Mustersäuren und -laugen können im Vergleich zu den vorgegebenen " +
+				"Säuren und Laugen inklusive des Namens individuell angepasst werden. " +
+				"Vorsicht: Eine automatische Umrechnung der Dichte bei einer Änderung des " +
+				"Gehaltes erfolgt hier nicht!";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
@@ -199,19 +199,28 @@ public class HilfeActivity extends Activity {
 
 	private void erstelle_Hilfe_Konz_Lsg_Eingabe(String strKapitel)
 	{
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences.Editor prefEditor = prefs.edit();
+
+		strAuswahl = prefs.getString("KonzAuswahl", "0");
+		strKonzAuswahl = prefs.getString("KonzAuswahl_"+strAuswahl, strKonzAuswahl);
+
+
 		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Eingabe";
-		Hilfe[intFeldNr][2] = "Eingabe";
+		Hilfe[intFeldNr][1] = "graue Eingabefelder";
+		Hilfe[intFeldNr][2] = "graue Eingabefelder";
 		Hilfe[intFeldNr][3] = "Nach Auswahl des gesuchten Parameters, werden hier in den grauen Feldern die" +
 				" gegebenen Parameter eingetippt.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Button g/ml";
-		Hilfe[intFeldNr][2] = "Button g/ml";
-		Hilfe[intFeldNr][3] = "Mit dem Button (g/ml) kann entschieden werden, ob die Masse oder das " +
-				"Volumen der konzentrierten Lösung eingegeben bzw. berechnet werden soll.";
+		Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+		Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+		Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+				"Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben bzw. berechnet werden soll. " +
+				"Eine zuvor gegebenenfalls eingegebene Menge wird automatisch beim Betätgen des Buttons " +
+				"umgerechnet.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;

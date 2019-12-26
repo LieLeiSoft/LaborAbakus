@@ -34,7 +34,8 @@
             android:text="@string/Beschriftung_Review"
             android:textAllCaps="false"
             android:textColor="@color/cSchwarz"
-            android:textColorHighlight="@color/cSchwarz" />
+            android:textColorHighlight="@color/cSchwarz"
+            android:visibility="gone"/>
 
 
         <Button

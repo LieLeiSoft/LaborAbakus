@@ -316,7 +316,7 @@ public class HilfeActivity extends Activity {
                 Hilfe[intFeldNr][3] = "Mit dem Button mol/l oder g/l kann entschieden werden, in welcher Einheit " +
                         "der Gehalt der verdünnten "  + strKonzAuswahl + " berechnet werden soll. " +
                         "Mehrprotonigen Säuren, wie z.B. Schwefelsäure oder Phosphorsäure mit einer " +
-                        "stöchimetrischen Wertigkeit > 1, können auch in molare (M) oder normale " +
+                        "stöchimetrischen Wertigkeit > 1, können auch in molare (M) oder normale (N) " +
                         "Verdünnungen berechnet werden.";
                 break;
         }

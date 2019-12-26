@@ -25,6 +25,7 @@ public class HilfeActivity extends Activity {
 	String strHilfe;
 	String strAuswahl;
 	String strKonzAuswahl;
+	String strBerechnungUeber;
 
 	// 4 Spalten pro Hilfetext:
 	// Spalte 0: Kapitel
@@ -146,53 +147,59 @@ public class HilfeActivity extends Activity {
 
 	private void erstelle_Hilfe_Konz_Lsg_gesucht_wird(String strKapitel)
 	{
-		int intFeldNr = 0;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        strAuswahl = prefs.getString("KonzAuswahl", "0");
+        strKonzAuswahl = prefs.getString("KonzAuswahl_"+strAuswahl, strKonzAuswahl);
+
+	    int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "... die Menge der konz. Lösung über eine prozentuale Verdünnung";
 		Hilfe[intFeldNr][2] = "... die Menge der konz. Lösung über eine prozentuale Verdünnung";
-		Hilfe[intFeldNr][3] = "Gesucht: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
-				"Gegeben: Masse (g) der Verdünnung\n" +
-				"Gegeben: Gehalt (%) der Verdünnung";
+		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man die eingesetzte Menge " +
+                "an konzentrierter " + strKonzAuswahl + " sucht, um eine bestimmte Masse einer " +
+                "verdünnten Lösung mit bekanntem Gehalt herzustellen!";
 
         intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "... die Menge der konz. Lösung über eine molare Verdünnung";
 		Hilfe[intFeldNr][2] = "... die Menge der konz. Lösung über eine molare Verdünnung";
-		Hilfe[intFeldNr][3] = "Gesucht: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
-				"Gegeben: Volumen (ml) der Verdünnung\n" +
-				"Gegeben: Gehalt (mol/L) der Verdünnung";
+		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man die eingesetzte Menge " +
+                "an konzentrierter " + strKonzAuswahl + " sucht, um ein bestimmtes Volumen einer " +
+                "verdünnten Lösung mit bekanntem Gehalt herzustellen!";
 
         intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "... die Masse der verdünnten prozentualen Lösung:";
 		Hilfe[intFeldNr][2] = "... die Masse der verdünnten prozentualen Lösung:";
-		Hilfe[intFeldNr][3] = "Gesucht: Masse (g) der Verdünnung\n" +
-				"Gegeben: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
-				"Gegeben: Gehalt (%) der Verdünnung";
+		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man wissen möchte, wieviel Milliliter " +
+                "verdünnte Lösung mit einer bestimmten Konzentration man bekommt, wenn man eine " +
+                "bekannte Menge einer konzentrierten " + strKonzAuswahl + " mit Wasser verdünnt!";
 
         intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "... das Volumen der verdünnten molaren Lösung:";
 		Hilfe[intFeldNr][2] = "... das Volumen der verdünnten molaren Lösung:";
-		Hilfe[intFeldNr][3] = "Gesucht: Volumen (ml) der Verdünnung\n" +
-				"Gegeben: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
-				"Gegeben: Gehalt (mol/L) der Verdünnung";
+		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man wissen möchte, wieviel Gramm " +
+                "verdünnte Lösung mit einer bestimmten Konzentration man bekommt, wenn man eine " +
+                "bekannte Menge einer konzentrierten " + strKonzAuswahl + " mit Wasser verdünnt!";
 
         intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Gesucht wird der Gehalt der verdünnten Lösung in Prozent:";
 		Hilfe[intFeldNr][2] = "Gesucht wird der Gehalt der verdünnten Lösung in Prozent:";
-		Hilfe[intFeldNr][3] = "Gesucht: Gehalt (%) der Verdünnung\n" +
-				"Gegeben: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
-				"Gegeben: Masse (g) der Verdünnung";
+		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man wissen möchte, welche Konzentration " +
+                "eine Verdünnung bekommt, wenn man eine bekannte Menge an konzentrierter "
+        + strKonzAuswahl + "zu einer bekannten Masse mit Wasser verdünnt!";
 
         intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Gesucht wird der Gehalt der verdünnten Lösung in mol/L:";
 		Hilfe[intFeldNr][2] = "Gesucht wird der Gehalt der verdünnten Lösung in mol/L:";
-		Hilfe[intFeldNr][3] = "Gesucht: Gehalt (mol/L) der Verdünnung\n" +
-				"Gegeben: Masse (g) oder Volumen (ml) der konzentrierten Lösung\n" +
-				"Gegeben: Volumen (ml) der Verdünnung";
+		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man wissen möchte, welche Konzentration " +
+                "eine Verdünnung bekommt, wenn man eine bekannte Menge an konzentrierter "
+                + strKonzAuswahl + "zu einem bekanntem Volumen mit Wasser verdünnt!";
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Konz_Lsg_gesucht_wird
@@ -204,6 +211,7 @@ public class HilfeActivity extends Activity {
 
 		strAuswahl = prefs.getString("KonzAuswahl", "0");
 		strKonzAuswahl = prefs.getString("KonzAuswahl_"+strAuswahl, strKonzAuswahl);
+        strBerechnungUeber = prefs.getString("Berechnung_ueber", strBerechnungUeber);
 
 
 		int intFeldNr = 0;
@@ -213,14 +221,118 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][3] = "Nach Auswahl des gesuchten Parameters, werden hier in den grauen Feldern die" +
 				" gegebenen Parameter eingetippt.";
 
+        switch (strBerechnungUeber)
+        {
+            case "1":
+                intFeldNr++;
+                Hilfe[intFeldNr][0] = strKapitel;
+                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+                        "Volumen der konzentrierten "  + strKonzAuswahl + "  berechnet werden soll.";
+
+                break;
+
+            case "2":
+                intFeldNr++;
+                Hilfe[intFeldNr][0] = strKapitel;
+                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+                        "Volumen der konzentrierten "  + strKonzAuswahl + "  berechnet werden soll.";
+
+                intFeldNr++;
+                Hilfe[intFeldNr][0] = strKapitel;
+                Hilfe[intFeldNr][1] = "Button mol/l, M, N oder g/l - Verdünnung";
+                Hilfe[intFeldNr][2] = "Button mol/l, M, N oder g/l - Verdünnung";
+                Hilfe[intFeldNr][3] = "Mit dem Button mol/l oder g/l kann entschieden werden, in welcher Einheit " +
+                        "der Gehalt der verdünnten "  + strKonzAuswahl + " vorliegt und eingegeben werden soll. " +
+                        "Bei mehrprotonigen Säuren, wie z.B. Schwefelsäure oder Phosphorsäure mit einer " +
+                        "stöchimetrischen Wertigkeit > 1, wird die Einheit mol/l durch M für molare und N für " +
+                        "normale Verdünnungen ersetzt. Eine zuvor eingegebene Konzentration wird automatisch " +
+                        "beim Betätgen des Buttons umgerechnet.";
+                break;
+
+            case "3":
+                intFeldNr++;
+                Hilfe[intFeldNr][0] = strKapitel;
+                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+                        "Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben werden soll. " +
+                        "Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
+                        "umgerechnet.";
+
+                break;
+
+            case "4":
+                intFeldNr++;
+                Hilfe[intFeldNr][0] = strKapitel;
+                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+                        "Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben werden soll. " +
+                        "Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
+                        "umgerechnet.";
+
+                intFeldNr++;
+                Hilfe[intFeldNr][0] = strKapitel;
+                Hilfe[intFeldNr][1] = "Button mol/l, M, N oder g/l - Verdünnung";
+                Hilfe[intFeldNr][2] = "Button mol/l, M, N oder g/l - Verdünnung";
+                Hilfe[intFeldNr][3] = "Mit dem Button mol/l oder g/l kann entschieden werden, in welcher Einheit " +
+                        "der Gehalt der verdünnten "  + strKonzAuswahl + " vorliegt und eingegeben werden soll. " +
+                        "Bei mehrprotonigen Säuren, wie z.B. Schwefelsäure oder Phosphorsäure mit einer " +
+                        "stöchimetrischen Wertigkeit > 1, wird die Einheit mol/l durch M für molare und N für " +
+                        "normale Verdünnungen ersetzt. Eine zuvor eingegebene Konzentration wird automatisch " +
+                        "beim Betätgen des Buttons umgerechnet.";
+                break;
+
+            case "5":
+                intFeldNr++;
+                Hilfe[intFeldNr][0] = strKapitel;
+                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+                        "Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben werden soll. " +
+                        "Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
+                        "umgerechnet.";
+
+                break;
+
+            case "6":
+                intFeldNr++;
+                Hilfe[intFeldNr][0] = strKapitel;
+                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+                        "Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben  werden soll. " +
+                        "Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
+                        "umgerechnet.";
+
+                intFeldNr++;
+                Hilfe[intFeldNr][0] = strKapitel;
+                Hilfe[intFeldNr][1] = "Button mol/l, M, N oder g/l - Verdünnung";
+                Hilfe[intFeldNr][2] = "Button mol/l, M, N oder g/l - Verdünnung";
+                Hilfe[intFeldNr][3] = "Mit dem Button mol/l oder g/l kann entschieden werden, in welcher Einheit " +
+                        "der Gehalt der verdünnten "  + strKonzAuswahl + " berechnet werden soll. " +
+                        "Mehrprotonigen Säuren, wie z.B. Schwefelsäure oder Phosphorsäure mit einer " +
+                        "stöchimetrischen Wertigkeit > 1, können auch in molare (M) oder normale " +
+                        "Verdünnungen berechnet werden.";
+                break;
+        }
+
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
-		Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
-		Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
-		Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
-				"Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben bzw. berechnet werden soll. " +
-				"Eine zuvor gegebenenfalls eingegebene Menge wird automatisch beim Betätgen des Buttons " +
-				"umgerechnet.";
+		Hilfe[intFeldNr][1] = "Button g oder ml - Verdünnung";
+		Hilfe[intFeldNr][2] = "Button g oder ml - Verdünnung";
+		Hilfe[intFeldNr][3] = "Mit diesem Button kann die Masse in Gramm oder das Volumen in ml " +
+				"der Verdünnung jeweils in die andere Einheit umgewandelt werden. " +
+				"Eine Berechnung ist nicht möglich, da für die Umwandlung der Masse zum Volumen " +
+				"und umgekehrt die Dichte fehlt, die sich bei jedem Gehalt ändert. Diese kann jedoch aus dem " +
+				"errechneten Gehalt mithilfe einer Dichtetabelle ermittelt und danach interpoliert werden. " +
+				"Deswegen steht dieser Button auch nur für die Säuren und Laugen zur Verfügung, für die " +
+				"in dieser App eine Dichtetabelle existiert. Dazu gehören Salz, Schwefel-, Salpeter-, Phosphor-, " +
+				"Essig, Perchlorsäure, Wasserstoffperoxid, Ammoniaklösung, Natron- und Kalilauge.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;

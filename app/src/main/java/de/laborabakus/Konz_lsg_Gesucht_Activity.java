@@ -61,7 +61,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        prefEditor.putString("Berechnung_ueber", "Proz"); // (“Name“ und “Wertname“)
+        prefEditor.putString("Berechnung_ueber", "1"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
 
@@ -80,7 +80,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        prefEditor.putString("Berechnung_ueber", "Mol"); // (“Name“ und “Wertname“)
+        prefEditor.putString("Berechnung_ueber", "2"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
         Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_2.class);
@@ -98,7 +98,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        prefEditor.putString("Berechnung_ueber", "Proz"); // (“Name“ und “Wertname“)
+        prefEditor.putString("Berechnung_ueber", "3"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
         Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_3.class);
@@ -116,7 +116,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        prefEditor.putString("Berechnung_ueber", "Mol"); // (“Name“ und “Wertname“)
+        prefEditor.putString("Berechnung_ueber", "4"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
         Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_4.class);
@@ -134,7 +134,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        prefEditor.putString("Berechnung_ueber", "Masse"); // (“Name“ und “Wertname“)
+        prefEditor.putString("Berechnung_ueber", "5"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
         Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_5.class);
@@ -152,7 +152,7 @@ public class Konz_lsg_Gesucht_Activity extends Activity /*implements OnFocusChan
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor prefEditor = prefs.edit();
 
-        prefEditor.putString("Berechnung_ueber", "Volumen"); // (“Name“ und “Wertname“)
+        prefEditor.putString("Berechnung_ueber", "6"); // (“Name“ und “Wertname“)
         prefEditor.apply();
 
         Intent myIntent = new Intent(v.getContext(), Konz_lsg_verd_Activity_6.class);

@@ -22,6 +22,7 @@
             android:layout_marginLeft="2dp"
             android:background="@color/chellhellgrau"
             android:gravity="center_vertical|center_horizontal"
+            android:textColor="@color/cSchwarz"
             android:text="Gesucht wird ..." />
 
     </TableRow>

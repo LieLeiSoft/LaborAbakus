@@ -1,7 +1,8 @@
 package de.laborabakus;
 
 import android.app.Activity;
-
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 
 public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChangeListener */
@@ -451,12 +452,19 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
                             {
                                 dblUntererGehalt = dblGehalt;               // unterer Gehalt
                                 dblUntereDichte = Double.parseDouble(splitResult[0]);
+
+                                dblVerdDichte = dblUntereDichte;    // Abfangen eines Fehlers - Wenn der Gehalt umgerechnet in Molarität
+                                                                    // den arrWert[100] leicht übersteigt, wird sonst die Dichte 1.0 ermittelt.
+                                                                    // Beispiel: H2SO4 1830,5 g/l => 18,664 g/mol
+                                                                    //           18,664 g/mol ist größer als arrWert[100] mit 18.6636 g/mol
+                                                                    //           Weil er sonst keinen Wert findet ermeittelt er 1.0 als Dichte.
                             }
                         }
                     }
                 }
             }
         }
+
         return dblVerdDichte;
     }
 

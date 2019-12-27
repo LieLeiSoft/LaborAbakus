@@ -34,6 +34,7 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
     EditText et;
     TextView tv;
+    String strName;
     String strKonzAuswahl;
     String strKonzGehalt;
     String strKonzGehaltEinheit;
@@ -69,15 +70,86 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
+
+        tv = (TextView) findViewById(R.id.tvAnpassungName);
+        strName = tv.getText().toString();
+        if (strName.equals(""))
+        {
+            et = (EditText) findViewById(R.id.etAnpassungName);
+            strName = et.getText().toString();
+            if(strName.equals(""))
+            {
+                String text = "\n   Bitte einen Namen eingeben!   \n";
+                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                Meldung.setGravity(Gravity.BOTTOM, 0, 0);
+                Meldung.show();
+                return true;
+            }
+        }
+
+        tv = (TextView) findViewById(R.id.tvAnpassungDichte);
+        strDichte = tv.getText().toString();
+        if (strDichte.equals(""))
+        {
+            et = (EditText) findViewById(R.id.etAnpassungDichte);
+            strDichte = et.getText().toString();
+            if(strDichte.equals(""))
+            {
+                fktAusgabeKeinWert();
+                return true;
+            }
+            dblDichte = Double.parseDouble(strDichte);
+            if(dblDichte == 0)
+            {
+                fktAusgabeKeineNull();
+                return true;
+            }
+        }
+
+        tv = (TextView) findViewById(R.id.tvAnpassungMolmasse);
+        strMolmasse = tv.getText().toString();
+        if (strMolmasse.equals(""))
+        {
+            et = (EditText) findViewById(R.id.etAnpassungMolmasse);
+            strMolmasse = et.getText().toString();
+            if(strMolmasse.equals(""))
+            {
+                fktAusgabeKeinWert();
+                return true;
+            }
+            dblMolmasse = Double.parseDouble(strMolmasse);
+            if(dblMolmasse == 0)
+            {
+                fktAusgabeKeineNull();
+                return true;
+            }
+        }
+
+        tv = (TextView) findViewById(R.id.tvAnpassungWertigkeit);
+        strStoWert = tv.getText().toString();
+        if (strStoWert.equals(""))
+        {
+            et = (EditText) findViewById(R.id.etAnpassungWertigkeit);
+            strStoWert = et.getText().toString();
+            if(strStoWert.equals(""))
+            {
+                fktAusgabeKeinWert();
+                return true;
+            }
+            dblStoWert = Double.parseDouble(strStoWert);
+            if(dblStoWert == 0)
+            {
+                fktAusgabeKeineNull();
+                return true;
+            }
+        }
+
         et = (EditText) findViewById(R.id.etAnpassungGehalt);
         strKonzGehalt = et.getText().toString();
 
         if(strKonzGehalt.equals(""))
         {
-            String text = "\n   Bitte einen Wert eingeben!   \n";
-            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-            Meldung.setGravity(Gravity.BOTTOM, 0, 0);
-            Meldung.show();
+            fktAusgabeKeinWert();
             return true;
         }
 
@@ -85,10 +157,7 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
         if(dblKonzGehalt == 0)
         {
-            String text = "\n   Bitte keine Null eingeben!   \n";
-            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-            Meldung.setGravity(Gravity.BOTTOM, 0, 0);
-            Meldung.show();
+            fktAusgabeKeineNull();
             return true;
         }
 
@@ -535,6 +604,22 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         et.setSelection(et.getText().length());
 
     } // btnAuswahl
+
+    public void fktAusgabeKeinWert()
+    {
+        String text = "\n   Bitte einen Wert eingeben!   \n";
+        Toast Meldung = Toast.makeText(Konz_lsg_Anpassung_Activity.this, text, Toast.LENGTH_SHORT);
+        Meldung.setGravity(Gravity.BOTTOM, 0, 0);
+        Meldung.show();
+    }
+
+    public void fktAusgabeKeineNull()
+    {
+        String text = "\n   Bitte keine Null eingeben!   \n";
+        Toast Meldung = Toast.makeText(Konz_lsg_Anpassung_Activity.this, text, Toast.LENGTH_SHORT);
+        Meldung.setGravity(Gravity.BOTTOM, 0, 0);
+        Meldung.show();
+    }
 
 
     @Override

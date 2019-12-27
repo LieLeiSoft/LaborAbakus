@@ -105,11 +105,11 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
         tv = (TextView) findViewById(R.id.tvEinheitVerdGehalt);             // Textfeld bei dem Gehalt der Verdünnung verschwinden lassen
         tv.setVisibility(View.GONE);
 
-        tv = (TextView) findViewById(R.id.tvNameVerd);                      // Textfeld Masse bei der Verdünnung
-        tv.setText("Masse");
+        tv = (TextView) findViewById(R.id.tvNameVerd);                      // Textfeld Volumen bei der Verdünnung
+        tv.setText("Volumen");
 
-        tv = (TextView) findViewById(R.id.tvEinheitVerd);                   // Textfeld g bei Masse der Verdünnung
-        tv.setText("g");
+        tv = (TextView) findViewById(R.id.tvEinheitVerd);                   // Textfeld ml bei Volumen der Verdünnung
+        tv.setText("ml");
 
         tv = (TextView) findViewById(R.id.textView7);                       // Textfeld "ist gesucht" sichtbar machen
         tv.setVisibility(View.VISIBLE);
@@ -240,7 +240,7 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
         switch (strVerdGehaltEinheit)
         {
             case "mol/l":
-                strVerdGehaltEinheit = "N";                                                             // ...umschalten auf N
+                strVerdGehaltEinheit = "g/l";                                                             // ...umschalten auf N
                 tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdGehalt);
                 tv.setText(strVerdGehaltEinheit);
                 break;
@@ -428,7 +428,7 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
                     Spannable span = new SpannableString(strVerdGehalt + strVerdGehaltEinheit);
                     span.setSpan(new StyleSpan(BOLD), 0, span.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-                    if (strVerdDichte.equals("") == false)
+                    if (strVerdMengeEinheit.equals("g") == true)                                   // Wenn die Einheit der Verdünnung ml ist
                     {
                         if (strVerdGehaltEinheit.equals("g/l") == true)
                         {

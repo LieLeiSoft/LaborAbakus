@@ -108,11 +108,14 @@ public class Konz_lsg_verd_Activity_4 extends Activity
         tv = (TextView) findViewById(R.id.tvEinheitVerdGehalt);             // Textfeld % bei dem Gehalt der Verdünnung
         tv.setText("%");
 
-        tv = (TextView) findViewById(R.id.tvNameVerd);                      // Textfeld Masse bei der Verdünnung
-        tv.setText("Masse in");
+        tv = (TextView) findViewById(R.id.tvNameVerd);                      // Textfeld Volumen bei der Verdünnung
+        tv.setText("Volumen in");
 
-        tv = (TextView) findViewById(R.id.tvEinheitVerd);                   // Textfeld g bei Masse der Verdünnung
-        tv.setText("g");
+        tv = (TextView) findViewById(R.id.tvEinheitVerd);                   // Textfeld ml bei Volumen der Verdünnung
+        tv.setText("ml");
+
+        tv = (TextView) findViewById(R.id.tvAnpassungEinheitVerdMenge);     // Textfeld ml bei Volumen der Verdünnung
+        tv.setText("ml");
 
         tv = (TextView) findViewById(R.id.textView6);                       // Textfeld "ist gesucht" sichtbar machen
         tv.setVisibility(View.VISIBLE);

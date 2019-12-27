@@ -482,7 +482,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnFeld"
-                android:src="@drawable/rahmen_grau"
+                android:src="@drawable/weiss"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />

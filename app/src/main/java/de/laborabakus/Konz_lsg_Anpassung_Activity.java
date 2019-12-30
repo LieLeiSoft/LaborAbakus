@@ -34,6 +34,7 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
     EditText et;
     TextView tv;
+    boolean booWechselDerEinheitErlauben = true;
     String strName;
     String strKonzAuswahl;
     String strKonzGehalt;
@@ -468,6 +469,8 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
     public void btnEinheitGehalt(View v)
     {
+        booWechselDerEinheitErlauben = true;
+
         TextView tv;
         tv = (TextView) v;
         strKonzGehaltEinheit = tv.getText().toString();
@@ -475,161 +478,168 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         et = (EditText) findViewById(R.id.etAnpassungGehalt);
         strKonzGehalt = et.getText().toString();
 
-        if (strKonzGehalt.equals("") == true)
+        if (strAuswahl.equals("0") || strAuswahl.equals("1") || strAuswahl.equals("2") ||
+                strAuswahl.equals("3") || strAuswahl.equals("4") || strAuswahl.equals("5") ||
+                strAuswahl.equals("6") || strAuswahl.equals("8") || strAuswahl.equals("9") ||
+                strAuswahl.equals("10")  == true)
         {
-            fktAusgabeKeinWert();
-        }
-        else
-        {
-            dblKonzGehalt = Double.parseDouble(strKonzGehalt);
+            //tv = (TextView) findViewById(R.id.tvAnpassungDichte);
+            //strDichte = tv.getText().toString();
+            //dblDichte = Double.parseDouble(strDichte);
 
-            if (dblKonzGehalt == 0)
+            tv = (TextView) findViewById(R.id.tvAnpassungMolmasse);
+            strMolmasse = tv.getText().toString();
+            dblMolmasse = Double.parseDouble(strMolmasse);
+
+            tv = (TextView) findViewById(R.id.tvAnpassungWertigkeit);
+            strStoWert = tv.getText().toString();
+            dblStoWert = Double.parseDouble(strStoWert);
+
+            if (strKonzGehalt.equals("") == false)
             {
-                fktAusgabeKeineNull();
-            }
-            else
-            {
-                if (strAuswahl.equals("0") || strAuswahl.equals("1") || strAuswahl.equals("2") ||
-                        strAuswahl.equals("3") || strAuswahl.equals("4") || strAuswahl.equals("5") ||
-                        strAuswahl.equals("6") || strAuswahl.equals("8") || strAuswahl.equals("9") ||
-                        strAuswahl.equals("10")  == true)
+                dblKonzGehalt = Double.parseDouble(strKonzGehalt);
+
+                if((strKonzGehaltEinheit.equals("%")) == false && (strKonzGehaltEinheit.equals("mol/l")) == false)
+                // Wenn der Gehalt g/l / N oder M ist
                 {
-                    //tv = (TextView) findViewById(R.id.tvAnpassungDichte);
-                    //strDichte = tv.getText().toString();
-                    //dblDichte = Double.parseDouble(strDichte);
-
-                    tv = (TextView) findViewById(R.id.tvAnpassungMolmasse);
-                    strMolmasse = tv.getText().toString();
-                    dblMolmasse = Double.parseDouble(strMolmasse);
-
-                    tv = (TextView) findViewById(R.id.tvAnpassungWertigkeit);
-                    strStoWert = tv.getText().toString();
-                    dblStoWert = Double.parseDouble(strStoWert);
-
-                    if((strKonzGehaltEinheit.equals("%")) == false && (strKonzGehaltEinheit.equals("mol/l")) == false)
-                    // Wenn der Gehalt g/l / N oder M ist
-                    {
-                        dblGehalt = fktGehaltUmrechnenAufMolar(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                        strGehalt = Double.toString(dblGehalt);
-                    }
-                    else
-                    {
-                        strGehalt = strKonzGehalt;
-                    }
-
-                    dblDichte = fktDichtetabellen(strKonzAuswahl, 0, 0, 0, strGehalt, strKonzGehaltEinheit);
-                    dblDichte = ActivityTools.fktRunden(dblDichte,5);
-                    strDichte = Double.toString(dblDichte);
-                    tv = (TextView) findViewById(R.id.tvAnpassungDichte);
-                    tv.setText(strDichte);
+                    dblGehalt = fktGehaltUmrechnenAufMolar(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                    strGehalt = Double.toString(dblGehalt);
                 }
                 else
                 {
-                    et = (EditText) findViewById(R.id.etAnpassungDichte);
-                    strDichte = et.getText().toString();
-                    dblDichte = Double.parseDouble(strDichte);
-
-                    et = (EditText) findViewById(R.id.etAnpassungMolmasse);
-                    strMolmasse = et.getText().toString();
-                    dblMolmasse = Double.parseDouble(strMolmasse);
-
-                    et = (EditText) findViewById(R.id.etAnpassungWertigkeit);
-                    strStoWert = et.getText().toString();
-                    dblStoWert = Double.parseDouble(strStoWert);
+                    strGehalt = strKonzGehalt;
                 }
 
-
-
-                switch (strKonzGehaltEinheit)
+                dblDichte = fktDichtetabellen(strKonzAuswahl, 0, 0, 0, strGehalt, strKonzGehaltEinheit);
+                dblDichte = ActivityTools.fktRunden(dblDichte,5);
+                if(dblDichte == 0)
                 {
-                    case "%":
-                        // Umrechnung auf g/l
+                    String text = "\n   Der Gehalt liegt außerhalb  \n   des zulässigen Bereiches!   \n";
+                    Toast Meldung = Toast.makeText(Konz_lsg_Anpassung_Activity.this, text, Toast.LENGTH_LONG);
+                    Meldung.setGravity(Gravity.BOTTOM, 0, 0);
+                    Meldung.show();
 
-                        if (strKonzGehalt.equals("") == false)
-                        {
-                            dblKonzGehalt = fktGehaltUmrechnenAufGrammProLiter(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                            strKonzGehalt = fktSignifikanteStellen(dblKonzGehalt, 5); // 5 stellen
-                            strKonzGehalt = strKonzGehalt.replace(",", ".");
-                        }
-                        strKonzGehaltEinheit = "g/l";
-                        tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-                        tv.setText(strKonzGehaltEinheit);
-                        break;
-
-                    case "g/l":
-                        // Umrechnung auf mol/l
-
-                        if (strKonzGehalt.equals("") == false)
-                        {
-                            dblKonzGehalt = fktGehaltUmrechnenAufMolar(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                            strKonzGehalt = fktSignifikanteStellen(dblKonzGehalt, 5); // 5 stellen
-                            strKonzGehalt = strKonzGehalt.replace(",", ".");
-                        }
-
-                        if (dblStoWert == 1)
-                        {
-                            strKonzGehaltEinheit = "mol/l";
-                            tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-                            tv.setText(strKonzGehaltEinheit);
-                            break;
-                        }
-                        else
-                        {
-                            strKonzGehaltEinheit = "M";
-                            tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-                            tv.setText(strKonzGehaltEinheit);
-                            break;
-                        }
-
-
-                    case "mol/l":
-                        // Umrechnung auf N
-
-                        if (strKonzGehalt.equals("") == false)
-                        {
-                            dblKonzGehalt = fktGehaltUmrechnenAufProzent(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                            strKonzGehalt = fktSignifikanteStellen(dblKonzGehalt, 5); // 5 stellen
-                            strKonzGehalt = strKonzGehalt.replace(",", ".");
-                        }
-                        strKonzGehaltEinheit = "%";
-                        tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-                        tv.setText(strKonzGehaltEinheit);
-                        break;
-
-                    case "M":
-                        // Umrechnung auf N
-
-                        if (strKonzGehalt.equals("") == false)
-                        {
-                            dblKonzGehalt = fktGehaltUmrechnenAufNormal(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                            strKonzGehalt = fktSignifikanteStellen(dblKonzGehalt, 5); // 5 stellen
-                            strKonzGehalt = strKonzGehalt.replace(",", ".");
-                        }
-                        strKonzGehaltEinheit = "N";
-                        tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-                        tv.setText(strKonzGehaltEinheit);
-                        break;
-
-                    case "N":
-                        // Umrechnung auf %
-
-                        if (strKonzGehalt.equals("") == false)
-                        {
-                            dblKonzGehalt = fktGehaltUmrechnenAufProzent(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                            strKonzGehalt = fktSignifikanteStellen(dblKonzGehalt, 5); // 5 stellen
-                            strKonzGehalt = strKonzGehalt.replace(",", ".");
-                        }
-                        strKonzGehaltEinheit = "%";
-                        tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-                        tv.setText(strKonzGehaltEinheit);
-                        break;
+                    et = (EditText) findViewById(R.id.etAnpassungGehalt);
+                    et.setText(" ");
+                    strKonzGehalt = "";
+                    booWechselDerEinheitErlauben = false;
                 }
-
-                et = (EditText) findViewById(R.id.etAnpassungGehalt);
-                et.setText(strKonzGehalt);
-                et.setSelection(et.getText().length());
+                else
+                {
+                    strDichte = Double.toString(dblDichte);
+                    tv = (TextView) findViewById(R.id.tvAnpassungDichte);
+                    tv.setText(strDichte);
+                    booWechselDerEinheitErlauben = true;
+                }
             }
         }
+        else
+        {
+            et = (EditText) findViewById(R.id.etAnpassungDichte);
+            strDichte = et.getText().toString();
+            dblDichte = Double.parseDouble(strDichte);
+
+            et = (EditText) findViewById(R.id.etAnpassungMolmasse);
+            strMolmasse = et.getText().toString();
+            dblMolmasse = Double.parseDouble(strMolmasse);
+
+            et = (EditText) findViewById(R.id.etAnpassungWertigkeit);
+            strStoWert = et.getText().toString();
+            dblStoWert = Double.parseDouble(strStoWert);
+        }
+
+        if(booWechselDerEinheitErlauben == true)
+        {
+            switch (strKonzGehaltEinheit)
+            {
+                case "%":
+                    // Umrechnung auf g/l
+
+                    if (strKonzGehalt.equals("") == false)
+                    {
+                        dblKonzGehalt = fktGehaltUmrechnenAufGrammProLiter(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                        strKonzGehalt = fktSignifikanteStellen(dblKonzGehalt, 5); // 5 stellen
+                        strKonzGehalt = strKonzGehalt.replace(",", ".");
+                    }
+                    strKonzGehaltEinheit = "g/l";
+                    tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+                    tv.setText(strKonzGehaltEinheit);
+                    break;
+
+                case "g/l":
+                    // Umrechnung auf mol/l
+
+                    if (strKonzGehalt.equals("") == false)
+                    {
+                        dblKonzGehalt = fktGehaltUmrechnenAufMolar(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                        strKonzGehalt = fktSignifikanteStellen(dblKonzGehalt, 5); // 5 stellen
+                        strKonzGehalt = strKonzGehalt.replace(",", ".");
+                    }
+
+                    if (dblStoWert == 1)
+                    {
+                        strKonzGehaltEinheit = "mol/l";
+                        tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+                        tv.setText(strKonzGehaltEinheit);
+                        break;
+                    }
+                    else
+                    {
+                        strKonzGehaltEinheit = "M";
+                        tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+                        tv.setText(strKonzGehaltEinheit);
+                        break;
+                    }
+
+
+                case "mol/l":
+                    // Umrechnung auf N
+
+                    if (strKonzGehalt.equals("") == false)
+                    {
+                        dblKonzGehalt = fktGehaltUmrechnenAufProzent(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                        strKonzGehalt = fktSignifikanteStellen(dblKonzGehalt, 5); // 5 stellen
+                        strKonzGehalt = strKonzGehalt.replace(",", ".");
+                    }
+                    strKonzGehaltEinheit = "%";
+                    tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+                    tv.setText(strKonzGehaltEinheit);
+                    break;
+
+                case "M":
+                    // Umrechnung auf N
+
+                    if (strKonzGehalt.equals("") == false)
+                    {
+                        dblKonzGehalt = fktGehaltUmrechnenAufNormal(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                        strKonzGehalt = fktSignifikanteStellen(dblKonzGehalt, 5); // 5 stellen
+                        strKonzGehalt = strKonzGehalt.replace(",", ".");
+                    }
+                    strKonzGehaltEinheit = "N";
+                    tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+                    tv.setText(strKonzGehaltEinheit);
+                    break;
+
+                case "N":
+                    // Umrechnung auf %
+
+                    if (strKonzGehalt.equals("") == false)
+                    {
+                        dblKonzGehalt = fktGehaltUmrechnenAufProzent(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                        strKonzGehalt = fktSignifikanteStellen(dblKonzGehalt, 5); // 5 stellen
+                        strKonzGehalt = strKonzGehalt.replace(",", ".");
+                    }
+                    strKonzGehaltEinheit = "%";
+                    tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+                    tv.setText(strKonzGehaltEinheit);
+                    break;
+            }
+        }
+
+        et = (EditText) findViewById(R.id.etAnpassungGehalt);
+        et.setText(strKonzGehalt);
+        et.setSelection(et.getText().length());
+
     } // btnAuswahl
 
     public void fktAusgabeKeinWert()

@@ -187,7 +187,7 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         if (dblErgebnis > dblMaxGehalt)
         {
             String text = "\n   Der Gehalt ist zu hoch!   \n";
-            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
             Meldung.setGravity(Gravity.BOTTOM, 0, 0);
             Meldung.show();
             return true;
@@ -387,6 +387,7 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
                         break;
                 }
             }
+
             if (dblAlterKonzGehalt >= dblKonzGehalt)
             {
                 dblAbweichung = ((dblAlterKonzGehalt - dblKonzGehalt) / dblAlterKonzGehalt) * 100;

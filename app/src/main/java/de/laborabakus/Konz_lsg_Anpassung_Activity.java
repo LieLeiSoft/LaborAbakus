@@ -341,15 +341,53 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
             // Dichte wurde ermittelt
             dblDichte = ActivityTools.fktRunden(dblDichte,5);
             // strDichte = ActivityTools.fktSignifikanteStellen(dblDichte, 5);
-            strDichte = Double.toString(dblDichte);
 
-            if (dblAlterKonzGehalt != dblKonzGehalt)
+            dblMaxGehalt = 100;
+            switch (strAuswahl)
             {
-                String text = "\n   Der Gehalt wurde angepasst!   \n   Deswegen wurde die Dichte \n   aus der  Dichtetabelle neu \n   ermittelt!   \n   Dichte = " + strDichte + "g/ml   \n";
-                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
-                Meldung.setGravity(Gravity.TOP, 0, 0);
-                Meldung.show();
+                case "0":
+                    dblMaxGehalt = 40;      // Salzsäure
+                    break;
+
+                case "8":
+                    dblMaxGehalt = 54;      // Natronlauge
+                    break;
+
+                case "9":
+                    dblMaxGehalt = 52;      // Kalilauge
+                    break;
+
+                case "10":
+                    dblMaxGehalt = 34;      // Ammoniaklösung
+                    break;
             }
+
+            dblErgebnis = fktGehaltUmrechnenAufProzent(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+
+            if (dblErgebnis > dblMaxGehalt)
+            {
+                fktDichteKonnteNichtErmitteltWerden();
+            }
+            else
+            {
+                if (dblDichte == 0)
+                {
+                    fktDichteKonnteNichtErmitteltWerden();
+                }
+                else
+                {
+                    strDichte = Double.toString(dblDichte);
+
+                    if (dblAlterKonzGehalt != dblKonzGehalt)
+                    {
+                        String text = "\n   Der Gehalt wurde angepasst!   \n   Deswegen wurde die Dichte \n   aus der  Dichtetabelle neu \n   ermittelt!   \n   Dichte = " + strDichte + "g/ml   \n";
+                        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
+                        Meldung.setGravity(Gravity.TOP, 0, 0);
+                        Meldung.show();
+                    }
+                }
+            }
+
 
             tv = (TextView) findViewById(R.id.tvAnpassungDichte);
             tv.setText(strDichte);
@@ -358,53 +396,55 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         {
             et = (EditText) findViewById(R.id.etAnpassungDichte);
             strDichte = et.getText().toString();
-        }
 
-
-        tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
-        strKonzGehaltEinheit = tv.getText().toString();
-
-        if (strDichte.equals(strAlteDichte) == true)
-        {
-            if (strAlteKonzGehaltEinheit.equals(strKonzGehaltEinheit) == false)
+            if (strDichte.equals(strAlteDichte) == true)
             {
-                switch (strKonzGehaltEinheit)
+                if (strAlteKonzGehaltEinheit.equals(strKonzGehaltEinheit) == false)
                 {
-                    case "%":
-                        dblAlterKonzGehalt = fktGehaltUmrechnenAufProzent(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                        break;
-                    case "g/l":
-                        dblAlterKonzGehalt = fktGehaltUmrechnenAufGrammProLiter(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                        break;
-                    case "mol/l":
-                        dblAlterKonzGehalt = fktGehaltUmrechnenAufMolar(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                        break;
-                    case "M":
-                        dblAlterKonzGehalt = fktGehaltUmrechnenAufMolar(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                        break;
-                    case "N":
-                        dblAlterKonzGehalt = fktGehaltUmrechnenAufNormal(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
-                        break;
+                    switch (strKonzGehaltEinheit)
+                    {
+                        case "%":
+                            dblAlterKonzGehalt = fktGehaltUmrechnenAufProzent(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                            break;
+                        case "g/l":
+                            dblAlterKonzGehalt = fktGehaltUmrechnenAufGrammProLiter(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                            break;
+                        case "mol/l":
+                            dblAlterKonzGehalt = fktGehaltUmrechnenAufMolar(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                            break;
+                        case "M":
+                            dblAlterKonzGehalt = fktGehaltUmrechnenAufMolar(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                            break;
+                        case "N":
+                            dblAlterKonzGehalt = fktGehaltUmrechnenAufNormal(dblKonzGehalt, strAuswahl, strKonzGehaltEinheit, dblStoWert, dblMolmasse, dblDichte);
+                            break;
+                    }
+                }
+
+                if (dblAlterKonzGehalt >= dblKonzGehalt)
+                {
+                    dblAbweichung = ((dblAlterKonzGehalt - dblKonzGehalt) / dblAlterKonzGehalt) * 100;
+                }
+                else
+                {
+                    dblAbweichung = ((dblKonzGehalt - dblAlterKonzGehalt) / dblKonzGehalt) * 100;
+                }
+
+                if (dblAbweichung > 1)
+                {
+                    String text = "\nAchtung: Der Gehalt wurde gravierend geändert ohne die Dichte anzupassen!! Ist das korrekt?\n";
+                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
+                    Meldung.setGravity(Gravity.TOP, 0, 0);
+                    Meldung.show();
                 }
             }
-
-            if (dblAlterKonzGehalt >= dblKonzGehalt)
-            {
-                dblAbweichung = ((dblAlterKonzGehalt - dblKonzGehalt) / dblAlterKonzGehalt) * 100;
-            }
-            else
-            {
-                dblAbweichung = ((dblKonzGehalt - dblAlterKonzGehalt) / dblKonzGehalt) * 100;
-            }
-
-            if (dblAbweichung > 1)
-            {
-                String text = "\nAchtung: Der Gehalt wurde gravierend geändert ohne die Dichte anzupassen!! Ist das korrekt?\n";
-                Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
-                Meldung.setGravity(Gravity.TOP, 0, 0);
-                Meldung.show();
-            }
         }
+
+
+        //tv = (TextView) findViewById(R.id.tvAnpassungEinheit);
+        //strKonzGehaltEinheit = tv.getText().toString();
+        //  wurde raus genommen, weil bei einem Absturz die KonzGehaltEinheit nicht zurück gestzt wird und hier neu ausgelesen wird.
+
 
         if (strAuswahl.equals("0") || strAuswahl.equals("1") || strAuswahl.equals("2") ||
                 strAuswahl.equals("3") || strAuswahl.equals("4") || strAuswahl.equals("5") ||
@@ -421,8 +461,6 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
             TableRow tr;
             tr = (TableRow) findViewById(R.id.trMolmasse);
-
-
 
             tv = (TextView) findViewById(R.id.tvAnpassungMolmasse);
             strMolmasse = tv.getText().toString();
@@ -484,10 +522,6 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
                 strAuswahl.equals("6") || strAuswahl.equals("8") || strAuswahl.equals("9") ||
                 strAuswahl.equals("10")  == true)
         {
-            //tv = (TextView) findViewById(R.id.tvAnpassungDichte);
-            //strDichte = tv.getText().toString();
-            //dblDichte = Double.parseDouble(strDichte);
-
             tv = (TextView) findViewById(R.id.tvAnpassungMolmasse);
             strMolmasse = tv.getText().toString();
             dblMolmasse = Double.parseDouble(strMolmasse);
@@ -657,6 +691,17 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         Toast Meldung = Toast.makeText(Konz_lsg_Anpassung_Activity.this, text, Toast.LENGTH_SHORT);
         Meldung.setGravity(Gravity.BOTTOM, 0, 0);
         Meldung.show();
+    }
+
+    public void fktDichteKonnteNichtErmitteltWerden()
+    {
+        String text = "\n   Der Gehalt liegt außerhalb \n   des zulässigen Bereiches. \n   Deswegen konnte die neue   \n   Dichte nicht ermittlet    \n   werden! Die Dichte \n   und der Gehalt wurden  \n   auf die alten Werte \n   zurück gesetzt!  \n";
+        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
+        Meldung.setGravity(Gravity.TOP, 0, 0);
+        Meldung.show();
+        strDichte = strAlteDichte;
+        strKonzGehalt = strAlterKonzGehalt;
+        strKonzGehaltEinheit = strAlteKonzGehaltEinheit;
     }
 
 

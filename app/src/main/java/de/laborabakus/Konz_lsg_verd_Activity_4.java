@@ -364,7 +364,7 @@ public class Konz_lsg_verd_Activity_4 extends Activity
             {
                 case "g/l":                                 //Wenn die Einheit der Konzentration der Verdünnung g/l ist
                     dblVerdKonzMol = Double.parseDouble(strVerdGehalt);
-                    dblVerdKonzMol = fktGehaltUmrechnenAufMolar(dblVerdGehalt, strAuswahl, strVerdGehaltEinheit, dblStoWert, dblMolmasse, dblVerdDichte);
+                    dblVerdKonzMol = fktGehaltUmrechnenAufMolar(dblVerdKonzMol, strAuswahl, strVerdGehaltEinheit, dblStoWert, dblMolmasse, dblVerdDichte);
                     strVerdKonzMol = Double.toString(dblVerdKonzMol); // für die Funktion Dichtetabelle
                     break;
                 case "mol/l":                               // bei mol/l keine Umrechnung
@@ -377,7 +377,7 @@ public class Konz_lsg_verd_Activity_4 extends Activity
                     break;
                 case "N":
                     dblVerdKonzMol = Double.parseDouble(strVerdGehalt);
-                    dblVerdKonzMol = fktGehaltUmrechnenAufMolar(dblVerdGehalt, strAuswahl, strVerdGehaltEinheit, dblStoWert, dblMolmasse, dblVerdDichte);
+                    dblVerdKonzMol = fktGehaltUmrechnenAufMolar(dblVerdKonzMol, strAuswahl, strVerdGehaltEinheit, dblStoWert, dblMolmasse, dblVerdDichte);
                     strVerdKonzMol = Double.toString(dblVerdKonzMol); // für die Funktion Dichtetabelle
                     break;
             }
@@ -426,9 +426,8 @@ public class Konz_lsg_verd_Activity_4 extends Activity
                                             tv.setText(strVerdGehalt);
 
                                             double dblDummy = 0;
-                                            strVerdGehaltneu = Double.toString(fktGehaltUmrechnenAufMolar(Double.parseDouble(strVerdGehalt), strAuswahl, strVerdGehaltEinheit, dblStoWert, dblMolmasse, dblVerdDichte));
 
-                                            dblVerdDichte = fktDichtetabellen(strKonzAuswahl, dblDummy, dblKonzMenge, dblVerdMenge, strVerdGehaltneu, strVerdGehaltEinheit); // Aufruf der Funktion Dichtetabelle
+                                            dblVerdDichte = fktDichtetabellen(strKonzAuswahl, dblDummy, dblKonzMenge, dblVerdMenge, strVerdKonzMol, strVerdGehaltEinheit); // Aufruf der Funktion Dichtetabelle
                                             // Dichte wurde ermittelt
 
                                             tr = (TableRow) findViewById(R.id.trDichteVerd);                                        // TableRow für die Dichte wird sichtbar gemacht.

@@ -32,6 +32,7 @@ public class Konz_lsg_verd_Activity_2 extends Activity
 {
     View v;
     TextView tv;
+    TextView tv2;
     EditText et;
     TableRow tr;
     String strAuswahl;
@@ -580,6 +581,13 @@ public class Konz_lsg_verd_Activity_2 extends Activity
                             strVerdMengeEinheit +" verdünnt werden muss.");
 
                     tv.setText(finalText);
+
+                    tv2 = (TextView) findViewById(R.id.tvKonzErgebnis2);
+                    tv2.setTextSize(getResources().getDimension(R.dimen.textsize_3sp));
+                    tv2.setText(strKonzAuswahl + " " + strKonzGehalt+strKonzGehaltEinheit +
+                            " \n Dichte = " + strKonzDichte + " g/ml \n" +
+                            " Molmasse = " + strKonzMolmasse + " mol/l \n " +
+                            " Stöchiometrische Wertigkeit = " + strStoWert);
                 }
 
 

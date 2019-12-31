@@ -34,6 +34,7 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
 
     View v;
     TextView tv;
+    TextView tv2;
     TableRow tr;
     EditText et;
     String strAuswahl;
@@ -441,6 +442,13 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
                                             + strKonzAuswahl + " aus der Tabelle ist "  + strVerdDichte + "g/ml.");
 
                             tv.setText(finalText);
+
+                            tv2 = (TextView) findViewById(R.id.tvKonzErgebnis2);
+                            tv2.setTextSize(getResources().getDimension(R.dimen.textsize_3sp));
+                            tv2.setText(strKonzAuswahl + " " + strKonzGehalt+strKonzGehaltEinheit +
+                                    " \n Dichte = " + strKonzDichte + " g/ml \n" +
+                                    " Molmasse = " + strKonzMolmasse + " mol/l \n " +
+                                    " Stöchiometrische Wertigkeit = " + strStoWert);
                         }
                         else
                         {
@@ -453,6 +461,13 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
                                             + strKonzAuswahl + " aus der Tabelle ist "  + strVerdDichte + "g/ml.");
 
                             tv.setText(finalText);
+
+                            tv2 = (TextView) findViewById(R.id.tvKonzErgebnis2);
+                            tv2.setTextSize(getResources().getDimension(R.dimen.textsize_3sp));
+                            tv2.setText(strKonzAuswahl + " " + strKonzGehalt+strKonzGehaltEinheit +
+                                    " \n Dichte = " + strKonzDichte + " g/ml \n" +
+                                    " Molmasse = " + strKonzMolmasse + " mol/l \n " +
+                                    " Stöchiometrische Wertigkeit = " + strStoWert);
                         }
 
 
@@ -469,6 +484,13 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
                                             strKonzAuswahl +" mit einem Gehalt von ", span , ".");
 
                             tv.setText(finalText);
+
+                            tv2 = (TextView) findViewById(R.id.tvKonzErgebnis2);
+                            tv2.setTextSize(getResources().getDimension(R.dimen.textsize_3sp));
+                            tv2.setText(strKonzAuswahl + " " + strKonzGehalt+strKonzGehaltEinheit +
+                                    " \n Dichte = " + strKonzDichte + " g/ml \n" +
+                                    " Molmasse = " + strKonzMolmasse + " mol/l \n " +
+                                    " Stöchiometrische Wertigkeit = " + strStoWert);
                         }
                         else
                         {
@@ -479,6 +501,13 @@ public class Konz_lsg_verd_Activity_6 extends Activity /*implements OnFocusChang
                                             "", span ," " + strKonzAuswahl  +".");
 
                             tv.setText(finalText);
+
+                            tv2 = (TextView) findViewById(R.id.tvKonzErgebnis2);
+                            tv2.setTextSize(getResources().getDimension(R.dimen.textsize_3sp));
+                            tv2.setText(strKonzAuswahl + " " + strKonzGehalt+strKonzGehaltEinheit +
+                                    " \n Dichte = " + strKonzDichte + " g/ml \n" +
+                                    " Molmasse = " + strKonzMolmasse + " mol/l \n " +
+                                    " Stöchiometrische Wertigkeit = " + strStoWert);
                         }
 
 

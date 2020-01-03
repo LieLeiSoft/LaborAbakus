@@ -216,8 +216,10 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
         if (strAuswahl.equals("0") || strAuswahl.equals("1") || strAuswahl.equals("2") ||
                 strAuswahl.equals("3") || strAuswahl.equals("4") || strAuswahl.equals("5") ||
-                strAuswahl.equals("6") || strAuswahl.equals("8") || strAuswahl.equals("9") ||
-                strAuswahl.equals("10")  == true)
+                strAuswahl.equals("6") || strAuswahl.equals("7") || strAuswahl.equals("8") ||
+                strAuswahl.equals("9") || strAuswahl.equals("10") || strAuswahl.equals("11") ||
+                strAuswahl.equals("12") || strAuswahl.equals("13") || strAuswahl.equals("14") ||
+                strAuswahl.equals("15")== true)
         {
             et = (EditText) findViewById(R.id.etAnpassungName);
             et.setVisibility(View.GONE);
@@ -324,8 +326,10 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
         if (strAuswahl.equals("0") || strAuswahl.equals("1") || strAuswahl.equals("2") ||
                 strAuswahl.equals("3") || strAuswahl.equals("4") || strAuswahl.equals("5") ||
-                strAuswahl.equals("6") || strAuswahl.equals("8") || strAuswahl.equals("9") ||
-                strAuswahl.equals("10")  == true)
+                strAuswahl.equals("6") || strAuswahl.equals("7") || strAuswahl.equals("8") ||
+                strAuswahl.equals("9") || strAuswahl.equals("10") || strAuswahl.equals("11") ||
+                strAuswahl.equals("12") || strAuswahl.equals("13") || strAuswahl.equals("14") ||
+                strAuswahl.equals("15")== true)
         {
 
             double dblDummy = 0; double dblVerdMenge = 0; double dblKonzMenge = 0;
@@ -448,8 +452,10 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
         if (strAuswahl.equals("0") || strAuswahl.equals("1") || strAuswahl.equals("2") ||
                 strAuswahl.equals("3") || strAuswahl.equals("4") || strAuswahl.equals("5") ||
-                strAuswahl.equals("6") || strAuswahl.equals("8") || strAuswahl.equals("9") ||
-                strAuswahl.equals("10")  == true)
+                strAuswahl.equals("6") || strAuswahl.equals("7") || strAuswahl.equals("8") ||
+                strAuswahl.equals("9") || strAuswahl.equals("10") || strAuswahl.equals("11") ||
+                strAuswahl.equals("12") || strAuswahl.equals("13") || strAuswahl.equals("14") ||
+                strAuswahl.equals("15")== true)
         {
             tv = (TextView) findViewById(R.id.tvAnpassungName);
             strKonzAuswahl = tv.getText().toString();
@@ -519,8 +525,10 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
 
         if (strAuswahl.equals("0") || strAuswahl.equals("1") || strAuswahl.equals("2") ||
                 strAuswahl.equals("3") || strAuswahl.equals("4") || strAuswahl.equals("5") ||
-                strAuswahl.equals("6") || strAuswahl.equals("8") || strAuswahl.equals("9") ||
-                strAuswahl.equals("10")  == true)
+                strAuswahl.equals("6") || strAuswahl.equals("7") || strAuswahl.equals("8") ||
+                strAuswahl.equals("9") || strAuswahl.equals("10") || strAuswahl.equals("11") ||
+                strAuswahl.equals("12") || strAuswahl.equals("13") || strAuswahl.equals("14") ||
+                strAuswahl.equals("15")== true)
         {
             tv = (TextView) findViewById(R.id.tvAnpassungMolmasse);
             strMolmasse = tv.getText().toString();

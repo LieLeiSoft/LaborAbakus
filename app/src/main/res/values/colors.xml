@@ -2,4 +2,7 @@
 <resources>
     <color name="chellhellgrau">#C3C3C3</color>
     <color name="chellrot">#F65E2C</color>
+    <color name="chellrosa">#ff9180</color>
+    <color name="chellhellblau">#8c9fff</color>
+
 </resources>

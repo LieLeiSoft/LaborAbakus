@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/v_scroll"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:background="@color/cHellblau"
+    android:background="@color/chellhellgrau"
+    android:orientation="vertical"
     android:stretchColumns="*"
     android:shrinkColumns="0"
     android:weightSum="1">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView01"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
             android:text="Auswahl"
             android:textColor="@color/cSchwarz"
             android:textSize="14dp" />
@@ -31,21 +38,28 @@
 
         <Button
             android:id="@+id/KonzAuswahl_0"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellrosa"
+            android:gravity="center_horizontal|center_vertical"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
-            android:textSize="14dp" />
+            android:textSize="14dp"/>
 
         <Button
             android:id="@+id/btnLsg_0"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellrosa"
+            android:gravity="center_horizontal|center_vertical"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -58,21 +72,28 @@
 
         <Button
             android:id="@+id/KonzAuswahl_1"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellrosa"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
             android:onClick="btnAuswahl"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_1"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellrosa"
+            android:gravity="center_horizontal|center_vertical"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -85,21 +106,26 @@
 
         <Button
             android:id="@+id/KonzAuswahl_2"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_2"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -112,21 +138,26 @@
 
         <Button
             android:id="@+id/KonzAuswahl_3"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_3"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -139,21 +170,26 @@
 
         <Button
             android:id="@+id/KonzAuswahl_4"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_4"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -166,21 +202,26 @@
 
         <Button
             android:id="@+id/KonzAuswahl_5"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_5"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -193,21 +234,26 @@
 
         <Button
             android:id="@+id/KonzAuswahl_6"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_6"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -220,21 +266,26 @@
 
         <Button
             android:id="@+id/KonzAuswahl_7"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_7"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellrosa"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -247,21 +298,26 @@
 
         <Button
             android:id="@+id/KonzAuswahl_8"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_8"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -274,21 +330,26 @@
 
         <Button
             android:id="@+id/KonzAuswahl_9"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_9"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -301,21 +362,27 @@
 
         <Button
             android:id="@+id/KonzAuswahl_10"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_10"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
@@ -328,25 +395,328 @@
 
         <Button
             android:id="@+id/KonzAuswahl_11"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
             android:onClick="btnAuswahl"
+            android:layout_weight="1"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
         <Button
             android:id="@+id/btnLsg_11"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="1dp"
-            android:gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
             android:onClick="btnLsg"
+            android:layout_weight="2"
             android:text="anpassen"
             android:textAllCaps="false"
             android:textSize="14dp" />
 
     </TableRow>
 
-</TableLayout>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/KonzAuswahl_12"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
+            android:onClick="btnAuswahl"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_12"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="btnLsg"
+            android:layout_weight="2"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/KonzAuswahl_13"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
+            android:onClick="btnAuswahl"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_13"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="btnLsg"
+            android:layout_weight="2"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/KonzAuswahl_14"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
+            android:onClick="btnAuswahl"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_14"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="btnLsg"
+            android:layout_weight="2"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/KonzAuswahl_15"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
+            android:onClick="btnAuswahl"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_15"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="btnLsg"
+            android:layout_weight="2"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/KonzAuswahl_16"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
+            android:onClick="btnAuswahl"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_16"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="btnLsg"
+            android:layout_weight="2"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/KonzAuswahl_17"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
+            android:onClick="btnAuswahl"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_17"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="btnLsg"
+            android:layout_weight="2"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/KonzAuswahl_18"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
+            android:onClick="btnAuswahl"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_18"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="btnLsg"
+            android:layout_weight="2"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/KonzAuswahl_19"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
+            android:onClick="btnAuswahl"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_19"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="btnLsg"
+            android:layout_weight="2"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/KonzAuswahl_20"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/chellhellblau"
+            android:onClick="btnAuswahl"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btnLsg_20"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
+            android:onClick="btnLsg"
+            android:layout_weight="2"
+            android:text="anpassen"
+            android:textAllCaps="false"
+            android:textSize="14dp" />
+
+    </TableRow>
+    </LinearLayout>
+</ScrollView>

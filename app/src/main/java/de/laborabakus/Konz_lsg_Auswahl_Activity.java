@@ -203,7 +203,7 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
             prefEditor.apply();
             // Musterlauge
             prefEditor.putString("KonzAuswahl_20", "Musterlösung");
-            prefEditor.putString("KonzGehalt_20", "10");
+            prefEditor.putString("KonzGehalt_20", "2.5");
             prefEditor.putString("KonzGehaltEinheit_20", "M");
             prefEditor.putString("Dichte_20", "0.987");
             prefEditor.putString("Molmasse_20", "123");

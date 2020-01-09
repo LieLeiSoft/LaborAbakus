@@ -179,10 +179,10 @@ public class Konz_lsg_Auswahl_Activity extends Activity /*implements View.OnClic
             prefEditor.apply();
             // Musterlauge
             prefEditor.putString("KonzAuswahl_17", "Musterlauge");
-            prefEditor.putString("KonzGehalt_17", "10");
+            prefEditor.putString("KonzGehalt_17", "5");
             prefEditor.putString("KonzGehaltEinheit_17", "mol/l");
             prefEditor.putString("Dichte_17", "0.777");
-            prefEditor.putString("Molmasse_17", "456");
+            prefEditor.putString("Molmasse_17", "11");
             prefEditor.putString("Wertigkeit_17", "1");
             prefEditor.apply();
             // Musterlauge

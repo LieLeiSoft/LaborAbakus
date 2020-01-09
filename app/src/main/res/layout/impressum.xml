@@ -9,7 +9,9 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/Impressum"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="30sp"
+        android:textStyle="italic" />
 
     <TextView
         android:layout_width="match_parent"
@@ -17,6 +19,8 @@
         android:gravity="center"
         android:text="@string/Copyright"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/cGold" />
+        android:textColor="@color/cDunkelblau"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
 
 </LinearLayout>

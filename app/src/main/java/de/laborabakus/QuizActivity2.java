@@ -1062,7 +1062,7 @@ public class QuizActivity2 extends Activity {
 			tv = (TextView) findViewById(R.id.tvPunkte);
 			tv.setText(" " +strPunkte + " ");
 
-            if(intHupe == 0 && intPunkte >= 25 && intHighscore < intPunkte)     // spielt Hupe, wenn der Level geknackt wurde
+            if(intHupe == 0 && intPunkte >= 15 && intHighscore < intPunkte)     // spielt Hupe, wenn der Level geknackt wurde
             {
                 mpTonHighScore.start();
                 intHupe = 1;

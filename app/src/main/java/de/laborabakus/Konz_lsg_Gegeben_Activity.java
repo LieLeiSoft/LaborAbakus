@@ -1,9 +1,6 @@
 package de.laborabakus;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
 
 public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChangeListener */
 {
@@ -31,7 +28,7 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
 
 
         String [] splitResult = new String [2];
-        String[][] arrWert = new String [10][102];
+        String[][] arrWert = new String [11][102];
 
         arrWert [2][0]  = "1_0";             arrWert [3][0]  = "1_0";               arrWert [1][0]  = "1_0";
         arrWert [2][1]  = "1.0051_0.1025";   arrWert [3][1]  = "1.004_0.1593";      arrWert [1][1]  = "1.003_0.2751";
@@ -347,8 +344,113 @@ public class Konz_lsg_Gegeben_Activity extends Activity /*implements OnFocusChan
 
         // Kontrolle der Eingaben!
 
+        arrWert [10][0]  = "1_0";
+        arrWert [10][1]  = "1.003_0.0998";
+        arrWert [10][2]  = "1.008_0.2007";
+        arrWert [10][3]  = "1.014_0.3028";
+        arrWert [10][4]  = "1.020_0.4061";
+        arrWert [10][5]  = "1.026_0.5107";
+        arrWert [10][6]  = "1.032_0.6164";
+        arrWert [10][7]  = "1.038_0.7233";
+        arrWert [10][8]  = "1.044_0.8314";
+        arrWert [10][9]  = "1.050_0.9407";
+        arrWert [10][10] = "1.056_1.0512";
+        arrWert [10][11] = "1.062_1.1629";
+        arrWert [10][12] = "1.069_1.2769";
+        arrWert [10][13] = "1.075_1.3911";
+        arrWert [10][14] = "1.082_1.5079";
+        arrWert [10][15] = "1.088_1.6246";
+        arrWert [10][16] = "1.095_1.7440";
+        arrWert [10][17] = "1.102_1.8648";
+        arrWert [10][18] = "1.109_1.9871";
+        arrWert [10][19] = "1.116_2.1107";
+        arrWert [10][20] = "1.123_2.2357";
+        arrWert [10][21] = "1.130_2.3622";
+        arrWert [10][22] = "1.137_2.4900";
+        arrWert [10][23] = "1.145_2.6215";
+        arrWert [10][24] = "1.152_2.7522";
+        arrWert [10][25] = "1.160_2.8868";
+        arrWert [10][26] = "1.168_3.0229";
+        arrWert [10][27] = "1.175_3.1580";
+        arrWert [10][28] = "1.184_3.3001";
+        arrWert [10][29] = "1.192_3.4410";
+        arrWert [10][30] = "1.200_3.5836";
+        arrWert [10][31] = "1.208_3.7277";
+        arrWert [10][32] = "1.217_3.8766";
+        arrWert [10][33] = "1.226_4.0273";
+        arrWert [10][34] = "1.234_4.1765";
+        arrWert [10][35] = "1.243_4.3306";
+        arrWert [10][36] = "1.253_4.4902";
+        arrWert [10][37] = "1.262_4.6481";
+        arrWert [10][38] = "1.271_4.8078";
+        arrWert [10][39] = "1.281_4.9731";
+        arrWert [10][40] = "1.291_5.1404";
+        arrWert [10][41] = "1.301_5.3098";
+        arrWert [10][42] = "1.311_5.4811";
+        arrWert [10][43] = "1.321_5.6544";
+        arrWert [10][44] = "1.331_5.8297";
+        arrWert [10][45] = "1.342_6.0114";
+        arrWert [10][46] = "1.353_6.1954";
+        arrWert [10][47] = "1.364_6.3815";
+        arrWert [10][48] = "1.375_6.5699";
+        arrWert [10][49] = "1.386_6.7604";
+        arrWert [10][50] = "1.398_6.9581";
+        arrWert [10][51] = "1.410_7.1582";
+        arrWert [10][52] = "1.422_7.3607";
+        arrWert [10][53] = "1.434_7.5655";
+        arrWert [10][54] = "1.446_7.7728";
+        arrWert [10][55] = "1.459_7.9879";
+        arrWert [10][56] = "1.471_8.2000";
+        arrWert [10][57] = "1.484_8.4202";
+        arrWert [10][58] = "1.498_8.6487";
+        arrWert [10][59] = "1.511_8.8742";
+        arrWert [10][60] = "1.525_9.1082";
+        arrWert [10][61] = "1.538_9.3390";
+        arrWert [10][62] = "1.553_9.5847";
+        arrWert [10][63] = "1.567_9.8270";
+        arrWert [10][64] = "1.581_10.0722";
+        arrWert [10][65] = "1.596_10.3267";
+        arrWert [10][66] = "1.610_10.5775";
+        arrWert [10][67] = "1.624_10.8311";
+        arrWert [10][68] = "1.639_11.0943";
+        arrWert [10][69] = "1.654_11.3605";
+        arrWert [10][70] = "1.669_11.6297";
+        arrWert [10][71] = "1.684_11.9018";
+        arrWert [10][72] = "1.698_12.1698";
+        arrWert [10][73] = "1.713_12.4478";
+        arrWert [10][74] = "1.727_12.7215";
+        arrWert [10][75] = "1.741_12.9979";
+        arrWert [10][76] = "1.755_13.2771";
+        arrWert [10][77] = "1.769_13.5591";
+        arrWert [10][78] = "1.782_13.8362";
+        arrWert [10][79] = "1.795_14.1158";
+        arrWert [10][80] = "1.807_14.3900";
+        arrWert [10][81] = "1.819_14.6667";
+        arrWert [10][82] = "1.830_14.9375";
+        arrWert [10][83] = "1.840_15.2023";
+        arrWert [10][84] = "1.849_15.4607";
+        arrWert [10][85] = "1.858_15.7209";
+        arrWert [10][86] = "1.865_15.9658";
+        arrWert [10][87] = "1.871_16.2034";
+        arrWert [10][88] = "1.876_16.4335";
+        arrWert [10][89] = "1.879_16.6468";
+        arrWert [10][90] = "1.881_16.8517";
+        arrWert [10][91] = "1.881_17.0390";
+        arrWert [10][92] = "1.879_17.2079";
+        arrWert [10][93] = "1.874_17.3487";
+        arrWert [10][94] = "1.868_17.4791";
+        arrWert [10][95] = "1.859_17.5799";
+        arrWert [10][96] = "1.848_17.6598";
+        arrWert [10][97] = "1.833_17.6990";
+        arrWert [10][98] = "1.816_17.7156";
+        arrWert [10][99] = "1.795_17.6894";
+        arrWert [10][100]= "1.770_17.6192";
+        arrWert [10][101]= "Perchlorsäure";
 
-        for (intAuswahl=1; intAuswahl<=9; intAuswahl++)
+        // Kontrolle der Eingaben!
+
+
+        for (intAuswahl=1; intAuswahl<=10; intAuswahl++)
         {
             if (arrWert[intAuswahl][101].equals(strKonzAuswahl) == true)    // Hier wird die entspechende Tabelle (Salzsäure etc) ausgewählt
             {

@@ -168,16 +168,25 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
             case "0":
                 dblMaxGehalt = 40;      // Salzsäure
                 break;
+            case "1":
+                dblMaxGehalt = 40;      // Salzsäure
+                break;
 
-            case "8":
+            case "11":
+                dblMaxGehalt = 54;      // Natronlauge
+                break;
+            case "12":
                 dblMaxGehalt = 54;      // Natronlauge
                 break;
 
-            case "9":
+            case "13":
                 dblMaxGehalt = 52;      // Kalilauge
                 break;
 
-            case "10":
+            case "14":
+                dblMaxGehalt = 34;      // Ammoniaklösung
+                break;
+            case "15":
                 dblMaxGehalt = 34;      // Ammoniaklösung
                 break;
         }
@@ -352,16 +361,25 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
                 case "0":
                     dblMaxGehalt = 40;      // Salzsäure
                     break;
+                case "1":
+                    dblMaxGehalt = 40;      // Salzsäure
+                    break;
 
-                case "8":
+                case "11":
+                    dblMaxGehalt = 54;      // Natronlauge
+                    break;
+                case "12":
                     dblMaxGehalt = 54;      // Natronlauge
                     break;
 
-                case "9":
+                case "13":
                     dblMaxGehalt = 52;      // Kalilauge
                     break;
 
-                case "10":
+                case "14":
+                    dblMaxGehalt = 34;      // Ammoniaklösung
+                    break;
+                case "15":
                     dblMaxGehalt = 34;      // Ammoniaklösung
                     break;
             }

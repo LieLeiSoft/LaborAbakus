@@ -71,8 +71,8 @@
                 android:inputType="numberDecimal"
                 android:minWidth="200dp"
                 android:nextFocusDown="@+id/Rueckwaage_1"
-                android:textColor="@color/cGold"
-                android:textColorHint="@color/cGold" />
+                android:textColor="@color/cDunkelblau"
+                android:textColorHint="@color/cDunkelblau" />
 
         </TableRow>
 
@@ -92,8 +92,8 @@
                 android:inputType="numberDecimal"
                 android:minWidth="200dp"
                 android:nextFocusDown="@+id/Rueckwaage_2"
-                android:textColor="@color/cGold"
-                android:textColorHint="@color/cGold"
+                android:textColor="@color/cDunkelblau"
+                android:textColorHint="@color/cDunkelblau"
                 android:visibility="gone" />
 
         </TableRow>
@@ -114,8 +114,8 @@
                 android:inputType="numberDecimal"
                 android:minWidth="200dp"
                 android:nextFocusDown="@+id/Rueckwaage_3"
-                android:textColor="@color/cGold"
-                android:textColorHint="@color/cGold"
+                android:textColor="@color/cDunkelblau"
+                android:textColorHint="@color/cDunkelblau"
                 android:visibility="gone" />
 
         </TableRow>
@@ -136,8 +136,8 @@
                 android:inputType="numberDecimal"
                 android:minWidth="200dp"
                 android:nextFocusDown="@+id/Rueckwaage_4"
-                android:textColor="@color/cGold"
-                android:textColorHint="@color/cGold"
+                android:textColor="@color/cDunkelblau"
+                android:textColorHint="@color/cDunkelblau"
                 android:visibility="gone" />
 
         </TableRow>
@@ -158,8 +158,8 @@
                 android:inputType="numberDecimal"
                 android:minWidth="200dp"
                 android:nextFocusDown="@+id/Rueckwaage_5"
-                android:textColor="@color/cGold"
-                android:textColorHint="@color/cGold"
+                android:textColor="@color/cDunkelblau"
+                android:textColorHint="@color/cDunkelblau"
                 android:visibility="gone" />
 
         </TableRow>
@@ -180,8 +180,8 @@
                 android:inputType="numberDecimal"
                 android:minWidth="200dp"
                 android:nextFocusDown="@+id/btnWeiter"
-                android:textColor="@color/cGold"
-                android:textColorHint="@color/cGold"
+                android:textColor="@color/cDunkelblau"
+                android:textColorHint="@color/cDunkelblau"
                 android:visibility="gone" />
 
         </TableRow>

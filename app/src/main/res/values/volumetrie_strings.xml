@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Abakus</string>
-    <string name="Copyright">Ingo Leisner &amp; Frank Liekefett  © 2015</string>
+    <string name="Copyright">Ingo Leisner \nund\n Frank Liekefett  \n© 2020</string>
     <string name="Beschriftung_Gravimetrie" >Gravimetrische Berechnungen</string>
     <string name="Beschriftung_Review" >Review - Kontrolle von Analysenrohdaten</string>
     <string name="Beschriftung_Titer">Volumetrische Berechnung des Titers mit einer anderen Maßlösung</string>
@@ -93,7 +93,7 @@
     <string name="Massenkonstanz_in_mg">aktuell: Massekonstanz</string>
     <string name="Milligramm">mg</string>
     <color name="cBlau">#0000FF</color>
-    <color name="cDunkelblau">#0d0166</color>
+    <color name="cDunkelblau">#0D0166</color>
     <color name="cGold">#FFCC00</color>
     <color name="cSchwarz">#000000</color>
     <color name="cWeiss">#ffffff</color>

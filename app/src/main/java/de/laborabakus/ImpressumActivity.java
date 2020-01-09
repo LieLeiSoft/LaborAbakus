@@ -14,7 +14,7 @@ public class ImpressumActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-     	setContentView(R.layout.org_strukturformeln);
+     	setContentView(R.layout.impressum);
      	
 		// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);

@@ -4630,7 +4630,7 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][0] = Integer.toString(intLevel);
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Mangan(II)-sulfat";
-        Quizfragen[intLfdNr_Gesamt][3] = "150.001";
+        Quizfragen[intLfdNr_Gesamt][3] = "150.998";
         Quizfragen[intLfdNr_Gesamt][4] = "MnSO4";  // Elemente 3 – 151.001 g/mol
 
         intLfdNr_Level++;

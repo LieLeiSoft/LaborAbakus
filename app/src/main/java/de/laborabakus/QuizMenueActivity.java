@@ -100,81 +100,81 @@ public class QuizMenueActivity extends Activity {
 		tv = (TextView) findViewById(R.id.btnLevel_0);
 		tv.setVisibility(View.VISIBLE);
 		strHighscore = Integer.toString(arrHighscore[1]);
-		tv.setText("\nLevel 1 - Hauptgruppenelemente\n Highscore: "+strHighscore+"  (min. 25)\n");
+		tv.setText("\nLevel 1 - Hauptgruppenelemente\n Highscore: "+strHighscore+"  (min. 15)\n");
 
-		if(arrHighscore[1] > 24)
+		if(arrHighscore[1] > 14)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_1);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[2]);
 			if (arrHighscore[2] == 0)
 			{
-				tv.setText("\nLevel 2\n Highscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 2\n Highscore: "+strHighscore+"  (min. 15)\n");
 			}
 			else
 			{
-				tv.setText("\nLevel 2 - Nebengruppenelemente\n Highscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 2 - Nebengruppenelemente\n Highscore: "+strHighscore+"  (min. 15)\n");
 			}
 
 			prefEditor.putString("QuizHilfe", "2");
 			prefEditor.apply();
 		}
 
-		if(arrHighscore[2] > 24)
+		if(arrHighscore[2] > 14)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_2);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[3]);
 			if (arrHighscore[3] == 0)
 			{
-				tv.setText("\nLevel 3\n Highscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 3\n Highscore: "+strHighscore+"  (min. 15)\n");
 			}
 			else
 			{
-				tv.setText("\nLevel 3 - Binäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 3 - Binäre Verbindungen\n Highscore: "+strHighscore+"  (min. 15)\n");
 			}
 
 			prefEditor.putString("QuizHilfe", "3");
 			prefEditor.apply();
 		}
 
-		if(arrHighscore[3] > 24)
+		if(arrHighscore[3] > 14)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_3);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[4]);
 			if (arrHighscore[4] == 0)
 			{
-				tv.setText("\nLevel 4\n Highscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 4\n Highscore: "+strHighscore+"  (min. 15)\n");
 			}
 			else
 			{
-				tv.setText("\nLevel 4 - Ternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 4 - Ternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 15)\n");
 			}
 
 			prefEditor.putString("QuizHilfe", "4");
 			prefEditor.apply();
 		}
 
-		if(arrHighscore[4] > 24)
+		if(arrHighscore[4] > 14)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_4);
 			tv.setVisibility(View.VISIBLE);
 			strHighscore = Integer.toString(arrHighscore[5]);
 			if (arrHighscore[5] == 0)
 			{
-				tv.setText("\nLevel 5\n Highscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 5\n Highscore: "+strHighscore+"  (min. 15)\n");
 			}
 			else
 			{
-				tv.setText("\nLevel 5 - Quaternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 5 - Quaternäre Verbindungen\n Highscore: "+strHighscore+"  (min. 15)\n");
 			}
 
 			prefEditor.putString("QuizHilfe", "5");
 			prefEditor.apply();
 		}
 
-		if(arrHighscore[5] > 24)
+		if(arrHighscore[5] > 14)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_5);
 			tv.setVisibility(View.VISIBLE);
@@ -185,7 +185,7 @@ public class QuizMenueActivity extends Activity {
 			}
 			else
 			{
-				tv.setText("\nLevel 6 - Trivialnamen und \n englisch Bezeichnungen \nHighscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 6 - Trivialnamen und \n englisch Bezeichnungen \nHighscore: "+strHighscore+"  (min. 15)\n");
 			}
 
 
@@ -193,7 +193,7 @@ public class QuizMenueActivity extends Activity {
 			prefEditor.apply();
 		}
 
-		if(arrHighscore[6] > 24)
+		if(arrHighscore[6] > 14)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_6);
 			tv.setVisibility(View.VISIBLE);
@@ -212,7 +212,7 @@ public class QuizMenueActivity extends Activity {
 			prefEditor.apply();
 		}
 
-		if(arrHighscore[7] > 24)
+		if(arrHighscore[7] > 14)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_7);
 			tv.setVisibility(View.VISIBLE);
@@ -223,7 +223,7 @@ public class QuizMenueActivity extends Activity {
 			}
 			else
 			{
-				tv.setText("\nLevel 8 - Alkohole, \n Aldehyde, Ketone, \n Ether und Ester \nHighscore: "+strHighscore+"  (min. 25)\n");
+				tv.setText("\nLevel 8 - Alkohole, \n Aldehyde, Ketone, \n Ether und Ester \nHighscore: "+strHighscore+"  (min. 15)\n");
 			}
 
 
@@ -231,7 +231,7 @@ public class QuizMenueActivity extends Activity {
 			prefEditor.apply();
 		}
 
-		if(arrHighscore[8] > 24)
+		if(arrHighscore[8] > 14)
 		{
 			tv = (TextView) findViewById(R.id.btnLevel_8);
 			tv.setVisibility(View.VISIBLE);

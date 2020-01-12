@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 
 public class Org_Generator_Activity extends Activity {
 
+    // String[][] arrGitter = new String[12][6];
 
     String strZellenname;
     String strStrukturformel;
@@ -38,6 +39,8 @@ public class Org_Generator_Activity extends Activity {
     {
         super.onResume();
 
+
+
         if(resIdFeld != 0) // Wird abgefangen, wenn beim ersten Mal resID =0
         {
             ImageButton ibt;
@@ -51,6 +54,10 @@ public class Org_Generator_Activity extends Activity {
             int intResId = prefs.getInt("Strukturformel-ResId", 0);
 
             ibt = (ImageButton) findViewById(resIdFeld);
+
+            // strZellenname aus Preferences lesen ("Strukturformel-Zellenname")
+            // Zeile/Spalte aus Feldnamen der aktuellen Zelle (resIdFeld) ermitteln (=strZeile/strSpalte)
+            // arrGitter[Int(strZeile)][Int(strSpalte)] = strZellenname
 
             ibt.setImageResource(intResId);
         }

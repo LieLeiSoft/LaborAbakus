@@ -45,6 +45,12 @@ public class Org_Strukturformeln_Activity extends Activity {
         int i = 0;
         boolean bBildGefunden = false;
 
+        // Die Namen im array sind wie folgt aufgebaut:
+        // xx = Typ (z.B. an = Alkane)
+        // 1234 = Bindungseigenschaften 1.Ziffer - Bindung 12:00 Uhr, 2.Ziffer - Bindung 15:00 Uhr, usw.
+        // x = Variante (mehrere Möglichkeiten, a = Standard)
+        // 12_345 = Molmasse, der Unterstrich ist gleich Komma(z.B. 13_019 = 13,019 g/mol)
+
         String[] BilderArray = {
                 // ***********
                 // Kohlenstoff
@@ -66,6 +72,10 @@ public class Org_Strukturformeln_Activity extends Activity {
                 // -C≡C- Dreifachbindungen
                 // ***********************
                 ,"in1010a24_022", "in0101a24_022"
+                // ***********************
+                // -OH Hydroxylgruppen
+                // ***********************
+                ,"hy0001a17_007", "hy0100a17_007"
         };
 
         ImageButton btn = (ImageButton) findViewById(v.getId());
@@ -91,7 +101,7 @@ public class Org_Strukturformeln_Activity extends Activity {
                 bBildGefunden = true;
             }
             i=i+1;
-        } while ((i < BilderArray.length) && (bBildGefunden == false));
+        } while ((i < BilderArray.length) && (bBildGefunden == false)); // BEIDE Bedingungen müssen erfüllt sein, damit die Schleife weiter durchlaufen wird!
 
         if (bBildGefunden) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());

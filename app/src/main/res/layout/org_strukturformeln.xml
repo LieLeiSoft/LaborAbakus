@@ -955,6 +955,12 @@
 
         </TableRow>
 
+        <TextView
+            android:id="@+id/tvDreifachbindungen2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-OH Hydroxylgruppen" />
+
         <TableRow
             android:id="@+id/tableRow11"
             android:layout_width="wrap_content"
@@ -964,12 +970,13 @@
                 android:id="@+id/ibtZelle_111"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="2dp"
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
+                android:src="@drawable/hy0001a17_007"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -983,6 +990,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
+                android:src="@drawable/hy0100a17_007"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -996,6 +1004,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
+                android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -1009,6 +1018,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
+                android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp"/>
@@ -1022,6 +1032,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
+                android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -1035,6 +1046,7 @@
                 android:layout_marginEnd="2dp"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
+                android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />

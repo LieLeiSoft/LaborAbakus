@@ -10,6 +10,12 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Org_Strukturformeln_Activity extends Activity {
 
     @Override
@@ -45,13 +51,15 @@ public class Org_Strukturformeln_Activity extends Activity {
         int i = 0;
         boolean bBildGefunden = false;
 
-        // Die Namen im array sind wie folgt aufgebaut:
+        // Die Namen der Bilddateien sind wie folgt aufgebaut:
         // xx = Typ (z.B. an = Alkane)
         // 1234 = Bindungseigenschaften 1.Ziffer - Bindung 12:00 Uhr, 2.Ziffer - Bindung 15:00 Uhr, usw.
         // x = Variante (mehrere Möglichkeiten, a = Standard)
         // 12_345 = Molmasse, der Unterstrich ist gleich Komma(z.B. 13_019 = 13,019 g/mol)
 
-        String[] BilderArray = {
+        /*
+            Doku:
+
                 // ***********
                 // Kohlenstoff
                 // ***********
@@ -76,7 +84,7 @@ public class Org_Strukturformeln_Activity extends Activity {
                 // -OH Hydroxylgruppen
                 // ***********************
                 ,"hy0001a17_007", "hy0100a17_007"
-        };
+        */
 
         ImageButton btn = (ImageButton) findViewById(v.getId());
         Drawable drawable = btn.getDrawable();
@@ -93,15 +101,38 @@ public class Org_Strukturformeln_Activity extends Activity {
         // if (drawable.getConstantState().equals(getResources().getDrawable(R.drawable.hh0001a1_008).getConstantState())){
         // "getResources().getDrawable" ist seit Android 5.1 (API 22) veraltet (deprecated)
 
+        Field[] fields =  R.drawable.class.getFields();
+        List<String> names = new ArrayList<String>();
+
+        // Info zu "Regulären Ausdrücken": http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_04_007.htm#mj26fc5cf60311afbddd72295cdd646a48
+        /*
+            Der "Reguläre Ausdruck" setzt sich aus verschiedenen Platzhaltern zusammen:
+            .*          : beliebiges Zeichen, beliebig oft
+            [a-zA-Z]{2} : 2 Buchstaben (Groß-/Kleinschreibung egal)
+            \d{4}       : 4 Ziffern
+            [a-zA-Z]    : 1 Buchstabe (Groß-/Kleinschreibung egal)
+            \d+         : Ziffer, beliebig oft
+            [_]         : Unterstrich
+            \d+         : Ziffer, beliebig oft
+        */
+        Pattern p = Pattern.compile(".*[a-zA-Z]{2}\\d{4}[a-zA-Z]\\d+[_]\\d+");
+
+        for (Field field : fields) {
+            if (p.matcher(field.getName()).matches())
+                names.add(field.getName());
+        }
+
+        // Lösung mit Stringlist
         do
         {
-            strZellenname = BilderArray[i];
+            strZellenname = names.get(i);
             intResId = getResources().getIdentifier(strZellenname, "drawable", getPackageName());
+
             if (drawable.getConstantState().equals(ContextCompat.getDrawable(getBaseContext(), intResId).getConstantState())){
                 bBildGefunden = true;
             }
-            i=i+1;
-        } while ((i < BilderArray.length) && (bBildGefunden == false)); // BEIDE Bedingungen müssen erfüllt sein, damit die Schleife weiter durchlaufen wird!
+            i = i + 1;
+        } while ((i < names.size()) && (bBildGefunden == false)); // BEIDE Bedingungen müssen erfüllt sein, damit die Schleife weiter durchlaufen wird!
 
         if (bBildGefunden) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());

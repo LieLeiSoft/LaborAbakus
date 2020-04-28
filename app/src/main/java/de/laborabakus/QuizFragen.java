@@ -5978,7 +5978,7 @@ public class QuizFragen {
         Quizfragen[intLfdNr_Gesamt][1] = Integer.toString(intLfdNr_Level);
         Quizfragen[intLfdNr_Gesamt][2] = "Ätznatron";
         Quizfragen[intLfdNr_Gesamt][3] = "39.997";
-        Quizfragen[intLfdNr_Gesamt][4] = "KOH";
+        Quizfragen[intLfdNr_Gesamt][4] = "NaOH";
 
         intLfdNr_Level++;
         intLfdNr_Gesamt++;

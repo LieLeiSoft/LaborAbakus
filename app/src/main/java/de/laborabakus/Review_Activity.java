@@ -17,10 +17,10 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -38,7 +38,7 @@ class ArrayComparator implements Comparator<Comparable[]> {
         this.index = 0;
     }
 
-    public int compare(Comparable[] c1, Comparable[] c2) {
+    public int compare(@NotNull Comparable[] c1, Comparable[] c2) {
         int cmp;
 
         if ((c1[columnToSort].equals("")))
@@ -332,7 +332,7 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
     }   
     
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NotNull MenuItem item) {
     	Intent intent = null;
         switch (item.getItemId()) 
         {
@@ -379,7 +379,7 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
     /**
      * Shows the soft keyboard
      */
-    private void showSoftKeyboard(View view) {
+    private void showSoftKeyboard(@org.jetbrains.annotations.NotNull View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         view.requestFocus();
         inputMethodManager.showSoftInput(view, 0);

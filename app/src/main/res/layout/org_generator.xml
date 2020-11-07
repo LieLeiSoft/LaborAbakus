@@ -16,7 +16,28 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Strukturformel-Baukasten" />
+            android:text="Strukturformel-Baukasten"
+            android:gravity="center_horizontal|center_vertical" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Letzten Eintrag löschen" />
+
+            <Button
+                android:id="@+id/button19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="bestimme Formel" />
+        </LinearLayout>
 
         <TableRow
             android:id="@+id/tableRow1"

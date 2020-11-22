@@ -18,6 +18,7 @@ public class ActivityRegistry {
 		_activities.add(activity);
 	} // register
 
+
 	// Wird "finishAll" mit einer Activity-Bezeichnung (z.B. "HauptmenueActivity") aufgerufen,
 	// werden alle Activities geschlossen, AUSSER denjenigen, die diese Bezeichnung enthalten.
 	// activity.toString() liefert NICHT nur die Bezeichnung! Bsp.: "de.laborabakus.HauptmenueActivity@b5d4892"

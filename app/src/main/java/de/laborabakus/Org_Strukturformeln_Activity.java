@@ -7,10 +7,12 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
 import java.lang.reflect.Field;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -18,6 +20,8 @@ import java.util.regex.Pattern;
 public class Org_Strukturformeln_Activity extends Activity {
     // Stringlist 'names', die später die Namen der Bilddateien (z.B. "co1111a12_011", "hh1000a1_008") enthalten soll
     static List<String> names = new ArrayList<String>();
+    static int intZeile_max  = 20;
+    static int intSpalte_max = 6;
 
     @Override
 	public void onCreate(Bundle savedInstanceState)
@@ -42,6 +46,60 @@ public class Org_Strukturformeln_Activity extends Activity {
     public void onResume()
     {
         super.onResume();
+
+        String strZellenname = "";
+        String strFeldname = "";
+        int intResId = 0;
+        int intResId2 = 0;
+
+        int x = 0;
+        boolean bBildGefunden = false;
+
+        for (int intZeile = 1; intZeile <= intZeile_max; intZeile++) {
+            for (int intSpalte = 1; intSpalte <= intSpalte_max; intSpalte++) {
+
+                strZellenname = new DecimalFormat("00").format(intZeile);
+                strZellenname = "ibtZelle_" + strZellenname + intSpalte;
+                intResId = getResources().getIdentifier(strZellenname, "id", getPackageName());
+
+                Log.i("Org_Strukturformeln_Activity", "intResId="+intResId);
+
+                ImageButton btn = (ImageButton) findViewById(intResId);
+
+                Log.i("Org_Strukturformeln_Activity", "btn="+btn.toString());
+
+                Drawable drawable = btn.getDrawable();
+
+                Log.i("Org_Strukturformeln_Activity", "drawable="+drawable.toString());
+
+                Log.i("Org_Strukturformeln_Activity", "names.size()="+names.size());
+
+                do
+                {
+                    strFeldname = names.get(x);
+                    Log.i("Org_Strukturformeln_Activity", "strFeldname="+strFeldname);
+
+/*
+                    intResId2 = getResources().getIdentifier(strFeldname, "drawable", getPackageName());
+                    Log.i("Org_Strukturformeln_Activity", "intResId2="+intResId2);
+
+                    if (drawable.getConstantState().equals(ContextCompat.getDrawable(getBaseContext(), intResId2).getConstantState())){
+                        bBildGefunden = true;
+                        Log.i("Org_Strukturformeln_Activity", "strFeldname="+strFeldname);
+                    }
+*/
+                    x = x + 1;
+                } while ((x < names.size()) && (bBildGefunden == false)); // BEIDE Bedingungen müssen erfüllt sein, damit die Schleife weiter durchlaufen wird!
+
+                if (bBildGefunden == false)
+                {
+                    strFeldname = "???";
+                }
+
+                Log.i("Org_Strukturformeln_Activity", "strZellenname="+strZellenname + " / intResId="+intResId + " / strFeldname="+strFeldname);
+            }
+        }
+
     } // onResume
 
     @Override

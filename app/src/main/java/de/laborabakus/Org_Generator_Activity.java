@@ -128,11 +128,11 @@ public class Org_Generator_Activity extends Activity {
                         arrBindung[b] = Integer.parseInt(strZellinhalt.substring(intPos, intPos+1));
                     }
                     Log.i("Org_Generator_Activity", "Zeile: " + intZeile + ", Spalte: " + intSpalte + ": " + arrGitter[intZeile][intSpalte]);
-
+                    // Log.i = Protokollzeilen unter Logcat ausgeben
                     strMsg = "";
 
-                    if ((arrBindung[0] > 0) && (intZeile == 0)) {
-                        // Bindung auf 12 Uhr in oberster Zeile nicht zulässig
+                    if ((arrBindung[0] > 0) && (intZeile == 0)) {                                   // intZeile => Zeile, wo das Element platziert werden soll.
+                        // Bindung auf 12 Uhr in oberster Zeile nicht zulässig                      // arrBindung => Bindungsrichtung des zu platzierenden Elementes
                         strMsg = "Bindung auf 12 Uhr in oberster Zeile nicht zulässig!";
                     }
                     else if ((arrBindung[1] > 0) && (intSpalte == intSpalte_max)) {
@@ -176,7 +176,8 @@ public class Org_Generator_Activity extends Activity {
                                     strZellinhalt = arrGitter[intZeile][intSpalte + 1]; // Bsp.: an1010a56_108
                                     // 9 Uhr-Bindung der Zelle eine Spalte neben dem aktuellen Element prüfen
                                     int intPos = 5;
-                                    intBindung_Nachbarzelle = Integer.parseInt(strZellinhalt.substring(intPos, intPos + 1));
+                                    Log.i("Org_Generator_Activity", "arrBindung[b]: "+ arrBindung[b]);
+                                            intBindung_Nachbarzelle = Integer.parseInt(strZellinhalt.substring(intPos, intPos + 1));
                                     if ((arrBindung[b] > 0) && (arrBindung[b] != intBindung_Nachbarzelle)) {
                                         strMsg = "Bindung auf 3 Uhr passt nicht zur Nachbarzelle!";
                                     } else if ((arrBindung[b] == 0) && (intBindung_Nachbarzelle > 0)) {

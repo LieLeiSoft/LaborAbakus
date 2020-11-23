@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class Org_Strukturformeln_Activity extends Activity {
+   private static final String TAG = "Org_Strukturformeln_Activity";
+    
     // Stringlist 'names', die später die Namen der Bilddateien (z.B. "co1111a12_011", "hh1000a1_008") enthalten soll
     static List<String> names = new ArrayList<String>();
     static int intZeile_max  = 20;
@@ -47,58 +49,63 @@ public class Org_Strukturformeln_Activity extends Activity {
     {
         super.onResume();
 
+        View v;
         String strZellenname = "";
         String strFeldname = "";
         int intResId = 0;
         int intResId2 = 0;
 
-        int x = 0;
-        boolean bBildGefunden = false;
+        int i;
+        boolean bBildGefunden;
 
         for (int intZeile = 1; intZeile <= intZeile_max; intZeile++) {
             for (int intSpalte = 1; intSpalte <= intSpalte_max; intSpalte++) {
 
                 strZellenname = new DecimalFormat("00").format(intZeile);
                 strZellenname = "ibtZelle_" + strZellenname + intSpalte;
+
                 intResId = getResources().getIdentifier(strZellenname, "id", getPackageName());
 
-                Log.i("Org_Strukturformeln_Activity", "intResId="+intResId);
+                Log.d(TAG, "strZellenname="+strZellenname + " / intResId="+intResId);
 
                 ImageButton btn = (ImageButton) findViewById(intResId);
-
-                Log.i("Org_Strukturformeln_Activity", "btn="+btn.toString());
-
                 Drawable drawable = btn.getDrawable();
 
-                Log.i("Org_Strukturformeln_Activity", "drawable="+drawable.toString());
-
-                Log.i("Org_Strukturformeln_Activity", "names.size()="+names.size());
-
+                bBildGefunden = false;
+                i = 0;
                 do
                 {
-                    strFeldname = names.get(x);
-                    Log.i("Org_Strukturformeln_Activity", "strFeldname="+strFeldname);
+                    strFeldname = names.get(i);
 
-/*
                     intResId2 = getResources().getIdentifier(strFeldname, "drawable", getPackageName());
-                    Log.i("Org_Strukturformeln_Activity", "intResId2="+intResId2);
 
                     if (drawable.getConstantState().equals(ContextCompat.getDrawable(getBaseContext(), intResId2).getConstantState())){
                         bBildGefunden = true;
-                        Log.i("Org_Strukturformeln_Activity", "strFeldname="+strFeldname);
+                        Log.d(TAG, "Zur Zelle gehört strFeldname="+strFeldname + " / intResId2="+intResId2);
                     }
-*/
-                    x = x + 1;
-                } while ((x < names.size()) && (bBildGefunden == false)); // BEIDE Bedingungen müssen erfüllt sein, damit die Schleife weiter durchlaufen wird!
 
-                if (bBildGefunden == false)
+                    i = i + 1;
+                } while ((i < names.size()) && (bBildGefunden == false)); // BEIDE Bedingungen müssen erfüllt sein, damit die Schleife weiter durchlaufen wird!
+
+                if (bBildGefunden == true)
                 {
-                    strFeldname = "???";
-                }
+                    int arrBindung[] = new int[4];
+                    // Bindungseigenschaften in Array speichern
+                    for (int b = 0; b < 4; b++) {
+                        int intPos = 2 + b;
+                        arrBindung[b] = Integer.parseInt(strFeldname.substring(intPos, intPos+1));
+                    }
 
-                Log.i("Org_Strukturformeln_Activity", "strZellenname="+strZellenname + " / intResId="+intResId + " / strFeldname="+strFeldname);
-            }
-        }
+                    if (arrBindung[0] > 0)
+                    {
+                        // Bindung auf 12 Uhr ==> Feld unsichtbar machen (nur für Tests)
+                        v = (View) findViewById(intResId);
+                        v.setVisibility(View.INVISIBLE);
+                        Log.d(TAG, "strZellenname="+strZellenname + " (Feldname="+strFeldname+" unsichtbar geschaltet");
+                    }
+                } // if (bBildGefunden == true)
+            } // for (int intSpalte = 1; intSpalte <= intSpalte_max; intSpalte++)
+        } // for (int intZeile = 1; intZeile <= intZeile_max; intZeile++)
 
     } // onResume
 

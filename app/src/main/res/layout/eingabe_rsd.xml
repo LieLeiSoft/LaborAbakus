@@ -4,7 +4,7 @@
     android:id="@+id/TableLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".EinwaageActivity"
+    tools:context=".RSD_Activity"
     android:weightSum="1">
 
     <RelativeLayout
@@ -29,7 +29,7 @@
                 android:minEms="6"
                 android:onClick="btnListe"
                 android:text="@string/Liste"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12dp"
                 android:textColor="@color/cSchwarz" />
 
             <Button
@@ -44,7 +44,7 @@
                 android:minEms="6"
                 android:onClick="btnClear_last"
                 android:text="@string/Clear_last"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12dp"
                 android:textColor="@color/cSchwarz" />
 
             <Button
@@ -58,7 +58,7 @@
                 android:minEms="6"
                 android:onClick="btnClear_alle"
                 android:text="@string/Clear_alle"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12dp"
                 android:textColor="@color/cSchwarz" />
         </LinearLayout>
 

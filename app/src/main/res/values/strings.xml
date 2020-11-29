@@ -2,7 +2,9 @@
 <resources>
     <string name="Fehler_und_Ausgleichsrechnung">Fehlerrechnung</string>
     <string name="berechne">Berechne</string>
+    <string name="Drei_Fragezeichen">Konzentration in</string>
     <string name="eingabe">weitere Eingabe?</string>
+    <string name="Berechnung_der_Endkonzentration_einer_Verdünnung_oder_Verdünnungsreihe">Berechne die Endkonzentration\nder Verdünnung(-sreihe)!</string>
     <string name="Anzahl_Messwerte">Anzahl der Messwerte = </string>
     <string name="Mittelwert">arithmetischer Mittelwert = </string>
     <string name="Standardabweichung">Standardabweichung = </string>

@@ -126,7 +126,7 @@
         </activity>
 
         <activity
-            android:name="Review_Activity" android:windowSoftInputMode="stateHidden">
+            android:name="Endkonzentration_Activity" android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity

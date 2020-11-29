@@ -181,6 +181,17 @@ public class HauptmenueActivity extends Activity {
 		startActivity(myIntent);
 	}
 
+	public void btnOnClickEndKonz(View v)
+	{
+		Intent myIntent = new Intent(v.getContext(), Endkonzentration_Activity.class);
+
+		// verhindern, dass die Activity ein weiteres Mal geöffnet wird, wenn sie bereits geöffnet wurde
+		myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+		// Activity aufrufen
+		startActivity(myIntent);
+	}
+
 
 	public void btnOnClickMolmasse(View v)
 	{

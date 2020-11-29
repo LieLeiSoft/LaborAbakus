@@ -110,12 +110,6 @@
 
         </TableRow>
 
-        <TextView
-            android:id="@+id/tv_Alkylgruppen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="-Cx-Hx- Alkylgruppen" />
-
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
@@ -303,7 +297,8 @@
         <TableRow
             android:id="@+id/tableRow4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/ibtZelle_041"
@@ -671,6 +666,12 @@
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_Alkylgruppen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-Cx-Hx- Alkylgruppen" />
 
         </TableRow>
 

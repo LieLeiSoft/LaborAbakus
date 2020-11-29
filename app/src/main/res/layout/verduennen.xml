@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/TableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/ckhaki">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/btnBerechne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/Berechnung_der_Endkonzentration_einer_Verdünnung_oder_Verdünnungsreihe"
+            android:textColor="@color/cDunkelblau"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </TableLayout>
+
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_horizontal" >
+
+        <TableRow
+            android:id="@+id/TableRow01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/cHellorange"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="@string/Drei_Fragezeichen"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/cSchwarz" />
+
+            <Button
+                android:id="@+id/btnEinheit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/cHellorange"
+                android:text="mg/ml"
+                android:textColor="@color/cDunkelblau"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TableRow
+            android:id="@+id/RK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <EditText
+                android:id="@+id/Reinheit_Konz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="start"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Gehalt Substanz"
+                android:inputType="numberDecimal"
+                android:nextFocusDown="@+id/Einwaage_0"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColorHint="@color/cDunkelblau" />
+
+            <Button
+                android:id="@+id/btnEinheit00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="%"
+                android:autoSizeMaxTextSize="20dp"
+                android:textColor="@color/cDunkelblau"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <Button
+                android:id="@+id/btnFestFlüssig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="flüssig"
+                android:textColor="@color/cDunkelblau"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+        </TableRow>
+    </TableLayout>
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TableRow
+            android:id="@+id/Verd01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/tvDavon01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="↘"
+                android:textSize="30dp"
+                android:textColor="@color/cDunkelblau" />
+
+            <EditText
+                android:id="@+id/Einmass"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:minEms="5"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Einmass"
+                android:inputType="numberDecimal"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColorHint="@color/cDunkelblau" />
+
+            <Button
+                android:id="@+id/btnEinheitEinmass"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:text="µg"
+                android:textColor="@color/cDunkelblau"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/tvAuf01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="auf"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cDunkelblau" />
+
+            <EditText
+                android:id="@+id/AufVolumen01"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:minEms="5"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Volumen"
+                android:inputType="numberDecimal"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColorHint="@color/cDunkelblau" />
+
+            <Button
+                android:id="@+id/btnEinheitAufVolumen01"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:text="ml"
+                android:textColor="@color/cDunkelblau"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/Verd02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/tvDavon02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="↘"
+                android:textSize="30dp"
+                android:textColor="@color/cDunkelblau" />
+
+            <EditText
+                android:id="@+id/AbVolumen02"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:minEms="5"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Volumen"
+                android:inputType="numberDecimal"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColorHint="@color/cDunkelblau" />
+
+            <Button
+                android:id="@+id/btnEinheitAbVolumen02"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:text="ml"
+                android:textColor="@color/cDunkelblau"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/tvAuf02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="auf"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cDunkelblau" />
+
+            <EditText
+                android:id="@+id/AufVolumen02"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:minEms="5"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Volumen"
+                android:inputType="numberDecimal"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColorHint="@color/cDunkelblau" />
+
+            <Button
+                android:id="@+id/btnEinheitAufVolumen02"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:text="ml"
+                android:textColor="@color/cDunkelblau"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/Verd03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/tvDavon03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="↘"
+                android:textSize="30dp"
+                android:textColor="@color/cDunkelblau" />
+
+            <EditText
+                android:id="@+id/AbVolumen03"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:minEms="5"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Volumen"
+                android:inputType="numberDecimal"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColorHint="@color/cDunkelblau" />
+
+            <Button
+                android:id="@+id/btnEinheitAbVolumen03"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:text="ml"
+                android:textColor="@color/cDunkelblau"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/tvAuf03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="auf"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cDunkelblau" />
+
+            <EditText
+                android:id="@+id/AufVolumen03"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:minEms="5"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Volumen"
+                android:inputType="numberDecimal"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColorHint="@color/cDunkelblau" />
+
+            <Button
+                android:id="@+id/btnEinheitAufVolumen03"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:text="ml"
+                android:textColor="@color/cDunkelblau"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </TableRow>
+    </TableLayout>
+
+</TableLayout>

@@ -5,37 +5,34 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/ckhaki">
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/TextView00"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/chellhellblau"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/Berechnung_der_Endkonzentration"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/cSchwarz" />
+
+    </TableLayout>
 
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal" >
 
-        <Button
-            android:id="@+id/btnBerechne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/Berechnung_der_Endkonzentration_einer_Verdünnung_oder_Verdünnungsreihe"
-            android:textColor="@color/cDunkelblau"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    </TableLayout>
-
-
-
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:gravity="center_horizontal" >
-
         <TableRow
             android:id="@+id/TableRow01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
+            android:gravity="center_horizontal|center_vertical">
 
             <TextView
                 android:id="@+id/TextView01"
@@ -43,21 +40,40 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/cHellorange"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="@string/Drei_Fragezeichen"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/cSchwarz" />
 
             <Button
                 android:id="@+id/btnEinheit"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:background="@color/cHellorange"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
                 android:text="mg/ml"
                 android:textColor="@color/cDunkelblau"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <Button
+                android:id="@+id/btnBerechne"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/berechne"
+                android:textColor="@color/cDunkelblau"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
         </TableRow>
     </TableLayout>
@@ -76,15 +92,19 @@
             <EditText
                 android:id="@+id/Reinheit_Konz"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@color/csehrhellesgrau"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:ellipsize="start"
                 android:gravity="center_vertical|center_horizontal"
                 android:hint="Gehalt Substanz"
                 android:inputType="numberDecimal"
                 android:nextFocusDown="@+id/Einwaage_0"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cDunkelblau" />
+                android:textColorHint="@color/cHellgrau" />
 
             <Button
                 android:id="@+id/btnEinheit00"
@@ -134,15 +154,19 @@
 
             <EditText
                 android:id="@+id/Einmass"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
+                android:background="@color/csehrhellesgrau"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:minEms="5"
                 android:gravity="center_vertical|center_horizontal"
                 android:hint="Einmass"
                 android:inputType="numberDecimal"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cDunkelblau" />
+                android:textColorHint="@color/cHellgrau" />
 
             <Button
                 android:id="@+id/btnEinheitEinmass"
@@ -165,15 +189,19 @@
 
             <EditText
                 android:id="@+id/AufVolumen01"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
+                android:background="@color/csehrhellesgrau"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:minEms="5"
                 android:gravity="center_vertical|center_horizontal"
                 android:hint="Volumen"
                 android:inputType="numberDecimal"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cDunkelblau" />
+                android:textColorHint="@color/cHellgrau" />
 
             <Button
                 android:id="@+id/btnEinheitAufVolumen01"
@@ -203,15 +231,19 @@
 
             <EditText
                 android:id="@+id/AbVolumen02"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
                 android:minEms="5"
+                android:background="@color/csehrhellesgrau"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:gravity="center_vertical|center_horizontal"
                 android:hint="Volumen"
                 android:inputType="numberDecimal"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cDunkelblau" />
+                android:textColorHint="@color/cHellgrau" />
 
             <Button
                 android:id="@+id/btnEinheitAbVolumen02"
@@ -234,15 +266,19 @@
 
             <EditText
                 android:id="@+id/AufVolumen02"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
                 android:minEms="5"
+                android:background="@color/csehrhellesgrau"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:gravity="center_vertical|center_horizontal"
                 android:hint="Volumen"
                 android:inputType="numberDecimal"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cDunkelblau" />
+                android:textColorHint="@color/cHellgrau" />
 
             <Button
                 android:id="@+id/btnEinheitAufVolumen02"
@@ -272,15 +308,19 @@
 
             <EditText
                 android:id="@+id/AbVolumen03"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
                 android:minEms="5"
+                android:background="@color/csehrhellesgrau"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:gravity="center_vertical|center_horizontal"
                 android:hint="Volumen"
                 android:inputType="numberDecimal"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cDunkelblau" />
+                android:textColorHint="@color/cHellgrau"/>
 
             <Button
                 android:id="@+id/btnEinheitAbVolumen03"
@@ -303,15 +343,19 @@
 
             <EditText
                 android:id="@+id/AufVolumen03"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
                 android:minEms="5"
+                android:background="@color/csehrhellesgrau"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 android:gravity="center_vertical|center_horizontal"
                 android:hint="Volumen"
                 android:inputType="numberDecimal"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cDunkelblau" />
+                android:textColorHint="@color/cHellgrau" />
 
             <Button
                 android:id="@+id/btnEinheitAufVolumen03"

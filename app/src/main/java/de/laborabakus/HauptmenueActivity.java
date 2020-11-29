@@ -1,6 +1,5 @@
 package de.laborabakus;
 
-
 import java.util.Map;
 
 import android.app.Activity;

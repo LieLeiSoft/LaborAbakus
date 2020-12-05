@@ -93,7 +93,7 @@
                 android:id="@+id/Reinheit_Konz"
                 android:layout_width="match_parent"
                 android:layout_height="38dp"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:background="@color/csehrhellesgrau"
                 android:layout_marginStart="2dp"
                 android:layout_marginBottom="2dp"
@@ -110,6 +110,7 @@
                 android:onClick="btnOnClickEinheitReinheit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/Prozent"
@@ -122,9 +123,20 @@
                 android:onClick="btnOnClickFestFluessig"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:text="@string/aktuell_fest"
+                android:textColor="@color/cDunkelblau"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <Button
+                android:id="@+id/btnCE"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="CE"
                 android:textColor="@color/cDunkelblau"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 

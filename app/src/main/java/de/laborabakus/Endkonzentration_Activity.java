@@ -103,7 +103,19 @@ public class Endkonzentration_Activity extends Activity {
             tv.setText(R.string.aktuell_fluessig);
 
             tv = (TextView) findViewById(R.id.btnEinheitReinheit);
-            tv.setText(R.string.mg_ml);
+            strAuswahl2 = tv.getText().toString();
+
+            if (strAuswahl2.equals("%"))
+            {
+                tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+                tv.setText(R.string.Prozent);
+            }
+
+            if (strAuswahl2.equals("mg/g"))
+            {
+                tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+                tv.setText(R.string.mg_ml);
+            }
 
             tv = (TextView) findViewById(R.id.btnEinheitEinmass);
             strAuswahl3 = tv.getText().toString();
@@ -127,7 +139,19 @@ public class Endkonzentration_Activity extends Activity {
             tv.setText(R.string.aktuell_fest);
 
             tv = (TextView) findViewById(R.id.btnEinheitReinheit);
-            tv.setText(R.string.mg_g);
+            strAuswahl2 = tv.getText().toString();
+
+            if (strAuswahl2.equals("%"))
+            {
+                tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+                tv.setText(R.string.Prozent);
+            }
+
+            if (strAuswahl2.equals("mg/ml"))
+            {
+                tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+                tv.setText(R.string.mg_g);
+            }
 
             tv = (TextView) findViewById(R.id.btnEinheitEinmass);
             strAuswahl3 = tv.getText().toString();

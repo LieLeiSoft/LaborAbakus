@@ -6,35 +6,52 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 
 public class Endkonzentration_Activity extends Activity {
 
-
+    EditText et;
+    
 	/** wird ausgef�hrt, wenn Activicty erstellt wird */
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.verduennen);
+        // Cursor in erstes Eingabefeld setzen und numerische Tastatur einschalten
+        et = (EditText) findViewById(R.id.Reinheit_Konz);
+        et.requestFocus();
+        showSoftKeyboard(findViewById(R.id.Reinheit_Konz));
+
 
     	// Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
 
 	} // onCreate
 
-	/** wird ausgef�hrt, wenn Activicty angezeigt wird */
+    private void showSoftKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        view.requestFocus();
+        inputMethodManager.showSoftInput(view, 0);
+    }
+
+    /** wird ausgef�hrt, wenn Activicty angezeigt wird */
 
     @Override
     protected void onResume()
     {
         super.onResume();
 
+
     } // onResume
 
     @Override
     protected void onPause() {
         super.onPause();
+
 
     } // onPause
 

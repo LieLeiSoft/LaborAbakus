@@ -126,7 +126,7 @@
         </activity>
 
         <activity
-            android:name="Endkonzentration_Activity" android:windowSoftInputMode="stateHidden">
+            android:name="Endkonzentration_Activity" android:windowSoftInputMode="stateVisible">
         </activity>
 
         <activity

@@ -34,20 +34,66 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal|center_vertical">
 
-            <TextView
-                android:id="@+id/TextView01"
+            <Button
+                android:id="@+id/btnAC"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@color/chellrot"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="AC"
+                android:textColor="@color/cSchwarz"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <Button
+                android:id="@+id/btnCE"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@color/chellrot"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="CE"
+                android:textColor="@color/cSchwarz"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="60dp"
+                android:layout_height="38dp"
+                android:background="@color/chellrot"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="Next"
+                android:textColor="@color/cSchwarz"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <Button
+                android:id="@+id/btnBerechne"
                 android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:layout_weight="1"
+                android:layout_height="38dp"
                 android:background="@color/cHellorange"
-                android:layout_marginStart="2dp"
+                android:layout_marginStart="1dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="2dp"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="@string/Drei_Fragezeichen"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/cSchwarz" />
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/berechne"
+                android:textColor="@color/cDunkelblau"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <Button
                 android:id="@+id/btnEinheit"
@@ -58,20 +104,9 @@
                 android:background="@color/cHellorange"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="2dp"
-                android:layout_marginEnd="2dp"
+                android:layout_marginEnd="1dp"
                 android:layout_marginBottom="2dp"
                 android:text="mg/ml"
-                android:textColor="@color/cDunkelblau"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <Button
-                android:id="@+id/btnBerechne"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:gravity="center_horizontal|center_vertical"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="@string/berechne"
                 android:textColor="@color/cDunkelblau"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -129,17 +164,6 @@
                 android:text="@string/aktuell_fest"
                 android:textColor="@color/cDunkelblau"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <Button
-                android:id="@+id/btnCE"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="CE"
-                android:textColor="@color/cDunkelblau"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
 
         </TableRow>
     </TableLayout>
@@ -366,7 +390,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:minEms="5"
-                android:nextFocusDown="@+id/Reinheit_Konz"
+                android:nextFocusDown="@+id/AbVolumen04"
                 android:background="@color/csehrhellesgrau"
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="2dp"
@@ -379,6 +403,85 @@
 
             <Button
                 android:id="@+id/btnEinheitAufVolumen03"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:text="ml"
+                android:textColor="@color/cDunkelblau"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/Verd04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <TextView
+                android:id="@+id/tvDavon04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="↘"
+                android:textSize="30dp"
+                android:textColor="@color/cDunkelblau" />
+
+            <EditText
+                android:id="@+id/AbVolumen04"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:minEms="5"
+                android:nextFocusDown="@+id/AufVolumen04"
+                android:background="@color/csehrhellesgrau"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Volumen"
+                android:inputType="numberDecimal"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColorHint="@color/cHellgrau"/>
+
+            <Button
+                android:id="@+id/btnEinheitAbVolumen04"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:text="ml"
+                android:textColor="@color/cDunkelblau"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/tvAuf04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="auf"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/cDunkelblau" />
+
+            <EditText
+                android:id="@+id/AufVolumen04"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:minEms="5"
+                android:nextFocusDown="@+id/Reinheit_Konz"
+                android:background="@color/csehrhellesgrau"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Volumen"
+                android:inputType="numberDecimal"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColorHint="@color/cHellgrau" />
+
+            <Button
+                android:id="@+id/btnEinheitAufVolumen04"
                 android:layout_gravity="center_vertical"
                 android:layout_height="wrap_content"
                 android:layout_width="50dp"

@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/TableLayout1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/ckhaki">
-    <TableLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cEingabe"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
+        android:gravity="center_horizontal|center_vertical">
 
         <TextView
             android:id="@+id/TextView00"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:layout_gravity="center_horizontal|center_vertical"
             android:background="@color/chellhellblau"
-            android:gravity="center_horizontal|center_vertical"
             android:text="@string/Berechnung_der_Endkonzentration"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/cSchwarz" />
 
-    </TableLayout>
+    </LinearLayout>
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal" >
@@ -36,7 +37,7 @@
 
             <Button
                 android:id="@+id/btnAC"
-                android:layout_width="38dp"
+                android:layout_width="55dp"
                 android:layout_height="38dp"
                 android:background="@color/chellrot"
                 android:layout_marginStart="1dp"
@@ -45,39 +46,26 @@
                 android:layout_marginBottom="2dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:text="AC"
+                android:text="@string/AC"
+                android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textSize="12dp" />
 
             <Button
                 android:id="@+id/btnCE"
-                android:layout_width="38dp"
+                android:layout_width="55dp"
                 android:layout_height="38dp"
-                android:background="@color/chellrot"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="2dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="CE"
-                android:textColor="@color/cSchwarz"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <Button
-                android:id="@+id/btnNext"
-                android:layout_width="60dp"
-                android:layout_height="38dp"
                 android:background="@color/chellrot"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginBottom="2dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="Next"
+                android:text="@string/CE"
+                android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textSize="12dp" />
 
             <Button
                 android:id="@+id/btnBerechne"
@@ -97,399 +85,491 @@
 
             <Button
                 android:id="@+id/btnEinheit"
-                android:layout_width="wrap_content"
+                android:onClick="btnOnClickEinheitErgebnis"
+                android:layout_width="70dp"
                 android:layout_height="38dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:background="@color/cHellorange"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="2dp"
+                android:background="@color/cHellorange"
                 android:text="mg/ml"
-                android:textColor="@color/cDunkelblau"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
-
-        <TableRow
-            android:id="@+id/RK"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
-
-            <EditText
-                android:id="@+id/Reinheit_Konz"
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:layout_weight="3"
-                android:background="@color/csehrhellesgrau"
-                android:layout_marginStart="2dp"
-                android:layout_marginBottom="2dp"
-                android:ellipsize="start"
-                android:gravity="center_vertical|center_horizontal"
-                android:hint="Gehalt Substanz"
-                android:inputType="numberDecimal"
-                android:nextFocusDown="@+id/Einwaage_0"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cHellgrau" />
-
-            <Button
-                android:id="@+id/btnEinheitReinheit"
-                android:onClick="btnOnClickEinheitReinheit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="@string/Prozent"
-                android:autoSizeMaxTextSize="20dp"
-                android:textColor="@color/cDunkelblau"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <Button
-                android:id="@+id/btnFestFluessig"
-                android:onClick="btnOnClickFestFluessig"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="@string/aktuell_fest"
-                android:textColor="@color/cDunkelblau"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textColor="@color/cDunkelblau" />
 
         </TableRow>
-    </TableLayout>
+    </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
-
-        <TableRow
+        <LinearLayout
             android:id="@+id/Verd01"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvDavon01"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/Reinheit_Konz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="3"
+                    android:background="@color/csehrhellesgrau"
+                    android:ellipsize="start"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Gehalt Substanz"
+                    android:inputType="numberDecimal"
+                    android:nextFocusDown="@+id/et0"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau" />
+
+                <Button
+                    android:id="@+id/btnEinheitReinheit"
+                    android:onClick="btnOnClickEinheitReinheit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/Prozent"
+                    android:autoSizeMaxTextSize="20dp"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <Button
+                    android:id="@+id/btnFestFluessig"
+                    android:onClick="btnOnClickFestFluessig"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/aktuell_fest"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:text="↘"
+                    android:textSize="30dp"
+                    android:textColor="@color/cDunkelblau" />
+
+                <EditText
+                    android:id="@+id/et0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/csehrhellesgrau"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Einmass"
+                    android:inputType="numberDecimal"
+                    android:minEms="5"
+                    android:nextFocusDown="@+id/et1"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau" />
+
+                <Button
+                    android:id="@+id/btn0"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="btnOnClickEinheit"
+                    android:text="@string/mg"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/cDunkelblau" />
+
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="auf"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/cDunkelblau" />
+
+                <EditText
+                    android:id="@+id/et1"
+                    android:layout_height="38dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/csehrhellesgrau"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:minEms="5"
+                    android:nextFocusDown="@+id/et2"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Volumen"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau" />
+
+                <Button
+                    android:id="@+id/btn1"
+                    android:onClick="btnOnClickEinheit"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:text="ml"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:text="↘"
+                    android:textSize="30dp"
+                    android:textColor="@color/cDunkelblau" />
+
+                <EditText
+                    android:id="@+id/et2"
+                    android:layout_height="38dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:minEms="5"
+                    android:nextFocusDown="@+id/et3"
+                    android:background="@color/csehrhellesgrau"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Volumen"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau" />
+
+                <Button
+                    android:id="@+id/btn2"
+                    android:onClick="btnOnClickEinheit"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:text="ml"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="auf"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/cDunkelblau" />
+
+                <EditText
+                    android:id="@+id/et3"
+                    android:layout_height="38dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:minEms="5"
+                    android:nextFocusDown="@+id/et4"
+                    android:background="@color/csehrhellesgrau"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Volumen"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau" />
+
+                <Button
+                    android:id="@+id/btn3"
+                    android:onClick="btnOnClickEinheit"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:text="ml"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:text="↘"
-                android:textSize="30dp"
-                android:textColor="@color/cDunkelblau" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/Einmass"
-                android:layout_height="38dp"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_weight="1"
-                android:background="@color/csehrhellesgrau"
-                android:gravity="center_vertical|center_horizontal"
-                android:hint="Einmass"
-                android:inputType="numberDecimal"
-                android:minEms="5"
-                android:nextFocusDown="@+id/AufVolumen01"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cHellgrau" />
+                <TextView
+                    android:id="@+id/tv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:text="↘"
+                    android:textSize="30dp"
+                    android:textColor="@color/cDunkelblau" />
 
-            <Button
-                android:id="@+id/btnEinheitEinmass"
-                android:onClick="btnOnClickEinheitEinmass"
-                android:layout_gravity="center_vertical"
+                <EditText
+                    android:id="@+id/et4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/csehrhellesgrau"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Volumen"
+                    android:inputType="numberDecimal"
+                    android:minEms="5"
+                    android:nextFocusDown="@+id/et5"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau" />
+
+                <Button
+                    android:id="@+id/btn4"
+                    android:onClick="btnOnClickEinheit"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:text="ml"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/tv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="auf"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/cDunkelblau" />
+
+                <EditText
+                    android:id="@+id/et5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/csehrhellesgrau"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Volumen"
+                    android:inputType="numberDecimal"
+                    android:minEms="5"
+                    android:nextFocusDown="@+id/et6"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau" />
+
+                <Button
+                    android:id="@+id/btn5"
+                    android:onClick="btnOnClickEinheit"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:text="ml"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="50dp"
-                android:text="@string/mg"
-                android:textColor="@color/cDunkelblau"
-                android:textAllCaps="false"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvAuf01"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tv6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:text="↘"
+                    android:textSize="30dp"
+                    android:textColor="@color/cDunkelblau" />
+
+                <EditText
+                    android:id="@+id/et6"
+                    android:layout_height="38dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:minEms="5"
+                    android:nextFocusDown="@+id/et7"
+                    android:background="@color/csehrhellesgrau"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Volumen"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau"/>
+
+                <Button
+                    android:id="@+id/btn6"
+                    android:onClick="btnOnClickEinheit"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:text="ml"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/tv7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="auf"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/cDunkelblau" />
+
+                <EditText
+                    android:id="@+id/et7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:background="@color/csehrhellesgrau"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Volumen"
+                    android:inputType="numberDecimal"
+                    android:minEms="5"
+                    android:nextFocusDown="@+id/et8"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau" />
+
+                <Button
+                    android:id="@+id/btn7"
+                    android:onClick="btnOnClickEinheit"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:text="ml"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="auf"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/cDunkelblau" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/AufVolumen01"
-                android:layout_height="38dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:background="@color/csehrhellesgrau"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:minEms="5"
-                android:nextFocusDown="@+id/AbVolumen02"
-                android:gravity="center_vertical|center_horizontal"
-                android:hint="Volumen"
-                android:inputType="numberDecimal"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cHellgrau" />
+                <TextView
+                    android:id="@+id/tv8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:text="↘"
+                    android:textSize="30dp"
+                    android:textColor="@color/cDunkelblau" />
 
-            <Button
-                android:id="@+id/btnEinheitAufVolumen01"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"
-                android:layout_width="50dp"
-                android:text="ml"
-                android:textColor="@color/cDunkelblau"
-                android:textAllCaps="false"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </TableRow>
+                <EditText
+                    android:id="@+id/et8"
+                    android:layout_height="38dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:minEms="5"
+                    android:nextFocusDown="@+id/et9"
+                    android:background="@color/csehrhellesgrau"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Volumen"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau"/>
 
-        <TableRow
-            android:id="@+id/Verd02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
+                <Button
+                    android:id="@+id/btn8"
+                    android:onClick="btnOnClickEinheit"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:text="ml"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-            <TextView
-                android:id="@+id/tvDavon02"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:text="↘"
-                android:textSize="30dp"
-                android:textColor="@color/cDunkelblau" />
+                <TextView
+                    android:id="@+id/tv9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="auf"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/cDunkelblau" />
 
-            <EditText
-                android:id="@+id/AbVolumen02"
-                android:layout_height="38dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:minEms="5"
-                android:nextFocusDown="@+id/AufVolumen02"
-                android:background="@color/csehrhellesgrau"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:hint="Volumen"
-                android:inputType="numberDecimal"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cHellgrau" />
+                <EditText
+                    android:id="@+id/et9"
+                    android:layout_height="38dp"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:minEms="5"
+                    android:nextFocusDown="@+id/Reinheit_Konz"
+                    android:background="@color/csehrhellesgrau"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Volumen"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau" />
 
-            <Button
-                android:id="@+id/btnEinheitAbVolumen02"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"
-                android:layout_width="50dp"
-                android:text="ml"
-                android:textColor="@color/cDunkelblau"
-                android:textAllCaps="false"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/tvAuf02"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="auf"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/cDunkelblau" />
-
-            <EditText
-                android:id="@+id/AufVolumen02"
-                android:layout_height="38dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:minEms="5"
-                android:nextFocusDown="@+id/AbVolumen03"
-                android:background="@color/csehrhellesgrau"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:hint="Volumen"
-                android:inputType="numberDecimal"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cHellgrau" />
-
-            <Button
-                android:id="@+id/btnEinheitAufVolumen02"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"
-                android:layout_width="50dp"
-                android:text="ml"
-                android:textColor="@color/cDunkelblau"
-                android:textAllCaps="false"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/Verd03"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
-
-            <TextView
-                android:id="@+id/tvDavon03"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:text="↘"
-                android:textSize="30dp"
-                android:textColor="@color/cDunkelblau" />
-
-            <EditText
-                android:id="@+id/AbVolumen03"
-                android:layout_height="38dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:minEms="5"
-                android:nextFocusDown="@+id/AufVolumen03"
-                android:background="@color/csehrhellesgrau"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:hint="Volumen"
-                android:inputType="numberDecimal"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cHellgrau"/>
-
-            <Button
-                android:id="@+id/btnEinheitAbVolumen03"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"
-                android:layout_width="50dp"
-                android:text="ml"
-                android:textColor="@color/cDunkelblau"
-                android:textAllCaps="false"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/tvAuf03"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="auf"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/cDunkelblau" />
-
-            <EditText
-                android:id="@+id/AufVolumen03"
-                android:layout_height="38dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:minEms="5"
-                android:nextFocusDown="@+id/AbVolumen04"
-                android:background="@color/csehrhellesgrau"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:hint="Volumen"
-                android:inputType="numberDecimal"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cHellgrau" />
-
-            <Button
-                android:id="@+id/btnEinheitAufVolumen03"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"
-                android:layout_width="50dp"
-                android:text="ml"
-                android:textColor="@color/cDunkelblau"
-                android:textAllCaps="false"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/Verd04"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
-
-            <TextView
-                android:id="@+id/tvDavon04"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:text="↘"
-                android:textSize="30dp"
-                android:textColor="@color/cDunkelblau" />
-
-            <EditText
-                android:id="@+id/AbVolumen04"
-                android:layout_height="38dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:minEms="5"
-                android:nextFocusDown="@+id/AufVolumen04"
-                android:background="@color/csehrhellesgrau"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:hint="Volumen"
-                android:inputType="numberDecimal"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cHellgrau"/>
-
-            <Button
-                android:id="@+id/btnEinheitAbVolumen04"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"
-                android:layout_width="50dp"
-                android:text="ml"
-                android:textColor="@color/cDunkelblau"
-                android:textAllCaps="false"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/tvAuf04"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="auf"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/cDunkelblau" />
-
-            <EditText
-                android:id="@+id/AufVolumen04"
-                android:layout_height="38dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:minEms="5"
-                android:nextFocusDown="@+id/Reinheit_Konz"
-                android:background="@color/csehrhellesgrau"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:hint="Volumen"
-                android:inputType="numberDecimal"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColorHint="@color/cHellgrau" />
-
-            <Button
-                android:id="@+id/btnEinheitAufVolumen04"
-                android:layout_gravity="center_vertical"
-                android:layout_height="wrap_content"
-                android:layout_width="50dp"
-                android:text="ml"
-                android:textColor="@color/cDunkelblau"
-                android:textAllCaps="false"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </TableRow>
-    </TableLayout>
-
-</TableLayout>
+                <Button
+                    android:id="@+id/btn9"
+                    android:onClick="btnOnClickEinheit"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="ml"
+                    android:textAllCaps="false"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/cDunkelblau" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -4,8 +4,17 @@
     <string name="berechne">Berechne</string>
     <string name="aktuell_fest">fest</string>
     <string name="aktuell_fluessig">flüssig</string>
+    <string name="AC">Alles\nlöschen</string>
+    <string name="CE">Letzte\nlöschen</string>
+    <string name="g_l">g/l</string>
     <string name="mg_ml">mg/ml</string>
+    <string name="g_ml">g/ml</string>
+    <string name="mg_l">mg/l</string>
+    <string name="ppm">ppm</string>
+    <string name="ug_l">µg/l</string>
+    <string name="ppb">ppb</string>
     <string name="mg_g">mg/g</string>
+    <string name="ug_ml">µg/ml</string>
     <string name="ug">µg</string>
     <string name="mg">mg</string>
     <string name="g">g</string>
@@ -15,13 +24,13 @@
     <string name="Drei_Fragezeichen">Konzentration</string>
     <string name="eingabe">weitere Eingabe?</string>
     <string name="Berechnung_der_Endkonzentration_einer_Verdünnung_oder_Verdünnungsreihe">Berechne die Endkonzentration\nder Verdünnung(-sreihe)!</string>
-    <string name="Berechnung_der_Endkonzentration">Berechne die Endkonzentration</string>
+    <string name="Berechnung_der_Endkonzentration">Berechnung der Endkonzentration</string>
     <string name="Anzahl_Messwerte">Anzahl der Messwerte = </string>
     <string name="Mittelwert">arithmetischer Mittelwert = </string>
     <string name="Standardabweichung">Standardabweichung = </string>
     <string name="relative_RSD">% RSD = </string>
     <string name="Clear_alle">Alle Eingaben\nlöschen</string>
-    <string name="Clear_last">Letze Eingabe\nlöschen</string>
+    <string name="Clear_last">Letzte Eingabe\nlöschen</string>
     <string name="Liste">Eingabeliste\nanzeigen</string>
     <string name="letzter_Messwert">letzter Eingabe-Meßwert = </string>
     <string name="Gehalt_ext">Gehaltsberechnung über einen externen Standard</string>

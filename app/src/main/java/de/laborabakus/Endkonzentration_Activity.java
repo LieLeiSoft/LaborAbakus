@@ -117,18 +117,18 @@ public class Endkonzentration_Activity extends Activity {
                 tv.setText(R.string.mg_ml);
             }
 
-            tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+            tv = (TextView) findViewById(R.id.btn0);
             strAuswahl3 = tv.getText().toString();
 
             if (strAuswahl3.equals("mg"))
             {
-                tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+                tv = (TextView) findViewById(R.id.btn0);
                 tv.setText(R.string.ul);
             }
 
             if (strAuswahl3.equals("g"))
             {
-                tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+                tv = (TextView) findViewById(R.id.btn0);
                 tv.setText(R.string.ml);
             }
         }
@@ -153,18 +153,18 @@ public class Endkonzentration_Activity extends Activity {
                 tv.setText(R.string.mg_g);
             }
 
-            tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+            tv = (TextView) findViewById(R.id.btn0);
             strAuswahl3 = tv.getText().toString();
 
             if (strAuswahl3.equals("µl"))
             {
-                tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+                tv = (TextView) findViewById(R.id.btn0);
                 tv.setText(R.string.mg);
             }
 
             if (strAuswahl3.equals("ml"))
             {
-                tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+                tv = (TextView) findViewById(R.id.btn0);
                 tv.setText(R.string.g);
             }
         }
@@ -217,7 +217,7 @@ public class Endkonzentration_Activity extends Activity {
         // *** Wechsel der Anzeige "µg"/"µl" "mg"/"ml"  "g"/"l" ********
         // *************************************************************
 
-        tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+        tv = (TextView) findViewById(R.id.btn0);
         strAuswahl3 = tv.getText().toString();
 
         tv = (TextView) findViewById(R.id.btnFestFluessig);
@@ -225,24 +225,135 @@ public class Endkonzentration_Activity extends Activity {
 
         if (strAuswahl.equals("fest") && strAuswahl3.equals("mg"))
         {
-            tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+            tv = (TextView) findViewById(R.id.btn0);
             tv.setText(R.string.g);
         }
         if (strAuswahl.equals("fest") && strAuswahl3.equals("g"))
         {
-            tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+            tv = (TextView) findViewById(R.id.btn0);
             tv.setText(R.string.mg);
         }
 
         if (strAuswahl.equals("flüssig") && strAuswahl3.equals("µl"))
         {
-            tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+            tv = (TextView) findViewById(R.id.btn0);
             tv.setText(R.string.ml);
         }
         if (strAuswahl.equals("flüssig") && strAuswahl3.equals("ml"))
         {
-            tv = (TextView) findViewById(R.id.btnEinheitEinmass);
+            tv = (TextView) findViewById(R.id.btn0);
             tv.setText(R.string.ul);
+        }
+    }
+
+    /**********************************************
+     ************** Button Einheit (alle ml) ******
+     **********************************************/
+
+    public void btnOnClickEinheit (View v)
+    {
+        int CurrentID = 0;
+        String strFeldname = "";
+        CurrentID = v.getId();
+
+        tv = (TextView) findViewById(CurrentID);
+        strAuswahl = tv.getText().toString();
+
+        strFeldname = getResources().getResourceEntryName(v.getId());
+
+        if (strAuswahl.equals("ml"))
+        {
+            if (strFeldname.equals("btn0"))
+            {
+                tv = (TextView) findViewById(CurrentID);
+                tv.setText(R.string.ul);
+            }
+            else
+            {
+                tv = (TextView) findViewById(CurrentID);
+                tv.setText(R.string.l);
+            }
+        }
+
+        if (strAuswahl.equals("µl"))
+        {
+            tv = (TextView) findViewById(CurrentID);
+            tv.setText(R.string.ml);
+        }
+        if (strAuswahl.equals("l"))
+        {
+            tv = (TextView) findViewById(CurrentID);
+            tv.setText(R.string.ml);
+        }
+        if (strAuswahl.equals("mg"))
+        {
+            tv = (TextView) findViewById(CurrentID);
+            tv.setText(R.string.g);
+        }
+        if (strAuswahl.equals("g"))
+        {
+            tv = (TextView) findViewById(CurrentID);
+            tv.setText(R.string.mg);
+        }
+    }
+
+    /********************************************
+     ************** Button EinheitErgebnis ******
+     ********************************************/
+
+    public void btnOnClickEinheitErgebnis (View v)
+    {
+        // *************************************************************
+        // *** Wechsel der Anzeige  ************************************
+        // *************************************************************
+
+        tv = (TextView) findViewById(R.id.btnEinheit);
+        strAuswahl = tv.getText().toString();
+
+        if (strAuswahl.equals("g/ml"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText(R.string.Prozent);
+        }
+        if (strAuswahl.equals("%"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText(R.string.g_l);
+        }
+        if (strAuswahl.equals("g/l"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText(R.string.mg_ml);
+        }
+        if (strAuswahl.equals("mg/ml"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText(R.string.mg_l);
+        }
+        if (strAuswahl.equals("mg/l"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText(R.string.ug_ml);
+        }
+        if (strAuswahl.equals("µg/ml"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText(R.string.ppm);
+        }
+        if (strAuswahl.equals("ppm"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText(R.string.ug_l);
+        }
+        if (strAuswahl.equals("µg/l"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText(R.string.ppb);
+        }
+        if (strAuswahl.equals("ppb"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText(R.string.g_ml);
         }
     }
 

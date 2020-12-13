@@ -37,6 +37,7 @@
 
             <Button
                 android:id="@+id/btnAC"
+                android:onClick="btnOnClickAC"
                 android:layout_width="55dp"
                 android:layout_height="38dp"
                 android:background="@color/chellrot"
@@ -53,6 +54,7 @@
 
             <Button
                 android:id="@+id/btnCE"
+                android:onClick="btnOnClickCE"
                 android:layout_width="55dp"
                 android:layout_height="38dp"
                 android:layout_alignParentLeft="true"
@@ -85,7 +87,6 @@
 
             <Button
                 android:id="@+id/btnEinheit"
-                android:onClick="btnOnClickEinheitErgebnis"
                 android:layout_width="70dp"
                 android:layout_height="38dp"
                 android:layout_alignParentLeft="true"
@@ -95,6 +96,7 @@
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="2dp"
                 android:background="@color/cHellorange"
+                android:onClick="btnOnClickEinheitErgebnis"
                 android:text="mg/ml"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/cDunkelblau" />

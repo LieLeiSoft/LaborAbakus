@@ -357,6 +357,48 @@ public class Endkonzentration_Activity extends Activity {
         }
     }
 
+    // Eingabefelder zur�cksetzen
+    public void btnOnClickCE(View v) {
+        EditText et;
+        int resId;
+        int x = 9;
+        String strWert = "";
+
+        while (strWert.equals("") == true && (x != -1))
+        {
+            resId = getResources().getIdentifier("et"+(x), "id", getPackageName());
+            et = (EditText) findViewById(resId);
+            strWert = et.getText().toString();
+            if (strWert.equals("") == false)
+            {
+                et.setText("");
+                et.requestFocus();
+            }
+
+            x = x -1;
+        }
+    } // btnCE
+
+    // Eingabefelder zur�cksetzen
+    public void btnOnClickAC(View v) {
+        EditText et;
+        int resId;
+
+        et = (EditText) findViewById(R.id.Reinheit_Konz);
+        et.setText("");
+
+        for (int x=0; x<=9; x++)
+        {
+            resId = getResources().getIdentifier("et"+(x), "id", getPackageName());
+            et = (EditText) findViewById(resId);
+            et.setText("");
+        }
+
+        et = (EditText) findViewById(R.id.Reinheit_Konz);
+        et.requestFocus();		// Cursor in erstes Eingabefeld setzen
+
+    } // btnAC
+
 	/********************************************
 	 ************** Menue Button ****************
 	 ********************************************/

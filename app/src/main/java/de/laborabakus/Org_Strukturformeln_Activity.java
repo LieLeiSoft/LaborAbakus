@@ -13,35 +13,86 @@ import android.widget.ImageButton;
 
 import java.lang.reflect.Field;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Org_Strukturformeln_Activity extends Activity {
-   private static final String TAG = "Org_Strukturformeln_Activity";
-    
-    // Stringlist 'names', die später die Namen der Bilddateien (z.B. "co1111a12_011", "hh1000a1_008") enthalten soll
-    static List<String> names = new ArrayList<String>();
+    private static final String TAG = "Org_Strukturformeln_Activity";
+
+    // HashMap definieren, die ALLE Bilddateinamen (z.B. "co1111a12_011")+resID des dazugehörenden ImageButtons (org_strukturformeln.xml) enthält
+    // key   (String) : Bilddateiname
+    // value (Integer): resId
+    HashMap<String, Integer> hmBilddateien = new HashMap<String,Integer>();
+
     static int intZeile_max  = 20;
     static int intSpalte_max = 6;
 
     @Override
 	public void onCreate(Bundle savedInstanceState)
 	{
-	    super.onCreate(savedInstanceState);
+        String strZellenname;
+        String strBilddateiname;
+        int intResId_Zelle;
+        int intResId_Bild;
+        boolean bBildGefunden;
+
+        super.onCreate(savedInstanceState);
 	    setContentView(R.layout.org_strukturformeln);
 
-        // Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
+        // Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
         ActivityRegistry.register(this);
 
-        ErstelleListe();
+        // erst einmal nur die Bilddateinamen in die HashMap eintragen
+        SchreibeBilddateienInHashMap();
+
+        // jetzt die HashMap um die ResId der jeweiligen Zelle ergänzen
+        for (int intZeile = 1; intZeile <= intZeile_max; intZeile++) {
+            for (int intSpalte = 1; intSpalte <= intSpalte_max; intSpalte++) {
+                // Name des ImageButtons aus Zeile und Spalte bilden
+                strZellenname = "ibtZelle_" + new DecimalFormat("00").format(intZeile) + intSpalte;
+                // ResId des ImageButtons ermitteln
+                intResId_Zelle = getResources().getIdentifier(strZellenname, "id", getPackageName());
+
+                ImageButton btn = (ImageButton) findViewById(intResId_Zelle);
+                Drawable drawable = btn.getDrawable();
+
+                // HashMap erstellen, die nur Einträge mit Value (resId) = 0 enthält
+                // (d.h. alle bereits verwendetet Einträge (resId <> 0) sind rausgefiltert)
+                // (hier werden Lambda-Ausdrücke (->) verwendet)
+                // https://beginnersbook.com/2017/10/java-8-filter-a-map-by-keys-and-values/
+                Map<String, Integer> hmGefiltert = hmBilddateien.entrySet()
+                        .stream()
+                        .filter(map -> map.getValue().intValue() == 0)
+                        .collect(Collectors.toMap(map -> map.getKey(), map -> map.getValue()));
+
+                // HashMap durchlaufen, bis Ende erreicht oder Bild gefunden
+                // https://beginnersbook.com/2013/12/how-to-loop-hashmap-in-java/
+                Iterator iterator = hmGefiltert.entrySet().iterator();
+                bBildGefunden = false;
+                while (iterator.hasNext() & (bBildGefunden == false)) {
+                    Map.Entry me = (Map.Entry) iterator.next();
+
+                    strBilddateiname = me.getKey().toString();
+                    intResId_Bild = getResources().getIdentifier(strBilddateiname, "drawable", getPackageName());
+
+                    if (drawable.getConstantState().equals(ContextCompat.getDrawable(getBaseContext(), intResId_Bild).getConstantState())){
+                        hmBilddateien.put(me.getKey().toString(), intResId_Zelle);
+                        bBildGefunden = true;
+                    }
+                } // while (iterator.hasNext() & (bBildGefunden == false))
+                hmGefiltert.clear();
+            } // for (int intSpalte = 1; intSpalte <= intSpalte_max; intSpalte++)
+        } // for (int intZeile = 1; intZeile <= intZeile_max; intZeile++)
 	} // onCreate
 
     @Override
     public void onDestroy() {
         super.onDestroy();
 
-        names.clear();
+        hmBilddateien.clear();
     } // onDestroy
 
     @Override
@@ -51,62 +102,99 @@ public class Org_Strukturformeln_Activity extends Activity {
 
         View v;
         String strZellenname = "";
-        String strFeldname = "";
-        int intResId = 0;
-        int intResId2 = 0;
+        String strBilddateiname = "";
+        Boolean bSetzeUnsichtbar;
 
-        int i;
-        boolean bBildGefunden;
+        /*
+            Mögliche erlaubte Zustände:
+            Bindung auf  3 Uhr - einfach
+            Bindung auf  6 Uhr - einfach
+            Bindung auf  9 Uhr - einfach
+            Bindung auf 12 Uhr - einfach
+            Bindung auf  3 Uhr - doppelt
+            Bindung auf  6 Uhr - doppelt
+            Bindung auf  9 Uhr - doppelt
+            Bindung auf 12 Uhr - doppelt
 
-        for (int intZeile = 1; intZeile <= intZeile_max; intZeile++) {
-            for (int intSpalte = 1; intSpalte <= intSpalte_max; intSpalte++) {
+            Mögliche NICHT erlaubte Zustände:
+            Bindung auf  3 Uhr - einfach
+            Bindung auf  6 Uhr - einfach
+            Bindung auf  9 Uhr - einfach
+            Bindung auf 12 Uhr - einfach
+            Bindung auf  3 Uhr - doppelt
+            Bindung auf  6 Uhr - doppelt
+            Bindung auf  9 Uhr - doppelt
+            Bindung auf 12 Uhr - doppelt
 
-                strZellenname = new DecimalFormat("00").format(intZeile);
-                strZellenname = "ibtZelle_" + strZellenname + intSpalte;
+            Übergabe aus 'Org_Generator_Activity':
+            Code     Kriterien für Auswahl der Bilddateien
+            0000 ==> alles erlaubt
+            1000 ==> einfache Bindung auf 12 Uhr, sonst alles erlaubt
+            2000 ==> zweifache Bindung auf 12 Uhr, sonst alles erlaubt
+            9000 ==> KEINE Bindung auf 12 Uhr, sonst alles erlaubt
+            9009 ==> KEINE Bindung auf 12 Uhr
+                     Bindung auf 3 Uhr egal
+                     Bindung auf 6 Uhr egal
+                     KEINE Bindung auf 9 Uhr
+            1290 ==> einfache Bindung auf 12 Uhr
+                     zweifache Bindung auf 3 Uhr
+                     KEINE Bindung auf 6 Uhr
+                     Bindung auf 9 Uhr egal
+         */
 
-                intResId = getResources().getIdentifier(strZellenname, "id", getPackageName());
+        /*
+            Beispiel:
+            9009 ==> KEINE Bindung auf 12 Uhr
+                     Bindung auf 3 Uhr egal
+                     Bindung auf 6 Uhr egal
+                     KEINE Bindung auf 9 Uhr
+        */
+        String strCode = "9009";
+        int arrFilter[] = new int[4];
+        arrFilter[0] = 9;
+        arrFilter[1] = 0;
+        arrFilter[2] = 0;
+        arrFilter[3] = 9;
 
-                Log.d(TAG, "strZellenname="+strZellenname + " / intResId="+intResId);
+        for(String key : hmBilddateien.keySet()) {
+            Integer value = hmBilddateien.get(key);
+            if (value != 0) {
+                strBilddateiname = key;
 
-                ImageButton btn = (ImageButton) findViewById(intResId);
-                Drawable drawable = btn.getDrawable();
+                int arrBindung[] = new int[4];
+                // Bindungseigenschaften in Array speichern
+                for (int b = 0; b < 4; b++) {
+                    int intPos = 2 + b;
+                    arrBindung[b] = Integer.parseInt(strBilddateiname.substring(intPos, intPos+1));
+                }
 
-                bBildGefunden = false;
-                i = 0;
-                do
+                bSetzeUnsichtbar = false;
+
+                if ((arrFilter[0] == 9) & (arrBindung[0] > 0)) {
+                    // Bindung auf 12 Uhr vorhanden ==> Feld unsichtbar machen
+                    bSetzeUnsichtbar = true;
+                }
+                if ((arrFilter[1] == 9) & (arrBindung[1] > 0)) {
+                    // Bindung auf 3 Uhr vorhanden ==> Feld unsichtbar machen
+                    bSetzeUnsichtbar = true;
+                }
+                if ((arrFilter[2] == 9) & (arrBindung[2] > 0)) {
+                    // Bindung auf 6 Uhr vorhanden ==> Feld unsichtbar machen
+                    bSetzeUnsichtbar = true;
+                }
+                if ((arrFilter[3] == 9) & (arrBindung[3] > 0)) {
+                    // Bindung auf 9 Uhr vorhanden ==> Feld unsichtbar machen
+                    bSetzeUnsichtbar = true;
+                }
+
+                if (bSetzeUnsichtbar)
                 {
-                    strFeldname = names.get(i);
-
-                    intResId2 = getResources().getIdentifier(strFeldname, "drawable", getPackageName());
-
-                    if (drawable.getConstantState().equals(ContextCompat.getDrawable(getBaseContext(), intResId2).getConstantState())){
-                        bBildGefunden = true;
-                        Log.d(TAG, "Zur Zelle gehört strFeldname="+strFeldname + " / intResId2="+intResId2);
-                    }
-
-                    i = i + 1;
-                } while ((i < names.size()) && (bBildGefunden == false)); // BEIDE Bedingungen müssen erfüllt sein, damit die Schleife weiter durchlaufen wird!
-
-                if (bBildGefunden == true)
-                {
-                    int arrBindung[] = new int[4];
-                    // Bindungseigenschaften in Array speichern
-                    for (int b = 0; b < 4; b++) {
-                        int intPos = 2 + b;
-                        arrBindung[b] = Integer.parseInt(strFeldname.substring(intPos, intPos+1));
-                    }
-
-                    if (arrBindung[0] > 0)
-                    {
-                        // Bindung auf 12 Uhr ==> Feld unsichtbar machen (nur für Tests)
-                        v = (View) findViewById(intResId);
-                        v.setVisibility(View.INVISIBLE);
-                        Log.d(TAG, "strZellenname="+strZellenname + " (Feldname="+strFeldname+" unsichtbar geschaltet");
-                    }
-                } // if (bBildGefunden == true)
-            } // for (int intSpalte = 1; intSpalte <= intSpalte_max; intSpalte++)
-        } // for (int intZeile = 1; intZeile <= intZeile_max; intZeile++)
-
+                    int intResId = value;
+                    v = (View) findViewById(intResId);
+                    v.setVisibility(View.INVISIBLE);
+                }
+            } // if (value != "frei")
+        } // for(String key : hmBilddateien.keySet())
     } // onResume
 
     @Override
@@ -114,9 +202,9 @@ public class Org_Strukturformeln_Activity extends Activity {
         super.onPause();
     } // onPause
 
-    private void ErstelleListe()
+    private void SchreibeBilddateienInHashMap()
     {
-        // Feldliste definieren, die alle Grafik-Objekte (drawables) des Projekts enthält
+        // Liste von Feldern definieren, die alle Grafik-Objekte (drawables) des Projekts enthält
         Field[] fields =  R.drawable.class.getFields();
 
         /*
@@ -149,52 +237,40 @@ public class Org_Strukturformeln_Activity extends Activity {
         Pattern p = Pattern.compile(".*[a-zA-Z]{2}\\d{4}[a-zA-Z]\\d+[_]\\d+");
 
         // Die Feldliste wird mit dem "Regulärer Ausdruck" ("Pattern") durchsucht.
-        // Jeder gefunden Eintrag wird in die Stringlist 'names' eingetragen
+        // Jeder gefunden Eintrag wird in die Feldliste eingetragen
         for (Field field : fields) {
-            if (p.matcher(field.getName()).matches())
-                names.add(field.getName());
+            if (p.matcher(field.getName()).matches()) {
+                hmBilddateien.put(field.getName(), 0);
+            }
         }
-    }
+    } // SchreibeBilddateienInHashMap
 
     public void btnZelle(View v)
     {
-        String strZellenname = "";
+        String strBilddateiname = "";
         int intResId = 0;
-        int i = 0;
-        boolean bBildGefunden = false;
+        boolean bBildGefunden;
 
-        ImageButton btn = (ImageButton) findViewById(v.getId());
-        Drawable drawable = btn.getDrawable();
-        /*
-        A) drawables with theme attributes
-           ContextCompat.getDrawable(getActivity(), R.drawable.name);
-           You’ll obtain a styled Drawable as your Activity theme instructs. This is probably what you need.
-
-        B) drawables without theme attributes
-           ResourcesCompat.getDrawable(getResources(), R.drawable.name, null);
-           You’ll get your unstyled drawable the old way.
-         */
-
-        // if (drawable.getConstantState().equals(getResources().getDrawable(R.drawable.hh0001a1_008).getConstantState())){
-        // "getResources().getDrawable" ist seit Android 5.1 (API 22) veraltet (deprecated)
-
-        // Stringlist 'names' durchlaufen
-        do
-        {
-            strZellenname = names.get(i);
-            intResId = getResources().getIdentifier(strZellenname, "drawable", getPackageName());
-
-            if (drawable.getConstantState().equals(ContextCompat.getDrawable(getBaseContext(), intResId).getConstantState())){
+        // Hashmap mit den Bilddateien durchlaufen, um die ResId der Bilddatei zu ermitteln
+        // Alle Elemente der HashMap durchlaufen, bis Ende erreicht oder Bild gefunden
+        // https://beginnersbook.com/2013/12/how-to-loop-hashmap-in-java/
+        Iterator iterator = hmBilddateien.entrySet().iterator();
+        bBildGefunden = false;
+        while (iterator.hasNext() & (bBildGefunden == false)) {
+            Map.Entry me = (Map.Entry) iterator.next();
+            Integer value = (Integer) me.getValue();
+            if (v.getId() == value) {
+                strBilddateiname = me.getKey().toString();
+                intResId = getResources().getIdentifier(strBilddateiname, "drawable", getPackageName());
                 bBildGefunden = true;
             }
-            i = i + 1;
-        } while ((i < names.size()) && (bBildGefunden == false)); // BEIDE Bedingungen müssen erfüllt sein, damit die Schleife weiter durchlaufen wird!
+        } // while (iterator.hasNext() & (bBildGefunden == false))
 
         if (bBildGefunden) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
             SharedPreferences.Editor prefEditor = prefs.edit();
 
-            prefEditor.putString("Strukturformel-Zellenname", strZellenname);
+            prefEditor.putString("Strukturformel-Zellenname", strBilddateiname);
             prefEditor.putInt   ("Strukturformel-ResId"     , intResId     );
 
             prefEditor.apply();
@@ -204,5 +280,5 @@ public class Org_Strukturformeln_Activity extends Activity {
             startActivity(myIntent);
         } // if (bBildGefunden)
     } // btnZelle
-} // class Org_Generator
+} // class Org_Strukturformeln_Activity
 

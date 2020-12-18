@@ -71,6 +71,7 @@
 
             <Button
                 android:id="@+id/btnBerechne"
+                android:onClick="btnOnClickBerechneEndkonz"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 android:background="@color/cHellorange"

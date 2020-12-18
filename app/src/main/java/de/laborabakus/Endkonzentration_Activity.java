@@ -5,17 +5,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class Endkonzentration_Activity extends Activity {
+public class Endkonzentration_Activity extends Activity implements OnFocusChangeListener {
 
     private static final String TAG = "";
     EditText et;
@@ -25,6 +27,7 @@ public class Endkonzentration_Activity extends Activity {
     String strAuswahl;
     String strAuswahl2;
     String strAuswahl3;
+
 
 	/** wird ausgef�hrt, wenn Activicty erstellt wird */
 	@Override
@@ -57,21 +60,6 @@ public class Endkonzentration_Activity extends Activity {
         super.onResume();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        strEingabetext = prefs.getString("btnEinheit", "%");
-        tv = (TextView) findViewById(R.id.btnEinheit);
-        tv.setText(strEingabetext);
-
-        strEingabetext = prefs.getString("Reinheit_Konz", "");
-        tv = (TextView) findViewById(R.id.Reinheit_Konz);
-        tv.setText(strEingabetext);
-
-        strEingabetext = prefs.getString("btnEinheitReinheit", "%");
-        tv = (TextView) findViewById(R.id.btnEinheitReinheit);
-        tv.setText(strEingabetext);
-
-        strEingabetext = prefs.getString("btnFestFluessig", "fest");
-        tv = (TextView) findViewById(R.id.btnFestFluessig);
-        tv.setText(strEingabetext);
 
         for (int x=9; x>=0; x--)
         {
@@ -97,6 +85,27 @@ public class Endkonzentration_Activity extends Activity {
                 tv.setText(strEingabetext);
             }
         }
+
+        strEingabetext = prefs.getString("btnEinheit", "%");
+        tv = (TextView) findViewById(R.id.btnEinheit);
+        tv.setText(strEingabetext);
+
+        strEingabetext = prefs.getString("Reinheit_Konz", "");
+        et = (EditText) findViewById(R.id.Reinheit_Konz);
+        et.setOnFocusChangeListener(this);
+        if (strEingabetext.equals("") == true)
+        {
+            et.requestFocus();
+        }
+        et.setText(strEingabetext);
+
+        strEingabetext = prefs.getString("btnEinheitReinheit", "%");
+        tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+        tv.setText(strEingabetext);
+
+        strEingabetext = prefs.getString("btnFestFluessig", "fest");
+        tv = (TextView) findViewById(R.id.btnFestFluessig);
+        tv.setText(strEingabetext);
 
     } // onResume
 
@@ -140,6 +149,42 @@ public class Endkonzentration_Activity extends Activity {
         prefEditor.apply();
 
     } // onPause
+
+
+    public void onFocusChange(View v, boolean hasFocus)
+    {
+        int CurrentID = v.getId();
+        if(R.id.Reinheit_Konz == CurrentID)
+        {
+            if ((hasFocus == false))
+            {
+                et = (EditText) findViewById(R.id.Reinheit_Konz);
+
+                strEingabetext = et.getText().toString();
+                if (strEingabetext.equals("") == true)
+                {
+                    et.setText("100");
+
+                    strEingabetext = et.getText().toString();
+                    if(strEingabetext.equals("100") == true)
+                    {
+                        // **************************************
+                        // *** Hier wird ein Toast ausgegeben ***
+                        // **************************************
+                        String text = "\n   Der Gehalt der Substanz   \n   wurde auf 100% gesetzt!   \n";
+                        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                        Meldung.setGravity(Gravity.TOP, 0, 0);
+                        Meldung.show();
+                    }
+
+                    tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+                    tv.setText("%");
+                }
+            }
+        }
+    }
+
+    @SuppressWarnings("static-access")
 
     /********************************************
      ************** Button fest / flüssig *******
@@ -455,6 +500,15 @@ public class Endkonzentration_Activity extends Activity {
         et.requestFocus();		// Cursor in erstes Eingabefeld setzen
 
     } // btnAC
+
+    /********************************************
+     ************** Button Berechne *************
+     ********************************************/
+
+    public void btnOnClickBerechneEndkonz (View v)
+    {
+
+    }
 
 	/********************************************
 	 ************** Menue Button ****************

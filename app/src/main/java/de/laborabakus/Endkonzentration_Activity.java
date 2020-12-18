@@ -20,10 +20,12 @@ public class Endkonzentration_Activity extends Activity {
     private static final String TAG = "";
     EditText et;
     TextView tv;
+    int resId;
+    String strEingabetext;
     String strAuswahl;
     String strAuswahl2;
     String strAuswahl3;
-    
+
 	/** wird ausgef�hrt, wenn Activicty erstellt wird */
 	@Override
 	public void onCreate(Bundle savedInstanceState)
@@ -53,34 +55,89 @@ public class Endkonzentration_Activity extends Activity {
     protected void onResume()
     {
         super.onResume();
-/*
-        String strAuswahl;
-        TextView tv;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        strEingabetext = prefs.getString("btnEinheit", "%");
+        tv = (TextView) findViewById(R.id.btnEinheit);
+        tv.setText(strEingabetext);
 
-        strAuswahl = prefs.getString("Reinheit_Konz_solid_liquid", "fest");
+        strEingabetext = prefs.getString("Reinheit_Konz", "");
+        tv = (TextView) findViewById(R.id.Reinheit_Konz);
+        tv.setText(strEingabetext);
 
-        if (strAuswahl.equals("fest"))
+        strEingabetext = prefs.getString("btnEinheitReinheit", "%");
+        tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+        tv.setText(strEingabetext);
+
+        strEingabetext = prefs.getString("btnFestFluessig", "fest");
+        tv = (TextView) findViewById(R.id.btnFestFluessig);
+        tv.setText(strEingabetext);
+
+        for (int x=9; x>=0; x--)
         {
-            strAuswahl = getResources().getString(R.string.aktuell_fest);
-            tv = (TextView) findViewById(R.id.btnFestFluessig);
-            tv.setText(strAuswahl);
+            resId = getResources().getIdentifier("et"+x, "id", getPackageName());
+            et = (EditText) findViewById(resId);
+            strEingabetext = prefs.getString("et"+x, "");
+            if (strEingabetext.equals(""))
+            {
+                et.requestFocus();
+            }
+            et.setText(strEingabetext);
+
+            resId = getResources().getIdentifier("btn"+x, "id", getPackageName());
+            tv = (TextView) findViewById(resId);
+            if (x == 0)
+            {
+                strEingabetext = prefs.getString("btn"+x, "mg");
+                tv.setText(strEingabetext);
+            }
+            else
+            {
+                strEingabetext = prefs.getString("btn"+x, "ml");
+                tv.setText(strEingabetext);
+            }
         }
 
-        if (strAuswahl.equals("flüssig"))
-        {
-            strAuswahl = getResources().getString(R.string.aktuell_fluessig);
-            tv = (TextView) findViewById(R.id.btnFestFluessig);
-            tv.setText(strAuswahl);
-        }
-*/
     } // onResume
 
     @Override
-    protected void onPause() {
+    protected void onPause()
+    {
         super.onPause();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor prefEditor = prefs.edit();
+
+        tv = (TextView) findViewById(R.id.btnEinheit);
+        strEingabetext = tv.getText().toString();
+        prefEditor.putString("btnEinheit", strEingabetext);
+
+        et = (EditText) findViewById(R.id.Reinheit_Konz);
+        strEingabetext = et.getText().toString();
+        prefEditor.putString("Reinheit_Konz", strEingabetext);
+
+        tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+        strEingabetext = tv.getText().toString();
+        prefEditor.putString("btnEinheitReinheit", strEingabetext);
+
+        tv = (TextView) findViewById(R.id.btnFestFluessig);
+        strEingabetext = tv.getText().toString();
+        prefEditor.putString("btnFestFluessig", strEingabetext);
+
+        for (int x=0; x<=9; x++)
+        {
+            resId = getResources().getIdentifier("et"+x, "id", getPackageName());
+            et = (EditText) findViewById(resId);
+            strEingabetext = et.getText().toString();
+            prefEditor.putString("et"+x, strEingabetext);
+
+            resId = getResources().getIdentifier("btn"+x, "id", getPackageName());
+            tv = (TextView) findViewById(resId);
+            strEingabetext = tv.getText().toString();
+            prefEditor.putString("btn"+x, strEingabetext);
+        }
+
+        prefEditor.apply();
 
     } // onPause
 
@@ -408,12 +465,12 @@ public class Endkonzentration_Activity extends Activity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mainmenu4, menu);
         return true;
-    }   
-    
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	Intent intent = null;
-        switch (item.getItemId()) 
+        switch (item.getItemId())
         {
             case R.id.menu_Hilfe:
             	intent = new Intent(this, HilfeActivity.class);
@@ -421,19 +478,19 @@ public class Endkonzentration_Activity extends Activity {
             	intent.putExtra("Kapitel", "RSD");
             	startActivity(intent);
                 return true;
-                
+
             case R.id.menu_Menue:
             	ActivityRegistry.finishAll();
             	intent = new Intent(this, HauptmenueActivity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             	startActivity(intent);
                 return true;
-                
-            case R.id.menu_Aus:	
+
+            case R.id.menu_Aus:
                 ActivityRegistry.finishAll();
-                finish(); 
+                finish();
                 System.exit(0);
-                
+
             default:
                 return super.onOptionsItemSelected(item);
         }

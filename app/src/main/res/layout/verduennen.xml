@@ -97,7 +97,6 @@
                 android:layout_marginBottom="2dp"
                 android:background="@color/cHellorange"
                 android:onClick="btnOnClickEinheitErgebnis"
-                android:text="mg/ml"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/cDunkelblau" />
 
@@ -143,7 +142,6 @@
                     android:layout_weight="1"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="@string/Prozent"
                     android:autoSizeMaxTextSize="20dp"
                     android:textColor="@color/cDunkelblau"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -156,7 +154,6 @@
                     android:layout_weight="1"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="@string/aktuell_fest"
                     android:textColor="@color/cDunkelblau"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 

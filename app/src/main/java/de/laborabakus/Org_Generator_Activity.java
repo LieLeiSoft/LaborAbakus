@@ -12,13 +12,16 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class Org_Generator_Activity extends Activity {
+    private static final String TAG = "Org_Generator_Activity";
 
-    String[][] arrGitter = new String[12][6]; // 12 Zeilen (0..11), 6 Spalten (0..5)
+    static int intZeile_max  = 12;
+    static int intSpalte_max = 6;
+
+    String[][] arrGitter = new String[intZeile_max][intSpalte_max]; // 12 Zeilen (0..11), 6 Spalten (0..5)
 
     String strZellenname;
     String strZeile;
     String strSpalte;
-    int intCounter = 0;
     int resIdFeld;
 
     @Override
@@ -100,10 +103,36 @@ public class Org_Generator_Activity extends Activity {
         strZeile  = strZellenname.substring( 8,10);   // Beispiel: ibtFeld_115 => 11
         strSpalte = strZellenname.substring(10,11);   // Beispiel: ibtFeld_115 => 5
 
-        intCounter++;
+        int intZeile  = Integer.parseInt(strZeile );
+        int intSpalte = Integer.parseInt(strSpalte);
+
+        int arrFilter[] = new int[4];
+
+        if (intZeile == 1) {
+            // in Zeile 1 keine Bindung auf 12 Uhr zulassen
+            arrFilter[0] = 9;
+        }
+        if (intZeile == intZeile_max) {
+            // in letzter Zeile keine Bindung auf 6 Uhr zulassen
+            arrFilter[2] = 9;
+        }
+        if (intSpalte == 1) {
+            // in Spalte 1 keine Bindung auf 9 Uhr zulassen
+            arrFilter[3] = 9;
+        }
+        if (intSpalte == intSpalte_max) {
+            // in letzter Spalte keine Bindung auf 3 Uhr zulassen
+            arrFilter[1] = 9;
+        }
+
+        for (int i = 0; i < 4; i++) {
+            Log.d(TAG, "arrFilter["+i+"]="+arrFilter[i]);
+        }
 
         Intent myIntent = new Intent(Org_Generator_Activity.this, Org_Strukturformeln_Activity.class);
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        myIntent.putExtra("Filter", arrFilter);
+        Log.d(TAG, "startActivity");
         startActivity(myIntent);
     } // btnFeld
 

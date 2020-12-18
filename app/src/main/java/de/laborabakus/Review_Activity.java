@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+// Arrays.sort(ReviewArray, new ArrayComparator(columnToSort, indexMax, true));
 class ArrayComparator implements Comparator<Comparable[]> {
     private final int columnToSort;
     private final int indexMax;
@@ -45,13 +46,18 @@ class ArrayComparator implements Comparator<Comparable[]> {
             cmp = 1;
         else
             cmp = c1[columnToSort].compareTo(c2[columnToSort]);
+        // führt zu: "unchecked call to compareTo(T) as a member of the raw type java.lang.Comparable”"
+        //mögliche Abhilfe: https://stackoverflow.com/questions/4907683/sort-a-two-dimensional-array-based-on-one-column
+        //                  https://www.codejava.net/java-core/collections/sorting-arrays-examples-with-comparable-and-comparator
+        //                  https://stackoverflow.com/questions/4830400/java-unchecked-call-to-comparetot-as-a-member-of-the-raw-type-java-lang-compa
+        //                  https://mkyong.com/java/java-object-sorting-example-comparable-and-comparator/
+        // ???
 
         return ascending ? cmp : -cmp;
     }
-}
+} // ArrayComparator
 
 public class Review_Activity extends Activity /*implements OnFocusChangeListener */ {
-
     private static String[][] ReviewArray = new String[100][3];
 
     int n = 0;      // Anzahl der Messwerte
@@ -69,15 +75,14 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
     String strAusgabetext;
     double Speicher;
 
-
-	/** wird ausgef�hrt, wenn Activicty erstellt wird */
+	/** wird ausgeführt, wenn Activicty erstellt wird */
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.review_liste);
 
-    	// Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
+    	// Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
 	    ActivityRegistry.register(this);
 
         for (int zeile=0; zeile<100; zeile++)
@@ -180,8 +185,7 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
 
     } // onCreate
 
-	/** wird ausgef�hrt, wenn Activicty angezeigt wird */
-
+	/** wird ausgeführt, wenn Activicty angezeigt wird */
     @Override
     protected void onResume() {
         super.onResume();
@@ -195,15 +199,9 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
 
     } // onPause
 
-
-    // ******************************************************************************************
-	// ******************* Button Weiter ********************************************************
-	// ******************************************************************************************
-
     // ******************************************************************************************
     // ******************* Button Liste *********************************************************
     // ******************************************************************************************
-
     public void btnListe()
     {
         List<String> Review_Liste = new ArrayList<String>();
@@ -211,36 +209,6 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
         try {
             setContentView(R.layout.review_liste);
 
-            //Arrays.sort(ReviewArray, (String[] s1, String[] s2) -> s1[0].compareTo(s2[0])); //LAMBDA erst ab Java 8 möglich
-
-            String[][] data = new String[][] {
-                    { "2009.07.25 20:17", "Message G" },
-                    { "2009.07.25 20:25", "Message B" },
-                    { "2009.07.25 20:30", "Message D" },
-                    { "2009.07.25 20:01", "Message F" },
-                    { "2009.07.25 21:08", "Message E" },
-                    { "2009.07.25 19:54", "Message R" }
-            };
-
-            Arrays.sort(data, new Comparator<String[]>() {
-                @Override
-                public int compare(String[] s1, String[] s2) {
-                    String t1 = s1[0];
-                    String t2 = s2[0];
-                    return t1.compareTo(t2);
-                }
-            });
-
-/*
-            Arrays.sort(ReviewArray, new Comparator<String[]>() {
-                @Override
-                public int compare(String[] s1, String[] s2) {
-                    String t1 = s1[0];
-                    String t2 = s2[0];
-                    return t1.compareTo(t2);
-                }
-            });
-*/
             int columnToSort = 0;
             int indexMax = 0;
 
@@ -323,7 +291,6 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
 	/********************************************
 	 ************** Menue Button ****************
 	 ********************************************/
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -384,5 +351,5 @@ public class Review_Activity extends Activity /*implements OnFocusChangeListener
         view.requestFocus();
         inputMethodManager.showSoftInput(view, 0);
     }
-} // class RSD_Activity
+} // class Review_Activity
 

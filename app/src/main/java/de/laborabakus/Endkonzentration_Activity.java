@@ -22,11 +22,16 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
     private static final String TAG = "";
     EditText et;
     TextView tv;
+    int intEndeVerdReihe = 0;
     int resId;
+    int resId2;
+    int x;
+    double dblEingabezahl;
     String strEingabetext;
     String strAuswahl;
     String strAuswahl2;
     String strAuswahl3;
+    String [] arrString = new String [10];
 
 
 	/** wird ausgef�hrt, wenn Activicty erstellt wird */
@@ -61,7 +66,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
-        for (int x=9; x>=0; x--)
+        for (x=9; x>=0; x--)
         {
             resId = getResources().getIdentifier("et"+x, "id", getPackageName());
             et = (EditText) findViewById(resId);
@@ -133,7 +138,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         strEingabetext = tv.getText().toString();
         prefEditor.putString("btnFestFluessig", strEingabetext);
 
-        for (int x=0; x<=9; x++)
+        for (x=0; x<=9; x++)
         {
             resId = getResources().getIdentifier("et"+x, "id", getPackageName());
             et = (EditText) findViewById(resId);
@@ -165,20 +170,25 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                 {
                     et.setText("100");
 
-                    strEingabetext = et.getText().toString();
-                    if(strEingabetext.equals("100") == true)
-                    {
-                        // **************************************
-                        // *** Hier wird ein Toast ausgegeben ***
-                        // **************************************
-                        String text = "\n   Der Gehalt der Substanz   \n   wurde auf 100% gesetzt!   \n";
-                        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-                        Meldung.setGravity(Gravity.TOP, 0, 0);
-                        Meldung.show();
-                    }
+                    fktDerGehaltderSubstanzwurdeauf100gesetzt();
 
                     tv = (TextView) findViewById(R.id.btnEinheitReinheit);
                     tv.setText("%");
+                }
+                else
+                {
+                    dblEingabezahl = Double.parseDouble(strEingabetext);
+
+                    if (dblEingabezahl == 0)
+                    {
+                        fktEingabeNullNichtZulaessig();
+
+                        fktDerGehaltderSubstanzwurdeauf100gesetzt();
+
+                        et.setText("100");
+                        tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+                        tv.setText("%");
+                    }
                 }
             }
         }
@@ -507,7 +517,79 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
     public void btnOnClickBerechneEndkonz (View v)
     {
+        // *****************************************************************
+        // ***** Hier wird von hinten das letzte Eingabefeld bestimmt. *****
+        // *****************************************************************
 
+        for (x = 9; x >= 0; x--)
+        {
+            resId = getResources().getIdentifier("et"+x, "id", getPackageName());
+            et = (EditText) findViewById(resId);
+            strEingabetext = et.getText().toString();
+            if(strEingabetext.equals("") == false)
+            {
+                intEndeVerdReihe = x;break;
+            }
+        }
+
+        // **********************************************************************
+        // ***** Hier werden von vorne die Eingabefelder bis zum letzten    *****
+        // ***** gefüllten Eingabefeld ausgelesen und gleichzeitig geprüft, *****
+        // ***** ob alle Felder dazwischen gefüllt sind!!                   *****
+        // **********************************************************************
+
+        for (x=0; x<= intEndeVerdReihe; x++)
+        {
+            resId2 = getResources().getIdentifier("et"+x, "id", getPackageName());
+            et = (EditText) findViewById(resId2);
+            strEingabetext = et.getText().toString();
+            if(strEingabetext.equals("") == false)
+            {
+                arrString [x] = strEingabetext;
+            }
+            else
+            {
+                fktEineBerechnungKannNichtDurchgeführtWerden();
+                break;
+            }
+        }
+    }
+
+    private void fktDerGehaltderSubstanzwurdeauf100gesetzt()
+    {
+        // **************************************
+        // *** Hier wird ein Toast ausgegeben ***
+        // **************************************
+        String text = "\n   Der Gehalt der Substanz   \n   wurde auf 100% gesetzt!   \n";
+        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        Meldung.setGravity(Gravity.TOP, 0, 0);
+        Meldung.show();
+    }
+
+    private void fktEingabeNullNichtZulaessig()
+    {
+        // **************************************
+        // *** Hier wird ein Toast ausgegeben ***
+        // **************************************
+        String text = "\n   Die Eingabe 0 ist   \n   nicht zulässig!   \n";
+        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        Meldung.setGravity(Gravity.TOP, 0, 0);
+        Meldung.show();
+    }
+
+    private void fktEineBerechnungKannNichtDurchgeführtWerden()
+    {
+        // **************************************
+        // *** Hier wird ein Toast ausgegeben ***
+        // **************************************
+        String text = "\n   Achtung! Eine Berechnung kann   \n   " +
+                "nicht durchgeführt werden, da   \n   " +
+                "in der Verdünnungsreihe ein   \n   " +
+                "oder mehrere Eingabefelder   \n   " +
+                "nicht gefüllt sind!   \n";
+        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        Meldung.setGravity(Gravity.TOP, 0, 0);
+        Meldung.show();
     }
 
 	/********************************************

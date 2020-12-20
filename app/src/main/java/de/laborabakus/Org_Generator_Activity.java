@@ -9,30 +9,32 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 public class Org_Generator_Activity extends Activity {
     private static final String TAG = "Org_Generator_Activity";
 
-    static int intZeile_max  = 12;
-    static int intSpalte_max = 6;
+    static int constZeile_max  = 12;
+    static int constSpalte_max = 6;
 
-    String[][] arrGitter = new String[intZeile_max][intSpalte_max]; // 12 Zeilen (0..11), 6 Spalten (0..5)
+    String[][] arrGitter = new String[constZeile_max][constSpalte_max]; // 12 Zeilen (0..11), 6 Spalten (0..5)
 
-    String strZellenname;
     String strZeile;
     String strSpalte;
     int resIdFeld;
 
     @Override
-	public void onCreate(Bundle savedInstanceState)
-	{
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.org_generator);
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.org_generator);
 
-    	// Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
-	    ActivityRegistry.register(this);
-	} // onCreate
+        // Activity registrieren, damit sie sp�ter an zentraler Stelle (Hauptmenue) geschlossen werden kann
+        ActivityRegistry.register(this);
+    } // onCreate
 
     @Override
     public void onDestroy() {
@@ -55,7 +57,7 @@ public class Org_Generator_Activity extends Activity {
             Meldung.show();
         }
 
-        if(resIdFeld != 0) // Wird abgefangen, wenn beim ersten Mal resID =0
+        if(resIdFeld != 0) // Wird abgefangen, wenn beim ersten Mal resID = 0
         {
             ImageButton ibt;
 
@@ -96,8 +98,13 @@ public class Org_Generator_Activity extends Activity {
 
     public void btnFeld(View v)
     {
+        if(resIdFeld != 0) {
+            // es wurde mindestens eine Zelle gefüllt
+            setzeFelder();
+        }
+
         resIdFeld = v.getId();
-        strZellenname = getResources().getResourceEntryName(resIdFeld);  // Zellenname (String) zur ID ermitteln
+        String strZellenname = getResources().getResourceEntryName(resIdFeld);  // Zellenname (String) zur ID ermitteln
 
         // Zeile/Spalte aus Feldnamen der aktuellen Zelle (resIdFeld) ermitteln (=strZeile/strSpalte)
         strZeile  = strZellenname.substring( 8,10);   // Beispiel: ibtFeld_115 => 11
@@ -112,7 +119,7 @@ public class Org_Generator_Activity extends Activity {
             // in Zeile 1 keine Bindung auf 12 Uhr zulassen
             arrFilter[0] = 9;
         }
-        if (intZeile == intZeile_max) {
+        else if (intZeile == constZeile_max) {
             // in letzter Zeile keine Bindung auf 6 Uhr zulassen
             arrFilter[2] = 9;
         }
@@ -120,7 +127,7 @@ public class Org_Generator_Activity extends Activity {
             // in Spalte 1 keine Bindung auf 9 Uhr zulassen
             arrFilter[3] = 9;
         }
-        if (intSpalte == intSpalte_max) {
+        else if (intSpalte == constSpalte_max) {
             // in letzter Spalte keine Bindung auf 3 Uhr zulassen
             arrFilter[1] = 9;
         }
@@ -206,7 +213,7 @@ public class Org_Generator_Activity extends Activity {
                                     // 9 Uhr-Bindung der Zelle eine Spalte neben dem aktuellen Element prüfen
                                     int intPos = 5;
                                     Log.i("Org_Generator_Activity", "arrBindung[b]: "+ arrBindung[b]);
-                                            intBindung_Nachbarzelle = Integer.parseInt(strZellinhalt.substring(intPos, intPos + 1));
+                                    intBindung_Nachbarzelle = Integer.parseInt(strZellinhalt.substring(intPos, intPos + 1));
                                     if ((arrBindung[b] > 0) && (arrBindung[b] != intBindung_Nachbarzelle)) {
                                         strMsg = "Bindung auf 3 Uhr passt nicht zur Nachbarzelle!";
                                     } else if ((arrBindung[b] == 0) && (intBindung_Nachbarzelle > 0)) {
@@ -268,6 +275,139 @@ public class Org_Generator_Activity extends Activity {
 
         return true;
     } // checkGitter
+
+    public boolean setzeFelder()
+    {
+        String strZellinhalt;
+        String strZellenname;
+        int intResId;
+        boolean bEnabled;
+        int arrBindung[] = new int[4];
+
+
+        for (int intZeile = 0; intZeile < arrGitter.length; intZeile++) {
+            for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++) {
+                if (arrGitter[intZeile][intSpalte] == null) {
+                    // Name des ImageButtons aus Zeile und Spalte bilden
+                    strZellenname = "ibtZelle_" + new DecimalFormat("00").format((intZeile+1)) + (intSpalte+1);
+
+                    // ResId des ImageButtons ermitteln
+                    intResId = getResources().getIdentifier(strZellenname, "id", getPackageName());
+
+                    String strZellenname2 = getResources().getResourceEntryName(intResId);  // Zellenname (String) zur ID ermitteln
+
+                    ImageButton btn = (ImageButton) findViewById(intResId);
+
+                    Log.d(TAG, "strZellenname = "+strZellenname);
+                    Log.d(TAG, "strZellenname2 = "+strZellenname2);
+                    Log.d(TAG, "getPackageName: "+getPackageName().toString());
+                    Log.d(TAG, "intResId = "+Integer.toString(intResId));
+                    if (btn == null)
+                        Log.d(TAG, "*** btn IST NULL!!! ***");
+                    else
+                        Log.d(TAG, "btn: "+btn.toString());
+
+                    int arrFilter[] = new int[4];
+
+                    if (intZeile == 0) {
+                        // in oberster Zeile keine Bindung auf 12 Uhr zulassen
+                        arrFilter[0] = 9;
+                    }
+                    else if (intZeile+1 == constZeile_max) {
+                        // in letzter Zeile keine Bindung auf 6 Uhr zulassen
+                        arrFilter[2] = 9;
+                    }
+                    if (intSpalte == 0) {
+                        // in erster Spalte keine Bindung auf 9 Uhr zulassen
+                        arrFilter[3] = 9;
+                    }
+                    else if (intSpalte+1 == constSpalte_max) {
+                        // in letzter Spalte keine Bindung auf 3 Uhr zulassen
+                        arrFilter[1] = 9;
+                    }
+
+                    bEnabled = checkNachbarzellen(intZeile, intSpalte, arrFilter);
+                    //btn.setEnabled(bEnabled);
+                } // if (arrGitter[intZeile][intSpalte] == null)
+
+            } // for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++)
+        } // for (int intZeile = 0; intZeile < arrGitter.length; intZeile++)
+
+        return true;
+    } // setzeFelder
+
+    public boolean checkNachbarzellen(int pZeile, int pSpalte, int pFilter[])
+    {
+        int arrBindung[] = new int[4];
+        String strBilddateiname;
+        boolean bReturn;
+
+        bReturn = false;
+
+        for (int i = 0; i < 4; i++) {
+            if (pFilter[i] == 0) {
+                strBilddateiname = null;
+                switch (i) {
+                    case 0: // Nachbarzelle auf 12 Uhr prüfen
+                        strBilddateiname = arrGitter[pZeile-1][pSpalte];
+                        break;
+                    case 1: // Nachbarzelle auf 3 Uhr prüfen
+                        strBilddateiname = arrGitter[pZeile][pSpalte+1];
+                        break;
+                    case 2: // Nachbarzelle auf 6 Uhr prüfen
+                        strBilddateiname = arrGitter[pZeile+1][pSpalte];
+                        break;
+                    case 3: // Nachbarzelle auf 9 Uhr prüfen
+                        strBilddateiname = arrGitter[pZeile][pSpalte-1];
+                        break;
+                } // switch (i)
+
+                if (strBilddateiname != null) {
+                    // Bindungseigenschaften in Array speichern
+                    for (int b = 0; b < 4; b++) {
+                        int intPos = 2 + b;
+                        arrBindung[b] = Integer.parseInt(strBilddateiname.substring(intPos, intPos+1));
+                    }
+                    /*
+                        i bezieht sich auf ZIELZELLE!
+                        i = 0 ==> 12 Uhr - erfordert Nachbarzelle mit Bindungsmöglichkeit aus  6 Uhr
+                        i = 1 ==>  3 Uhr - erfordert Nachbarzelle mit Bindungsmöglichkeit aus  9 Uhr
+                        i = 2 ==>  6 Uhr - erfordert Nachbarzelle mit Bindungsmöglichkeit aus 12 Uhr
+                        i = 3 ==>  9 Uhr - erfordert Nachbarzelle mit Bindungsmöglichkeit aus  3 Uhr
+                    */
+                    switch (i) {
+                        case 0: // prüfen, ob Nachbarzelle eine Bindung auf 6 Uhr zulässt
+                            if (arrBindung[2] > 0) {
+                                bReturn = true;
+                            }
+                            break;
+                        case 1: // prüfen, ob Nachbarzelle eine Bindung auf 9 Uhr zulässt
+                            if (arrBindung[3] > 0) {
+                                bReturn = true;
+                            }
+                            break;
+                        case 2: // prüfen, ob Nachbarzelle eine Bindung auf 12 Uhr zulässt
+                            if (arrBindung[0] > 0) {
+                                bReturn = true;
+                            }
+                            break;
+                        case 3: // prüfen, ob Nachbarzelle eine Bindung auf 3 Uhr zulässt
+                            if (arrBindung[1] > 0) {
+                                bReturn = true;
+                            }
+                            break;
+                    } // switch (i)
+                } // if (strBilddateiname != null)
+            } // if (parrFilter[i] == 0)
+
+            if (bReturn == true) {
+                // eine einzige Bindungsmöglichkeit genügt, damit die Zelle aktiv wird bzw bleibt
+                break;
+            }
+        } // for (int i = 0; i < 4; i++)
+
+        return bReturn;
+    } // checkNachbarzellen
 
 } // class Org_Generator
 

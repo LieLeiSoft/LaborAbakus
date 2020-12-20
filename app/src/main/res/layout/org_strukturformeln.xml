@@ -666,14 +666,13 @@
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tv_Alkylgruppen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="-Cx-Hx- Alkylgruppen" />
-
         </TableRow>
+
+        <TextView
+            android:id="@+id/tv_Alkylgruppen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-Cx-Hx- Alkylgruppen" />
 
         <TableRow
             android:id="@+id/tableRow8"
@@ -1538,95 +1537,95 @@
 
         </TableRow>
 
-            <TableRow
-                android:id="@+id/tableRow17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+        <TableRow
+            android:id="@+id/tableRow17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-                <ImageButton
-                    android:id="@+id/ibtZelle_171"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_weight="1"
-                    android:background="@color/cWeiss"
-                    android:onClick="btnZelle"
-                    android:src="@drawable/im0021a14_007"
-                    android:textAllCaps="false"
-                    android:textColor="@color/cSchwarz"
-                    android:textSize="15sp" />
+            <ImageButton
+                android:id="@+id/ibtZelle_171"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnZelle"
+                android:src="@drawable/im0021a14_007"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
 
-                <ImageButton
-                    android:id="@+id/ibtZelle_172"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_weight="1"
-                    android:background="@color/cWeiss"
-                    android:onClick="btnZelle"
-                    android:src="@drawable/im0120a14_007"
-                    android:textAllCaps="false"
-                    android:textColor="@color/cSchwarz"
-                    android:textSize="15sp" />
+            <ImageButton
+                android:id="@+id/ibtZelle_172"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnZelle"
+                android:src="@drawable/im0120a14_007"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
 
-                <ImageButton
-                    android:id="@+id/ibtZelle_173"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_weight="1"
-                    android:background="@color/cWeiss"
-                    android:onClick="btnZelle"
-                    android:src="@drawable/im1002a14_007"
-                    android:textAllCaps="false"
-                    android:textColor="@color/cSchwarz"
-                    android:textSize="15sp" />
+            <ImageButton
+                android:id="@+id/ibtZelle_173"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnZelle"
+                android:src="@drawable/im1002a14_007"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
 
-                <ImageButton
-                    android:id="@+id/ibtZelle_174"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_weight="1"
-                    android:background="@color/cWeiss"
-                    android:onClick="btnZelle"
-                    android:src="@drawable/im0210a14_007"
-                    android:textAllCaps="false"
-                    android:textColor="@color/cSchwarz"
-                    android:textSize="15sp" />
+            <ImageButton
+                android:id="@+id/ibtZelle_174"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnZelle"
+                android:src="@drawable/im0210a14_007"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
 
-                <ImageButton
-                    android:id="@+id/ibtZelle_175"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_weight="1"
-                    android:background="@color/cWeiss"
-                    android:onClick="btnZelle"
-                    android:src="@drawable/grau"
-                    android:textAllCaps="false"
-                    android:textColor="@color/cSchwarz"
-                    android:textSize="15sp" />
+            <ImageButton
+                android:id="@+id/ibtZelle_175"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnZelle"
+                android:src="@drawable/grau"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
 
-                <ImageButton
-                    android:id="@+id/ibtZelle_176"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_weight="1"
-                    android:background="@color/cWeiss"
-                    android:onClick="btnZelle"
-                    android:src="@drawable/grau"
-                    android:textAllCaps="false"
-                    android:textColor="@color/cSchwarz"
-                    android:textSize="15sp" />
+            <ImageButton
+                android:id="@+id/ibtZelle_176"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@color/cWeiss"
+                android:onClick="btnZelle"
+                android:src="@drawable/grau"
+                android:textAllCaps="false"
+                android:textColor="@color/cSchwarz"
+                android:textSize="15sp" />
 
         </TableRow>
 
@@ -1921,3 +1920,4 @@
     </LinearLayout>
 
 </ScrollView>
+

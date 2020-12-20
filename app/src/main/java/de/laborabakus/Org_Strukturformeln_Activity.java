@@ -31,8 +31,8 @@ public class Org_Strukturformeln_Activity extends Activity {
     static int intSpalte_max = 6;
 
     @Override
-	public void onCreate(Bundle savedInstanceState)
-	{
+    public void onCreate(Bundle savedInstanceState)
+    {
         String strZellenname;
         String strBilddateiname;
         int intResId_Zelle;
@@ -40,7 +40,7 @@ public class Org_Strukturformeln_Activity extends Activity {
         boolean bBildGefunden;
 
         super.onCreate(savedInstanceState);
-	    setContentView(R.layout.org_strukturformeln);
+        setContentView(R.layout.org_strukturformeln);
 
         // Activity registrieren, damit sie später an zentraler Stelle (Hauptmenue) geschlossen werden kann
         ActivityRegistry.register(this);
@@ -58,6 +58,14 @@ public class Org_Strukturformeln_Activity extends Activity {
 
                 ImageButton btn = (ImageButton) findViewById(intResId_Zelle);
                 Drawable drawable = btn.getDrawable();
+
+                Log.d(TAG, "strZellenname = "+strZellenname);
+                Log.d(TAG, "getPackageName: "+getPackageName().toString());
+                Log.d(TAG, "intResId = "+Integer.toString(intResId_Zelle));
+                if (btn == null)
+                    Log.d(TAG, "*** btn IST NULL!!! ***");
+                else
+                    Log.d(TAG, "btn: "+btn.toString());
 
                 // HashMap erstellen, die nur Einträge mit Value (resId) = 0 enthält
                 // (d.h. alle bereits verwendetet Einträge (resId <> 0) sind rausgefiltert)
@@ -86,7 +94,7 @@ public class Org_Strukturformeln_Activity extends Activity {
                 hmGefiltert.clear();
             } // for (int intSpalte = 1; intSpalte <= intSpalte_max; intSpalte++)
         } // for (int intZeile = 1; intZeile <= intZeile_max; intZeile++)
-	} // onCreate
+    } // onCreate
 
     @Override
     public void onDestroy() {
@@ -103,58 +111,39 @@ public class Org_Strukturformeln_Activity extends Activity {
         View v;
         String strZellenname = "";
         String strBilddateiname = "";
-        Boolean bSetzeUnsichtbar;
+        Boolean bVisible;
+
 
         /*
-            Mögliche erlaubte Zustände:
-            Bindung auf  3 Uhr - einfach
-            Bindung auf  6 Uhr - einfach
-            Bindung auf  9 Uhr - einfach
-            Bindung auf 12 Uhr - einfach
-            Bindung auf  3 Uhr - doppelt
-            Bindung auf  6 Uhr - doppelt
-            Bindung auf  9 Uhr - doppelt
-            Bindung auf 12 Uhr - doppelt
+            Um die Anzeige der Bilder zu steuern, soll aus 'Org_Generator_Activity' ein 4stelliger String übergeben werden.
+            Stelle 1 des Strings bezieht sich auf die erlaubte Bindung auf 12 Uhr.
+            Stelle 2 des Strings bezieht sich auf die erlaubte Bindung auf  3 Uhr.
+            Stelle 3 des Strings bezieht sich auf die erlaubte Bindung auf  6 Uhr.
+            Stelle 4 des Strings bezieht sich auf die erlaubte Bindung auf  9 Uhr.
+            Je Stelle sind folgende Werte möglich:
+            0 : alles erlaubt
+            1 : nur einfache Bindung erlaubt
+            2 : nur zweifache Bindung erlaubt
+            9 : keine Bindung erlaubt
 
-            Mögliche NICHT erlaubte Zustände:
-            Bindung auf  3 Uhr - einfach
-            Bindung auf  6 Uhr - einfach
-            Bindung auf  9 Uhr - einfach
-            Bindung auf 12 Uhr - einfach
-            Bindung auf  3 Uhr - doppelt
-            Bindung auf  6 Uhr - doppelt
-            Bindung auf  9 Uhr - doppelt
-            Bindung auf 12 Uhr - doppelt
-
-            Übergabe aus 'Org_Generator_Activity':
-            Code     Kriterien für Auswahl der Bilddateien
+            Beispiele:
             0000 ==> alles erlaubt
-            1000 ==> einfache Bindung auf 12 Uhr, sonst alles erlaubt
-            2000 ==> zweifache Bindung auf 12 Uhr, sonst alles erlaubt
-            9000 ==> KEINE Bindung auf 12 Uhr, sonst alles erlaubt
-            9009 ==> KEINE Bindung auf 12 Uhr
-                     Bindung auf 3 Uhr egal
-                     Bindung auf 6 Uhr egal
-                     KEINE Bindung auf 9 Uhr
-            1290 ==> einfache Bindung auf 12 Uhr
-                     zweifache Bindung auf 3 Uhr
-                     KEINE Bindung auf 6 Uhr
-                     Bindung auf 9 Uhr egal
+            1000 ==> auf 12 Uhr ist nur eine einfache Bindung erlaubt, auf 3, 6 und 9 Uhr ist alles erlaubt
+            2000 ==> auf 12 Uhr ist nur eine zweifache Bindung erlaubt, auf 3, 6 und 9 Uhr ist alles erlaubt
+            9000 ==> auf 12 Uhr ist KEINE Bindung erlaubt, auf 3, 6 und 9 Uhr ist alles erlaubt
+            9009 ==> auf 12 und 9 Uhr ist KEINE Bindung erlaubt, auf 3 und 6 Uhr ist alles erlaubt
+            1290 ==> auf 12 Uhr ist nur eine einfache Bindung erlaubt
+                     auf  3 Uhr ist nur eine zweifache Bindung erlaubt
+                     auf  6 Uhr ist KEINE Bindung erlaubt
+                     auf  9 Uhr ist alles erlaubt
          */
 
-        /*
-            Beispiel:
-            9009 ==> KEINE Bindung auf 12 Uhr
-                     Bindung auf 3 Uhr egal
-                     Bindung auf 6 Uhr egal
-                     KEINE Bindung auf 9 Uhr
-        */
-        String strCode = "9009";
-        int arrFilter[] = new int[4];
-        arrFilter[0] = 9;
-        arrFilter[1] = 0;
-        arrFilter[2] = 0;
-        arrFilter[3] = 9;
+        Intent myIntent = getIntent();
+        int arrFilter[] = myIntent.getIntArrayExtra("Filter");
+
+        for (int i = 0; i < 4; i++) {
+            Log.d(TAG, "arrFilter["+i+"]="+arrFilter[i]);
+        }
 
         for(String key : hmBilddateien.keySet()) {
             Integer value = hmBilddateien.get(key);
@@ -168,31 +157,32 @@ public class Org_Strukturformeln_Activity extends Activity {
                     arrBindung[b] = Integer.parseInt(strBilddateiname.substring(intPos, intPos+1));
                 }
 
-                bSetzeUnsichtbar = false;
+                bVisible = true;
 
                 if ((arrFilter[0] == 9) & (arrBindung[0] > 0)) {
                     // Bindung auf 12 Uhr vorhanden ==> Feld unsichtbar machen
-                    bSetzeUnsichtbar = true;
+                    bVisible = false;
                 }
                 if ((arrFilter[1] == 9) & (arrBindung[1] > 0)) {
                     // Bindung auf 3 Uhr vorhanden ==> Feld unsichtbar machen
-                    bSetzeUnsichtbar = true;
+                    bVisible = false;
                 }
                 if ((arrFilter[2] == 9) & (arrBindung[2] > 0)) {
                     // Bindung auf 6 Uhr vorhanden ==> Feld unsichtbar machen
-                    bSetzeUnsichtbar = true;
+                    bVisible = false;
                 }
                 if ((arrFilter[3] == 9) & (arrBindung[3] > 0)) {
                     // Bindung auf 9 Uhr vorhanden ==> Feld unsichtbar machen
-                    bSetzeUnsichtbar = true;
+                    bVisible = false;
                 }
 
-                if (bSetzeUnsichtbar)
-                {
-                    int intResId = value;
-                    v = (View) findViewById(intResId);
+                int intResId = value;
+                v = (View) findViewById(intResId);
+                if (bVisible)
+                    v.setVisibility(View.VISIBLE);
+                else
                     v.setVisibility(View.INVISIBLE);
-                }
+
             } // if (value != "frei")
         } // for(String key : hmBilddateien.keySet())
     } // onResume
@@ -202,6 +192,13 @@ public class Org_Strukturformeln_Activity extends Activity {
         super.onPause();
     } // onPause
 
+    // onNewIntent / setIntent notwendig, damit die mit "PutExtra" übergebenen Parameter aktualisiert werden
+    // (sonst ermittelt "getIntArrayExtra" immer dieselben Parameter)
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
     private void SchreibeBilddateienInHashMap()
     {
         // Liste von Feldern definieren, die alle Grafik-Objekte (drawables) des Projekts enthält

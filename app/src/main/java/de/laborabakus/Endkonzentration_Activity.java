@@ -528,7 +528,9 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
             strEingabetext = et.getText().toString();
             if(strEingabetext.equals("") == false)
             {
-                intEndeVerdReihe = x;break;
+                intEndeVerdReihe = x;
+
+                break;
             }
         }
 
@@ -545,7 +547,16 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
             strEingabetext = et.getText().toString();
             if(strEingabetext.equals("") == false)
             {
-                arrString [x] = strEingabetext;
+                dblEingabezahl = Double.parseDouble(strEingabetext);
+                if (dblEingabezahl == 0)
+                {
+                    fktEingabeNullNichtZulaessig();
+                    break;
+                }
+                else
+                {
+
+                }
             }
             else
             {

@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
@@ -82,11 +82,11 @@ public class Org_Generator_Activity extends Activity {
 
                 if (checkGitter() == true) {
                     ibt.setImageResource(intResId);
+                    setzeFelder();
                 }
                 else {
                     arrGitter[intZeile][intSpalte]= null;
                 }
-
             }
         }
     } // onResume
@@ -98,11 +98,6 @@ public class Org_Generator_Activity extends Activity {
 
     public void btnFeld(View v)
     {
-        if(resIdFeld != 0) {
-            // es wurde mindestens eine Zelle gefüllt
-            setzeFelder();
-        }
-
         resIdFeld = v.getId();
         String strZellenname = getResources().getResourceEntryName(resIdFeld);  // Zellenname (String) zur ID ermitteln
 
@@ -163,8 +158,6 @@ public class Org_Generator_Activity extends Activity {
                         int intPos = 2 + b;
                         arrBindung[b] = Integer.parseInt(strZellinhalt.substring(intPos, intPos+1));
                     }
-                    Log.i("Org_Generator_Activity", "Zeile: " + intZeile + ", Spalte: " + intSpalte + ": " + arrGitter[intZeile][intSpalte]);
-                    // Log.i = Protokollzeilen unter Logcat ausgeben
                     strMsg = "";
 
                     if ((arrBindung[0] > 0) && (intZeile == 0)) {                                   // intZeile => Zeile, wo das Element platziert werden soll.
@@ -212,7 +205,6 @@ public class Org_Generator_Activity extends Activity {
                                     strZellinhalt = arrGitter[intZeile][intSpalte + 1]; // Bsp.: an1010a56_108
                                     // 9 Uhr-Bindung der Zelle eine Spalte neben dem aktuellen Element prüfen
                                     int intPos = 5;
-                                    Log.i("Org_Generator_Activity", "arrBindung[b]: "+ arrBindung[b]);
                                     intBindung_Nachbarzelle = Integer.parseInt(strZellinhalt.substring(intPos, intPos + 1));
                                     if ((arrBindung[b] > 0) && (arrBindung[b] != intBindung_Nachbarzelle)) {
                                         strMsg = "Bindung auf 3 Uhr passt nicht zur Nachbarzelle!";
@@ -289,23 +281,12 @@ public class Org_Generator_Activity extends Activity {
             for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++) {
                 if (arrGitter[intZeile][intSpalte] == null) {
                     // Name des ImageButtons aus Zeile und Spalte bilden
-                    strZellenname = "ibtZelle_" + new DecimalFormat("00").format((intZeile+1)) + (intSpalte+1);
+                    strZellenname = "ibtFeld_" + new DecimalFormat("00").format((intZeile+1)) + (intSpalte+1);
 
                     // ResId des ImageButtons ermitteln
                     intResId = getResources().getIdentifier(strZellenname, "id", getPackageName());
 
-                    String strZellenname2 = getResources().getResourceEntryName(intResId);  // Zellenname (String) zur ID ermitteln
-
                     ImageButton btn = (ImageButton) findViewById(intResId);
-
-                    Log.d(TAG, "strZellenname = "+strZellenname);
-                    Log.d(TAG, "strZellenname2 = "+strZellenname2);
-                    Log.d(TAG, "getPackageName: "+getPackageName().toString());
-                    Log.d(TAG, "intResId = "+Integer.toString(intResId));
-                    if (btn == null)
-                        Log.d(TAG, "*** btn IST NULL!!! ***");
-                    else
-                        Log.d(TAG, "btn: "+btn.toString());
 
                     int arrFilter[] = new int[4];
 
@@ -327,7 +308,11 @@ public class Org_Generator_Activity extends Activity {
                     }
 
                     bEnabled = checkNachbarzellen(intZeile, intSpalte, arrFilter);
-                    //btn.setEnabled(bEnabled);
+                    if (bEnabled)
+                        btn.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.weiss));
+                    else
+                        btn.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.grau));
+                    btn.setEnabled(bEnabled);
                 } // if (arrGitter[intZeile][intSpalte] == null)
 
             } // for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++)

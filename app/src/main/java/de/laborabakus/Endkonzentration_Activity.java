@@ -373,41 +373,48 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
         strFeldname = getResources().getResourceEntryName(v.getId());
 
-        if (strAuswahl.equals("ml"))
+        if (strFeldname.equals("btn0"))
         {
-            if (strFeldname.equals("btn0"))
+            if (strAuswahl.equals("mg"))
             {
                 tv = (TextView) findViewById(CurrentID);
-                tv.setText(R.string.ul);
+                tv.setText(R.string.g);
             }
-            else
+            if (strAuswahl.equals("g"))
+            {
+                tv = (TextView) findViewById(CurrentID);
+                tv.setText(R.string.mg);
+            }
+        }
+
+        if ((strFeldname.equals("btn1")) || (strFeldname.equals("btn3")) || (strFeldname.equals("btn5")) || (strFeldname.equals("btn7")) || (strFeldname.equals("btn9")))
+        {
+            if (strAuswahl.equals("l"))
+            {
+                tv = (TextView) findViewById(CurrentID);
+                tv.setText(R.string.ml);
+            }
+            if (strAuswahl.equals("ml"))
             {
                 tv = (TextView) findViewById(CurrentID);
                 tv.setText(R.string.l);
             }
         }
-
-        if (strAuswahl.equals("µl"))
+        else
         {
-            tv = (TextView) findViewById(CurrentID);
-            tv.setText(R.string.ml);
-        }
-        if (strAuswahl.equals("l"))
-        {
-            tv = (TextView) findViewById(CurrentID);
-            tv.setText(R.string.ml);
-        }
-        if (strAuswahl.equals("mg"))
-        {
-            tv = (TextView) findViewById(CurrentID);
-            tv.setText(R.string.g);
-        }
-        if (strAuswahl.equals("g"))
-        {
-            tv = (TextView) findViewById(CurrentID);
-            tv.setText(R.string.mg);
+            if (strAuswahl.equals("µl"))
+            {
+                tv = (TextView) findViewById(CurrentID);
+                tv.setText(R.string.ml);
+            }
+            if (strAuswahl.equals("ml"))
+            {
+                tv = (TextView) findViewById(CurrentID);
+                tv.setText(R.string.ul);
+            }
         }
     }
+
 
     /********************************************
      ************** Button EinheitErgebnis ******

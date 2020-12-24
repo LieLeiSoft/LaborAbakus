@@ -22,6 +22,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
     private static final String TAG = "";
     EditText et;
     TextView tv;
+    boolean AlleEingabefelderVoll = false;
     int intEndeVerdReihe = 0;
     int resId;
     int resId2;
@@ -29,8 +30,8 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
     int x;
     double dblEingabezahl;
     double dblReinheit;
-    double dblppm;
-    double dblgpml;
+    double dblPPM;
+    double dblZwischenergebnis;
     double dblWert;
     String strEingabetext;
     String strEingabetext2;
@@ -38,10 +39,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
     String strAuswahl2;
     String strAuswahl3;
     String strAusgabe;
-    String [] arrString = new String [10];
-    Double [] arrWert = new Double [12];
-    String [] arrEinheit = new String [12];
-
+    String strAusgabe2;
 
 	/** wird ausgef�hrt, wenn Activicty erstellt wird */
 	@Override
@@ -540,9 +538,22 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
     public void btnOnClickBerechneEndkonz (View v)
     {
+        Double [] arrWert = new Double [12];
+        String [] arrEinheit = new String [12];
+        double dblMenge;
+
+        // *************************************************************************
+        // ***** Hier wird der Gehalt der Substanz und die Einheit ausgelesen. *****
+        // *************************************************************************
         et = (EditText) findViewById(R.id.Reinheit_Konz);
         strEingabetext = et.getText().toString();
         dblReinheit = Double.parseDouble(strEingabetext);
+        tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+        strEingabetext2 = tv.getText().toString();
+        if ((strEingabetext2.equals("mg/g")) || (strEingabetext2.equals("mg/ml")))
+        {
+            dblReinheit = dblReinheit / 10;
+        }
 
         // *****************************************************************
         // ***** Hier wird von hinten das letzte Eingabefeld bestimmt. *****
@@ -595,7 +606,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                     arrEinheit[x] = strEingabetext2;
 
                     // *****************************************************************
-                    // ***** Hier werden die Einheit umgerechnet! **********************
+                    // ***** Hier werden die Einheiten umgerechnet! ********************
                     // *****************************************************************
 
                     if (arrEinheit[x].equals("g"))      // Gramm auf Milligramm
@@ -610,41 +621,58 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                     {
                         arrWert[x] = arrWert[x] * 1000;
                     }
+
+                    AlleEingabefelderVoll = true;
                 }
             }
             else
             {
                 fktEineBerechnungKannNichtDurchgeführtWerden();
+                AlleEingabefelderVoll = false;
                 break;
             }
-
         }
 
-        dblgpml = dblReinheit/100;
-
-        for (x=0; x<= intEndeVerdReihe; x++ )
+        // *****************************************************************
+        // ***** Hier wird nur gerechnet wenn alle Felder gefüllt sind! ****
+        // *****************************************************************
+        if (AlleEingabefelderVoll == true)
         {
-            // *****************************************************************
-            // ***** Hier werden nur die vollen Verdünnungsreihen berechnet ****
-            // *****************************************************************
-            if ((x == 0)||(x == 2)||(x == 4)||(x == 6)||(x == 8))
+            dblZwischenergebnis = dblReinheit/100;
+
+            for (x=0; x<= intEndeVerdReihe; x++ )
             {
-                dblWert = arrWert[x] / arrWert[x+1];
-                dblgpml = dblgpml * dblWert;
+                // *****************************************************************
+                // ***** Hier werden nur die vollen Verdünnungsreihen berechnet ****
+                // *****************************************************************
+                if ((x == 1)||(x == 3)||(x == 5)||(x == 7)||(x == 9))
+                {
+                    dblWert = arrWert[x-1] / arrWert[x];
+                    dblZwischenergebnis = dblZwischenergebnis * dblWert;
+                }
             }
+
+            dblPPM = dblZwischenergebnis * 1000;
+            strAusgabe = Double.toString(dblPPM);
+            strAusgabe = strAusgabe + " ppm";
+
+            if ((intEndeVerdReihe == 0)||(intEndeVerdReihe == 2)||(intEndeVerdReihe == 4)||(intEndeVerdReihe == 6)||(intEndeVerdReihe == 8))
+            {
+                dblMenge = (dblPPM * arrWert[intEndeVerdReihe]) / 1000;
+                strAusgabe = Double.toString(dblMenge);
+                strAusgabe2 = Double.toString(arrWert[intEndeVerdReihe]);
+                strAusgabe = strAusgabe + " mg in " + strAusgabe2 + " ml" ;
+            }
+
+
+            // **************************************
+            // *** Hier wird ein Toast ausgegeben ***
+            // **************************************
+            String text = strAusgabe;
+            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+            Meldung.setGravity(Gravity.TOP, 0, 0);
+            Meldung.show();
         }
-
-        dblppm = dblgpml * 1000;
-
-        strAusgabe = Double.toString(dblppm);
-
-        // **************************************
-        // *** Hier wird ein Toast ausgegeben ***
-        // **************************************
-        String text = strAusgabe + " ppm";
-        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-        Meldung.setGravity(Gravity.TOP, 0, 0);
-        Meldung.show();
     }
 
     private void fktDerGehaltderSubstanzwurdeauf100gesetzt()

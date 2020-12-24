@@ -568,6 +568,9 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
         for (x=0; x<= intEndeVerdReihe; x++)
         {
+            // *****************************************************************
+            // ***** Hier wird geprüft, ob eine "0" eingegeben wurde! **********
+            // *****************************************************************
             resId2 = getResources().getIdentifier("et" + x, "id", getPackageName());
             et = (EditText) findViewById(resId2);
             strEingabetext = et.getText().toString();
@@ -581,6 +584,9 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                 }
                 else
                 {
+                    // ***************************************************************************************
+                    // ***** Hier werden die vollen Eingabezellen ausgelesen und in einen Array gepackt! *****
+                    // ***************************************************************************************
                     arrWert[x] = Double.parseDouble(strEingabetext);
 
                     resId3 = getResources().getIdentifier("btn" + x, "id", getPackageName());
@@ -588,15 +594,19 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                     strEingabetext2 = tv.getText().toString();
                     arrEinheit[x] = strEingabetext2;
 
-                    if (arrEinheit[x].equals("g"))
+                    // *****************************************************************
+                    // ***** Hier werden die Einheit umgerechnet! **********************
+                    // *****************************************************************
+
+                    if (arrEinheit[x].equals("g"))      // Gramm auf Milligramm
                     {
                         arrWert[x] = arrWert[x] * 1000;
                     }
-                    if (arrEinheit[x].equals("µl"))
+                    if (arrEinheit[x].equals("µl"))     // Mikroliter auf Milliliter
                     {
                         arrWert[x] = arrWert[x] / 1000;
                     }
-                    if (arrEinheit[x].equals("l"))
+                    if (arrEinheit[x].equals("l"))      // Liter auf Milliliter
                     {
                         arrWert[x] = arrWert[x] * 1000;
                     }
@@ -614,6 +624,9 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
         for (x=0; x<= intEndeVerdReihe; x++ )
         {
+            // *****************************************************************
+            // ***** Hier werden nur die vollen Verdünnungsreihen berechnet ****
+            // *****************************************************************
             if ((x == 0)||(x == 2)||(x == 4)||(x == 6)||(x == 8))
             {
                 dblWert = arrWert[x] / arrWert[x+1];

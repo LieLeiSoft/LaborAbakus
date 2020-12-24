@@ -4,8 +4,8 @@
     <string name="berechne">Berechne</string>
     <string name="aktuell_fest">fest</string>
     <string name="aktuell_fluessig">flüssig</string>
-    <string name="AC">Alles\nlöschen</string>
-    <string name="CE">Letzte\nlöschen</string>
+    <string name="AC">Alle\nEingaben\nlöschen</string>
+    <string name="CE">Letzte\nEingabe\nlöschen</string>
     <string name="g_l">g/l</string>
     <string name="mg_ml">mg/ml</string>
     <string name="g_ml">g/ml</string>
@@ -23,7 +23,7 @@
     <string name="l">l</string>
     <string name="Drei_Fragezeichen">Konzentration</string>
     <string name="eingabe">weitere Eingabe?</string>
-    <string name="Berechnung_der_Endkonzentration_einer_Verdünnung_oder_Verdünnungsreihe">Berechne die Endkonzentration\nder Verdünnung(-sreihe)!</string>
+    <string name="Berechnung_der_Endkonzentration_einer_Verdünnung_oder_Verdünnungsreihe">Berechnung der Endkonzentration\nder Verdünnung(-sreihe)!</string>
     <string name="Berechnung_der_Endkonzentration">Berechnung der Endkonzentration</string>
     <string name="Anzahl_Messwerte">Anzahl der Messwerte = </string>
     <string name="Mittelwert">arithmetischer Mittelwert = </string>

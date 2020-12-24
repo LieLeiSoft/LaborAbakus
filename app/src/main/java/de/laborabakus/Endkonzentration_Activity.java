@@ -25,13 +25,22 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
     int intEndeVerdReihe = 0;
     int resId;
     int resId2;
+    int resId3;
     int x;
     double dblEingabezahl;
+    double dblReinheit;
+    double dblppm;
+    double dblgpml;
+    double dblWert;
     String strEingabetext;
+    String strEingabetext2;
     String strAuswahl;
     String strAuswahl2;
     String strAuswahl3;
+    String strAusgabe;
     String [] arrString = new String [10];
+    Double [] arrWert = new Double [12];
+    String [] arrEinheit = new String [12];
 
 
 	/** wird ausgef�hrt, wenn Activicty erstellt wird */
@@ -496,6 +505,13 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
             x = x -1;
         }
+
+        if((strWert.equals("") == true) && (x==-1))
+        {
+            et = (EditText) findViewById(R.id.Reinheit_Konz);
+            et.setText("");
+            et.requestFocus();
+        }
     } // btnCE
 
     // Eingabefelder zur�cksetzen
@@ -524,6 +540,10 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
     public void btnOnClickBerechneEndkonz (View v)
     {
+        et = (EditText) findViewById(R.id.Reinheit_Konz);
+        strEingabetext = et.getText().toString();
+        dblReinheit = Double.parseDouble(strEingabetext);
+
         // *****************************************************************
         // ***** Hier wird von hinten das letzte Eingabefeld bestimmt. *****
         // *****************************************************************
@@ -547,30 +567,62 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         // ***** ob alle Felder dazwischen gefüllt sind!!                   *****
         // **********************************************************************
 
-        for (x=0; x<= intEndeVerdReihe; x++)
-        {
-            resId2 = getResources().getIdentifier("et"+x, "id", getPackageName());
+        for (x=0; x<= intEndeVerdReihe; x++) {
+            resId2 = getResources().getIdentifier("et" + x, "id", getPackageName());
             et = (EditText) findViewById(resId2);
             strEingabetext = et.getText().toString();
-            if(strEingabetext.equals("") == false)
-            {
+            if (strEingabetext.equals("") == false) {
                 dblEingabezahl = Double.parseDouble(strEingabetext);
-                if (dblEingabezahl == 0)
-                {
+                if (dblEingabezahl == 0) {
                     fktEingabeNullNichtZulaessig();
                     break;
-                }
-                else
-                {
+                } else {
+                    arrWert[x] = Double.parseDouble(strEingabetext);
 
+                    resId3 = getResources().getIdentifier("btn" + x, "id", getPackageName());
+                    tv = (TextView) findViewById(resId3);
+                    strEingabetext2 = tv.getText().toString();
+                    arrEinheit[x] = strEingabetext2;
+
+                    if (arrEinheit[x].equals("g")) {
+                        arrWert[x] = arrWert[x] * 1000;
+                    }
+                    if (arrEinheit[x].equals("µl")) {
+                        arrWert[x] = arrWert[x] / 1000;
+                    }
+                    if (arrEinheit[x].equals("l")) {
+                        arrWert[x] = arrWert[x] * 1000;
+                    }
                 }
-            }
-            else
-            {
+            } else {
                 fktEineBerechnungKannNichtDurchgeführtWerden();
                 break;
             }
+
         }
+
+        dblgpml = dblReinheit/100;
+
+        for (x=0; x<= intEndeVerdReihe; x++ )
+        {
+            if ((x == 0)||(x == 2)||(x == 4)||(x == 6)||(x == 8))
+            {
+                dblWert = arrWert[x] / arrWert[x+1];
+                dblgpml = dblgpml * dblWert;
+            }
+        }
+
+        dblppm = dblgpml * 1000;
+
+        strAusgabe = Double.toString(dblppm);
+
+        // **************************************
+        // *** Hier wird ein Toast ausgegeben ***
+        // **************************************
+        String text = strAusgabe + " ppm";
+        Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        Meldung.setGravity(Gravity.TOP, 0, 0);
+        Meldung.show();
     }
 
     private void fktDerGehaltderSubstanzwurdeauf100gesetzt()
@@ -600,11 +652,12 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         // **************************************
         // *** Hier wird ein Toast ausgegeben ***
         // **************************************
-        String text = "\n   Achtung! Eine Berechnung kann   \n   " +
-                "nicht durchgeführt werden, da   \n   " +
-                "in der Verdünnungsreihe ein   \n   " +
-                "oder mehrere Eingabefelder   \n   " +
-                "nicht gefüllt sind!   \n";
+        String text = "\n   Achtung! Eine Berechnung   \n   " +
+                "kann nicht durchgeführt   \n   " +
+                "werden, da in der   \n   " +
+                "Verdünnungsreihe ein oder   \n   " +
+                "mehrere Eingabefelder  \n   " +
+                "nicht gefüllt sind!  \n   ";
         Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
         Meldung.setGravity(Gravity.TOP, 0, 0);
         Meldung.show();

@@ -39,7 +39,7 @@
                 android:id="@+id/btnAC"
                 android:onClick="btnOnClickAC"
                 android:layout_width="55dp"
-                android:layout_height="38dp"
+                android:layout_height="55dp"
                 android:background="@color/chellrot"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="2dp"
@@ -56,7 +56,7 @@
                 android:id="@+id/btnCE"
                 android:onClick="btnOnClickCE"
                 android:layout_width="55dp"
-                android:layout_height="38dp"
+                android:layout_height="55dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="1dp"
@@ -73,7 +73,7 @@
                 android:id="@+id/btnBerechne"
                 android:onClick="btnOnClickBerechneEndkonz"
                 android:layout_width="wrap_content"
-                android:layout_height="38dp"
+                android:layout_height="55dp"
                 android:background="@color/cHellorange"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="2dp"
@@ -84,12 +84,12 @@
                 android:layout_alignParentTop="true"
                 android:text="@string/berechne"
                 android:textColor="@color/cDunkelblau"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <Button
                 android:id="@+id/btnEinheit"
                 android:layout_width="70dp"
-                android:layout_height="38dp"
+                android:layout_height="55dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="1dp"
@@ -98,7 +98,7 @@
                 android:layout_marginBottom="2dp"
                 android:background="@color/cHellorange"
                 android:onClick="btnOnClickEinheitErgebnis"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/cDunkelblau" />
 
         </TableRow>

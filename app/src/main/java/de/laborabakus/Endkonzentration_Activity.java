@@ -556,7 +556,6 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
             if(strEingabetext.equals("") == false)
             {
                 intEndeVerdReihe = x;
-
                 break;
             }
         }
@@ -567,16 +566,21 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         // ***** ob alle Felder dazwischen gefüllt sind!!                   *****
         // **********************************************************************
 
-        for (x=0; x<= intEndeVerdReihe; x++) {
+        for (x=0; x<= intEndeVerdReihe; x++)
+        {
             resId2 = getResources().getIdentifier("et" + x, "id", getPackageName());
             et = (EditText) findViewById(resId2);
             strEingabetext = et.getText().toString();
-            if (strEingabetext.equals("") == false) {
+            if (strEingabetext.equals("") == false)
+            {
                 dblEingabezahl = Double.parseDouble(strEingabetext);
-                if (dblEingabezahl == 0) {
+                if (dblEingabezahl == 0)
+                {
                     fktEingabeNullNichtZulaessig();
                     break;
-                } else {
+                }
+                else
+                {
                     arrWert[x] = Double.parseDouble(strEingabetext);
 
                     resId3 = getResources().getIdentifier("btn" + x, "id", getPackageName());
@@ -584,17 +588,22 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                     strEingabetext2 = tv.getText().toString();
                     arrEinheit[x] = strEingabetext2;
 
-                    if (arrEinheit[x].equals("g")) {
+                    if (arrEinheit[x].equals("g"))
+                    {
                         arrWert[x] = arrWert[x] * 1000;
                     }
-                    if (arrEinheit[x].equals("µl")) {
+                    if (arrEinheit[x].equals("µl"))
+                    {
                         arrWert[x] = arrWert[x] / 1000;
                     }
-                    if (arrEinheit[x].equals("l")) {
+                    if (arrEinheit[x].equals("l"))
+                    {
                         arrWert[x] = arrWert[x] * 1000;
                     }
                 }
-            } else {
+            }
+            else
+            {
                 fktEineBerechnungKannNichtDurchgeführtWerden();
                 break;
             }

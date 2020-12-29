@@ -668,14 +668,17 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                             if (arrEinheit[x].equals("g"))      // Gramm auf Milligramm
                             {
                                 arrWert[x] = arrWert[x] * 1000;
+                                arrEinheit[x] = "mg";
                             }
                             if (arrEinheit[x].equals("µl"))     // Mikroliter auf Milliliter
                             {
                                 arrWert[x] = arrWert[x] / 1000;
+                                arrEinheit[x] = "ml";
                             }
                             if (arrEinheit[x].equals("l"))      // Liter auf Milliliter
                             {
                                 arrWert[x] = arrWert[x] * 1000;
+                                arrEinheit[x] = "ml";
                             }
 
                             EingabefelderLeer = false;
@@ -708,16 +711,38 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                         }
                     }
 
-                    dblPPM = dblZwischenergebnis * 1000;
-                    strAusgabe = Double.toString(dblPPM);
-                    strAusgabe = strAusgabe + " ppm";
+                    if(arrEinheit[0].equals("ml"))
+                    {
+                        dblPPM = dblZwischenergebnis * 1000000;
+                    }
+                    else
+                    {
+                        dblPPM = dblZwischenergebnis * 1000;
+                    }
+
+
+                    //strAusgabe = Double.toString(dblPPM);
+                    strAusgabe = ActivityTools.fktUmrechnungEinheit(dblPPM, "ppm");
+                    //strAusgabe = strAusgabe + " ppm";
 
                     if ((intEndeVerdReihe == 0)||(intEndeVerdReihe == 2)||(intEndeVerdReihe == 4)||(intEndeVerdReihe == 6)||(intEndeVerdReihe == 8))
                     {
-                        dblMenge = (dblPPM * arrWert[intEndeVerdReihe]) / 1000;
-                        strAusgabe = Double.toString(dblMenge);
-                        strAusgabe2 = Double.toString(arrWert[intEndeVerdReihe]);
-                        strAusgabe = strAusgabe + " mg in " + strAusgabe2 + " ml" ;
+
+
+                        // Korrektur bei ml
+                        if(arrEinheit[0].equals("ml"))
+                        {
+                            dblMenge = (dblPPM * arrWert[intEndeVerdReihe]);
+                        }
+                        else
+                        {
+                            dblMenge = (dblPPM * arrWert[intEndeVerdReihe]) / 1000;
+                        }
+
+                        strAusgabe = ActivityTools.fktUmrechnungEinheit(dblMenge, "mg");
+                        strAusgabe2 = ActivityTools.fktUmrechnungEinheit(arrWert[intEndeVerdReihe], arrEinheit[intEndeVerdReihe]);
+
+                        strAusgabe = strAusgabe + " in " + strAusgabe2 ;
                     }
 
 

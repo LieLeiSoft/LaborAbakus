@@ -1,5 +1,8 @@
 package de.laborabakus;
 
+import android.view.Gravity;
+import android.widget.Toast;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -203,37 +206,171 @@ public class ActivityTools {
 
 	public static String fktUmrechnungEinheit(Double dblWert, String strEinheit)
 	{
-		String strNeueEinheit;
+		String strNeuerWert = null;
 		String strNeuerWertmitEinheit = null;
 
 		// **********************************************************************************************
 		// ****** Alles was kleiner ist als 1 wird auf die nächstkleinere Einheit umgerechnet ***********
 		// **********************************************************************************************
 
-		if (dblWert <= 1)
+		while (dblWert < 1)
 		{
-			if (strEinheit.equals("g"))
+			if (strEinheit.equals(" pico g"))
+			{
+				break;
+			}
+			if (strEinheit.equals(" nano g"))
 			{
 				dblWert = dblWert * 1000;
-				fktSignifikanteStellen( dblWert, 4);
-				strNeuerWertmitEinheit = Double.toString(dblWert) + " mg";
+				strEinheit = " pico g";
+			}
+			if (strEinheit.equals("µg"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = " nano g";
 			}
 			if (strEinheit.equals("mg"))
 			{
 				dblWert = dblWert * 1000;
-				fktSignifikanteStellen( dblWert, 4);
-				strNeuerWertmitEinheit = Double.toString(dblWert) + " mg";
+				strEinheit = "µg";
 			}
 			if (strEinheit.equals("g"))
 			{
 				dblWert = dblWert * 1000;
-				fktSignifikanteStellen( dblWert, 4);
-				strNeuerWertmitEinheit = Double.toString(dblWert) + " mg";
+				strEinheit = "mg";
+			}
+			if (strEinheit.equals("kg"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = "g";
+			}
+			if (strEinheit.equals(" pico l"))
+			{
+				break;
+			}
+			if (strEinheit.equals(" nano l"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = " pico l";
+			}
+			if (strEinheit.equals("µl"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = " nano l";
+			}
+			if (strEinheit.equals("ml"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = "µl";
+			}
+			if (strEinheit.equals("l"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = "ml";
+			}
+			if (strEinheit.equals("ppt"))
+			{
+				break;
+			}
+			if (strEinheit.equals("ppb"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = "ppt";
+			}
+			if (strEinheit.equals("ppm"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = "ppb";
 			}
 		}
 
 
+		// **********************************************************************************************
+		// ****** Alles was größer ist als 1000 wird auf die nächstgrößere Einheit umgerechnet **********
+		// **********************************************************************************************
 
+		while (dblWert > 1000)
+		{
+			if (strEinheit.equals("kg"))
+			{
+				break;
+			}
+			if (strEinheit.equals("g"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = "kg";
+			}
+			if (strEinheit.equals("mg"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = "g";
+			}
+			if (strEinheit.equals("µg"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = "mg";
+			}
+			if (strEinheit.equals(" nano g"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = "µg";
+			}
+
+			if (strEinheit.equals(" pico g"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = " nano g";
+			}
+			if (strEinheit.equals("l"))
+			{
+				break;
+			}
+			if (strEinheit.equals("ml"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = "l";
+			}
+			if (strEinheit.equals("µl"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = "ml";
+			}
+			if (strEinheit.equals(" nano l"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = "µl";
+			}
+			if (strEinheit.equals(" pico l"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = " nano l";
+			}
+			if (strEinheit.equals("ppm"))
+			{
+				break;
+			}
+			if (strEinheit.equals("ppb"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = "ppm";
+			}
+			if (strEinheit.equals("ppt"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = "ppb";
+			}
+		}
+
+		if (dblWert <= 0.001)
+		{
+			strNeuerWert = Double.toString(dblWert);
+			strNeuerWert = fktDarstellungEponential(strNeuerWert,8);
+		}
+		else
+		{
+			strNeuerWert = fktSignifikanteStellen( dblWert, 4);
+		}
+		strNeuerWertmitEinheit = strNeuerWert + strEinheit;
 		return strNeuerWertmitEinheit;
 	}
 

@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -66,8 +67,17 @@ public class Konz_lsg_Anpassung_Activity extends Activity /*implements OnFocusCh
         super.onCreate(savedInstanceState);
         setContentView(R.layout.konz_lsg_anpassung);
 
-
+        // Cursor in erstes Eingabefeld setzen und numerische Tastatur einschalten
+        et = (EditText) findViewById(R.id.etAnpassungGehalt);
+        et.requestFocus();
+        showSoftKeyboard(findViewById(R.id.etAnpassungGehalt));
     } // onCreate
+
+    private void showSoftKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        view.requestFocus();
+        inputMethodManager.showSoftInput(view, 0);
+    }
 
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {

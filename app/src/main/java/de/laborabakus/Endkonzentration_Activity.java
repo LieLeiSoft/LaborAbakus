@@ -22,12 +22,14 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
     private static final String TAG = "";
     EditText et;
     TextView tv;
-    boolean AlleEingabefelderVoll = false;
+    // boolean AlleEingabefelderVoll = false;
     int intEndeVerdReihe = 0;
     int resId;
     int resId2;
     int resId3;
     int x;
+    boolean EingabefelderLeer;
+    boolean AlleEinheitenZuruckGesetzt;
     double dblEingabezahl;
     double dblReinheit;
     double dblPPM;
@@ -119,6 +121,8 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         tv = (TextView) findViewById(R.id.btnFestFluessig);
         tv.setText(strEingabetext);
 
+        fktCheckAlleEinheitenZuruckgesetzt();
+
     } // onResume
 
     @Override
@@ -199,6 +203,8 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                 }
             }
         }
+
+        fktCheckAlleEinheitenZuruckgesetzt();
     }
 
     @SuppressWarnings("static-access")
@@ -287,6 +293,8 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                 tv.setText(R.string.g);
             }
         }
+
+        fktCheckAlleEinheitenZuruckgesetzt();
     }
 
     /********************************************
@@ -324,6 +332,8 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
             tv = (TextView) findViewById(R.id.btnEinheitReinheit);
             tv.setText(R.string.Prozent);
         }
+
+        fktCheckAlleEinheitenZuruckgesetzt();
     }
 
     /********************************************
@@ -363,6 +373,8 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
             tv = (TextView) findViewById(R.id.btn0);
             tv.setText(R.string.ul);
         }
+
+        fktCheckAlleEinheitenZuruckgesetzt();
     }
 
     /**********************************************
@@ -420,6 +432,8 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                 tv.setText(R.string.ul);
             }
         }
+
+        fktCheckAlleEinheitenZuruckgesetzt();
     }
 
 
@@ -510,6 +524,8 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
             et.setText("");
             et.requestFocus();
         }
+
+        fktCheckAlleEinheitenZuruckgesetzt();
     } // btnCE
 
     // Eingabefelder zur�cksetzen
@@ -517,19 +533,48 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         EditText et;
         int resId;
 
-        et = (EditText) findViewById(R.id.Reinheit_Konz);
-        et.setText("");
+        fktCheckAlleEingabefelderLeer();
 
-        for (int x=0; x<=9; x++)
+        if (EingabefelderLeer == false)  // Wenn alle Eingabefelder leer sind
         {
-            resId = getResources().getIdentifier("et"+(x), "id", getPackageName());
-            et = (EditText) findViewById(resId);
+            et = (EditText) findViewById(R.id.Reinheit_Konz);
             et.setText("");
+
+            for (int x=0; x<=9; x++)
+            {
+                resId = getResources().getIdentifier("et"+(x), "id", getPackageName());
+                et = (EditText) findViewById(resId);
+                et.setText("");
+            }
+
+            et = (EditText) findViewById(R.id.Reinheit_Konz);
+            et.requestFocus();		// Cursor in erstes Eingabefeld setzen
+
+            EingabefelderLeer = true;
+
+            fktCheckAlleEinheitenZuruckgesetzt();
         }
+        else
+        {
+            tv = (TextView) findViewById(R.id.btnFestFluessig);
+            tv.setText(R.string.aktuell_fest);
 
-        et = (EditText) findViewById(R.id.Reinheit_Konz);
-        et.requestFocus();		// Cursor in erstes Eingabefeld setzen
+            tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+            tv.setText(R.string.Prozent);
 
+            tv = (TextView) findViewById(R.id.btn0);
+            tv.setText(R.string.g);
+
+            for (int x=1; x<=9; x++)
+            {
+                resId = getResources().getIdentifier("btn"+x, "id", getPackageName());
+                TextView tv = (TextView) findViewById(resId);
+                tv.setText(R.string.ml);
+            }
+
+            tv = (TextView) findViewById(R.id.btnAC);
+            tv.setText(R.string.AC);
+        }
     } // btnAC
 
     /********************************************
@@ -542,136 +587,223 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         String [] arrEinheit = new String [12];
         double dblMenge;
 
+        //fktCheckAlleEingabefelderLeer();
+
         // *************************************************************************
         // ***** Hier wird der Gehalt der Substanz und die Einheit ausgelesen. *****
         // *************************************************************************
         et = (EditText) findViewById(R.id.Reinheit_Konz);
         strEingabetext = et.getText().toString();
-        dblReinheit = Double.parseDouble(strEingabetext);
-        tv = (TextView) findViewById(R.id.btnEinheitReinheit);
-        strEingabetext2 = tv.getText().toString();
-        if ((strEingabetext2.equals("mg/g")) || (strEingabetext2.equals("mg/ml")))
+
+        if (strEingabetext.equals("") == false)
         {
-            dblReinheit = dblReinheit / 10;
+            dblReinheit = Double.parseDouble(strEingabetext);
+            if (dblReinheit == 0)
+            {
+                fktEingabeNullNichtZulaessig();
+            }
+            else
+            {
+                tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+                strEingabetext2 = tv.getText().toString();
+                if ((strEingabetext2.equals("mg/g")) || (strEingabetext2.equals("mg/ml")))
+                {
+                    dblReinheit = dblReinheit / 10;
+                }
+
+                // *****************************************************************
+                // ***** Hier wird von hinten das letzte Eingabefeld bestimmt. *****
+                // *****************************************************************
+
+                for (x = 9; x >= 0; x--)
+                {
+                    resId = getResources().getIdentifier("et"+x, "id", getPackageName());
+                    et = (EditText) findViewById(resId);
+                    strEingabetext = et.getText().toString();
+                    if(strEingabetext.equals("") == false)
+                    {
+                        intEndeVerdReihe = x;
+                        break;
+                    }
+                }
+
+                // **********************************************************************
+                // ***** Hier werden von vorne die Eingabefelder bis zum letzten    *****
+                // ***** gefüllten Eingabefeld ausgelesen und gleichzeitig geprüft, *****
+                // ***** ob alle Felder dazwischen gefüllt sind!!                   *****
+                // **********************************************************************
+
+                for (x=0; x<= intEndeVerdReihe; x++)
+                {
+                    // *****************************************************************
+                    // ***** Hier wird geprüft, ob eine "0" eingegeben wurde! **********
+                    // *****************************************************************
+                    resId2 = getResources().getIdentifier("et" + x, "id", getPackageName());
+                    et = (EditText) findViewById(resId2);
+                    strEingabetext = et.getText().toString();
+                    if (strEingabetext.equals("") == false)
+                    {
+                        dblEingabezahl = Double.parseDouble(strEingabetext);
+                        if (dblEingabezahl == 0)
+                        {
+                            fktEingabeNullNichtZulaessig();
+                            break;
+                        }
+                        else
+                        {
+                            // ***************************************************************************************
+                            // ***** Hier werden die vollen Eingabezellen ausgelesen und in einen Array gepackt! *****
+                            // ***************************************************************************************
+                            arrWert[x] = Double.parseDouble(strEingabetext);
+
+                            resId3 = getResources().getIdentifier("btn" + x, "id", getPackageName());
+                            tv = (TextView) findViewById(resId3);
+                            strEingabetext2 = tv.getText().toString();
+                            arrEinheit[x] = strEingabetext2;
+
+                            // *****************************************************************
+                            // ***** Hier werden die Einheiten umgerechnet! ********************
+                            // *****************************************************************
+
+                            if (arrEinheit[x].equals("g"))      // Gramm auf Milligramm
+                            {
+                                arrWert[x] = arrWert[x] * 1000;
+                            }
+                            if (arrEinheit[x].equals("µl"))     // Mikroliter auf Milliliter
+                            {
+                                arrWert[x] = arrWert[x] / 1000;
+                            }
+                            if (arrEinheit[x].equals("l"))      // Liter auf Milliliter
+                            {
+                                arrWert[x] = arrWert[x] * 1000;
+                            }
+
+                            EingabefelderLeer = false;
+                        }
+                    }
+                    else
+                    {
+                        fktEineBerechnungKannNichtDurchgeführtWerden();
+                        EingabefelderLeer = true;
+                        break;
+                    }
+                }
+
+                // *****************************************************************
+                // ***** Hier wird nur gerechnet wenn alle Felder gefüllt sind! ****
+                // *****************************************************************
+                if (EingabefelderLeer == false)
+                {
+                    dblZwischenergebnis = dblReinheit/100;
+
+                    for (x=0; x<= intEndeVerdReihe; x++ )
+                    {
+                        // *****************************************************************
+                        // ***** Hier werden nur die vollen Verdünnungsreihen berechnet ****
+                        // *****************************************************************
+                        if ((x == 1)||(x == 3)||(x == 5)||(x == 7)||(x == 9))
+                        {
+                            dblWert = arrWert[x-1] / arrWert[x];
+                            dblZwischenergebnis = dblZwischenergebnis * dblWert;
+                        }
+                    }
+
+                    dblPPM = dblZwischenergebnis * 1000;
+                    strAusgabe = Double.toString(dblPPM);
+                    strAusgabe = strAusgabe + " ppm";
+
+                    if ((intEndeVerdReihe == 0)||(intEndeVerdReihe == 2)||(intEndeVerdReihe == 4)||(intEndeVerdReihe == 6)||(intEndeVerdReihe == 8))
+                    {
+                        dblMenge = (dblPPM * arrWert[intEndeVerdReihe]) / 1000;
+                        strAusgabe = Double.toString(dblMenge);
+                        strAusgabe2 = Double.toString(arrWert[intEndeVerdReihe]);
+                        strAusgabe = strAusgabe + " mg in " + strAusgabe2 + " ml" ;
+                    }
+
+
+                    // **************************************
+                    // *** Hier wird ein Toast ausgegeben ***
+                    // **************************************
+                    String text = strAusgabe;
+                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                    Meldung.setGravity(Gravity.TOP, 0, 0);
+                    Meldung.show();
+                }
+            }
+        }
+    }
+
+    private void fktCheckAlleEingabefelderLeer()
+    {
+        EingabefelderLeer = true;
+
+        et = (EditText) findViewById(R.id.Reinheit_Konz);
+        strEingabetext = et.getText().toString();
+
+        if (strEingabetext.equals("") == false)
+        {
+            EingabefelderLeer = false;
         }
 
-        // *****************************************************************
-        // ***** Hier wird von hinten das letzte Eingabefeld bestimmt. *****
-        // *****************************************************************
-
-        for (x = 9; x >= 0; x--)
+        for (int x=0; x<=9; x++)
         {
             resId = getResources().getIdentifier("et"+x, "id", getPackageName());
             et = (EditText) findViewById(resId);
             strEingabetext = et.getText().toString();
-            if(strEingabetext.equals("") == false)
-            {
-                intEndeVerdReihe = x;
-                break;
-            }
-        }
-
-        // **********************************************************************
-        // ***** Hier werden von vorne die Eingabefelder bis zum letzten    *****
-        // ***** gefüllten Eingabefeld ausgelesen und gleichzeitig geprüft, *****
-        // ***** ob alle Felder dazwischen gefüllt sind!!                   *****
-        // **********************************************************************
-
-        for (x=0; x<= intEndeVerdReihe; x++)
-        {
-            // *****************************************************************
-            // ***** Hier wird geprüft, ob eine "0" eingegeben wurde! **********
-            // *****************************************************************
-            resId2 = getResources().getIdentifier("et" + x, "id", getPackageName());
-            et = (EditText) findViewById(resId2);
-            strEingabetext = et.getText().toString();
             if (strEingabetext.equals("") == false)
             {
-                dblEingabezahl = Double.parseDouble(strEingabetext);
-                if (dblEingabezahl == 0)
-                {
-                    fktEingabeNullNichtZulaessig();
-                    break;
-                }
-                else
-                {
-                    // ***************************************************************************************
-                    // ***** Hier werden die vollen Eingabezellen ausgelesen und in einen Array gepackt! *****
-                    // ***************************************************************************************
-                    arrWert[x] = Double.parseDouble(strEingabetext);
-
-                    resId3 = getResources().getIdentifier("btn" + x, "id", getPackageName());
-                    tv = (TextView) findViewById(resId3);
-                    strEingabetext2 = tv.getText().toString();
-                    arrEinheit[x] = strEingabetext2;
-
-                    // *****************************************************************
-                    // ***** Hier werden die Einheiten umgerechnet! ********************
-                    // *****************************************************************
-
-                    if (arrEinheit[x].equals("g"))      // Gramm auf Milligramm
-                    {
-                        arrWert[x] = arrWert[x] * 1000;
-                    }
-                    if (arrEinheit[x].equals("µl"))     // Mikroliter auf Milliliter
-                    {
-                        arrWert[x] = arrWert[x] / 1000;
-                    }
-                    if (arrEinheit[x].equals("l"))      // Liter auf Milliliter
-                    {
-                        arrWert[x] = arrWert[x] * 1000;
-                    }
-
-                    AlleEingabefelderVoll = true;
-                }
+                EingabefelderLeer = false;
             }
-            else
+        }
+    }
+
+    private void fktCheckAlleEinheitenZuruckgesetzt()
+    {
+        AlleEinheitenZuruckGesetzt = true;
+
+        tv = (TextView) findViewById(R.id.btnFestFluessig);
+        strEingabetext = tv.getText().toString();
+        if (strEingabetext.equals("fest") == false)
+        {
+            AlleEinheitenZuruckGesetzt = false;
+        }
+
+        tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+        strEingabetext = tv.getText().toString();
+        if (strEingabetext.equals("%") == false)
+        {
+            AlleEinheitenZuruckGesetzt = false;
+        }
+
+        tv = (TextView) findViewById(R.id.btn0);
+        strEingabetext = tv.getText().toString();
+        if (strEingabetext.equals("g") == false)
+        {
+            AlleEinheitenZuruckGesetzt = false;
+        }
+
+        for (int x=1; x<=9; x++)
+        {
+            resId = getResources().getIdentifier("btn"+x, "id", getPackageName());
+            tv = (TextView) findViewById(resId);
+            strEingabetext = tv.getText().toString();
+            if (strEingabetext.equals("ml") == false)
             {
-                fktEineBerechnungKannNichtDurchgeführtWerden();
-                AlleEingabefelderVoll = false;
-                break;
+                AlleEinheitenZuruckGesetzt = false;
             }
         }
 
-        // *****************************************************************
-        // ***** Hier wird nur gerechnet wenn alle Felder gefüllt sind! ****
-        // *****************************************************************
-        if (AlleEingabefelderVoll == true)
+        fktCheckAlleEingabefelderLeer();
+
+        if((AlleEinheitenZuruckGesetzt == false) && (EingabefelderLeer == true))
         {
-            dblZwischenergebnis = dblReinheit/100;
-
-            for (x=0; x<= intEndeVerdReihe; x++ )
-            {
-                // *****************************************************************
-                // ***** Hier werden nur die vollen Verdünnungsreihen berechnet ****
-                // *****************************************************************
-                if ((x == 1)||(x == 3)||(x == 5)||(x == 7)||(x == 9))
-                {
-                    dblWert = arrWert[x-1] / arrWert[x];
-                    dblZwischenergebnis = dblZwischenergebnis * dblWert;
-                }
-            }
-
-            dblPPM = dblZwischenergebnis * 1000;
-            strAusgabe = Double.toString(dblPPM);
-            strAusgabe = strAusgabe + " ppm";
-
-            if ((intEndeVerdReihe == 0)||(intEndeVerdReihe == 2)||(intEndeVerdReihe == 4)||(intEndeVerdReihe == 6)||(intEndeVerdReihe == 8))
-            {
-                dblMenge = (dblPPM * arrWert[intEndeVerdReihe]) / 1000;
-                strAusgabe = Double.toString(dblMenge);
-                strAusgabe2 = Double.toString(arrWert[intEndeVerdReihe]);
-                strAusgabe = strAusgabe + " mg in " + strAusgabe2 + " ml" ;
-            }
-
-
-            // **************************************
-            // *** Hier wird ein Toast ausgegeben ***
-            // **************************************
-            String text = strAusgabe;
-            Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-            Meldung.setGravity(Gravity.TOP, 0, 0);
-            Meldung.show();
+            tv = (TextView) findViewById(R.id.btnAC);
+            tv.setText(R.string.AC2);
+        }
+        else
+        {
+            tv = (TextView) findViewById(R.id.btnAC);
+            tv.setText(R.string.AC);
         }
     }
 

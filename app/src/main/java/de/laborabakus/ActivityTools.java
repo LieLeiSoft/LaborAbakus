@@ -197,88 +197,46 @@ public class ActivityTools {
 		return strExpo;
 	}
 
+	// **********************************************************************************************
+	// *********** Umrechnung des Wertes bei zu großen und zu kleinen Werten mit neuer Einheit  *****
+	// **********************************************************************************************
 
+	public static String fktUmrechnungEinheit(Double dblWert, String strEinheit)
+	{
+		String strNeueEinheit;
+		String strNeuerWertmitEinheit = null;
 
+		// **********************************************************************************************
+		// ****** Alles was kleiner ist als 1 wird auf die nächstkleinere Einheit umgerechnet ***********
+		// **********************************************************************************************
 
-
-
-
-
-
-
-
-		/*
-		// int pos = strZahl.indexOf('.');
-		//int vorKomma = Integer.parseInt(strZahl.substring(0, pos));
-		//String strNachKomma = strZahl.substring(pos+1, strZahl.length());
-		//int NachKomma = Integer.parseInt(strNachKomma);
-		char chZeichen;
-		String strZ; 			    // einzelnes Zeichen
-		int intAnzahlZeichen;
-		int intCounter=0;
-		int intNachkomma =0;
-		String strNeuesZeichen ="";
-
-		intAnzahlStellen = intAnzahlStellen + 1; // wichtig für Runden
-
-		intAnzahlZeichen = strZahl.length();   // die Zeichenlänge des Strings wird bestimmt
-
-		for (int x=1;x<=intAnzahlZeichen; x++) // eine Schleife für jedes Zeichen von links
-		// nach rechts
+		if (dblWert <= 1)
 		{
-			chZeichen = strZahl.charAt(x);      // einzelne Zeichen werden mit char ermittelt
-			strZ = ""+chZeichen;                // der char wird in einen String umgewandelt
-
-			if (strZ != "." && intNachkomma =0)
-			// wenn das Zeichen keinen . enthält
-			{				           // oder man noch vor dem Komma ist
-				intCounter = intCounter + 1;     // dann Counter = Counter +1
-			}
-
-			if (strZ.equals("0") && strNeuesZeichen.equals("") == true) // wenn am Anfang
-			// eine 0 steht
+			if (strEinheit.equals("g"))
 			{
-				strZ = "";                       // wird die 0 gelöscht
-				intCounter = 0;                  // und der Counter auf 0 gesetzt
+				dblWert = dblWert * 1000;
+				fktSignifikanteStellen( dblWert, 4);
+				strNeuerWertmitEinheit = Double.toString(dblWert) + " mg";
 			}
-			if (intCounter == intAnzahlStellen) // wenn der Counter die Anzahl Stellen hat
+			if (strEinheit.equals("mg"))
 			{
-				strZ = "0";			    // wird für das Zeichen eine 0 gesetzt
-
+				dblWert = dblWert * 1000;
+				fktSignifikanteStellen( dblWert, 4);
+				strNeuerWertmitEinheit = Double.toString(dblWert) + " mg";
 			}
-			if (strZ == ".")                    // wird die Nachkommastelle erreicht
+			if (strEinheit.equals("g"))
 			{
-				if (strNeuesZeichen.equals(""))  // … und die Ganzzahl ist 0
-				{
-					strNeuesZeichen = "0";       // … wird eine 0 vor dem Komma gesetzt
-				}
-
-				intNachkomma =1;                // und sich gemerkt das man nach dem Komma ist
-
+				dblWert = dblWert * 1000;
+				fktSignifikanteStellen( dblWert, 4);
+				strNeuerWertmitEinheit = Double.toString(dblWert) + " mg";
 			}
-			if (strZ != "." && intNachkomma =1) 	 // wenn das Zeichen keinen "." enthält
-			{				          				 // oder man noch nach dem Komma ist
-				intCounter = intCounter + 1;     	 // dann Counter = Counter +1
-			}
-
-
-			strNeuesZeichen = strNeuesZeichen + strZ;  // neues Zeichen wird zusammen gesetzt
-
-
 		}
 
 
 
-
-
-		double dblSignifikante;
-		dblSignifikante = Double.parseDouble(strZahl);       //  String wird in Zahl umgewandelt
-
-		dblSignifikante = (Math.round(dblSignifikante));      //  Zahl wird auf Ganzzahl gerundet
-
-		return dblSignifikante;
+		return strNeuerWertmitEinheit;
 	}
-*/
+
 
 	
 } // ActivityTools

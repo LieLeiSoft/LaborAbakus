@@ -711,6 +711,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                         }
                     }
 
+                    // Korrektur bei ml
                     if(arrEinheit[0].equals("ml"))
                     {
                         dblPPM = dblZwischenergebnis * 1000000;
@@ -727,17 +728,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
                     if ((intEndeVerdReihe == 0)||(intEndeVerdReihe == 2)||(intEndeVerdReihe == 4)||(intEndeVerdReihe == 6)||(intEndeVerdReihe == 8))
                     {
-
-
-                        // Korrektur bei ml
-                        if(arrEinheit[0].equals("ml"))
-                        {
-                            dblMenge = (dblPPM * arrWert[intEndeVerdReihe]);
-                        }
-                        else
-                        {
-                            dblMenge = (dblPPM * arrWert[intEndeVerdReihe]) / 1000;
-                        }
+                        dblMenge = (dblPPM * arrWert[intEndeVerdReihe]) / 1000;
 
                         strAusgabe = ActivityTools.fktUmrechnungEinheit(dblMenge, "mg");
                         strAusgabe2 = ActivityTools.fktUmrechnungEinheit(arrWert[intEndeVerdReihe], arrEinheit[intEndeVerdReihe]);

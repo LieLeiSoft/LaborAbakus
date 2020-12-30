@@ -282,6 +282,11 @@ public class ActivityTools {
 				dblWert = dblWert * 1000;
 				strEinheit = "ppb";
 			}
+			if (strEinheit.equals("%"))
+			{
+				dblWert = dblWert * 10000;
+				strEinheit = "ppm";
+			}
 		}
 
 
@@ -345,9 +350,14 @@ public class ActivityTools {
 				dblWert = dblWert / 1000;
 				strEinheit = " nano l";
 			}
-			if (strEinheit.equals("ppm"))
+			if (strEinheit.equals("%"))
 			{
 				break;
+			}
+			if (strEinheit.equals("ppm"))
+			{
+				dblWert = dblWert / 10000;
+				strEinheit = "%";
 			}
 			if (strEinheit.equals("ppb"))
 			{

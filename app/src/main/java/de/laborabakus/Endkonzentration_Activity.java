@@ -580,6 +580,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         Double [] arrWert = new Double [12];
         String [] arrEinheit = new String [12];
         double dblMenge;
+        strAuswahl3 = "";
         String strAusgabe = "";
         String strAusgabe2 = "";
         String strAusgabe3 = "";
@@ -714,6 +715,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                         {
                             dblWert = arrWert[x-1] / arrWert[x];
                             dblZwischenergebnis = dblZwischenergebnis * dblWert;
+
                         }
                     }
 
@@ -728,8 +730,14 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                     }
 
 
+
+
                     //strAusgabe = Double.toString(dblPPM);
                     strAusgabe = "Endkonzentration = \n" + ActivityTools.fktUmrechnungEinheit(dblPPM, "ppm");
+
+                    tv = (TextView) findViewById(R.id.btnEinheit);
+                    strAuswahl = tv.getText().toString();
+                    strAusgabe3 = "Das sind \n" + ActivityTools.fktUmrechnungKonzentration(dblPPM, strAuswahl) + "\nin deiner\nWunschkonzentration.";
                     //strAusgabe = strAusgabe + " ppm";
 
                     if ((intEndeVerdReihe == 0)||(intEndeVerdReihe == 2)||(intEndeVerdReihe == 4)||(intEndeVerdReihe == 6)||(intEndeVerdReihe == 8))
@@ -740,6 +748,8 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                         strAusgabe2 = ActivityTools.fktUmrechnungEinheit(arrWert[intEndeVerdReihe], arrEinheit[intEndeVerdReihe]);
 
                         strAusgabe = strAusgabe + " in " + strAusgabe2 ;
+
+                        strAusgabe3 = "";
                     }
 
 

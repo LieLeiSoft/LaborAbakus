@@ -380,10 +380,57 @@ public class ActivityTools {
 		{
 			strNeuerWert = fktSignifikanteStellen( dblWert, 4);
 		}
-		strNeuerWertmitEinheit = strNeuerWert + strEinheit;
+		strNeuerWertmitEinheit = strNeuerWert + " " + strEinheit;
 		return strNeuerWertmitEinheit;
 	}
 
+	public static String fktUmrechnungKonzentration(Double dblppmWert, String strEinheit)
+	{
+		double dblWert = 0;
+		String strNeueKonz = null;
+		String strNeueKonzMitEinheit = null;
+
+		if (strEinheit.equals("g/ml"))
+		{
+			dblWert = dblppmWert / 1000000;
+		}
+		if (strEinheit.equals("%"))
+		{
+			dblWert = dblppmWert / 10000;
+		}
+		if (strEinheit.equals("g/l"))
+		{
+			dblWert = dblppmWert / 1000;
+		}
+		if (strEinheit.equals("mg/ml"))
+		{
+			dblWert = dblppmWert / 1000;
+		}
+		if (strEinheit.equals("mg/l"))
+		{
+			dblWert = dblppmWert; // entspricht ppm, nur Runden
+		}
+		if (strEinheit.equals("µg/ml"))
+		{
+			dblWert = dblppmWert; // entspricht ppm, nur Runden
+		}
+		if (strEinheit.equals("ppm"))
+		{
+			dblWert = dblppmWert; // nur Runden
+		}
+		if (strEinheit.equals("µg/l"))
+		{
+			dblWert = dblppmWert * 1000; // entspricht ppb
+		}
+		if (strEinheit.equals("ppb"))
+		{
+			dblWert = dblppmWert * 1000;
+		}
+
+		strNeueKonz = fktSignifikanteStellen( dblWert, 4);
+		strNeueKonzMitEinheit = strNeueKonz + " " + strEinheit;
+		return strNeueKonzMitEinheit;
+	}
 
 	
 } // ActivityTools

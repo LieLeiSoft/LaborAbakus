@@ -24,7 +24,7 @@
     <string name="l">l</string>
     <string name="Drei_Fragezeichen">Konzentration</string>
     <string name="eingabe">weitere Eingabe?</string>
-    <string name="Berechnung_der_Endkonzentration_einer_Verdünnung_oder_Verdünnungsreihe">Berechnung der Endkonzentration\nder Verdünnung(-sreihe)!</string>
+    <string name="Berechnung_der_Endkonzentration_einer_Verdünnung_oder_Verdünnungsreihe">Berechnung der Endkonzentration\neiner Verdünnung(-sreihe)!</string>
     <string name="Berechnung_der_Endkonzentration">Berechnung der Endkonzentration</string>
     <string name="Anzahl_Messwerte">Anzahl der Messwerte = </string>
     <string name="Mittelwert">arithmetischer Mittelwert = </string>

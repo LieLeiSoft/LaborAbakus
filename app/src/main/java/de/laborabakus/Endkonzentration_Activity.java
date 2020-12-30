@@ -1,6 +1,8 @@
 package de.laborabakus;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -40,8 +42,6 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
     String strAuswahl;
     String strAuswahl2;
     String strAuswahl3;
-    String strAusgabe;
-    String strAusgabe2;
 
 	/** wird ausgef�hrt, wenn Activicty erstellt wird */
 	@Override
@@ -230,12 +230,6 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
             tv = (TextView) findViewById(R.id.btnEinheitReinheit);
             strAuswahl2 = tv.getText().toString();
 
-            if (strAuswahl2.equals("%"))
-            {
-                tv = (TextView) findViewById(R.id.btnEinheitReinheit);
-                tv.setText(R.string.Prozent);
-            }
-
             if (strAuswahl2.equals("mg/g"))
             {
                 tv = (TextView) findViewById(R.id.btnEinheitReinheit);
@@ -266,12 +260,6 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
             tv = (TextView) findViewById(R.id.btnEinheitReinheit);
             strAuswahl2 = tv.getText().toString();
 
-            if (strAuswahl2.equals("%"))
-            {
-                tv = (TextView) findViewById(R.id.btnEinheitReinheit);
-                tv.setText(R.string.Prozent);
-            }
-
             if (strAuswahl2.equals("mg/ml"))
             {
                 tv = (TextView) findViewById(R.id.btnEinheitReinheit);
@@ -297,15 +285,15 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         fktCheckAlleEinheitenZuruckgesetzt();
     }
 
-    /********************************************
-     ************** Button % / mg/ml ************
-     ********************************************/
+    /**************************************************
+     ************** Button % / mg/ml / ppm ************
+     **************************************************/
 
     public void btnOnClickEinheitReinheit (View v)
     {
-        // ********************************************
-        // *** Wechsel der Anzeige "%" "mg/ml" ********
-        // ********************************************
+        // ******************************************************
+        // *** Wechsel der Anzeige "%" "mg/ml" und "ppm" ********
+        // ******************************************************
 
         tv = (TextView) findViewById(R.id.btnFestFluessig);
         strAuswahl = tv.getText().toString();
@@ -328,6 +316,12 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         }
 
         if (strAuswahl2.equals("mg/ml") || strAuswahl2.equals("mg/g"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheitReinheit);
+            tv.setText(R.string.ppm);
+        }
+
+        if (strAuswahl2.equals("ppm"))
         {
             tv = (TextView) findViewById(R.id.btnEinheitReinheit);
             tv.setText(R.string.Prozent);
@@ -586,6 +580,9 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         Double [] arrWert = new Double [12];
         String [] arrEinheit = new String [12];
         double dblMenge;
+        String strAusgabe = "";
+        String strAusgabe2 = "";
+        String strAusgabe3 = "";
 
         //fktCheckAlleEingabefelderLeer();
 
@@ -604,11 +601,19 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
             }
             else
             {
+                // *******************************************************************
+                // ***** Hier wird Berechnung bei mg/g, mg/l und ppm korrigiert. *****
+                // *******************************************************************
+
                 tv = (TextView) findViewById(R.id.btnEinheitReinheit);
                 strEingabetext2 = tv.getText().toString();
                 if ((strEingabetext2.equals("mg/g")) || (strEingabetext2.equals("mg/ml")))
                 {
                     dblReinheit = dblReinheit / 10;
+                }
+                if (strEingabetext2.equals("ppm"))
+                {
+                    dblReinheit = dblReinheit / 10000;
                 }
 
                 // *****************************************************************
@@ -647,6 +652,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                         if (dblEingabezahl == 0)
                         {
                             fktEingabeNullNichtZulaessig();
+                            EingabefelderLeer = true;
                             break;
                         }
                         else
@@ -723,7 +729,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
 
                     //strAusgabe = Double.toString(dblPPM);
-                    strAusgabe = ActivityTools.fktUmrechnungEinheit(dblPPM, "ppm");
+                    strAusgabe = "Endkonzentration = \n" + ActivityTools.fktUmrechnungEinheit(dblPPM, "ppm");
                     //strAusgabe = strAusgabe + " ppm";
 
                     if ((intEndeVerdReihe == 0)||(intEndeVerdReihe == 2)||(intEndeVerdReihe == 4)||(intEndeVerdReihe == 6)||(intEndeVerdReihe == 8))
@@ -737,13 +743,24 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                     }
 
 
-                    // **************************************
-                    // *** Hier wird ein Toast ausgegeben ***
-                    // **************************************
-                    String text = strAusgabe;
-                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-                    Meldung.setGravity(Gravity.TOP, 0, 0);
-                    Meldung.show();
+                    // *********************************************
+                    // *** Hier wird ein Alert Dialog ausgegeben ***
+                    // *********************************************
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Endkonzentration_Activity.this);
+                    builder.setTitle(strAusgabe);
+                    builder.setMessage(strAusgabe3);
+                    builder.setPositiveButton("Zurück",
+                            new DialogInterface.OnClickListener()
+                            {
+                                public void onClick(DialogInterface dialog, int id)
+                                {
+                                    dialog.dismiss();
+                                }
+                            });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
                 }
             }
         }

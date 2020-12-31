@@ -110,5 +110,5 @@
         Bruttoeinwaage ausgewählt, dann muss in diesem Eingabefeld das gesammte Gewicht der Probe inklusive des Probengefäßes
         eingegeben werden.</string>
     <string name="ButtonHome">(Button: schwarzes Haus - weißer Kreis) Mit diesem Button kehrt man zum Hauptmenü zurück.</string>
-    <string name="ButtonBeenden">(Button: weißes Kreuz - roter Hintergrund) Wird dieser Button betätigt, wird die App beendet.</string>
+    <string name="ButtonBeenden">(Button: weißes Kreuz - roter Hintergrund) Wird dieser Button 2x betätigt, wird die App beendet.</string>
     </resources>

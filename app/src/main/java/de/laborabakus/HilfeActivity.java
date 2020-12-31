@@ -60,6 +60,15 @@ public class HilfeActivity extends Activity {
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Berechnung der Endkonzentration einer Verdünnung";
+		Hilfe[intFeldNr][2] = "Berechnung der Endkonzentration einer Verdünnung";
+		Hilfe[intFeldNr][3] = "Mit dieser Routine lässt sich die Endkonzentration einer " +
+				"Verdünnung bzw. Verdünnungsreihe bestimmen. Zum Beispiel kann man von einem Standard, " +
+				"über die Reinheit der Ausgangssubstanz, der Einwaage und allen Verdünnungsschritten, " +
+				"die Konzentration der hergestellten Standardlösung errechnen.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Molmasse und Oxidationsstufen";
 		Hilfe[intFeldNr][2] = "Molmasse und Oxidationsstufen";
 		Hilfe[intFeldNr][3] = "Mit dieser Routine lässt sich die Atommasse einzelner Elemente der " +
@@ -89,6 +98,93 @@ public class HilfeActivity extends Activity {
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Menue
+
+	private void erstelle_Hilfe_End_Konz_einer_Verd(String strKapitel)
+	{
+		int intFeldNr = 0;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Allgemeines";
+		Hilfe[intFeldNr][2] = "Allgemeines";
+		Hilfe[intFeldNr][3] = "In dieser Routine lässt sich die Konzentration einer Substanz " +
+				"nach deren Verdünnung berechnen. Dabei können viele Einstellungen, wie z.B. " +
+				"die Reinheit, der Aggregatzustand oder die Einheit vom Gehalt der Ausgangssubstanz " +
+				"eingestellt werden.\nHilfreich ist diese Routine zum Beispiel bei der Berechnung " +
+				"der Endkonzentration einer Standardsubstanz bei deren Verdünnung.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Button: >Alle Eingaben löschen<";
+		Hilfe[intFeldNr][2] = "Button: >Alle Eingaben löschen<";
+		Hilfe[intFeldNr][3] = "Mit diesem Button werden alle zuvor getätigten Eingaben " +
+				"wieder gelöscht. Sind alle Eingabefelder leer werden danach wieder alle Einheitsbuttons " +
+				"zurück gesetzt.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Button: >Letzte Eingaben löschen<";
+		Hilfe[intFeldNr][2] = "Button: >Letzte Eingaben löschen<";
+		Hilfe[intFeldNr][3] = "Beim Betätigen dieses Buttons wird jeweils der letzte Verdünnungsschritt der " +
+				"Verdünnung-(sreihe) gelöscht.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Die grauen Einheiten Buttons";
+		Hilfe[intFeldNr][2] = "Die grauen Einheiten Buttons";
+		Hilfe[intFeldNr][3] = "Mit diesen Buttons kann man die Einheit der Einwaage (Gramm oder Milligramm) " +
+				"bzw. des Volumeneinmasses (Milliliter oder Mikroliter) " +
+				"und / oder die Einheiten der Volumen der Verdünnungen (Liter, Milliliter oder Mikroliter) ändern. " +
+				"Die Einheit vom Gehalt der Substanz lässt sich ebenfalls von % über mg/g (mg/ml) auf ppm anpassen.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Die grauen Eingabefelder";
+		Hilfe[intFeldNr][2] = "Die grauen Eingabefelder";
+		Hilfe[intFeldNr][3] = "In dem ersten Eingabefeld muss immer eine Einwaage (Gramm oder Milligramm) " +
+				"bzw. ein Volumeneinmass (Milliliter oder Mikroliter) eingegeben werden. Mit Hilfe des >Weiter< Buttons " +
+				"auf der Displaytastatur kommt man zum nächsten Eingabefeld rechts daneben. Je nach Verdünnung kann " +
+				"hier das entsprechende Volumen, auf das aufgefüllt wurde, eingegeben werden. " +
+				"Wurden noch weitere Verdünnungsschritte durchgeführt, kommt man mit dem >Weiter< Button auf " +
+				"der Displaytastatur in die nächste Zeile. Leere Eingabefelder werden bei der Berechnung nicht berücksichtigt.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Der graue >fest/flüssig< Button";
+		Hilfe[intFeldNr][2] = "Der graue >fest/flüssig< Button";
+		Hilfe[intFeldNr][3] = "Mit diesem Button muss zuvor der Aggregatzustand der zu verdünnenden Substanz " +
+				"eingestellt werden. Die Einheiten der Konzentration der Substanz und die Einwaage bzw. " +
+				"das Volumeneinmass wird dabei automatisch umgestellt.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Der orangene Einheit Button";
+		Hilfe[intFeldNr][2] = "Der orangene Einheit Button";
+		Hilfe[intFeldNr][3] = "Beim Betätigen dieses Buttons kann die Wunscheinheit der letzten Verdünnung, " +
+				"sprich der Endkonzentration, eingestellt werden. Hierbei ist g/ml die größte und ppb " +
+				"(parts per billion) die kleinste Einheit die eingestellt werden kann. Generell wird die " +
+				"Endkonzentration aber immer auch auf die obtimalen Einheit berechnet und ausgegeben. " +
+				"Folgende Einstellungen sind möglich:\n" +
+				"g/ml\n" +
+				"%\n" +
+				"g/l oder mg/ml (gleich)\n" +
+				"mg/l, µg/ml oder ppm (alle gleich)\n" +
+				"µg/l oder ppb (ebenfalls gleich)";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Der orangene >Berechne< Button";
+		Hilfe[intFeldNr][2] = "Der orangene >Berechne< Button";
+		Hilfe[intFeldNr][3] = "Sind alle Eingaben der Verdünnung eingegeben und alle Einheiten eingestellt worden, " +
+				"wird beim Betätigen des Buttons die Berechnung durchgeführt. Wurde innerhalb einer Zeile " +
+				"auch das Volumen, auf das die Substanz verdünnt wurde eingegeben, wird die Konzentration der Lösung " +
+				"des letzten Verdünnungsschrittes errechnet. Sprich => Endkonzentration.\nWurde innerhalb einer Zeile " +
+				"nicht auf ein Volumen aufgefüllt (rechtes Feld bleibt leer) also nur ein Volumen abgenommen, dann wird " +
+				"keine (End-)Konzentration berechnet, sondern der Gehalt der Sustanz in dem letzten abgenommenen Volumen! " +
+				"Sehr kleine Konzentrationen bzw. Gehälter können bei der Ausgabe auch ppt (=0,001 ppb), ng (1 Nanogramm = 0,001µg) " +
+				"oder pg (1 Picogramm = 0,000001µg) sein.";
+
+		intFeldNr_max = intFeldNr;
+
+	}// erstelle_Hilfe_End_Konz_einer_Verd
 
 	private void erstelle_Hilfe_Konz_Lsg_Auswahl(String strKapitel)
 	{
@@ -818,6 +914,8 @@ public class HilfeActivity extends Activity {
 			erstelle_Hilfe_Konz_Lsg_gesucht_wird(strKapitel);
 		} else if (strKapitel.equals("Konz_Lsg_Eingabe") == true) {
 			erstelle_Hilfe_Konz_Lsg_Eingabe(strKapitel);
+		} else if (strKapitel.equals("End_Konz_einer_Verd") == true) {
+			erstelle_Hilfe_End_Konz_einer_Verd(strKapitel);
 		} else if (strKapitel.equals("Quiz") == true) {
 			erstelle_Hilfe_Quiz(strKapitel);
 		};

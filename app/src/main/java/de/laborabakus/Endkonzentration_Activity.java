@@ -737,7 +737,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
                     tv = (TextView) findViewById(R.id.btnEinheit);
                     strAuswahl = tv.getText().toString();
-                    strAusgabe3 = "Das sind \n" + ActivityTools.fktUmrechnungKonzentration(dblPPM, strAuswahl) + "\nin deiner\nWunschkonzentration.";
+                    strAusgabe3 = "Oder\n" + ActivityTools.fktUmrechnungKonzentration(dblPPM, strAuswahl) + "\nin der\nangegebenen\nEinheit.";
                     //strAusgabe = strAusgabe + " ppm";
 
                     if ((intEndeVerdReihe == 0)||(intEndeVerdReihe == 2)||(intEndeVerdReihe == 4)||(intEndeVerdReihe == 6)||(intEndeVerdReihe == 8))
@@ -747,7 +747,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                         strAusgabe = ActivityTools.fktUmrechnungEinheit(dblMenge, "mg");
                         strAusgabe2 = ActivityTools.fktUmrechnungEinheit(arrWert[intEndeVerdReihe], arrEinheit[intEndeVerdReihe]);
 
-                        strAusgabe = strAusgabe + " in " + strAusgabe2 ;
+                        strAusgabe = strAusgabe + " in " + strAusgabe2;
 
                         strAusgabe3 = "";
                     }
@@ -907,7 +907,7 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
             case R.id.menu_Hilfe:
             	intent = new Intent(this, HilfeActivity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-            	intent.putExtra("Kapitel", "RSD");
+            	intent.putExtra("Kapitel", "End_Konz_einer_Verd");
             	startActivity(intent);
                 return true;
 

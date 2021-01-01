@@ -161,13 +161,7 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][3] = "Beim Betätigen dieses Buttons kann die Wunscheinheit der letzten Verdünnung, " +
 				"sprich der Endkonzentration, eingestellt werden. Hierbei ist g/ml die größte und ppb " +
 				"(parts per billion) die kleinste Einheit die eingestellt werden kann. Generell wird die " +
-				"Endkonzentration aber immer auch auf die obtimalen Einheit berechnet und ausgegeben. " +
-				"Folgende Einstellungen sind möglich:\n" +
-				"g/ml\n" +
-				"%\n" +
-				"g/l oder mg/ml (gleich)\n" +
-				"mg/l, µg/ml oder ppm (alle gleich)\n" +
-				"µg/l oder ppb (ebenfalls gleich)";
+				"Endkonzentration aber immer auch auf die obtimalen Einheit berechnet und ausgegeben.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
@@ -179,8 +173,46 @@ public class HilfeActivity extends Activity {
 				"des letzten Verdünnungsschrittes errechnet. Sprich => Endkonzentration.\nWurde innerhalb einer Zeile " +
 				"nicht auf ein Volumen aufgefüllt (rechtes Feld bleibt leer) also nur ein Volumen abgenommen, dann wird " +
 				"keine (End-)Konzentration berechnet, sondern der Gehalt der Sustanz in dem letzten abgenommenen Volumen! " +
-				"Sehr kleine Konzentrationen bzw. Gehälter können bei der Ausgabe auch ppt (=0,001 ppb), ng (1 Nanogramm = 0,001µg) " +
-				"oder pg (1 Picogramm = 0,000001µg) sein.";
+				"Sehr kleine Konzentrationen bzw. Gehälter können bei der Ausgabe auch ppq (part per quadrillion 10E-15), fg (1 Femtogramm = 10E-15 Gramm) " +
+				"oder ag (1 Attogramm = 10E-18 Gramm) sein.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einheiten Tabelle (Konzentration)";
+		Hilfe[intFeldNr][2] = "Einheiten Tabelle (Konzentration)";
+		Hilfe[intFeldNr][3] = "1 g/ml = 10E6 ppm\n" +
+				"1 % = 10E4 ppm\n" +
+				"1 g/l = 1000 ppm\n" +
+				"1 mg/ml = 1000 ppm\n" +
+				"1 mg/l = 1 ppm\n" +
+				"1 µg/ml = 1ppm (parts per million)\n\n" +
+				"1 ppm = 1000 µg/l (Mikrogramm / l)\n" +
+				"1 ppm = 1000 ppb (parts per billion)\n" +
+				"1 ppm = 10E6 ng/l (Nanogramm / l)\n" +
+				"1 ppm = 10E6 ppt (parts per trillion)\n";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einheiten Tabelle (Masse)";
+		Hilfe[intFeldNr][2] = "Einheiten Tabelle (Masse)";
+		Hilfe[intFeldNr][3] = "1 kg = 1000 g\n" +
+				"1 g =  1000 mg (Milligramm)\n" +
+				"1 g =  10E6 µg (Mikrogramm)\n" +
+				"1 g =  10E9 ng (Nanogramm)\n" +
+				"1 g =  10E12 pg (Pikogramm)\n" +
+				"1 g =  10E15 fg (Femtogramm)\n" +
+				"1 g =  10E18 ag (Attogramm)\n";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einheiten Tabelle (Volumen)";
+		Hilfe[intFeldNr][2] = "Einheiten Tabelle (Volumen)";
+		Hilfe[intFeldNr][3] = "1 l =  1000 ml (Milliliter)\n" +
+				"1 l =  10E6 µl (Mikroliter)\n" +
+				"1 l =  10E9 nl (Nanoliter)\n" +
+				"1 l =  10E12 pl (Pikoliter)\n" +
+				"1 l =  10E15 fl (Femtoliter)\n" +
+				"1 l =  10E18 al (Attoliter)\n";
 
 		intFeldNr_max = intFeldNr;
 

@@ -487,6 +487,16 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
         if (strAuswahl.equals("ppb"))
         {
             tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText("ng/l");
+        }
+        if (strAuswahl.equals("ng/l"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
+            tv.setText("ppt");
+        }
+        if (strAuswahl.equals("ppt"))
+        {
+            tv = (TextView) findViewById(R.id.btnEinheit);
             tv.setText(R.string.g_ml);
         }
     }

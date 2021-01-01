@@ -215,9 +215,19 @@ public class ActivityTools {
 
 		while (dblWert < 1)
 		{
-			if (strEinheit.equals(" pico g"))
+			if (strEinheit.equals(" atto g"))
 			{
 				break;
+			}
+			if (strEinheit.equals(" femto g"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = " atto g";
+			}
+			if (strEinheit.equals(" piko g"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = " femto g";
 			}
 			if (strEinheit.equals(" nano g"))
 			{
@@ -244,14 +254,24 @@ public class ActivityTools {
 				dblWert = dblWert * 1000;
 				strEinheit = "g";
 			}
-			if (strEinheit.equals(" pico l"))
+			if (strEinheit.equals(" atto l"))
 			{
 				break;
+			}
+			if (strEinheit.equals(" femto l"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = " atto l";
+			}
+			if (strEinheit.equals(" piko l"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = " femto l";
 			}
 			if (strEinheit.equals(" nano l"))
 			{
 				dblWert = dblWert * 1000;
-				strEinheit = " pico l";
+				strEinheit = " piko l";
 			}
 			if (strEinheit.equals("µl"))
 			{
@@ -268,9 +288,15 @@ public class ActivityTools {
 				dblWert = dblWert * 1000;
 				strEinheit = "ml";
 			}
-			if (strEinheit.equals("ppt"))
+
+			if (strEinheit.equals("ppq"))
 			{
 				break;
+			}
+			if (strEinheit.equals("ppt"))
+			{
+				dblWert = dblWert * 1000;
+				strEinheit = "ppq";
 			}
 			if (strEinheit.equals("ppb"))
 			{
@@ -320,11 +346,20 @@ public class ActivityTools {
 				dblWert = dblWert / 1000;
 				strEinheit = "µg";
 			}
-
-			if (strEinheit.equals(" pico g"))
+			if (strEinheit.equals(" piko g"))
 			{
 				dblWert = dblWert / 1000;
 				strEinheit = " nano g";
+			}
+			if (strEinheit.equals(" femto g"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = " piko g";
+			}
+			if (strEinheit.equals(" atto g"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = " femto g";
 			}
 			if (strEinheit.equals("l"))
 			{
@@ -345,10 +380,20 @@ public class ActivityTools {
 				dblWert = dblWert / 1000;
 				strEinheit = "µl";
 			}
-			if (strEinheit.equals(" pico l"))
+			if (strEinheit.equals(" piko l"))
 			{
 				dblWert = dblWert / 1000;
 				strEinheit = " nano l";
+			}
+			if (strEinheit.equals(" femto l"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = " piko l";
+			}
+			if (strEinheit.equals(" atto l"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = " femto l";
 			}
 			if (strEinheit.equals("%"))
 			{
@@ -368,6 +413,11 @@ public class ActivityTools {
 			{
 				dblWert = dblWert / 1000;
 				strEinheit = "ppb";
+			}
+			if (strEinheit.equals("ppq"))
+			{
+				dblWert = dblWert / 1000;
+				strEinheit = "ppt";
 			}
 		}
 
@@ -425,6 +475,14 @@ public class ActivityTools {
 		if (strEinheit.equals("ppb"))
 		{
 			dblWert = dblppmWert * 1000;
+		}
+		if (strEinheit.equals("ng/l"))
+		{
+			dblWert = dblppmWert * 1000000;
+		}
+		if (strEinheit.equals("ppt"))
+		{
+			dblWert = dblppmWert * 1000000;
 		}
 
 		strNeueKonz = fktSignifikanteStellen( dblWert, 4);

@@ -747,8 +747,14 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
 
                     tv = (TextView) findViewById(R.id.btnEinheit);
                     strAuswahl = tv.getText().toString();
-                    strAusgabe3 = "Oder\n" + ActivityTools.fktUmrechnungKonzentration(dblPPM, strAuswahl) + "\nin der\nangegebenen\nEinheit.";
-                    //strAusgabe = strAusgabe + " ppm";
+
+                    boolean bo_Gleich = strAusgabe.contains(strAuswahl);
+
+                    if(bo_Gleich == false) // nur die Wuscheinheit Anzeigen, wenn sie nicht gleich der normalen Einheit ist.
+                    {
+                        strAusgabe3 = "Oder\n" + ActivityTools.fktUmrechnungKonzentration(dblPPM, strAuswahl) + "\nin der\nangegebenen\nEinheit.";
+                    }
+
 
                     if ((intEndeVerdReihe == 0)||(intEndeVerdReihe == 2)||(intEndeVerdReihe == 4)||(intEndeVerdReihe == 6)||(intEndeVerdReihe == 8))
                     {

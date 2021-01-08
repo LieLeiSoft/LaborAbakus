@@ -2,6 +2,7 @@ package de.laborabakus;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,7 +25,6 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
     private static final String TAG = "";
     EditText et;
     TextView tv;
-    // boolean AlleEingabefelderVoll = false;
     int intEndeVerdReihe = 0;
     int resId;
     int resId2;
@@ -928,7 +928,8 @@ public class Endkonzentration_Activity extends Activity implements OnFocusChange
                 return true;
 
             case R.id.menu_Menue:
-            	ActivityRegistry.finishAll();
+                InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE); imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+                ActivityRegistry.finishAll();
             	intent = new Intent(this, HauptmenueActivity.class);
             	intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             	startActivity(intent);

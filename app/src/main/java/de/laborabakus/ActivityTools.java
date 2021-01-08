@@ -232,7 +232,7 @@ public class ActivityTools {
 			if (strEinheit.equals(" nano g"))
 			{
 				dblWert = dblWert * 1000;
-				strEinheit = " pico g";
+				strEinheit = " piko g";
 			}
 			if (strEinheit.equals("µg"))
 			{
@@ -421,15 +421,16 @@ public class ActivityTools {
 			}
 		}
 
-		if (dblWert <= 0.001)
+		if(dblWert < 0.00000001)
 		{
-			strNeuerWert = Double.toString(dblWert);
-			strNeuerWert = fktDarstellungEponential(strNeuerWert,8);
+			strNeuerWert = new DecimalFormat("#.####E0").format(dblWert);
 		}
 		else
 		{
-			strNeuerWert = fktSignifikanteStellen( dblWert, 4);
+			strNeuerWert= new DecimalFormat("#.########").format(dblWert);
 		}
+
+
 		strNeuerWertmitEinheit = strNeuerWert + " " + strEinheit;
 		return strNeuerWertmitEinheit;
 	}
@@ -485,7 +486,15 @@ public class ActivityTools {
 			dblWert = dblppmWert * 1000000;
 		}
 
-		strNeueKonz = fktSignifikanteStellen( dblWert, 4);
+		if(dblWert < 0.00000001)
+		{
+			strNeueKonz = new DecimalFormat("#.####E0").format(dblWert);
+		}
+		else
+		{
+			strNeueKonz = new DecimalFormat("#.########").format(dblWert);
+		}
+
 		strNeueKonzMitEinheit = strNeueKonz + " " + strEinheit;
 		return strNeueKonzMitEinheit;
 	}

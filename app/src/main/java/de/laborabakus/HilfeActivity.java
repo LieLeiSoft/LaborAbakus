@@ -116,8 +116,8 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][1] = "Button: >Alle Eingaben löschen<";
 		Hilfe[intFeldNr][2] = "Button: >Alle Eingaben löschen<";
 		Hilfe[intFeldNr][3] = "Mit diesem Button werden alle zuvor getätigten Eingaben " +
-				"wieder gelöscht. Sind alle Eingabefelder leer werden danach wieder alle Einheitsbuttons " +
-				"zurück gesetzt.";
+				"wieder gelöscht. Sind alle Eingabefelder leer alle Einheitsbuttons " +
+				"auf die Standardeinheiten zurück gesetzt.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
@@ -139,12 +139,14 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Die grauen Eingabefelder";
 		Hilfe[intFeldNr][2] = "Die grauen Eingabefelder";
-		Hilfe[intFeldNr][3] = "In dem ersten Eingabefeld muss immer eine Einwaage (Gramm oder Milligramm) " +
-				"bzw. ein Volumeneinmass (Milliliter oder Mikroliter) eingegeben werden. Mit Hilfe des >Weiter< Buttons " +
+		Hilfe[intFeldNr][3] = "In dem ersten Eingabefeld der >Gehalt der Substanz< muss die Reinheit der Sustanz " +
+				"eingegeben werden. Wird kein Gehalt bzw. keine Konzentration angegeben, wird die Reinheit automatisch auf 100% gesetzt. " +
+				"Im zweiten Eingabefeld wird die Einwaage der zu verdünnenden Substanz in Gramm oder Milligramm, " +
+				"bzw. ein Volumeneinmass (Milliliter oder Mikroliter) eingegeben. Mit Hilfe des >Weiter< Buttons " +
 				"auf der Displaytastatur kommt man zum nächsten Eingabefeld rechts daneben. Je nach Verdünnung kann " +
 				"hier das entsprechende Volumen, auf das aufgefüllt wurde, eingegeben werden. " +
 				"Wurden noch weitere Verdünnungsschritte durchgeführt, kommt man mit dem >Weiter< Button auf " +
-				"der Displaytastatur in die nächste Zeile. Leere Eingabefelder werden bei der Berechnung nicht berücksichtigt.";
+				"der Displaytastatur in die nächste Zeile. Nachfolgende leere Eingabefelder werden bei der Berechnung nicht berücksichtigt.";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
@@ -159,8 +161,8 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][1] = "Der orangene Einheit Button";
 		Hilfe[intFeldNr][2] = "Der orangene Einheit Button";
 		Hilfe[intFeldNr][3] = "Beim Betätigen dieses Buttons kann die Wunscheinheit der letzten Verdünnung, " +
-				"sprich der Endkonzentration, eingestellt werden. Hierbei ist g/ml die größte und ppb " +
-				"(parts per billion) die kleinste Einheit die eingestellt werden kann. Generell wird die " +
+				"sprich der Endkonzentration, eingestellt werden. Hierbei ist g/ml die größte und ppt " +
+				"(parts per trillion) die kleinste Einheit die eingestellt werden kann. Generell wird die " +
 				"Endkonzentration aber immer auch auf die obtimalen Einheit berechnet und ausgegeben.";
 
 		intFeldNr++;
@@ -172,9 +174,7 @@ public class HilfeActivity extends Activity {
 				"auch das Volumen, auf das die Substanz verdünnt wurde eingegeben, wird die Konzentration der Lösung " +
 				"des letzten Verdünnungsschrittes errechnet. Sprich => Endkonzentration.\nWurde innerhalb einer Zeile " +
 				"nicht auf ein Volumen aufgefüllt (rechtes Feld bleibt leer) also nur ein Volumen abgenommen, dann wird " +
-				"keine (End-)Konzentration berechnet, sondern der Gehalt der Sustanz in dem letzten abgenommenen Volumen! " +
-				"Sehr kleine Konzentrationen bzw. Gehälter können bei der Ausgabe auch ppq (part per quadrillion 10E-15), fg (1 Femtogramm = 10E-15 Gramm) " +
-				"oder ag (1 Attogramm = 10E-18 Gramm) sein.";
+				"keine (End-)Konzentration berechnet, sondern der Gehalt der Sustanz in dem letzten abgenommenen Volumen! ";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
@@ -189,7 +189,9 @@ public class HilfeActivity extends Activity {
 				"1 ppm = 1000 µg/l (Mikrogramm / l)\n" +
 				"1 ppm = 1000 ppb (parts per billion)\n" +
 				"1 ppm = 10E6 ng/l (Nanogramm / l)\n" +
-				"1 ppm = 10E6 ppt (parts per trillion)\n";
+				"1 ppm = 10E6 ppt (parts per trillion)\n " +
+				"1 ppm = 10E9 pg/l (Pikogramm / l)\n " +
+				"1 ppm = 10E9 ppq (parts per quadrillion)\n";
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;

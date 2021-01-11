@@ -1278,7 +1278,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/cl01000a35_453"
+                android:src="@drawable/cl0100a35_453"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />

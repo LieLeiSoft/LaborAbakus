@@ -127,6 +127,88 @@ public class Org_Generator_Activity extends Activity {
             arrFilter[1] = 9;
         }
 
+        // Bindungseigenschaften der 4 Nachbarzellen auswerten
+        int intZeile_Gitter;  // Zeile für Gitter fängt bei 0 an!
+        int intSpalte_Gitter; // Spalte für Gitter fängt bei 0 an!
+        int intBindung;
+        String strZellinhalt;
+
+        // Prüfen, ob Nachbarzelle auf 12 Uhr vorhanden ist und ggf. deren Bindungseigenschaft auf 6 Uhr auswerten
+        intZeile_Gitter  = intZeile  - 1;
+        intSpalte_Gitter = intSpalte - 1;
+        if (intZeile > 1) {
+            intZeile_Gitter = intZeile_Gitter - 1;
+            strZellinhalt = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
+            if (strZellinhalt == null) {
+                // keine Nachbarzelle vorhanden
+                arrFilter[0] = 0; // alles erlaubt
+            } else {
+                intBindung = Integer.parseInt(strZellinhalt.substring(4, 5));
+                if (intBindung == 0) {
+                    arrFilter[0] = 9;
+                } else {
+                    arrFilter[0] = intBindung;
+                }
+            }
+        }
+
+        // Prüfen, ob Nachbarzelle auf 3 Uhr vorhanden ist und ggf. deren Bindungseigenschaft auf 9 Uhr auswerten
+        intZeile_Gitter  = intZeile  - 1;
+        intSpalte_Gitter = intSpalte - 1;
+        if (intSpalte < constSpalte_max) {
+            intSpalte_Gitter = intSpalte_Gitter + 1;
+            strZellinhalt = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
+            if (strZellinhalt == null) {
+                // keine Nachbarzelle vorhanden
+                arrFilter[1] = 0; // alles erlaubt
+            } else {
+                intBindung = Integer.parseInt(strZellinhalt.substring(5, 6));
+                if (intBindung == 0) {
+                    arrFilter[1] = 9;
+                } else {
+                    arrFilter[1] = intBindung;
+                }
+            }
+        }
+
+        // Prüfen, ob Nachbarzelle auf 6 Uhr vorhanden ist und ggf. deren Bindungseigenschaft auf 12 Uhr auswerten
+        intZeile_Gitter  = intZeile  - 1;
+        intSpalte_Gitter = intSpalte - 1;
+        if (intZeile < constZeile_max) {
+            intZeile_Gitter = intZeile_Gitter + 1;
+            strZellinhalt = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
+            if (strZellinhalt == null) {
+                // keine Nachbarzelle vorhanden
+                arrFilter[2] = 0; // alles erlaubt
+            } else {
+                intBindung = Integer.parseInt(strZellinhalt.substring(2, 3));
+                if (intBindung == 0) {
+                    arrFilter[2] = 9;
+                } else {
+                    arrFilter[2] = intBindung;
+                }
+            }
+        }
+
+        // Prüfen, ob Nachbarzelle auf 9 Uhr vorhanden ist und ggf. deren Bindungseigenschaft auf 3 Uhr auswerten
+        intZeile_Gitter  = intZeile  - 1;
+        intSpalte_Gitter = intSpalte - 1;
+        if (intSpalte > 1) {
+            intSpalte_Gitter = intSpalte_Gitter - 1;
+            strZellinhalt = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
+            if (strZellinhalt == null) {
+                // keine Nachbarzelle vorhanden
+                arrFilter[3] = 0; // alles erlaubt
+            } else {
+                intBindung = Integer.parseInt(strZellinhalt.substring(3, 4));
+                if (intBindung == 0) {
+                    arrFilter[3] = 9;
+                } else {
+                    arrFilter[3] = intBindung;
+                }
+            }
+        }
+
         for (int i = 0; i < 4; i++) {
             Log.d(TAG, "arrFilter["+i+"]="+arrFilter[i]);
         }

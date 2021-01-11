@@ -159,21 +159,17 @@ public class Org_Strukturformeln_Activity extends Activity {
 
                 bVisible = true;
 
-                if ((arrFilter[0] == 9) & (arrBindung[0] > 0)) {
-                    // Bindung auf 12 Uhr vorhanden ==> Feld unsichtbar machen
-                    bVisible = false;
-                }
-                if ((arrFilter[1] == 9) & (arrBindung[1] > 0)) {
-                    // Bindung auf 3 Uhr vorhanden ==> Feld unsichtbar machen
-                    bVisible = false;
-                }
-                if ((arrFilter[2] == 9) & (arrBindung[2] > 0)) {
-                    // Bindung auf 6 Uhr vorhanden ==> Feld unsichtbar machen
-                    bVisible = false;
-                }
-                if ((arrFilter[3] == 9) & (arrBindung[3] > 0)) {
-                    // Bindung auf 9 Uhr vorhanden ==> Feld unsichtbar machen
-                    bVisible = false;
+                for (int i = 0; i < 4; i++) {
+                    if ((arrFilter[i] > 0) & (arrFilter[i] < 9)) {
+                        if (arrFilter[i] != arrBindung[i]) {
+                            bVisible = false;
+                            break;
+                        }
+                    }
+                    else if ((arrFilter[i] == 9) & (arrBindung[i] > 0)) {
+                        bVisible = false;
+                        break;
+                    }
                 }
 
                 int intResId = value;

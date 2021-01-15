@@ -26,6 +26,8 @@
     <string name="eingabe">weitere Eingabe?</string>
     <string name="Berechnung_der_Endkonzentration_einer_Verdünnung_oder_Verdünnungsreihe">Berechnung der Endkonzentration\neiner Verdünnung(-sreihe)!</string>
     <string name="Berechnung_der_Endkonzentration">Berechnung der Endkonzentration</string>
+    <string name="Berechnung_der_Anfangskonzentration_einer_Verdünnung_oder_Verdünnungsreihe">Berechnung der Anfangskonzentration\neiner Verdünnung(-sreihe)!</string>
+    <string name="Berechnung_der_Anfangskonzentration">Berechnung der Anfangskonzentration</string>
     <string name="Anzahl_Messwerte">Anzahl der Messwerte = </string>
     <string name="Mittelwert">arithmetischer Mittelwert = </string>
     <string name="Standardabweichung">Standardabweichung = </string>
@@ -111,4 +113,4 @@
         eingegeben werden.</string>
     <string name="ButtonHome">(Button: schwarzes Haus - weißer Kreis) Mit diesem Button kehrt man zum Hauptmenü zurück.</string>
     <string name="ButtonBeenden">(Button: weißes Kreuz - roter Hintergrund) Wird dieser Button 2x betätigt, wird die App beendet.</string>
-    </resources>
+</resources>

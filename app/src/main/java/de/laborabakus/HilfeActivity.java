@@ -60,6 +60,14 @@ public class HilfeActivity extends Activity {
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Berechnung der Anfangskonzentration einer Verdünnung";
+		Hilfe[intFeldNr][2] = "Berechnung der Anfangskonzentration einer Verdünnung";
+		Hilfe[intFeldNr][3] = "In dieser Routine lässt sich die Konzentration eines Messwertes " +
+				"über die Verdünnung auf die Einwaage beziehen und so die Konzentration in eine " +
+				"ausgewählte Einheit umrechnen.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Berechnung der Endkonzentration einer Verdünnung";
 		Hilfe[intFeldNr][2] = "Berechnung der Endkonzentration einer Verdünnung";
 		Hilfe[intFeldNr][3] = "Mit dieser Routine lässt sich die Endkonzentration einer " +
@@ -98,6 +106,113 @@ public class HilfeActivity extends Activity {
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Menue
+
+	private void erstelle_Hilfe_Anfangs_Konz_einer_Verd(String strKapitel)
+	{
+		int intFeldNr = 0;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Allgemeines";
+		Hilfe[intFeldNr][2] = "Allgemeines";
+		Hilfe[intFeldNr][3] = "In dieser Routine lässt sich die Konzentration eines Messwertes " +
+				"über die Verdünnung auf die Einwaage beziehen und so die Konzentration in eine " +
+				"ausgewählte Einheit umrechnen.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Button: >Alle Eingaben löschen<";
+		Hilfe[intFeldNr][2] = "Button: >Alle Eingaben löschen<";
+		Hilfe[intFeldNr][3] = "Mit diesem Button werden alle zuvor getätigten Eingaben " +
+				"wieder gelöscht. Sind alle Eingabefelder leer alle Einheitsbuttons " +
+				"auf die Standardeinheiten zurück gesetzt.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Button: >Letzte Eingaben löschen<";
+		Hilfe[intFeldNr][2] = "Button: >Letzte Eingaben löschen<";
+		Hilfe[intFeldNr][3] = "Beim Betätigen dieses Buttons wird jeweils der letzte Verdünnungsschritt der " +
+				"Verdünnung-(sreihe) gelöscht.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Die grauen Einheiten Buttons";
+		Hilfe[intFeldNr][2] = "Die grauen Einheiten Buttons";
+		Hilfe[intFeldNr][3] = "Mit diesen Buttons kann man die Einheit der Einwaage (Gramm oder Milligramm) " +
+				"bzw. des Volumeneinmasses (Milliliter oder Mikroliter) " +
+				"und / oder die Einheiten der Volumen der Verdünnungen (Liter, Milliliter oder Mikroliter) ändern. " +
+				"Die Einheit vom Gehalt der Substanz lässt sich ebenfalls von % über mg/g (mg/ml) auf ppm anpassen.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Die grauen Eingabefelder";
+		Hilfe[intFeldNr][2] = "Die grauen Eingabefelder";
+		Hilfe[intFeldNr][3] = "In dem ersten Eingabefeld der >Messwert< wird die Konzentration des gemessenen Wertes " +
+				"eingegeben werden. " +
+				"Im zweiten Eingabefeld wird die Einwaage der verdünnten Substanz in Gramm oder Milligramm, " +
+				"bzw. ein Volumeneinmass (Milliliter oder Mikroliter) eingegeben. Mit Hilfe des >Weiter< Buttons " +
+				"auf der Displaytastatur kommt man zum nächsten Eingabefeld rechts daneben. Je nach Verdünnung kann " +
+				"hier das entsprechende Volumen, auf das aufgefüllt wurde, eingegeben werden. " +
+				"Wurden noch weitere Verdünnungsschritte durchgeführt, kommt man mit dem >Weiter< Button auf " +
+				"der Displaytastatur in die nächste Zeile. Nachfolgende leere Eingabefelder werden bei der Berechnung nicht berücksichtigt.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Der orangene Einheit Button";
+		Hilfe[intFeldNr][2] = "Der orangene Einheit Button";
+		Hilfe[intFeldNr][3] = "Beim Betätigen dieses Buttons kann die Wunscheinheit der Anfangskonzentration " +
+				"eingestellt werden. Zur Auswahl stehen % (g/100ml) oder (g/100g) und ppm (mg/l) oder (mg/kg). " +
+				"Generell wird der Gehalt bzw. die Anfangskonzentration der eingewogenen Probe " +
+				"aber immer auch auf die obtimalen Einheit berechnet und ausgegeben.";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Der orangene >Berechne< Button";
+		Hilfe[intFeldNr][2] = "Der orangene >Berechne< Button";
+		Hilfe[intFeldNr][3] = "Sind alle Eingaben der Verdünnung eingegeben und alle Einheiten eingestellt worden, " +
+				"wird beim Betätigen des Buttons die Berechnung des Gehaltes in der zuvor ausgewählten Einheit durchgeführt. ";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einheiten Tabelle (Konzentration)";
+		Hilfe[intFeldNr][2] = "Einheiten Tabelle (Konzentration)";
+		Hilfe[intFeldNr][3] = "1 g/ml = 10E6 ppm\n" +
+				"1 % = 10E4 ppm\n" +
+				"1 g/l = 1000 ppm\n" +
+				"1 mg/ml = 1000 ppm\n" +
+				"1 mg/l = 1 ppm\n" +
+				"1 µg/ml = 1ppm (parts per million)\n\n" +
+				"1 ppm = 1000 µg/l (Mikrogramm / l)\n" +
+				"1 ppm = 1000 ppb (parts per billion)\n" +
+				"1 ppm = 10E6 ng/l (Nanogramm / l)\n" +
+				"1 ppm = 10E6 ppt (parts per trillion)\n " +
+				"1 ppm = 10E9 pg/l (Pikogramm / l)\n " +
+				"1 ppm = 10E9 ppq (parts per quadrillion)\n";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einheiten Tabelle (Masse)";
+		Hilfe[intFeldNr][2] = "Einheiten Tabelle (Masse)";
+		Hilfe[intFeldNr][3] = "1 kg = 1000 g\n" +
+				"1 g =  1000 mg (Milligramm)\n" +
+				"1 g =  10E6 µg (Mikrogramm)\n" +
+				"1 g =  10E9 ng (Nanogramm)\n" +
+				"1 g =  10E12 pg (Pikogramm)\n" +
+				"1 g =  10E15 fg (Femtogramm)\n" +
+				"1 g =  10E18 ag (Attogramm)\n";
+
+		intFeldNr++;
+		Hilfe[intFeldNr][0] = strKapitel;
+		Hilfe[intFeldNr][1] = "Einheiten Tabelle (Volumen)";
+		Hilfe[intFeldNr][2] = "Einheiten Tabelle (Volumen)";
+		Hilfe[intFeldNr][3] = "1 l =  1000 ml (Milliliter)\n" +
+				"1 l =  10E6 µl (Mikroliter)\n" +
+				"1 l =  10E9 nl (Nanoliter)\n" +
+				"1 l =  10E12 pl (Pikoliter)\n" +
+				"1 l =  10E15 fl (Femtoliter)\n" +
+				"1 l =  10E18 al (Attoliter)\n";
+
+		intFeldNr_max = intFeldNr;
+
+	}// erstelle_Hilfe_Anfangs_Konz_einer_Verd
 
 	private void erstelle_Hilfe_End_Konz_einer_Verd(String strKapitel)
 	{
@@ -230,7 +345,7 @@ public class HilfeActivity extends Activity {
 				"Lösung, die verdünnt werden soll, für die weitere Berechnung " +
 				"ausgewählt.";
 
-        intFeldNr++;
+		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "anpassen";
 		Hilfe[intFeldNr][2] = "anpassen";
@@ -277,59 +392,59 @@ public class HilfeActivity extends Activity {
 
 	private void erstelle_Hilfe_Konz_Lsg_gesucht_wird(String strKapitel)
 	{
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        SharedPreferences.Editor prefEditor = prefs.edit();
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences.Editor prefEditor = prefs.edit();
 
-        strAuswahl = prefs.getString("KonzAuswahl", "0");
-        strKonzAuswahl = prefs.getString("KonzAuswahl_"+strAuswahl, strKonzAuswahl);
+		strAuswahl = prefs.getString("KonzAuswahl", "0");
+		strKonzAuswahl = prefs.getString("KonzAuswahl_"+strAuswahl, strKonzAuswahl);
 
-	    int intFeldNr = 0;
+		int intFeldNr = 0;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "... die Menge der konz. Lösung über eine prozentuale Verdünnung";
 		Hilfe[intFeldNr][2] = "... die Menge der konz. Lösung über eine prozentuale Verdünnung";
 		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man die eingesetzte Menge " +
-                "an konzentrierter " + strKonzAuswahl + " sucht, um eine bestimmte Masse einer " +
-                "verdünnten Lösung mit bekanntem Gehalt herzustellen!";
+				"an konzentrierter " + strKonzAuswahl + " sucht, um eine bestimmte Masse einer " +
+				"verdünnten Lösung mit bekanntem Gehalt herzustellen!";
 
-        intFeldNr++;
+		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "... die Menge der konz. Lösung über eine molare Verdünnung";
 		Hilfe[intFeldNr][2] = "... die Menge der konz. Lösung über eine molare Verdünnung";
 		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man die eingesetzte Menge " +
-                "an konzentrierter " + strKonzAuswahl + " sucht, um ein bestimmtes Volumen einer " +
-                "verdünnten Lösung mit bekanntem Gehalt herzustellen!";
+				"an konzentrierter " + strKonzAuswahl + " sucht, um ein bestimmtes Volumen einer " +
+				"verdünnten Lösung mit bekanntem Gehalt herzustellen!";
 
-        intFeldNr++;
+		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "... die Masse der verdünnten prozentualen Lösung:";
 		Hilfe[intFeldNr][2] = "... die Masse der verdünnten prozentualen Lösung:";
 		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man wissen möchte, wieviel Milliliter " +
-                "verdünnte Lösung mit einer bestimmten Konzentration man bekommt, wenn man eine " +
-                "bekannte Menge einer konzentrierten " + strKonzAuswahl + " mit Wasser verdünnt!";
+				"verdünnte Lösung mit einer bestimmten Konzentration man bekommt, wenn man eine " +
+				"bekannte Menge einer konzentrierten " + strKonzAuswahl + " mit Wasser verdünnt!";
 
-        intFeldNr++;
+		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "... das Volumen der verdünnten molaren Lösung:";
 		Hilfe[intFeldNr][2] = "... das Volumen der verdünnten molaren Lösung:";
 		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man wissen möchte, wieviel Gramm " +
-                "verdünnte Lösung mit einer bestimmten Konzentration man bekommt, wenn man eine " +
-                "bekannte Menge einer konzentrierten " + strKonzAuswahl + " mit Wasser verdünnt!";
+				"verdünnte Lösung mit einer bestimmten Konzentration man bekommt, wenn man eine " +
+				"bekannte Menge einer konzentrierten " + strKonzAuswahl + " mit Wasser verdünnt!";
 
-        intFeldNr++;
+		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Gesucht wird der Gehalt der verdünnten Lösung in Prozent:";
 		Hilfe[intFeldNr][2] = "Gesucht wird der Gehalt der verdünnten Lösung in Prozent:";
 		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man wissen möchte, welche Konzentration " +
-                "eine Verdünnung bekommt, wenn man eine bekannte Menge an konzentrierter "
-        + strKonzAuswahl + "zu einer bekannten Masse mit Wasser verdünnt!";
+				"eine Verdünnung bekommt, wenn man eine bekannte Menge an konzentrierter "
+				+ strKonzAuswahl + "zu einer bekannten Masse mit Wasser verdünnt!";
 
-        intFeldNr++;
+		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
 		Hilfe[intFeldNr][1] = "Gesucht wird der Gehalt der verdünnten Lösung in mol/L:";
 		Hilfe[intFeldNr][2] = "Gesucht wird der Gehalt der verdünnten Lösung in mol/L:";
 		Hilfe[intFeldNr][3] = "Diese Routine wird gewählt, wenn man wissen möchte, welche Konzentration " +
-                "eine Verdünnung bekommt, wenn man eine bekannte Menge an konzentrierter "
-                + strKonzAuswahl + "zu einem bekanntem Volumen mit Wasser verdünnt!";
+				"eine Verdünnung bekommt, wenn man eine bekannte Menge an konzentrierter "
+				+ strKonzAuswahl + "zu einem bekanntem Volumen mit Wasser verdünnt!";
 
 		intFeldNr_max = intFeldNr;
 	} // erstelle_Hilfe_Konz_Lsg_gesucht_wird
@@ -341,7 +456,7 @@ public class HilfeActivity extends Activity {
 
 		strAuswahl = prefs.getString("KonzAuswahl", "0");
 		strKonzAuswahl = prefs.getString("KonzAuswahl_"+strAuswahl, strKonzAuswahl);
-        strBerechnungUeber = prefs.getString("Berechnung_ueber", strBerechnungUeber);
+		strBerechnungUeber = prefs.getString("Berechnung_ueber", strBerechnungUeber);
 
 
 		int intFeldNr = 0;
@@ -351,105 +466,105 @@ public class HilfeActivity extends Activity {
 		Hilfe[intFeldNr][3] = "Nach Auswahl des gesuchten Parameters, werden hier in den grauen Feldern die" +
 				" gegebenen Parameter eingetippt.";
 
-        switch (strBerechnungUeber)
-        {
-            case "1":
-                intFeldNr++;
-                Hilfe[intFeldNr][0] = strKapitel;
-                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
-                        "Volumen der konzentrierten "  + strKonzAuswahl + "  berechnet werden soll.";
+		switch (strBerechnungUeber)
+		{
+			case "1":
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+						"Volumen der konzentrierten "  + strKonzAuswahl + "  berechnet werden soll.";
 
-                break;
+				break;
 
-            case "2":
-                intFeldNr++;
-                Hilfe[intFeldNr][0] = strKapitel;
-                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
-                        "Volumen der konzentrierten "  + strKonzAuswahl + "  berechnet werden soll.";
+			case "2":
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+						"Volumen der konzentrierten "  + strKonzAuswahl + "  berechnet werden soll.";
 
-                intFeldNr++;
-                Hilfe[intFeldNr][0] = strKapitel;
-                Hilfe[intFeldNr][1] = "Button mol/l, M, N oder g/l - Verdünnung";
-                Hilfe[intFeldNr][2] = "Button mol/l, M, N oder g/l - Verdünnung";
-                Hilfe[intFeldNr][3] = "Mit dem Button mol/l oder g/l kann entschieden werden, in welcher Einheit " +
-                        "der Gehalt der verdünnten "  + strKonzAuswahl + " vorliegt und eingegeben werden soll. " +
-                        "Bei mehrprotonigen Säuren, wie z.B. Schwefelsäure oder Phosphorsäure mit einer " +
-                        "stöchimetrischen Wertigkeit > 1, wird die Einheit mol/l durch M für molare und N für " +
-                        "normale Verdünnungen ersetzt. Eine zuvor eingegebene Konzentration wird automatisch " +
-                        "beim Betätgen des Buttons umgerechnet.";
-                break;
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Button mol/l, M, N oder g/l - Verdünnung";
+				Hilfe[intFeldNr][2] = "Button mol/l, M, N oder g/l - Verdünnung";
+				Hilfe[intFeldNr][3] = "Mit dem Button mol/l oder g/l kann entschieden werden, in welcher Einheit " +
+						"der Gehalt der verdünnten "  + strKonzAuswahl + " vorliegt und eingegeben werden soll. " +
+						"Bei mehrprotonigen Säuren, wie z.B. Schwefelsäure oder Phosphorsäure mit einer " +
+						"stöchimetrischen Wertigkeit > 1, wird die Einheit mol/l durch M für molare und N für " +
+						"normale Verdünnungen ersetzt. Eine zuvor eingegebene Konzentration wird automatisch " +
+						"beim Betätgen des Buttons umgerechnet.";
+				break;
 
-            case "3":
-                intFeldNr++;
-                Hilfe[intFeldNr][0] = strKapitel;
-                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
-                        "Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben werden soll. " +
-                        "Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
-                        "umgerechnet.";
+			case "3":
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+						"Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben werden soll. " +
+						"Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
+						"umgerechnet.";
 
-                break;
+				break;
 
-            case "4":
-                intFeldNr++;
-                Hilfe[intFeldNr][0] = strKapitel;
-                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
-                        "Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben werden soll. " +
-                        "Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
-                        "umgerechnet.";
+			case "4":
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+						"Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben werden soll. " +
+						"Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
+						"umgerechnet.";
 
-                intFeldNr++;
-                Hilfe[intFeldNr][0] = strKapitel;
-                Hilfe[intFeldNr][1] = "Button mol/l, M, N oder g/l - Verdünnung";
-                Hilfe[intFeldNr][2] = "Button mol/l, M, N oder g/l - Verdünnung";
-                Hilfe[intFeldNr][3] = "Mit dem Button mol/l oder g/l kann entschieden werden, in welcher Einheit " +
-                        "der Gehalt der verdünnten "  + strKonzAuswahl + " vorliegt und eingegeben werden soll. " +
-                        "Bei mehrprotonigen Säuren, wie z.B. Schwefelsäure oder Phosphorsäure mit einer " +
-                        "stöchimetrischen Wertigkeit > 1, wird die Einheit mol/l durch M für molare und N für " +
-                        "normale Verdünnungen ersetzt. Eine zuvor eingegebene Konzentration wird automatisch " +
-                        "beim Betätgen des Buttons umgerechnet.";
-                break;
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Button mol/l, M, N oder g/l - Verdünnung";
+				Hilfe[intFeldNr][2] = "Button mol/l, M, N oder g/l - Verdünnung";
+				Hilfe[intFeldNr][3] = "Mit dem Button mol/l oder g/l kann entschieden werden, in welcher Einheit " +
+						"der Gehalt der verdünnten "  + strKonzAuswahl + " vorliegt und eingegeben werden soll. " +
+						"Bei mehrprotonigen Säuren, wie z.B. Schwefelsäure oder Phosphorsäure mit einer " +
+						"stöchimetrischen Wertigkeit > 1, wird die Einheit mol/l durch M für molare und N für " +
+						"normale Verdünnungen ersetzt. Eine zuvor eingegebene Konzentration wird automatisch " +
+						"beim Betätgen des Buttons umgerechnet.";
+				break;
 
-            case "5":
-                intFeldNr++;
-                Hilfe[intFeldNr][0] = strKapitel;
-                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
-                        "Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben werden soll. " +
-                        "Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
-                        "umgerechnet.";
+			case "5":
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+						"Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben werden soll. " +
+						"Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
+						"umgerechnet.";
 
-                break;
+				break;
 
-            case "6":
-                intFeldNr++;
-                Hilfe[intFeldNr][0] = strKapitel;
-                Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
-                Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
-                        "Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben  werden soll. " +
-                        "Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
-                        "umgerechnet.";
+			case "6":
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][2] = "Button g oder ml - Konz Lösung";
+				Hilfe[intFeldNr][3] = "Mit dem Button g oder ml kann entschieden werden, ob die Masse oder das " +
+						"Volumen der konzentrierten "  + strKonzAuswahl + " eingegeben  werden soll. " +
+						"Eine zuvor eingegebene Menge wird automatisch beim Betätgen des Buttons " +
+						"umgerechnet.";
 
-                intFeldNr++;
-                Hilfe[intFeldNr][0] = strKapitel;
-                Hilfe[intFeldNr][1] = "Button mol/l, M, N oder g/l - Verdünnung";
-                Hilfe[intFeldNr][2] = "Button mol/l, M, N oder g/l - Verdünnung";
-                Hilfe[intFeldNr][3] = "Mit dem Button mol/l oder g/l kann entschieden werden, in welcher Einheit " +
-                        "der Gehalt der verdünnten "  + strKonzAuswahl + " berechnet werden soll. " +
-                        "Mehrprotonigen Säuren, wie z.B. Schwefelsäure oder Phosphorsäure mit einer " +
-                        "stöchimetrischen Wertigkeit > 1, können auch in molare (M) oder normale (N) " +
-                        "Verdünnungen berechnet werden.";
-                break;
-        }
+				intFeldNr++;
+				Hilfe[intFeldNr][0] = strKapitel;
+				Hilfe[intFeldNr][1] = "Button mol/l, M, N oder g/l - Verdünnung";
+				Hilfe[intFeldNr][2] = "Button mol/l, M, N oder g/l - Verdünnung";
+				Hilfe[intFeldNr][3] = "Mit dem Button mol/l oder g/l kann entschieden werden, in welcher Einheit " +
+						"der Gehalt der verdünnten "  + strKonzAuswahl + " berechnet werden soll. " +
+						"Mehrprotonigen Säuren, wie z.B. Schwefelsäure oder Phosphorsäure mit einer " +
+						"stöchimetrischen Wertigkeit > 1, können auch in molare (M) oder normale (N) " +
+						"Verdünnungen berechnet werden.";
+				break;
+		}
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
@@ -476,7 +591,7 @@ public class HilfeActivity extends Activity {
 
 	private void erstelle_Hilfe_Quiz(String strKapitel)
 	{
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		String strQuizHilfe = prefs.getString("QuizHilfe", "1");
 		int intQuizHilfe = Integer.parseInt(strQuizHilfe);
 
@@ -504,42 +619,42 @@ public class HilfeActivity extends Activity {
 				Hilfe[intFeldNr][2] = "Level 7";
 				Hilfe[intFeldNr][3] = strHilfe;
 			case 6:
-                strHilfe = getResources().getString(R.string.QuizHilfe_6);
-                intFeldNr++;
+				strHilfe = getResources().getString(R.string.QuizHilfe_6);
+				intFeldNr++;
 				Hilfe[intFeldNr][0] = strKapitel;
 				Hilfe[intFeldNr][1] = "Level 6";
 				Hilfe[intFeldNr][2] = "Level 6";
 				Hilfe[intFeldNr][3] = strHilfe;
 			case 5:
-                strHilfe = getResources().getString(R.string.QuizHilfe_5);
+				strHilfe = getResources().getString(R.string.QuizHilfe_5);
 				intFeldNr++;
 				Hilfe[intFeldNr][0] = strKapitel;
 				Hilfe[intFeldNr][1] = "Level 5";
 				Hilfe[intFeldNr][2] = "Level 5";
 				Hilfe[intFeldNr][3] = strHilfe;
 			case 4:
-                strHilfe = getResources().getString(R.string.QuizHilfe_4);
+				strHilfe = getResources().getString(R.string.QuizHilfe_4);
 				intFeldNr++;
 				Hilfe[intFeldNr][0] = strKapitel;
 				Hilfe[intFeldNr][1] = "Level 4";
 				Hilfe[intFeldNr][2] = "Level 4";
 				Hilfe[intFeldNr][3] = strHilfe;
 			case 3:
-                strHilfe = getResources().getString(R.string.QuizHilfe_3);
+				strHilfe = getResources().getString(R.string.QuizHilfe_3);
 				intFeldNr++;
 				Hilfe[intFeldNr][0] = strKapitel;
 				Hilfe[intFeldNr][1] = "Level 3";
 				Hilfe[intFeldNr][2] = "Level 3";
 				Hilfe[intFeldNr][3] = strHilfe;
 			case 2:
-                strHilfe = getResources().getString(R.string.QuizHilfe_2);
+				strHilfe = getResources().getString(R.string.QuizHilfe_2);
 				intFeldNr++;
 				Hilfe[intFeldNr][0] = strKapitel;
 				Hilfe[intFeldNr][1] = "Level 2";
 				Hilfe[intFeldNr][2] = "Level 2";
 				Hilfe[intFeldNr][3] = strHilfe;
 			case 1:
-                strHilfe = getResources().getString(R.string.QuizHilfe_1);
+				strHilfe = getResources().getString(R.string.QuizHilfe_1);
 				intFeldNr++;
 				Hilfe[intFeldNr][0] = strKapitel;
 				Hilfe[intFeldNr][1] = "Level 1";
@@ -833,16 +948,16 @@ public class HilfeActivity extends Activity {
 				+ " Gleichzeitig wird die Atommasse des Elements zu der Molmasse des Moleküls dazu addiert. Nebengruppenelemente"
 				+ " können nach Betätigen des Hauptgruppenelemente-Buttons eingegeben werden. Von den Lanthanoide und Actinoide können"
 				+ " keine Atommassen berechnet werden.";
-		
-   		/*							// habe hier versucht das "Pfeil-zurück-Symbol" anzeigen zu lassen. Funzt nicht! :-(
-   		int resId;
-   		EditText et;
-   		String strBack;
-   		
-		resId = R.string.Back;
+
+          /*                   // habe hier versucht das "Pfeil-zurück-Symbol" anzeigen zu lassen. Funzt nicht! :-(
+          int resId;
+          EditText et;
+          String strBack;
+
+      resId = R.string.Back;
         et = (EditText) findViewById(resId);
-    	strBack = et.getText().toString();
-		*/
+       strBack = et.getText().toString();
+      */
 
 		intFeldNr++;
 		Hilfe[intFeldNr][0] = strKapitel;
@@ -948,6 +1063,8 @@ public class HilfeActivity extends Activity {
 			erstelle_Hilfe_Konz_Lsg_gesucht_wird(strKapitel);
 		} else if (strKapitel.equals("Konz_Lsg_Eingabe") == true) {
 			erstelle_Hilfe_Konz_Lsg_Eingabe(strKapitel);
+		} else if (strKapitel.equals("Anfangs_Konz_einer_Verd") == true) {
+			erstelle_Hilfe_Anfangs_Konz_einer_Verd(strKapitel);
 		} else if (strKapitel.equals("End_Konz_einer_Verd") == true) {
 			erstelle_Hilfe_End_Konz_einer_Verd(strKapitel);
 		} else if (strKapitel.equals("Quiz") == true) {
@@ -1019,3 +1136,4 @@ public class HilfeActivity extends Activity {
 	}
 
 } // HilfeActivity
+

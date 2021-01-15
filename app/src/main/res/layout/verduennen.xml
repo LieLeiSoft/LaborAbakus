@@ -135,6 +135,22 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColorHint="@color/cHellgrau" />
 
+                <EditText
+                    android:id="@+id/End_Konz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="3"
+                    android:background="@color/csehrhellesgrau"
+                    android:ellipsize="start"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:hint="Messwert"
+                    android:inputType="numberDecimal"
+                    android:nextFocusDown="@+id/et0"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColorHint="@color/cHellgrau"/>
+
                 <Button
                     android:id="@+id/btnEinheitReinheit"
                     android:onClick="btnOnClickEinheitReinheit"
@@ -144,6 +160,18 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:autoSizeMaxTextSize="20dp"
+                    android:textColor="@color/cDunkelblau"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <Button
+                    android:id="@+id/btnEinheitEndKonz"
+                    android:onClick="btnOnClickEinheitEndKonz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:autoSizeMaxTextSize="30dp"
                     android:textColor="@color/cDunkelblau"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -573,3 +601,4 @@
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+

@@ -116,7 +116,7 @@ public class 	HauptmenueActivity extends Activity {
 					"KonzGehaltEinheit_18,KonzGehaltEinheit_19,KonzGehaltEinheit_20," +
 					"Dichte_0,Dichte_1,Dichte_2,Dichte_3,Dichte_4,Dichte_5,Dichte_6,Dichte_7,Dichte_8,Dichte_9,Dichte_10," +
 					"Dichte_11,Dichte_12,Dichte_13,Dichte_14,Dichte_15,Dichte_16,Dichte_17,Dichte_18,Dichte_19,Dichte_20," +
-					"btnEinheit,Reinheit_Konz,End_Konz,btnEinheitReinheit,btnEinheitEndKonz,btnEinheitAusgangsKonz,btnFestFluessig," +
+					"btnEinheit,btnEinheitGehalt,Reinheit_Konz,End_Konz,btnEinheitReinheit,btnEinheitEndKonz,btnEinheitAusgangsKonz,btnFestFluessig," +
 					"et0,et1,et2,et3,et4,et5,et6,et7,et8,et9,btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,"+
 					"Molmasse_0,Molmasse_1,Molmasse_2,Molmasse_3,Molmasse_4,Molmasse_5,Molmasse_6,Molmasse_7,Molmasse_8,Molmasse_9,Molmasse_10,Molmasse_11," +
 					"Molmasse_12,Molmasse_13,Molmasse_14,Molmasse_15,Molmasse_16,Molmasse_17,Molmasse_18,Molmasse_19,Molmasse_20," +

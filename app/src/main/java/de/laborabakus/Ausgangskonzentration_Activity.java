@@ -113,7 +113,7 @@ public class Ausgangskonzentration_Activity extends Activity  {
             }
         }
 
-        strEingabetext = prefs.getString("btnEinheit", "%");
+        strEingabetext = prefs.getString("btnEinheitGehalt", "%");
         tv = (TextView) findViewById(R.id.btnEinheit);
         tv.setText(strEingabetext);
 
@@ -139,7 +139,7 @@ public class Ausgangskonzentration_Activity extends Activity  {
 
         tv = (TextView) findViewById(R.id.btnEinheit);
         strEingabetext = tv.getText().toString();
-        prefEditor.putString("btnEinheit", strEingabetext);
+        prefEditor.putString("btnEinheitGehalt", strEingabetext);
 
         et = (EditText) findViewById(R.id.End_Konz);
         strEingabetext = et.getText().toString();

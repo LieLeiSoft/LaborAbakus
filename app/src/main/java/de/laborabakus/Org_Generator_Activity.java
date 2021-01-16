@@ -26,11 +26,11 @@ public class Org_Generator_Activity extends Activity {
 
     List<String> arrElementePos = new ArrayList<String>(); // String-List, um die Positionsangaben (Zeile/Spalte) der verwendeten Felder im Gitter aufzunehmen
 
-
     String strZeile;  // beginnend ab 1!
     String strSpalte; // beginnend ab 1!
 
     int resIdFeld;
+    int intAnzahlAktiveZellen;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -261,10 +261,40 @@ public class Org_Generator_Activity extends Activity {
 
             btn.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.weiss));
 
+            // Letztes Element der Liste löschen
             arrElementePos.remove(arrElementePos.size() - 1);
             setzeFelder();
         }
     } // btnLoeschen
+
+    public void btnBestimmeFormel(View v)
+    {
+        String strMsg = "";
+
+        if (arrElementePos.isEmpty()) {
+            // Es ist kein Element eingetragen bzw. alle bisher eingetragenen Elemente wurden (über "btnLoeschen") gelöscht.
+            intAnzahlAktiveZellen = -1;
+        }
+
+        switch (intAnzahlAktiveZellen) {
+            case -1:
+                strMsg = "\n   Geben Sie zuerst eine Formel ein.   \n";
+                break;
+            case 0:
+                // Hier muss jetzt "nur noch" die Formel bestimmt werden... ;-)
+                break;
+            default:
+                strMsg = "\n   Formel unvollständig. Anzahl freie Enden: "+Integer.toString(intAnzahlAktiveZellen)+ "   \n";
+                break;
+        }
+
+        if (!strMsg.equals("")) {
+            Toast Meldung = Toast.makeText(this, strMsg, Toast.LENGTH_LONG);
+            Meldung.setGravity(Gravity.BOTTOM, 0, 0);
+            Meldung.show();
+        }
+
+    } // btnBestimmeFormel
 
     public boolean checkGitter()
     {
@@ -405,6 +435,8 @@ public class Org_Generator_Activity extends Activity {
         boolean bEnabled;
         int arrBindung[] = new int[4];
 
+        intAnzahlAktiveZellen = 0;
+
         for (int intZeile = 0; intZeile < arrGitter.length; intZeile++) {
             for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++) {
                 if (arrGitter[intZeile][intSpalte] == null) {
@@ -444,10 +476,13 @@ public class Org_Generator_Activity extends Activity {
                         bEnabled = checkNachbarzellen(intZeile, intSpalte, arrFilter);
                     }
 
-                    if (bEnabled)
+                    if (bEnabled) {
                         btn.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.weiss));
-                    else
+                        intAnzahlAktiveZellen = intAnzahlAktiveZellen+1;
+                    }
+                    else {
                         btn.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.grau));
+                    }
                     btn.setEnabled(bEnabled);
                 } // if (arrGitter[intZeile][intSpalte] == null)
 

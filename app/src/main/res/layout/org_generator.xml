@@ -33,10 +33,11 @@
                 android:text="Letzten Eintrag löschen" />
 
             <Button
-                android:id="@+id/button19"
+                android:id="@+id/btnBestimmeFormel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="btnBestimmeFormel"
                 android:text="bestimme Formel" />
         </LinearLayout>
 

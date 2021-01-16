@@ -88,8 +88,17 @@ public class Org_Generator_Activity extends Activity {
 
                 if (checkGitter() == true) {
                     ibt.setImageResource(intResId);
-                    setzeFelder();
+
+                    if (arrElementePos != null && !arrElementePos.isEmpty()) {
+                        // es wurde bereits mind. 1 Element platziert
+                        // Sicherheitshalber ein möglicherweise vorhandens Element aus der Liste entfernen.
+                        // Wichtig, falls ein Element überschrieben wurde und anschließend entfernt werden soll.
+                        arrElementePos.remove(strZeile+strSpalte);
+                    }
+
                     arrElementePos.add(strZeile+strSpalte);
+
+                    setzeFelder();
                 }
                 else {
                     arrGitter[intZeile][intSpalte]= null;
@@ -234,6 +243,7 @@ public class Org_Generator_Activity extends Activity {
         int intResId;
 
         if (arrElementePos != null && !arrElementePos.isEmpty()) {
+            // es wurde bereits mind. 1 Element platziert
             strPos = arrElementePos.get(arrElementePos.size() - 1);
 
             int intZeile  = Integer.parseInt(strPos.substring(0, 2)) - 1;

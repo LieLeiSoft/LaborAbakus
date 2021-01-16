@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Org_Generator_Activity extends Activity {
     private static final String TAG = "Org_Generator_Activity";
@@ -22,8 +24,12 @@ public class Org_Generator_Activity extends Activity {
 
     String[][] arrGitter = new String[constZeile_max][constSpalte_max]; // 12 Zeilen (0..11), 6 Spalten (0..5)
 
-    String strZeile;
-    String strSpalte;
+    List<String> arrElementePos = new ArrayList<String>(); // String-List, um die Positionsangaben (Zeile/Spalte) der verwendeten Felder im Gitter aufzunehmen
+
+
+    String strZeile;  // beginnend ab 1!
+    String strSpalte; // beginnend ab 1!
+
     int resIdFeld;
 
     @Override
@@ -49,16 +55,17 @@ public class Org_Generator_Activity extends Activity {
     {
         super.onResume();
 
-        // Toast anzeigen
         if(resIdFeld == 0) {
+            // Es wurde noch kein Element (in "Org_Strukturformeln_Activity") ausgewählt
+            // Toast anzeigen
             String text = "\n   Zum Starten beliebige Zelle antippen.   \n";
             Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_LONG);
             Meldung.setGravity(Gravity.BOTTOM, 0, 0);
             Meldung.show();
         }
-
-        if(resIdFeld != 0) // Wird abgefangen, wenn beim ersten Mal resID = 0
+        else
         {
+            // Es wurde wurde bereits ein Element (in "Org_Strukturformeln_Activity") ausgewählt
             ImageButton ibt;
 
             // In der Activity "Org_Strukturformeln_Activity.java" werden in der Methode "btnZelle"
@@ -74,7 +81,6 @@ public class Org_Generator_Activity extends Activity {
                 // strZellenname aus Preferences lesen ("Strukturformel-Zellenname")
                 String strZellenname = prefs.getString("Strukturformel-Zellenname", "");
 
-
                 int intZeile  = Integer.parseInt(strZeile ) - 1;
                 int intSpalte = Integer.parseInt(strSpalte) - 1;
 
@@ -83,6 +89,7 @@ public class Org_Generator_Activity extends Activity {
                 if (checkGitter() == true) {
                     ibt.setImageResource(intResId);
                     setzeFelder();
+                    arrElementePos.add(strZeile+strSpalte);
                 }
                 else {
                     arrGitter[intZeile][intSpalte]= null;
@@ -99,7 +106,7 @@ public class Org_Generator_Activity extends Activity {
     public void btnFeld(View v)
     {
         resIdFeld = v.getId();
-        String strZellenname = getResources().getResourceEntryName(resIdFeld);  // Zellenname (String) zur ID ermitteln
+        String strZellenname = getResources().getResourceEntryName(resIdFeld);  // Zellenname (String) zur ID ermitteln (Bsp.: "ibtFeld_011")
 
         // Zeile/Spalte aus Feldnamen der aktuellen Zelle (resIdFeld) ermitteln (=strZeile/strSpalte)
         strZeile  = strZellenname.substring( 8,10);   // Beispiel: ibtFeld_115 => 11
@@ -219,6 +226,35 @@ public class Org_Generator_Activity extends Activity {
         Log.d(TAG, "startActivity");
         startActivity(myIntent);
     } // btnFeld
+
+    public void btnLoeschen(View v)
+    {
+        String strPos;
+        String strZellenname;
+        int intResId;
+
+        if (arrElementePos != null && !arrElementePos.isEmpty()) {
+            strPos = arrElementePos.get(arrElementePos.size() - 1);
+
+            int intZeile  = Integer.parseInt(strPos.substring(0, 2)) - 1;
+            int intSpalte = Integer.parseInt(strPos.substring(2, 3)) - 1;
+
+            arrGitter[intZeile][intSpalte] = null;
+
+            // Name des ImageButtons aus Positionsangabe (Zeile und Spalte) bilden
+            strZellenname = "ibtFeld_" + strPos;
+
+            // ResId des ImageButtons ermitteln
+            intResId = getResources().getIdentifier(strZellenname, "id", getPackageName());
+
+            ImageButton btn = (ImageButton) findViewById(intResId);
+
+            btn.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.weiss));
+
+            arrElementePos.remove(arrElementePos.size() - 1);
+            setzeFelder();
+        }
+    } // btnLoeschen
 
     public boolean checkGitter()
     {
@@ -350,6 +386,7 @@ public class Org_Generator_Activity extends Activity {
         return true;
     } // checkGitter
 
+    // Alle Felder durchgehen und entweder weiß (aktiv) oder grau (inaktiv) setzen
     public boolean setzeFelder()
     {
         String strZellinhalt;
@@ -357,7 +394,6 @@ public class Org_Generator_Activity extends Activity {
         int intResId;
         boolean bEnabled;
         int arrBindung[] = new int[4];
-
 
         for (int intZeile = 0; intZeile < arrGitter.length; intZeile++) {
             for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++) {
@@ -389,7 +425,15 @@ public class Org_Generator_Activity extends Activity {
                         arrFilter[1] = 9;
                     }
 
-                    bEnabled = checkNachbarzellen(intZeile, intSpalte, arrFilter);
+                    if (arrElementePos.isEmpty()) {
+                        // Es ist kein Element eingetragen bzw. alle bisher eingetragenen Elemente wurden (über "btnLoeschen") gelöscht.
+                        // Um zu erreichen, dass wieder alle Zellen weiß und aktiv werden, wird hier explizit bEnabled auf true gesetzt.
+                        bEnabled = true;
+                    }
+                    else {
+                        bEnabled = checkNachbarzellen(intZeile, intSpalte, arrFilter);
+                    }
+
                     if (bEnabled)
                         btn.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.weiss));
                     else
@@ -403,6 +447,10 @@ public class Org_Generator_Activity extends Activity {
         return true;
     } // setzeFelder
 
+    // In dieser Funktion werden die 4 Nachbarzellen der übergebenen Position (Zeile / Spalte) geprüft.
+    // Rückgabewert der Funktion:
+    //   true:  eine der Nachbarzellen hat eine Bindungsmöglichkeit zur übergebenen Position (Zeile / Spalte)
+    //   false: keine der Nachbarzellen hat eine Bindungsmöglichkeit zur übergebenen Position (Zeile / Spalte)
     public boolean checkNachbarzellen(int pZeile, int pSpalte, int pFilter[])
     {
         int arrBindung[] = new int[4];

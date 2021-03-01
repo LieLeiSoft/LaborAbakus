@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Org_Generator_Activity extends Activity {
@@ -21,6 +22,8 @@ public class Org_Generator_Activity extends Activity {
 
     static int constZeile_max  = 12;
     static int constSpalte_max = 6;
+
+    static tEndpunkte[] arrEndpunkte = new tEndpunkte[1];
 
     String[][] arrGitter = new String[constZeile_max][constSpalte_max]; // 12 Zeilen (0..11), 6 Spalten (0..5)
 
@@ -147,19 +150,19 @@ public class Org_Generator_Activity extends Activity {
         int intZeile_Gitter;  // Zeile für Gitter fängt bei 0 an!
         int intSpalte_Gitter; // Spalte für Gitter fängt bei 0 an!
         int intBindung;
-        String strZellinhalt;
+        String strBilddateiname;
 
         // Prüfen, ob Nachbarzelle auf 12 Uhr vorhanden ist und ggf. deren Bindungseigenschaft auf 6 Uhr auswerten
         intZeile_Gitter  = intZeile  - 1;
         intSpalte_Gitter = intSpalte - 1;
         if (intZeile > 1) {
             intZeile_Gitter = intZeile_Gitter - 1;
-            strZellinhalt = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
-            if (strZellinhalt == null) {
+            strBilddateiname = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
+            if (strBilddateiname == null) {
                 // keine Nachbarzelle vorhanden
                 arrFilter[0] = 0; // alles erlaubt
             } else {
-                intBindung = Integer.parseInt(strZellinhalt.substring(4, 5));
+                intBindung = Integer.parseInt(strBilddateiname.substring(4, 5));
                 if (intBindung == 0) {
                     arrFilter[0] = 9;
                 } else {
@@ -173,12 +176,12 @@ public class Org_Generator_Activity extends Activity {
         intSpalte_Gitter = intSpalte - 1;
         if (intSpalte < constSpalte_max) {
             intSpalte_Gitter = intSpalte_Gitter + 1;
-            strZellinhalt = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
-            if (strZellinhalt == null) {
+            strBilddateiname = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
+            if (strBilddateiname == null) {
                 // keine Nachbarzelle vorhanden
                 arrFilter[1] = 0; // alles erlaubt
             } else {
-                intBindung = Integer.parseInt(strZellinhalt.substring(5, 6));
+                intBindung = Integer.parseInt(strBilddateiname.substring(5, 6));
                 if (intBindung == 0) {
                     arrFilter[1] = 9;
                 } else {
@@ -192,12 +195,12 @@ public class Org_Generator_Activity extends Activity {
         intSpalte_Gitter = intSpalte - 1;
         if (intZeile < constZeile_max) {
             intZeile_Gitter = intZeile_Gitter + 1;
-            strZellinhalt = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
-            if (strZellinhalt == null) {
+            strBilddateiname = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
+            if (strBilddateiname == null) {
                 // keine Nachbarzelle vorhanden
                 arrFilter[2] = 0; // alles erlaubt
             } else {
-                intBindung = Integer.parseInt(strZellinhalt.substring(2, 3));
+                intBindung = Integer.parseInt(strBilddateiname.substring(2, 3));
                 if (intBindung == 0) {
                     arrFilter[2] = 9;
                 } else {
@@ -211,12 +214,12 @@ public class Org_Generator_Activity extends Activity {
         intSpalte_Gitter = intSpalte - 1;
         if (intSpalte > 1) {
             intSpalte_Gitter = intSpalte_Gitter - 1;
-            strZellinhalt = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
-            if (strZellinhalt == null) {
+            strBilddateiname = arrGitter[intZeile_Gitter][intSpalte_Gitter]; // Bsp.: an1010a56_108
+            if (strBilddateiname == null) {
                 // keine Nachbarzelle vorhanden
                 arrFilter[3] = 0; // alles erlaubt
             } else {
-                intBindung = Integer.parseInt(strZellinhalt.substring(3, 4));
+                intBindung = Integer.parseInt(strBilddateiname.substring(3, 4));
                 if (intBindung == 0) {
                     arrFilter[3] = 9;
                 } else {
@@ -270,6 +273,7 @@ public class Org_Generator_Activity extends Activity {
     public void btnBestimmeFormel(View v)
     {
         String strMsg = "";
+        int intAnzahlEndpunkte = 0;
 
         if (arrElementePos.isEmpty()) {
             // Es ist kein Element eingetragen bzw. alle bisher eingetragenen Elemente wurden (über "btnLoeschen") gelöscht.
@@ -288,6 +292,21 @@ public class Org_Generator_Activity extends Activity {
                 break;
         }
 
+        if (strMsg.equals("")) {
+            intAnzahlEndpunkte = Endpunkte_finden();
+            if (intAnzahlEndpunkte == 0) {
+                strMsg = "\nFormel enthält keinen einzigen Endpunkt (C-Atom mit genau EINER Bindung zu einem anderen C-Atom)!\n";
+            }
+            else {
+                //strMsg = "\n   Formel enthält "+intAnzahlEndpunkte+" Endpunkte :-)   \n";
+                strMsg = "";
+                for (int i = 0; i < arrEndpunkte.length; i++) {
+                    strMsg = strMsg+"Endpunkt "+(i+1)+": Z"+(arrEndpunkte[i].StartPos.Zeile+1)+"S"+(arrEndpunkte[i].StartPos.Spalte+1)+", Bindung auf "+arrEndpunkte[i].Bindung+" Uhr \n";
+                    Log.d("arrEndpunkte", "arrEndpunkte["+i+"]="+arrEndpunkte[i]);
+                }
+            }
+        }
+
         if (!strMsg.equals("")) {
             Toast Meldung = Toast.makeText(this, strMsg, Toast.LENGTH_LONG);
             Meldung.setGravity(Gravity.BOTTOM, 0, 0);
@@ -302,7 +321,7 @@ public class Org_Generator_Activity extends Activity {
         int intZeile_max;
         int intSpalte_max;
         int intBindung_Nachbarzelle;
-        String strZellinhalt;
+        String strBilddateiname;
         String strMsg;
 
         intZeile_max = arrGitter.length - 1;
@@ -310,12 +329,9 @@ public class Org_Generator_Activity extends Activity {
             for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++) {
                 intSpalte_max = arrGitter[intZeile].length - 1;
                 if (arrGitter[intZeile][intSpalte] != null) {
-                    strZellinhalt = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
+                    strBilddateiname = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
                     // Bindungseigenschaften in Array speichern
-                    for (int b = 0; b < 4; b++) {
-                        int intPos = 2 + b;
-                        arrBindung[b] = Integer.parseInt(strZellinhalt.substring(intPos, intPos+1));
-                    }
+                    arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
                     strMsg = "";
 
                     if ((arrBindung[0] > 0) && (intZeile == 0)) {                                   // intZeile => Zeile, wo das Element platziert werden soll.
@@ -342,10 +358,10 @@ public class Org_Generator_Activity extends Activity {
                         if (intZeile > 0) {
                             if (arrGitter[intZeile - 1][intSpalte] != null) {
                                 // Nachbarzelle ist gefüllt
-                                strZellinhalt = arrGitter[intZeile - 1][intSpalte]; // Bsp.: an1010a56_108
+                                strBilddateiname = arrGitter[intZeile - 1][intSpalte]; // Bsp.: an1010a56_108
                                 // 6 Uhr-Bindung der Zelle eine Zeile über dem aktuellen Element prüfen
                                 int intPos = 4;
-                                intBindung_Nachbarzelle = Integer.parseInt(strZellinhalt.substring(intPos, intPos + 1));
+                                intBindung_Nachbarzelle = Integer.parseInt(strBilddateiname.substring(intPos, intPos + 1));
                                 if ((arrBindung[b] > 0) && (arrBindung[b] != intBindung_Nachbarzelle)) {
                                     strMsg = "Bindung auf 12 Uhr passt nicht zur Nachbarzelle!";
                                 } else if ((arrBindung[b] == 0) && (intBindung_Nachbarzelle > 0)) {
@@ -360,10 +376,10 @@ public class Org_Generator_Activity extends Activity {
                             if (intSpalte < intSpalte_max) {
                                 if (arrGitter[intZeile][intSpalte + 1] != null) {
                                     // Nachbarzelle ist gefüllt
-                                    strZellinhalt = arrGitter[intZeile][intSpalte + 1]; // Bsp.: an1010a56_108
+                                    strBilddateiname = arrGitter[intZeile][intSpalte + 1]; // Bsp.: an1010a56_108
                                     // 9 Uhr-Bindung der Zelle eine Spalte neben dem aktuellen Element prüfen
                                     int intPos = 5;
-                                    intBindung_Nachbarzelle = Integer.parseInt(strZellinhalt.substring(intPos, intPos + 1));
+                                    intBindung_Nachbarzelle = Integer.parseInt(strBilddateiname.substring(intPos, intPos + 1));
                                     if ((arrBindung[b] > 0) && (arrBindung[b] != intBindung_Nachbarzelle)) {
                                         strMsg = "Bindung auf 3 Uhr passt nicht zur Nachbarzelle!";
                                     } else if ((arrBindung[b] == 0) && (intBindung_Nachbarzelle > 0)) {
@@ -379,10 +395,10 @@ public class Org_Generator_Activity extends Activity {
                             if (intZeile < intZeile_max) {
                                 if (arrGitter[intZeile + 1][intSpalte] != null) {
                                     // Nachbarzelle ist gefüllt
-                                    strZellinhalt = arrGitter[intZeile + 1][intSpalte]; // Bsp.: an1010a56_108
+                                    strBilddateiname = arrGitter[intZeile + 1][intSpalte]; // Bsp.: an1010a56_108
                                     // 12 Uhr-Bindung der Zelle eine Spalte unter dem aktuellen Element prüfen
                                     int intPos = 2;
-                                    intBindung_Nachbarzelle = Integer.parseInt(strZellinhalt.substring(intPos, intPos + 1));
+                                    intBindung_Nachbarzelle = Integer.parseInt(strBilddateiname.substring(intPos, intPos + 1));
                                     if ((arrBindung[b] > 0) && (arrBindung[b] != intBindung_Nachbarzelle)) {
                                         strMsg = "Bindung auf 6 Uhr passt nicht zur Nachbarzelle!";
                                     } else if ((arrBindung[b] == 0) && (intBindung_Nachbarzelle > 0)) {
@@ -398,10 +414,10 @@ public class Org_Generator_Activity extends Activity {
                             if (intSpalte > 0) {
                                 if (arrGitter[intZeile][intSpalte - 1] != null) {
                                     // Nachbarzelle ist gefüllt
-                                    strZellinhalt = arrGitter[intZeile][intSpalte - 1]; // Bsp.: an1010a56_108
+                                    strBilddateiname = arrGitter[intZeile][intSpalte - 1]; // Bsp.: an1010a56_108
                                     // 3 Uhr-Bindung der Zelle eine Spalte unter dem aktuellen Element prüfen
                                     int intPos = 3;
-                                    intBindung_Nachbarzelle = Integer.parseInt(strZellinhalt.substring(intPos, intPos + 1));
+                                    intBindung_Nachbarzelle = Integer.parseInt(strBilddateiname.substring(intPos, intPos + 1));
                                     if ((arrBindung[b] > 0) && (arrBindung[b] != intBindung_Nachbarzelle)) {
                                         strMsg = "Bindung auf 9 Uhr passt nicht zur Nachbarzelle!";
                                     } else if ((arrBindung[b] == 0) && (intBindung_Nachbarzelle > 0)) {
@@ -429,11 +445,9 @@ public class Org_Generator_Activity extends Activity {
     // Alle Felder durchgehen und entweder weiß (aktiv) oder grau (inaktiv) setzen
     public boolean setzeFelder()
     {
-        String strZellinhalt;
         String strZellenname;
         int intResId;
         boolean bEnabled;
-        int arrBindung[] = new int[4];
 
         intAnzahlAktiveZellen = 0;
 
@@ -524,10 +538,7 @@ public class Org_Generator_Activity extends Activity {
 
                 if (strBilddateiname != null) {
                     // Bindungseigenschaften in Array speichern
-                    for (int b = 0; b < 4; b++) {
-                        int intPos = 2 + b;
-                        arrBindung[b] = Integer.parseInt(strBilddateiname.substring(intPos, intPos+1));
-                    }
+                    arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
                     /*
                         i bezieht sich auf ZIELZELLE!
                         i = 0 ==> 12 Uhr - erfordert Nachbarzelle mit Bindungsmöglichkeit aus  6 Uhr
@@ -568,6 +579,83 @@ public class Org_Generator_Activity extends Activity {
 
         return bReturn;
     } // checkNachbarzellen
+
+    public int Endpunkte_finden()
+    {
+        int arrBindung[] = new int[4];
+        int intBindung = 0;
+        int intAnzahlEndpunkte = 0;
+        int intAnzahlBindungen = 0; // Zähler für die Anzahl Bindungen zu einem C-Atom
+        String strBilddateiname;
+        tKoordinaten NaechstesElementPos = new tKoordinaten();
+
+        for (int intZeile = 0; intZeile < arrGitter.length; intZeile++) {
+            for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++) {
+                if (arrGitter[intZeile][intSpalte] != null) {
+                    intAnzahlBindungen = 0;
+                    strBilddateiname = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
+                    if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
+                        // Element enthält ein oder zwei C-Atome
+                        // Bindungseigenschaften in Array speichern
+                        arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
+                        for (int i = 0; i < arrBindung.length; i++) {
+                            if (arrBindung[i] == 1) {
+                                // Bindung zum Nachbarelement untersuchen
+                                // Zeile/Spalte des Nachbarelements ermitteln (Initialwerte sind erst einmal die Koordinaten des aktuellen Elements)
+                                NaechstesElementPos.Zeile  = intZeile;
+                                NaechstesElementPos.Spalte = intSpalte;
+
+                                switch (i) {
+                                    case 0: // Bindung auf 12 Uhr
+                                        NaechstesElementPos.Zeile--;
+                                        intBindung = 12;
+                                        break;
+                                    case 1: // Bindung auf 3 Uhr
+                                        NaechstesElementPos.Spalte++;
+                                        intBindung = 3;
+                                        break;
+                                    case 2: // Bindung auf 6 Uhr
+                                        NaechstesElementPos.Zeile++;
+                                        intBindung = 6;
+                                        break;
+                                    case 3: // Bindung auf 9 Uhr
+                                        NaechstesElementPos.Spalte--;
+                                        intBindung = 9;
+                                        break;
+                                } // switch (i)
+
+                                strBilddateiname = arrGitter[NaechstesElementPos.Zeile][NaechstesElementPos.Spalte]; // Bsp.: an1010a56_108
+                                if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
+                                    intAnzahlBindungen++;
+                                }
+                            }
+                        } // for (i = 0; i < arrBindung.length; i++)
+
+                        if (intAnzahlBindungen == 1) {
+                            if (intAnzahlEndpunkte == 0) {
+                                if (arrEndpunkte.length > 1) {
+                                    // zuvor erstellte Endpunkte aus Array entfernen
+                                    arrEndpunkte = new tEndpunkte[1];
+                                }
+                                arrEndpunkte[0] = new tEndpunkte();
+                            } else {
+                                arrEndpunkte = Org_GeneratorTools.fktEndpunkteArray_vergr(arrEndpunkte);
+                            }
+                            arrEndpunkte[intAnzahlEndpunkte].StartPos.Zeile  = intZeile;
+                            arrEndpunkte[intAnzahlEndpunkte].StartPos.Spalte = intSpalte;
+                            arrEndpunkte[intAnzahlEndpunkte].ZielPos.Zeile   = NaechstesElementPos.Zeile;
+                            arrEndpunkte[intAnzahlEndpunkte].ZielPos.Spalte  = NaechstesElementPos.Spalte;
+                            arrEndpunkte[intAnzahlEndpunkte].Bindung         = intBindung;
+
+                            intAnzahlEndpunkte++;
+                        } // if (intAnzahlBindungen == 1)
+                    } // if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname))
+                } // if (arrGitter[intZeile][intSpalte] != null)
+            } // for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++)
+        } // for (int intZeile = 0; intZeile < arrGitter.length; intZeile++)
+
+        return intAnzahlEndpunkte;
+    } // Endpunkte_finden
 
 } // class Org_Generator
 

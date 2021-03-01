@@ -27,8 +27,8 @@ public class Org_Strukturformeln_Activity extends Activity {
     // value (Integer): resId
     HashMap<String, Integer> hmBilddateien = new HashMap<String,Integer>();
 
-    static int intZeile_max  = 20;
-    static int intSpalte_max = 6;
+    static int constZeile_max = 20;
+    static int constSpalte_max = 6;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -49,8 +49,8 @@ public class Org_Strukturformeln_Activity extends Activity {
         SchreibeBilddateienInHashMap();
 
         // jetzt die HashMap um die ResId der jeweiligen Zelle ergänzen
-        for (int intZeile = 1; intZeile <= intZeile_max; intZeile++) {
-            for (int intSpalte = 1; intSpalte <= intSpalte_max; intSpalte++) {
+        for (int intZeile = 1; intZeile <= constZeile_max; intZeile++) {
+            for (int intSpalte = 1; intSpalte <= constSpalte_max; intSpalte++) {
                 // Name des ImageButtons aus Zeile und Spalte bilden
                 strZellenname = "ibtZelle_" + new DecimalFormat("00").format(intZeile) + intSpalte;
                 // ResId des ImageButtons ermitteln
@@ -92,8 +92,8 @@ public class Org_Strukturformeln_Activity extends Activity {
                     }
                 } // while (iterator.hasNext() & (bBildGefunden == false))
                 hmGefiltert.clear();
-            } // for (int intSpalte = 1; intSpalte <= intSpalte_max; intSpalte++)
-        } // for (int intZeile = 1; intZeile <= intZeile_max; intZeile++)
+            } // for (int intSpalte = 1; intSpalte <= constSpalte_max; intSpalte++)
+        } // for (int intZeile = 1; intZeile <= constZeile_max; intZeile++)
     } // onCreate
 
     @Override
@@ -152,10 +152,7 @@ public class Org_Strukturformeln_Activity extends Activity {
 
                 int arrBindung[] = new int[4];
                 // Bindungseigenschaften in Array speichern
-                for (int b = 0; b < 4; b++) {
-                    int intPos = 2 + b;
-                    arrBindung[b] = Integer.parseInt(strBilddateiname.substring(intPos, intPos+1));
-                }
+                arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
 
                 bVisible = true;
 

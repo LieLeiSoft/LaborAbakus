@@ -858,12 +858,6 @@
 
         </TableRow>
 
-        <TextView
-            android:id="@+id/tvDreifachbindungen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="-C≡C- Dreifachbindungen" />
-
         <TableRow
             android:id="@+id/tableRow10"
             android:layout_width="wrap_content"
@@ -955,12 +949,6 @@
 
         </TableRow>
 
-        <TextView
-            android:id="@+id/tvHydroxylgruppen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="-OH Hydroxylgruppen" />
-
         <TableRow
             android:id="@+id/tableRow11"
             android:layout_width="wrap_content"
@@ -1050,6 +1038,12 @@
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvDreifachbindungen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-C≡C- Dreifachbindungen" />
 
         </TableRow>
 
@@ -1148,6 +1142,12 @@
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvHydroxylgruppen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-OH Hydroxylgruppen" />
 
         </TableRow>
 

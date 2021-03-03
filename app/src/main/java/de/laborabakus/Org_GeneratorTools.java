@@ -10,7 +10,7 @@ class tKoordinaten {
 class tEndpunkte {
     tKoordinaten StartPos = new tKoordinaten();
     tKoordinaten ZielPos = new tKoordinaten();
-    int Bindung = 0;      // Uhrzeit der Bindung zum benachbarten C-Atom
+    int Bindung = 0;      // Uhrzeit der Bindung zum ersten benachbarten C-Atom
     int Kettenlaenge = 0; // Anzahl gefundener C-Atome
 
     // Initialisierung der Felder
@@ -19,6 +19,19 @@ class tEndpunkte {
         StartPos.Zeile = 0;
         ZielPos.Spalte = 0;
         ZielPos.Zeile = 0;
+    }
+}
+
+class tElemente {
+    tKoordinaten Koordinaten = new tKoordinaten();
+    int Bindung_Vorgaenger = 0;      // Uhrzeit der Bindung zum vorangegangenen C-Atom / Endpunkt (Herkunftsbindung)
+    int Bindung_Naechster = 0;      // Uhrzeit der Bindung zum nächsten C-Atom / Endpunkt
+    int Kettenlaenge = 0; // Anzahl gefundener C-Atome
+
+    // Initialisierung der Felder
+    tElemente() {
+        Koordinaten.Spalte = 0;
+        Koordinaten.Zeile = 0;
     }
 }
 
@@ -45,7 +58,7 @@ public class Org_GeneratorTools {
         return arrBindung;
     } // fktBindung2Array
 
-    // Array dynamisch um einen Tabellenplatz erweitern
+    // Endpunkte-Array dynamisch um einen Tabellenplatz erweitern
     // https://www.youtube.com/watch?v=-PktkiWCqBs
     public static tEndpunkte[] fktEndpunkteArray_vergr(tEndpunkte[] pEndpunkte) {
         // pEndpunkte.length gibt die Anzahl der Tabellenplätze wider und beginnt mit 1!
@@ -56,16 +69,27 @@ public class Org_GeneratorTools {
         return pEndpunkte;
     } // fktEndpunkteArray_vergr
 
-    // ersten Eintrag ([0]) aus Array entfernen
-    public static tEndpunkte[] fktEndpunkteArray_verkl(tEndpunkte[] pEndpunkte) {
-        // pEndpunkte.length gibt die Anzahl der Tabellenplätze wider und beginnt mit 1!
-        if (pEndpunkte.length > 0) {
-            tEndpunkte[] tmp = new tEndpunkte[pEndpunkte.length - 1];
-            System.arraycopy(pEndpunkte, 1, tmp, 0, pEndpunkte.length - 1);
-            pEndpunkte = tmp;
+    // Elemente-Array dynamisch um einen Tabellenplatz erweitern
+    // https://www.youtube.com/watch?v=-PktkiWCqBs
+    public static tElemente[] fktElementeArray_vergr(tElemente[] pElemente) {
+        // pElemente.length gibt die Anzahl der Tabellenplätze wider und beginnt mit 1!
+        tElemente[] tmp = new tElemente[pElemente.length + 1];
+        System.arraycopy(pElemente, 0, tmp, 0, pElemente.length);
+        tmp[pElemente.length] = new tElemente();
+        pElemente = tmp;
+        return pElemente;
+    } // fktElementeArray_vergr
+
+    // ersten Eintrag (Index [0]) aus Elemente-Array entfernen
+    public static tElemente[] fktElementeArray_verkl(tElemente[] pElemente) {
+        // pElemente.length gibt die Anzahl der Tabellenplätze wider und beginnt mit 1!
+        if (pElemente.length > 0) {
+            tElemente[] tmp = new tElemente[pElemente.length - 1];
+            System.arraycopy(pElemente, 1, tmp, 0, pElemente.length - 1);
+            pElemente = tmp;
         }
-        return pEndpunkte;
-    } // fktEndpunkteArray_verkl
+        return pElemente;
+    } // fktElementeArray_verkl
 
     public static boolean fktIstKohlenstoff(String pBilddateiname) {
         String strElementTyp;
@@ -87,5 +111,17 @@ public class Org_GeneratorTools {
         }
         return bReturn;
     } // fktIstKohlenstoff_doppelt
+
+    public static boolean fktIstEndpunkt(tEndpunkte[] pEndpunkte, int pZeile, int pSpalte) {
+        boolean bReturn = false;
+        for (int i = 0; i < pEndpunkte.length; i++) {
+            if (   (pEndpunkte[i].StartPos.Zeile  == pZeile )
+                && (pEndpunkte[i].StartPos.Spalte == pSpalte)) {
+                bReturn = true;
+                break;
+            }
+        }
+        return bReturn;
+    } // fktIstEndpunkt
 
 } // Org_GeneratorTools

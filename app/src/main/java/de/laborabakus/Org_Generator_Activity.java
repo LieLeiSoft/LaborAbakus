@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static android.service.autofill.Validators.and;
+
 public class Org_Generator_Activity extends Activity {
     private static final String TAG = "Org_Generator_Activity";
 
@@ -24,6 +26,7 @@ public class Org_Generator_Activity extends Activity {
     static int constSpalte_max = 6;
 
     static tEndpunkte[] arrEndpunkte = new tEndpunkte[1];
+    static tElemente[] arrElemente = new tElemente[1];
 
     String[][] arrGitter = new String[constZeile_max][constSpalte_max]; // 12 Zeilen (0..11), 6 Spalten (0..5)
 
@@ -274,6 +277,7 @@ public class Org_Generator_Activity extends Activity {
     {
         String strMsg = "";
         int intAnzahlEndpunkte = 0;
+        int intKettenlaenge = 0;
 
         if (arrElementePos.isEmpty()) {
             // Es ist kein Element eingetragen bzw. alle bisher eingetragenen Elemente wurden (über "btnLoeschen") gelöscht.
@@ -297,13 +301,16 @@ public class Org_Generator_Activity extends Activity {
             if (intAnzahlEndpunkte == 0) {
                 strMsg = "\nFormel enthält keinen einzigen Endpunkt (C-Atom mit genau EINER Bindung zu einem anderen C-Atom)!\n";
             }
-            else {
-                //strMsg = "\n   Formel enthält "+intAnzahlEndpunkte+" Endpunkte :-)   \n";
-                strMsg = "";
-                for (int i = 0; i < arrEndpunkte.length; i++) {
-                    strMsg = strMsg+"Endpunkt "+(i+1)+": Z"+(arrEndpunkte[i].StartPos.Zeile+1)+"S"+(arrEndpunkte[i].StartPos.Spalte+1)+", Bindung auf "+arrEndpunkte[i].Bindung+" Uhr \n";
-                    Log.d("arrEndpunkte", "arrEndpunkte["+i+"]="+arrEndpunkte[i]);
-                }
+        }
+
+        if (strMsg.equals("")) {
+            intKettenlaenge = Kettenlaenge_ermitteln();
+
+            for (int i = 0; i < arrEndpunkte.length; i++) {
+                strMsg = strMsg+"Endpunkt "+(i+1)+": Z"+(arrEndpunkte[i].StartPos.Zeile+1)+"S"+(arrEndpunkte[i].StartPos.Spalte+1)
+                        +", Bindung auf "+arrEndpunkte[i].Bindung+" Uhr"
+                        +", Kettenlänge "+arrEndpunkte[i].Kettenlaenge+" \n";
+                Log.d(TAG, "arrEndpunkte["+i+"]="+arrEndpunkte[i]);
             }
         }
 
@@ -586,6 +593,7 @@ public class Org_Generator_Activity extends Activity {
         int intBindung = 0;
         int intAnzahlEndpunkte = 0;
         int intAnzahlBindungen = 0; // Zähler für die Anzahl Bindungen zu einem C-Atom
+        int intKettenlaenge = 0; // Länge der Kohlenstoffatome
         String strBilddateiname;
         tKoordinaten NaechstesElementPos = new tKoordinaten();
 
@@ -595,7 +603,16 @@ public class Org_Generator_Activity extends Activity {
                     intAnzahlBindungen = 0;
                     strBilddateiname = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
                     if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
-                        // Element enthält ein oder zwei C-Atome
+                        // Element enthält Kohlenstoff
+                        if (Org_GeneratorTools.fktIstKohlenstoff_doppelt(strBilddateiname)) {
+                            // Endpunkt mit 2 Kohlenstoffatomen
+                            // (FL, 03.03.2021: kommt in den bisherigen Bilddateien nicht vor, vielleicht zukünftig?)
+                            intKettenlaenge = 2;
+                        } else {
+                            // Endpunkt mit 1 Kohlenstoffatom
+                            intKettenlaenge = 1;
+                        }
+
                         // Bindungseigenschaften in Array speichern
                         arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
                         for (int i = 0; i < arrBindung.length; i++) {
@@ -628,15 +645,13 @@ public class Org_Generator_Activity extends Activity {
                                 if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
                                     intAnzahlBindungen++;
                                 }
-                            }
+                            } // if (arrBindung[i] == 1)
                         } // for (i = 0; i < arrBindung.length; i++)
 
                         if (intAnzahlBindungen == 1) {
                             if (intAnzahlEndpunkte == 0) {
-                                if (arrEndpunkte.length > 1) {
-                                    // zuvor erstellte Endpunkte aus Array entfernen
-                                    arrEndpunkte = new tEndpunkte[1];
-                                }
+                                // Endpunkte-Array initialisieren
+                                arrEndpunkte = new tEndpunkte[1];
                                 arrEndpunkte[0] = new tEndpunkte();
                             } else {
                                 arrEndpunkte = Org_GeneratorTools.fktEndpunkteArray_vergr(arrEndpunkte);
@@ -646,7 +661,7 @@ public class Org_Generator_Activity extends Activity {
                             arrEndpunkte[intAnzahlEndpunkte].ZielPos.Zeile   = NaechstesElementPos.Zeile;
                             arrEndpunkte[intAnzahlEndpunkte].ZielPos.Spalte  = NaechstesElementPos.Spalte;
                             arrEndpunkte[intAnzahlEndpunkte].Bindung         = intBindung;
-
+                            arrEndpunkte[intAnzahlEndpunkte].Kettenlaenge    = intKettenlaenge;
                             intAnzahlEndpunkte++;
                         } // if (intAnzahlBindungen == 1)
                     } // if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname))
@@ -657,5 +672,161 @@ public class Org_Generator_Activity extends Activity {
         return intAnzahlEndpunkte;
     } // Endpunkte_finden
 
+    public int Kettenlaenge_ermitteln()
+    {
+        int arrBindung[] = new int[4];
+        int intEndpunkt_Index = 0;
+        int intElement_Index = 0;
+        int intKettenlaenge_akt = 0;
+        int intKettenlaenge_max = 0;
+        int intBindung = 0;
+        int intZeile, intSpalte;
+        String strBilddateiname = "";
+        tKoordinaten NaechstesElementPos = new tKoordinaten();
+
+        // Schleife über alle Endpunkte
+        for (int i = 0; i < arrEndpunkte.length; i++) {
+            Log.d(TAG, "arrEndpunkte["+i+"]="+arrEndpunkte[i]);
+
+            // Elemente-Array initialisieren
+            arrElemente = new tElemente[1];
+            arrElemente[0] = new tElemente();
+
+            // Ersten Eintrag in Array für Elemente schreiben
+            arrElemente[0].Koordinaten.Zeile  = arrEndpunkte[i].ZielPos.Zeile;
+            arrElemente[0].Koordinaten.Spalte = arrEndpunkte[i].ZielPos.Spalte;
+            // Uhrzeit der Bindung zum benachbarten C-Atom muss "gedreht" werden:
+            // 3==>9, 6==>12, 9==>3, 12==>6
+            switch (arrEndpunkte[i].Bindung) {
+                case 3:
+                    intBindung = 9;
+                    break;
+                case 6:
+                    intBindung = 12;
+                    break;
+                case 9:
+                    intBindung = 3;
+                    break;
+                case 12:
+                    intBindung = 6;
+                    break;
+            }
+            arrElemente[0].Bindung_Vorgaenger = intBindung;
+            arrElemente[0].Kettenlaenge = arrEndpunkte[i].Kettenlaenge;
+
+            // Schleife, bis Elemente-Array leer
+            do {
+                intKettenlaenge_akt = arrElemente[0].Kettenlaenge;
+
+                // Bilddateiname ermitteln
+                intZeile  = arrElemente[0].Koordinaten.Zeile;
+                intSpalte = arrElemente[0].Koordinaten.Spalte;
+                strBilddateiname = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
+
+                if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
+                    // Element mit mind. 1 Kohlenstoffatom
+                    intKettenlaenge_akt++;
+                    if (Org_GeneratorTools.fktIstKohlenstoff_doppelt(strBilddateiname)) {
+                        // Element mit 2 Kohlenstoffatomen
+                        intKettenlaenge_akt++;
+                    }
+
+                    arrEndpunkte[i].ZielPos.Zeile  = intZeile;
+                    arrEndpunkte[i].ZielPos.Spalte = intSpalte;
+                    if (arrEndpunkte[i].Kettenlaenge < intKettenlaenge_akt) {
+                        arrEndpunkte[i].Kettenlaenge = intKettenlaenge_akt;
+                        if (intKettenlaenge_max < intKettenlaenge_akt) {
+                            intKettenlaenge_max = intKettenlaenge_akt;
+                            intEndpunkt_Index = i;
+                        }
+                    }
+
+                    // Alle Bindungen zu C-Atomen mit Ausnahme der Herkunftsbindung in Elemente-Array eintragen (Koordinaten, Herkunftsbindung, Akt-Kettenlänge)
+                    // Bindungseigenschaften in Array speichern
+                    arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
+                    for (int j = 0; j < arrBindung.length; j++) {
+                        if (arrBindung[j] == 1) {
+                            // Bindung zum Nachbarelement untersuchen
+                            // Zeile/Spalte des Nachbarelements ermitteln (Initialwerte sind erst einmal die Koordinaten des aktuellen Elements)
+                            NaechstesElementPos.Zeile  = intZeile;
+                            NaechstesElementPos.Spalte = intSpalte;
+
+                            switch (j) {
+                                case 0: // Bindung auf 12 Uhr
+                                    NaechstesElementPos.Zeile--;
+                                    intBindung = 12;
+                                    break;
+                                case 1: // Bindung auf 3 Uhr
+                                    NaechstesElementPos.Spalte++;
+                                    intBindung = 3;
+                                    break;
+                                case 2: // Bindung auf 6 Uhr
+                                    NaechstesElementPos.Zeile++;
+                                    intBindung = 6;
+                                    break;
+                                case 3: // Bindung auf 9 Uhr
+                                    NaechstesElementPos.Spalte--;
+                                    intBindung = 9;
+                                    break;
+                            } // switch (j)
+
+                            if (   (intBindung != arrElemente[0].Bindung_Vorgaenger)
+//                                && (Org_GeneratorTools.fktIstEndpunkt(arrEndpunkte, NaechstesElementPos.Zeile, NaechstesElementPos.Spalte) == false)
+                               ) {
+                                // Nächstes Element ist nicht der Vorgänger und auch kein Endpunkt
+                                strBilddateiname = arrGitter[NaechstesElementPos.Zeile][NaechstesElementPos.Spalte]; // Bsp.: an1010a56_108
+                                if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
+                                    // Elemente-Array vergrößern
+                                    arrElemente = Org_GeneratorTools.fktElementeArray_vergr(arrElemente);
+                                    // Nächsten Eintrag in Array für Elemente schreiben
+                                    intElement_Index = arrElemente.length - 1;
+                                    arrElemente[intElement_Index].Koordinaten.Zeile  = NaechstesElementPos.Zeile;
+                                    arrElemente[intElement_Index].Koordinaten.Spalte = NaechstesElementPos.Spalte;
+                                    // Uhrzeit der Bindung zum benachbarten C-Atom muss "gedreht" werden:
+                                    // 3==>9, 6==>12, 9==>3, 12==>6
+                                    switch (intBindung) {
+                                        case 3:
+                                            intBindung = 9;
+                                            break;
+                                        case 6:
+                                            intBindung = 12;
+                                            break;
+                                        case 9:
+                                            intBindung = 3;
+                                            break;
+                                        case 12:
+                                            intBindung = 6;
+                                            break;
+                                    }
+                                    arrElemente[intElement_Index].Bindung_Vorgaenger = intBindung;
+                                    arrElemente[intElement_Index].Kettenlaenge       = intKettenlaenge_akt;
+                                }
+                            }
+                        } // if (arrBindung[j] == 1)
+                    } // for (j = 0; j < arrBindung.length; j++)
+
+                } // if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname))
+
+                // Aufruf-Param aus "Array-Elemente" ermitteln:
+                //1. Koordinaten
+                //2. Herkunftsbindung
+
+                // Alle Bindungen zu C-Atomen mit Ausnahme der Herkunftsbindung in "Array-Elemente" eintragen (Koordinaten, Herkunftsbindung, Akt-Kettenlänge)
+
+                // Sind Koordinaten des Elements in "Array-Endpunkte" vorhanden?
+
+                // "Array-Elemente"-Kettenlänge > "Array-Endpunkte"-Kettenlänge?
+
+                // Ziel-Koordinaten und Akt-Kettenlänge in "Array- Endpunkte" eintragen
+
+                // Ersten Eintrag (Index [0]) aus "Array-Elemente" entfernen
+                arrElemente = Org_GeneratorTools.fktElementeArray_verkl(arrElemente);
+
+            } while (arrElemente.length > 0);
+
+        } // for (int i = 0; i < arrEndpunkte.length; i++)
+
+        return intEndpunkt_Index;
+    } // Kettenlaenge_ermitteln
 } // class Org_Generator
 

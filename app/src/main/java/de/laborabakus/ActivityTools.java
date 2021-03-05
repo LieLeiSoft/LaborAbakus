@@ -80,9 +80,6 @@ public class ActivityTools {
 		return strErgebnis;
 	} // fktZiffernTiefstellen
 
-
-
-
 	public static String fktSignifikanteStellen(double dblZahl, int intSigniStellen)
 	{
 		int intAnzahlZeichen;

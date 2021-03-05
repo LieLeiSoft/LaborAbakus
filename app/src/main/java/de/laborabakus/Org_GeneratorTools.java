@@ -1,6 +1,9 @@
 package de.laborabakus;
 
+import android.util.Log;
+
 import java.util.Arrays;
+import java.util.HashMap;
 
 class tKoordinaten {
     int Spalte = 0;
@@ -12,6 +15,7 @@ class tEndpunkte {
     tKoordinaten ZielPos = new tKoordinaten();
     int Bindung = 0;      // Uhrzeit der Bindung zum ersten benachbarten C-Atom
     int Kettenlaenge = 0; // Anzahl gefundener C-Atome
+    float Molmasse = 0; // Summe der Molmasse der gefundenen C-Atome
 
     // Initialisierung der Felder
     tEndpunkte() {
@@ -25,8 +29,8 @@ class tEndpunkte {
 class tElemente {
     tKoordinaten Koordinaten = new tKoordinaten();
     int Bindung_Vorgaenger = 0;      // Uhrzeit der Bindung zum vorangegangenen C-Atom / Endpunkt (Herkunftsbindung)
-    int Bindung_Naechster = 0;      // Uhrzeit der Bindung zum nächsten C-Atom / Endpunkt
     int Kettenlaenge = 0; // Anzahl gefundener C-Atome
+    int KettenId = 0;
 
     // Initialisierung der Felder
     tElemente() {
@@ -35,7 +39,17 @@ class tElemente {
     }
 }
 
+class tKetten {
+    int KettenId = 0;
+    int Endpunkt_Index = 0;
+    int Kettenlaenge = 0; // Anzahl gefundener C-Atome
+    float Molmasse = 0; // Summe der Molmasse der gefundenen C-Atome
+    String Koordinatenpaare = "";
+}
+
 public class Org_GeneratorTools {
+    private static final String TAG = "Org_GeneratorTools";
+
     // Bilddateien mit diesem Prefix enthalten Kohlenstoff-Elemente
     private static final String[] arrKohlenstoff_Elementtyp = {"an", "co", "en", "in", "nt"};
 
@@ -46,6 +60,42 @@ public class Org_GeneratorTools {
                                                            ,"en1120a24_022", "en1201a24_022"
                                                            ,"en2011a24_022", "en2110a24_022"
                                                            ,"in0101a24_022", "in1010a24_022"};
+
+    // spezielle Kohlenstoff-Elemente mit mehreren Kohlenstoff-Atomen
+    // Array enthält abwechselnd Bilddateinamen und Anzahle Kohlenstoff-Atome
+    // Array dient als Datenquelle für Hashmap "hmC_Atome_mehrfach"
+    private static final String[] arrKohlenstoff_mehrfach = {"an0101a28_054" , "2"
+                                                            ,"an1010a28_054" , "2"
+                                                            ,"an0101a42_081" , "3"
+                                                            ,"an1010a42_081" , "3"
+                                                            ,"an0101a56_108" , "4"
+                                                            ,"an1010a56_108" , "4"
+                                                            ,"an0101a70_135" , "5"
+                                                            ,"an1010a70_135" , "5"
+                                                            ,"an0101a84_162" , "6"
+                                                            ,"an1010a84_162" , "6"
+                                                            ,"an0101a98_189" , "7"
+                                                            ,"an1010a98_189" , "7"
+                                                            ,"an0101a112_216", "8"
+                                                            ,"an1010a112_216", "8"
+                                                            ,"an0101a126_243", "9"
+                                                            ,"an1010a126_243", "9"
+                                                            ,"an0101a140_27" , "10"
+                                                            ,"an1010a140_27" , "10"};
+
+    // HashMap definieren, die bestimmte Bilddateinamen (z.B. "an1010a112_216")+die Anzahl der C-Atome enthält
+    // key   (String) : Bilddateiname
+    // value (Integer): Anzahl C-Atome
+    private static HashMap<String, Integer> hmC_Atome_mehrfach = new HashMap<String,Integer>();
+
+    // Konstruktor
+    public Org_GeneratorTools () {
+        Log.d(TAG, "Org_GeneratorTools: Konstruktor");
+        // Schleife mit Schrittweite 2
+        for (int i = 0; i < arrKohlenstoff_mehrfach.length; i+=2) {
+            hmC_Atome_mehrfach.put(arrKohlenstoff_mehrfach[i], Integer.parseInt(arrKohlenstoff_mehrfach[(i+1)]));
+        }
+    } // Org_GeneratorTools (Konstruktor!)
 
     // Bindungseigenschaften in Array speichern
     public static int [] fktBindung2Array (String pBilddateiname) {
@@ -124,4 +174,53 @@ public class Org_GeneratorTools {
         return bReturn;
     } // fktIstEndpunkt
 
+    // Uhrzeit der Bindung umkehren:
+    // 3==>9, 6==>12, 9==>3, 12==>6
+    public static int fktBindungUmkehren (int pBindung) {
+        int intBindung = 0;
+        switch (pBindung) {
+            case 3:
+                intBindung = 9;
+                break;
+            case 6:
+                intBindung = 12;
+                break;
+            case 9:
+                intBindung = 3;
+                break;
+            case 12:
+                intBindung = 6;
+                break;
+        }
+        return intBindung;
+    } // fktBindungUmkehren
+
+    public static int fktAnzahl_C_Atome (String pBilddateiname) {
+        int intAnzahl_C_Atome = 0;
+        if (fktIstKohlenstoff(pBilddateiname)) {
+            // Element enthält mind. 1 Kohlenstoffatom
+            intAnzahl_C_Atome = 1;
+
+            if (fktIstKohlenstoff_doppelt(pBilddateiname)) {
+                // Element mit 2 Kohlenstoffatomen
+                intAnzahl_C_Atome = 2;
+            } else {
+                Integer value = hmC_Atome_mehrfach.get(pBilddateiname);
+                if (value != null) {
+                    intAnzahl_C_Atome = value;
+                }
+            }
+        }
+        return intAnzahl_C_Atome;
+    } // fktAnzahl_C_Atome
+
+    public static float fktMolmasse (String pBilddateiname) {
+        String strMolmasse = "";
+        float fltMolmasse = 0;
+        // Bilddateinamen (z.B. "an0001a15_035") zerlegen
+        strMolmasse = pBilddateiname.substring(7);
+        strMolmasse = strMolmasse.replace("_", ".");
+        fltMolmasse = Float.parseFloat(strMolmasse);
+        return fltMolmasse;
+    } // fktMolmasse
 } // Org_GeneratorTools

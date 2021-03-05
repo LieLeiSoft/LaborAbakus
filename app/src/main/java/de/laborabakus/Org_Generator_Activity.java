@@ -26,7 +26,8 @@ public class Org_Generator_Activity extends Activity {
     static int constSpalte_max = 6;
 
     static tEndpunkte[] arrEndpunkte = new tEndpunkte[1];
-    static tElemente[] arrElemente = new tElemente[1];
+    static tElemente[]  arrElemente  = new tElemente[1];
+    static tKetten[]    arrKetten    = new tKetten[1];
 
     String[][] arrGitter = new String[constZeile_max][constSpalte_max]; // 12 Zeilen (0..11), 6 Spalten (0..5)
 
@@ -37,6 +38,9 @@ public class Org_Generator_Activity extends Activity {
 
     int resIdFeld;
     int intAnzahlAktiveZellen;
+
+    // Objekt vom Typ "Org_GeneratorTools" instanzieren, damit Konstruktor ausgeführt wird
+    Org_GeneratorTools objOrg_GeneratorTools = new Org_GeneratorTools();
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -594,8 +598,10 @@ public class Org_Generator_Activity extends Activity {
         int intAnzahlEndpunkte = 0;
         int intAnzahlBindungen = 0; // Zähler für die Anzahl Bindungen zu einem C-Atom
         int intKettenlaenge = 0; // Länge der Kohlenstoffatome
+        float fltMolmasse = 0;
         String strBilddateiname;
         tKoordinaten NaechstesElementPos = new tKoordinaten();
+        tKoordinaten ZielPos = new tKoordinaten();
 
         for (int intZeile = 0; intZeile < arrGitter.length; intZeile++) {
             for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++) {
@@ -604,14 +610,8 @@ public class Org_Generator_Activity extends Activity {
                     strBilddateiname = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
                     if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
                         // Element enthält Kohlenstoff
-                        if (Org_GeneratorTools.fktIstKohlenstoff_doppelt(strBilddateiname)) {
-                            // Endpunkt mit 2 Kohlenstoffatomen
-                            // (FL, 03.03.2021: kommt in den bisherigen Bilddateien nicht vor, vielleicht zukünftig?)
-                            intKettenlaenge = 2;
-                        } else {
-                            // Endpunkt mit 1 Kohlenstoffatom
-                            intKettenlaenge = 1;
-                        }
+                        intKettenlaenge = Org_GeneratorTools.fktAnzahl_C_Atome(strBilddateiname);
+                        fltMolmasse = Org_GeneratorTools.fktMolmasse(strBilddateiname);
 
                         // Bindungseigenschaften in Array speichern
                         arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
@@ -625,25 +625,38 @@ public class Org_Generator_Activity extends Activity {
                                 switch (i) {
                                     case 0: // Bindung auf 12 Uhr
                                         NaechstesElementPos.Zeile--;
-                                        intBindung = 12;
                                         break;
                                     case 1: // Bindung auf 3 Uhr
                                         NaechstesElementPos.Spalte++;
-                                        intBindung = 3;
                                         break;
                                     case 2: // Bindung auf 6 Uhr
                                         NaechstesElementPos.Zeile++;
-                                        intBindung = 6;
                                         break;
                                     case 3: // Bindung auf 9 Uhr
                                         NaechstesElementPos.Spalte--;
-                                        intBindung = 9;
                                         break;
                                 } // switch (i)
 
                                 strBilddateiname = arrGitter[NaechstesElementPos.Zeile][NaechstesElementPos.Spalte]; // Bsp.: an1010a56_108
                                 if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
                                     intAnzahlBindungen++;
+                                    // Koordinaten und Bindung merken, für Erstellung eines Eintrags in "arrEndpunkte" (s.u.)
+                                    ZielPos.Zeile  = NaechstesElementPos.Zeile;
+                                    ZielPos.Spalte = NaechstesElementPos.Spalte;
+                                    switch (i) {
+                                        case 0: // Bindung auf 12 Uhr
+                                            intBindung = 12;
+                                            break;
+                                        case 1: // Bindung auf 3 Uhr
+                                            intBindung = 3;
+                                            break;
+                                        case 2: // Bindung auf 6 Uhr
+                                            intBindung = 6;
+                                            break;
+                                        case 3: // Bindung auf 9 Uhr
+                                            intBindung = 9;
+                                            break;
+                                    } // switch (i)
                                 }
                             } // if (arrBindung[i] == 1)
                         } // for (i = 0; i < arrBindung.length; i++)
@@ -658,10 +671,11 @@ public class Org_Generator_Activity extends Activity {
                             }
                             arrEndpunkte[intAnzahlEndpunkte].StartPos.Zeile  = intZeile;
                             arrEndpunkte[intAnzahlEndpunkte].StartPos.Spalte = intSpalte;
-                            arrEndpunkte[intAnzahlEndpunkte].ZielPos.Zeile   = NaechstesElementPos.Zeile;
-                            arrEndpunkte[intAnzahlEndpunkte].ZielPos.Spalte  = NaechstesElementPos.Spalte;
+                            arrEndpunkte[intAnzahlEndpunkte].ZielPos.Zeile   = ZielPos.Zeile;
+                            arrEndpunkte[intAnzahlEndpunkte].ZielPos.Spalte  = ZielPos.Spalte;
                             arrEndpunkte[intAnzahlEndpunkte].Bindung         = intBindung;
                             arrEndpunkte[intAnzahlEndpunkte].Kettenlaenge    = intKettenlaenge;
+                            arrEndpunkte[intAnzahlEndpunkte].Molmasse        = fltMolmasse;
                             intAnzahlEndpunkte++;
                         } // if (intAnzahlBindungen == 1)
                     } // if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname))
@@ -679,10 +693,16 @@ public class Org_Generator_Activity extends Activity {
         int intElement_Index = 0;
         int intKettenlaenge_akt = 0;
         int intKettenlaenge_max = 0;
+        int intAnzahl_C_Atome = 0;
         int intBindung = 0;
         int intZeile, intSpalte;
+        int intAnzahl_Elemente;
+        int intKettenId;
         String strBilddateiname = "";
         tKoordinaten NaechstesElementPos = new tKoordinaten();
+
+        arrKetten[0] = new tKetten();
+        intKettenId = 1;
 
         // Schleife über alle Endpunkte
         for (int i = 0; i < arrEndpunkte.length; i++) {
@@ -695,24 +715,10 @@ public class Org_Generator_Activity extends Activity {
             // Ersten Eintrag in Array für Elemente schreiben
             arrElemente[0].Koordinaten.Zeile  = arrEndpunkte[i].ZielPos.Zeile;
             arrElemente[0].Koordinaten.Spalte = arrEndpunkte[i].ZielPos.Spalte;
-            // Uhrzeit der Bindung zum benachbarten C-Atom muss "gedreht" werden:
-            // 3==>9, 6==>12, 9==>3, 12==>6
-            switch (arrEndpunkte[i].Bindung) {
-                case 3:
-                    intBindung = 9;
-                    break;
-                case 6:
-                    intBindung = 12;
-                    break;
-                case 9:
-                    intBindung = 3;
-                    break;
-                case 12:
-                    intBindung = 6;
-                    break;
-            }
-            arrElemente[0].Bindung_Vorgaenger = intBindung;
-            arrElemente[0].Kettenlaenge = arrEndpunkte[i].Kettenlaenge;
+            // Uhrzeit der Bindung umkehren, da sie jetzt aus Sicht des Nachbarelements gesehen werden muss
+            // (d.h. Bindung des Nachbarelements zum Endpunkt)
+            arrElemente[0].Bindung_Vorgaenger = Org_GeneratorTools.fktBindungUmkehren(arrEndpunkte[i].Bindung);
+            arrElemente[0].Kettenlaenge       = arrEndpunkte[i].Kettenlaenge;
 
             // Schleife, bis Elemente-Array leer
             do {
@@ -725,11 +731,8 @@ public class Org_Generator_Activity extends Activity {
 
                 if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
                     // Element mit mind. 1 Kohlenstoffatom
-                    intKettenlaenge_akt++;
-                    if (Org_GeneratorTools.fktIstKohlenstoff_doppelt(strBilddateiname)) {
-                        // Element mit 2 Kohlenstoffatomen
-                        intKettenlaenge_akt++;
-                    }
+                    intAnzahl_C_Atome = Org_GeneratorTools.fktAnzahl_C_Atome(strBilddateiname);
+                    intKettenlaenge_akt = intKettenlaenge_akt + intAnzahl_C_Atome;
 
                     arrEndpunkte[i].ZielPos.Zeile  = intZeile;
                     arrEndpunkte[i].ZielPos.Spalte = intSpalte;
@@ -744,6 +747,7 @@ public class Org_Generator_Activity extends Activity {
                     // Alle Bindungen zu C-Atomen mit Ausnahme der Herkunftsbindung in Elemente-Array eintragen (Koordinaten, Herkunftsbindung, Akt-Kettenlänge)
                     // Bindungseigenschaften in Array speichern
                     arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
+                    intAnzahl_Elemente = 0;
                     for (int j = 0; j < arrBindung.length; j++) {
                         if (arrBindung[j] == 1) {
                             // Bindung zum Nachbarelement untersuchen
@@ -770,10 +774,8 @@ public class Org_Generator_Activity extends Activity {
                                     break;
                             } // switch (j)
 
-                            if (   (intBindung != arrElemente[0].Bindung_Vorgaenger)
-//                                && (Org_GeneratorTools.fktIstEndpunkt(arrEndpunkte, NaechstesElementPos.Zeile, NaechstesElementPos.Spalte) == false)
-                               ) {
-                                // Nächstes Element ist nicht der Vorgänger und auch kein Endpunkt
+                            if  (intBindung != arrElemente[0].Bindung_Vorgaenger) {
+                                // Nächstes Element ist nicht der Vorgänger
                                 strBilddateiname = arrGitter[NaechstesElementPos.Zeile][NaechstesElementPos.Spalte]; // Bsp.: an1010a56_108
                                 if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
                                     // Elemente-Array vergrößern
@@ -782,24 +784,17 @@ public class Org_Generator_Activity extends Activity {
                                     intElement_Index = arrElemente.length - 1;
                                     arrElemente[intElement_Index].Koordinaten.Zeile  = NaechstesElementPos.Zeile;
                                     arrElemente[intElement_Index].Koordinaten.Spalte = NaechstesElementPos.Spalte;
-                                    // Uhrzeit der Bindung zum benachbarten C-Atom muss "gedreht" werden:
-                                    // 3==>9, 6==>12, 9==>3, 12==>6
-                                    switch (intBindung) {
-                                        case 3:
-                                            intBindung = 9;
-                                            break;
-                                        case 6:
-                                            intBindung = 12;
-                                            break;
-                                        case 9:
-                                            intBindung = 3;
-                                            break;
-                                        case 12:
-                                            intBindung = 6;
-                                            break;
-                                    }
+                                    // Uhrzeit der Bindung umkehren, da sie jetzt aus Sicht des Nachbarelements gesehen werden muss
+                                    // (d.h. Bindung des Nachbarelements zum Vorgänger)
+                                    intBindung = Org_GeneratorTools.fktBindungUmkehren(intBindung);
                                     arrElemente[intElement_Index].Bindung_Vorgaenger = intBindung;
                                     arrElemente[intElement_Index].Kettenlaenge       = intKettenlaenge_akt;
+                                    intAnzahl_Elemente++;
+                                    if (intAnzahl_Elemente > 1) {
+                                        // Verzweigung, d.h. zusätzliche Kette
+                                        intKettenId++;
+                                    }
+                                    arrElemente[intElement_Index].KettenId = intKettenId;
                                 }
                             }
                         } // if (arrBindung[j] == 1)
@@ -807,17 +802,14 @@ public class Org_Generator_Activity extends Activity {
 
                 } // if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname))
 
-                // Aufruf-Param aus "Array-Elemente" ermitteln:
-                //1. Koordinaten
-                //2. Herkunftsbindung
-
-                // Alle Bindungen zu C-Atomen mit Ausnahme der Herkunftsbindung in "Array-Elemente" eintragen (Koordinaten, Herkunftsbindung, Akt-Kettenlänge)
-
-                // Sind Koordinaten des Elements in "Array-Endpunkte" vorhanden?
-
-                // "Array-Elemente"-Kettenlänge > "Array-Endpunkte"-Kettenlänge?
-
-                // Ziel-Koordinaten und Akt-Kettenlänge in "Array- Endpunkte" eintragen
+                arrKetten[0].KettenId = arrElemente[0].KettenId;
+                arrKetten[0].Endpunkt_Index = i;
+                arrKetten[0].Kettenlaenge = intKettenlaenge_akt;
+                if (arrKetten[0].Koordinatenpaare.length() > 0) {
+                    arrKetten[0].Koordinatenpaare = arrKetten[0].Koordinatenpaare+";";
+                }
+                arrKetten[0].Koordinatenpaare = arrKetten[0].Koordinatenpaare+arrElemente[0].Koordinaten.Zeile
+                                                                         +";"+arrElemente[0].Koordinaten.Spalte;
 
                 // Ersten Eintrag (Index [0]) aus "Array-Elemente" entfernen
                 arrElemente = Org_GeneratorTools.fktElementeArray_verkl(arrElemente);

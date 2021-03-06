@@ -313,9 +313,10 @@ public class Org_Generator_Activity extends Activity {
             for (int i = 0; i < arrEndpunkte.length; i++) {
                 strMsg = strMsg+"Endpunkt "+(i+1)+": Z"+(arrEndpunkte[i].StartPos.Zeile+1)+"S"+(arrEndpunkte[i].StartPos.Spalte+1)
                         +", Bindung auf "+arrEndpunkte[i].Bindung+" Uhr"
-                        +", Kettenlänge "+arrEndpunkte[i].Kettenlaenge+" \n";
-                Log.d(TAG, "arrEndpunkte["+i+"]="+arrEndpunkte[i]);
+                        +", Kettenlänge "+arrEndpunkte[i].Kettenlaenge
+                        +", Molmasse "   +arrEndpunkte[i].Molmasse+" \n";
             }
+            Log.d(TAG, strMsg);
         }
 
         if (!strMsg.equals("")) {
@@ -736,6 +737,7 @@ public class Org_Generator_Activity extends Activity {
 
                     arrEndpunkte[i].ZielPos.Zeile  = intZeile;
                     arrEndpunkte[i].ZielPos.Spalte = intSpalte;
+                    arrEndpunkte[i].Molmasse       = arrEndpunkte[i].Molmasse + Org_GeneratorTools.fktMolmasse(strBilddateiname);
                     if (arrEndpunkte[i].Kettenlaenge < intKettenlaenge_akt) {
                         arrEndpunkte[i].Kettenlaenge = intKettenlaenge_akt;
                         if (intKettenlaenge_max < intKettenlaenge_akt) {

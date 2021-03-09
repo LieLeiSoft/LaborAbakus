@@ -235,10 +235,6 @@ public class Org_Generator_Activity extends Activity {
             }
         }
 
-        for (int i = 0; i < 4; i++) {
-            Log.d(TAG, "arrFilter["+i+"]="+arrFilter[i]);
-        }
-
         Intent myIntent = new Intent(Org_Generator_Activity.this, Org_Strukturformeln_Activity.class);
         myIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         myIntent.putExtra("Filter", arrFilter);
@@ -312,6 +308,7 @@ public class Org_Generator_Activity extends Activity {
 
             for (int i = 0; i < arrEndpunkte.length; i++) {
                 strMsg = strMsg+"Endpunkt "+(i+1)+": Z"+(arrEndpunkte[i].StartPos.Zeile+1)+"S"+(arrEndpunkte[i].StartPos.Spalte+1)
+                                                  +"-Z"+(arrEndpunkte[i].ZielPos.Zeile+1)+"S"+(arrEndpunkte[i].ZielPos.Spalte+1)
                         +", Bindung auf "+arrEndpunkte[i].Bindung+" Uhr"
                         +", Kettenlänge "+arrEndpunkte[i].Kettenlaenge
                         +", Molmasse "   +arrEndpunkte[i].Molmasse+" \n";
@@ -617,7 +614,7 @@ public class Org_Generator_Activity extends Activity {
                         // Bindungseigenschaften in Array speichern
                         arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
                         for (int i = 0; i < arrBindung.length; i++) {
-                            if (arrBindung[i] == 1) {
+                            if (arrBindung[i] > 0) {
                                 // Bindung zum Nachbarelement untersuchen
                                 // Zeile/Spalte des Nachbarelements ermitteln (Initialwerte sind erst einmal die Koordinaten des aktuellen Elements)
                                 NaechstesElementPos.Zeile  = intZeile;
@@ -659,7 +656,7 @@ public class Org_Generator_Activity extends Activity {
                                             break;
                                     } // switch (i)
                                 }
-                            } // if (arrBindung[i] == 1)
+                            } // if (arrBindung[i] > 0)
                         } // for (i = 0; i < arrBindung.length; i++)
 
                         if (intAnzahlBindungen == 1) {
@@ -698,16 +695,24 @@ public class Org_Generator_Activity extends Activity {
         int intBindung = 0;
         int intZeile, intSpalte;
         int intAnzahl_Elemente;
-        int intKettenId;
+        int intKetten_Index = 0;
+        int intTmp = 0;
         String strBilddateiname = "";
         tKoordinaten NaechstesElementPos = new tKoordinaten();
 
-        arrKetten[0] = new tKetten();
-        intKettenId = 1;
-
         // Schleife über alle Endpunkte
         for (int i = 0; i < arrEndpunkte.length; i++) {
-            Log.d(TAG, "arrEndpunkte["+i+"]="+arrEndpunkte[i]);
+            Log.d(TAG, "Endpunkt "+i+": Z"+arrEndpunkte[i].StartPos.Zeile+"S"+arrEndpunkte[i].StartPos.Spalte);
+
+            if (i == 0) {
+                // Ketten-Array initialisieren
+                arrKetten = new tKetten[1];
+                arrKetten[0] = new tKetten();
+            } else {
+                // Ketten-Array vergrößern
+                arrKetten = Org_GeneratorTools.fktKettenArray_vergr(arrKetten);
+                intKetten_Index++;
+            }
 
             // Elemente-Array initialisieren
             arrElemente = new tElemente[1];
@@ -720,6 +725,14 @@ public class Org_Generator_Activity extends Activity {
             // (d.h. Bindung des Nachbarelements zum Endpunkt)
             arrElemente[0].Bindung_Vorgaenger = Org_GeneratorTools.fktBindungUmkehren(arrEndpunkte[i].Bindung);
             arrElemente[0].Kettenlaenge       = arrEndpunkte[i].Kettenlaenge;
+            arrElemente[0].Ketten_Index       = intKetten_Index;
+
+            // je Endpunkt wird mind. 1 Kette angelegt
+            arrKetten[intKetten_Index].Endpunkt_Index   = i;
+            arrKetten[intKetten_Index].Kettenlaenge     = arrEndpunkte[i].Kettenlaenge;
+            arrKetten[intKetten_Index].Molmasse         = arrEndpunkte[i].Molmasse;
+            arrKetten[intKetten_Index].Koordinatenpaare = arrEndpunkte[i].StartPos.Zeile
+                                                     +";"+arrEndpunkte[i].StartPos.Spalte;
 
             // Schleife, bis Elemente-Array leer
             do {
@@ -729,6 +742,8 @@ public class Org_Generator_Activity extends Activity {
                 intZeile  = arrElemente[0].Koordinaten.Zeile;
                 intSpalte = arrElemente[0].Koordinaten.Spalte;
                 strBilddateiname = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
+
+                Log.d(TAG, "Untersuche Element '"+strBilddateiname+"' (Z"+intZeile+"S"+intSpalte+"), Ketten-Index "+arrElemente[0].Ketten_Index);
 
                 if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
                     // Element mit mind. 1 Kohlenstoffatom
@@ -746,12 +761,17 @@ public class Org_Generator_Activity extends Activity {
                         }
                     }
 
+                    intTmp = arrElemente[0].Ketten_Index;
+                    arrKetten[intTmp].Koordinatenpaare = arrKetten[intTmp].Koordinatenpaare + ";" + arrElemente[0].Koordinaten.Zeile
+                                                                                            + ";" + arrElemente[0].Koordinaten.Spalte;
+                    Log.d(TAG, "arrKetten[" + intTmp + "].Koordinatenpaare=" + arrKetten[intTmp].Koordinatenpaare);
+
                     // Alle Bindungen zu C-Atomen mit Ausnahme der Herkunftsbindung in Elemente-Array eintragen (Koordinaten, Herkunftsbindung, Akt-Kettenlänge)
                     // Bindungseigenschaften in Array speichern
                     arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
                     intAnzahl_Elemente = 0;
                     for (int j = 0; j < arrBindung.length; j++) {
-                        if (arrBindung[j] == 1) {
+                        if (arrBindung[j] > 0) {
                             // Bindung zum Nachbarelement untersuchen
                             // Zeile/Spalte des Nachbarelements ermitteln (Initialwerte sind erst einmal die Koordinaten des aktuellen Elements)
                             NaechstesElementPos.Zeile  = intZeile;
@@ -794,24 +814,25 @@ public class Org_Generator_Activity extends Activity {
                                     intAnzahl_Elemente++;
                                     if (intAnzahl_Elemente > 1) {
                                         // Verzweigung, d.h. zusätzliche Kette
-                                        intKettenId++;
+                                        arrKetten = Org_GeneratorTools.fktKettenArray_vergr(arrKetten);
+                                        // neue Kette mit Werten aus aktueller Kette vorbelegen
+                                        arrKetten[(arrKetten.length-1)].Endpunkt_Index   = arrKetten[intKetten_Index].Endpunkt_Index;
+                                        arrKetten[(arrKetten.length-1)].Kettenlaenge     = arrKetten[intKetten_Index].Kettenlaenge;
+                                        arrKetten[(arrKetten.length-1)].Molmasse         = arrKetten[intKetten_Index].Molmasse;
+                                        arrKetten[(arrKetten.length-1)].Koordinatenpaare = arrKetten[intKetten_Index].Koordinatenpaare;
+
+                                        intKetten_Index++;
+                                        Log.d(TAG, "Verzweigung, arrKetten[" + intKetten_Index + "].Koordinatenpaare=" + arrKetten[intKetten_Index].Koordinatenpaare);
                                     }
-                                    arrElemente[intElement_Index].KettenId = intKettenId;
+                                    arrElemente[intElement_Index].Ketten_Index = intKetten_Index;
+                                    Log.d(TAG, "Neues Element '"+strBilddateiname+"' (Z"+arrElemente[intElement_Index].Koordinaten.Zeile
+                                                                                          +"S"+arrElemente[intElement_Index].Koordinaten.Spalte
+                                                                                          +"), Ketten-Index "+arrElemente[intElement_Index].Ketten_Index);
                                 }
                             }
-                        } // if (arrBindung[j] == 1)
+                        } // if (arrBindung[j] > 0)
                     } // for (j = 0; j < arrBindung.length; j++)
-
                 } // if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname))
-
-                arrKetten[0].KettenId = arrElemente[0].KettenId;
-                arrKetten[0].Endpunkt_Index = i;
-                arrKetten[0].Kettenlaenge = intKettenlaenge_akt;
-                if (arrKetten[0].Koordinatenpaare.length() > 0) {
-                    arrKetten[0].Koordinatenpaare = arrKetten[0].Koordinatenpaare+";";
-                }
-                arrKetten[0].Koordinatenpaare = arrKetten[0].Koordinatenpaare+arrElemente[0].Koordinaten.Zeile
-                                                                         +";"+arrElemente[0].Koordinaten.Spalte;
 
                 // Ersten Eintrag (Index [0]) aus "Array-Elemente" entfernen
                 arrElemente = Org_GeneratorTools.fktElementeArray_verkl(arrElemente);
@@ -820,7 +841,25 @@ public class Org_Generator_Activity extends Activity {
 
         } // for (int i = 0; i < arrEndpunkte.length; i++)
 
-        return intEndpunkt_Index;
+        String strZellenname;
+        int intResId;
+
+        for (int i = 0; i < arrKetten.length; i++) {
+            Log.d(TAG, "arrKetten[" + i + "].Endpunkt_Index="   + arrKetten[i].Endpunkt_Index);
+            Log.d(TAG, "arrKetten[" + i + "].Koordinatenpaare=" + arrKetten[i].Koordinatenpaare);
+
+            if (arrKetten[i].Endpunkt_Index == intEndpunkt_Index) {
+                // Name des ImageButtons aus Positionsangabe (Zeile und Spalte) bilden
+                strZellenname = "ibtFeld_012";
+                // ResId des ImageButtons ermitteln
+                intResId = getResources().getIdentifier(strZellenname, "id", getPackageName());
+
+                ImageButton btn = (ImageButton) findViewById(intResId);
+                btn.setBackground(null); // Zelle hervorheben
+            }
+        }
+
+            return intEndpunkt_Index;
     } // Kettenlaenge_ermitteln
 } // class Org_Generator
 

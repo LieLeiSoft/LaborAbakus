@@ -30,7 +30,7 @@ class tElemente {
     tKoordinaten Koordinaten = new tKoordinaten();
     int Bindung_Vorgaenger = 0;      // Uhrzeit der Bindung zum vorangegangenen C-Atom / Endpunkt (Herkunftsbindung)
     int Kettenlaenge = 0; // Anzahl gefundener C-Atome
-    int KettenId = 0;
+    int Ketten_Index = 0;
 
     // Initialisierung der Felder
     tElemente() {
@@ -40,7 +40,6 @@ class tElemente {
 }
 
 class tKetten {
-    int KettenId = 0;
     int Endpunkt_Index = 0;
     int Kettenlaenge = 0; // Anzahl gefundener C-Atome
     float Molmasse = 0; // Summe der Molmasse der gefundenen C-Atome
@@ -140,6 +139,17 @@ public class Org_GeneratorTools {
         }
         return pElemente;
     } // fktElementeArray_verkl
+
+    // Ketten-Array dynamisch um einen Tabellenplatz erweitern
+    // https://www.youtube.com/watch?v=-PktkiWCqBs
+    public static tKetten[] fktKettenArray_vergr(tKetten[] pKetten) {
+        // pKetten.length gibt die Anzahl der Tabellenplätze wider und beginnt mit 1!
+        tKetten[] tmp = new tKetten[pKetten.length + 1];
+        System.arraycopy(pKetten, 0, tmp, 0, pKetten.length);
+        tmp[pKetten.length] = new tKetten();
+        pKetten = tmp;
+        return pKetten;
+    } // fktKettenArray_vergr
 
     public static boolean fktIstKohlenstoff(String pBilddateiname) {
         String strElementTyp;

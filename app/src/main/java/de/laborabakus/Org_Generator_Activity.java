@@ -3,6 +3,8 @@ package de.laborabakus;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
@@ -14,10 +16,7 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import static android.service.autofill.Validators.and;
 
 public class Org_Generator_Activity extends Activity {
     private static final String TAG = "Org_Generator_Activity";
@@ -277,7 +276,7 @@ public class Org_Generator_Activity extends Activity {
     {
         String strMsg = "";
         int intAnzahlEndpunkte = 0;
-        int intKettenlaenge = 0;
+        int intEndpunkt_Index = 0;
 
         if (arrElementePos.isEmpty()) {
             // Es ist kein Element eingetragen bzw. alle bisher eingetragenen Elemente wurden (über "btnLoeschen") gelöscht.
@@ -304,15 +303,13 @@ public class Org_Generator_Activity extends Activity {
         }
 
         if (strMsg.equals("")) {
-            intKettenlaenge = Kettenlaenge_ermitteln();
+            intEndpunkt_Index = Kettenlaenge_ermitteln();
 
-            for (int i = 0; i < arrEndpunkte.length; i++) {
-                strMsg = strMsg+"Endpunkt "+(i+1)+": Z"+(arrEndpunkte[i].StartPos.Zeile+1)+"S"+(arrEndpunkte[i].StartPos.Spalte+1)
-                                                  +"-Z"+(arrEndpunkte[i].ZielPos.Zeile+1)+"S"+(arrEndpunkte[i].ZielPos.Spalte+1)
-                        +", Bindung auf "+arrEndpunkte[i].Bindung+" Uhr"
-                        +", Kettenlänge "+arrEndpunkte[i].Kettenlaenge
-                        +", Molmasse "   +arrEndpunkte[i].Molmasse+" \n";
-            }
+            strMsg = "Endpunkt "+(intEndpunkt_Index+1)+": Z"+(arrEndpunkte[intEndpunkt_Index].StartPos.Zeile+1)+"S"+(arrEndpunkte[intEndpunkt_Index].StartPos.Spalte+1)
+                                                       +"-Z"+(arrEndpunkte[intEndpunkt_Index].ZielPos.Zeile +1)+"S"+(arrEndpunkte[intEndpunkt_Index].ZielPos.Spalte +1)
+                    +", Bindung auf "+arrEndpunkte[intEndpunkt_Index].Bindung+" Uhr"
+                    +", Kettenlänge "+arrEndpunkte[intEndpunkt_Index].Kettenlaenge
+                    +", Molmasse "   +arrEndpunkte[intEndpunkt_Index].Molmasse;
             Log.d(TAG, strMsg);
         }
 
@@ -697,6 +694,7 @@ public class Org_Generator_Activity extends Activity {
         int intAnzahl_Elemente;
         int intKetten_Index = 0;
         int intTmp = 0;
+        float fltMolmasse = 0;
         String strBilddateiname = "";
         tKoordinaten NaechstesElementPos = new tKoordinaten();
 
@@ -743,16 +741,18 @@ public class Org_Generator_Activity extends Activity {
                 intSpalte = arrElemente[0].Koordinaten.Spalte;
                 strBilddateiname = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
 
-                Log.d(TAG, "Untersuche Element '"+strBilddateiname+"' (Z"+intZeile+"S"+intSpalte+"), Ketten-Index "+arrElemente[0].Ketten_Index);
+                //Log.d(TAG, "Untersuche Element '"+strBilddateiname+"' (Z"+intZeile+"S"+intSpalte+"), Ketten-Index "+arrElemente[0].Ketten_Index);
 
                 if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
                     // Element mit mind. 1 Kohlenstoffatom
                     intAnzahl_C_Atome = Org_GeneratorTools.fktAnzahl_C_Atome(strBilddateiname);
                     intKettenlaenge_akt = intKettenlaenge_akt + intAnzahl_C_Atome;
 
+                    fltMolmasse = Org_GeneratorTools.fktMolmasse(strBilddateiname);
+
                     arrEndpunkte[i].ZielPos.Zeile  = intZeile;
                     arrEndpunkte[i].ZielPos.Spalte = intSpalte;
-                    arrEndpunkte[i].Molmasse       = arrEndpunkte[i].Molmasse + Org_GeneratorTools.fktMolmasse(strBilddateiname);
+                    arrEndpunkte[i].Molmasse       = arrEndpunkte[i].Molmasse + fltMolmasse;
                     if (arrEndpunkte[i].Kettenlaenge < intKettenlaenge_akt) {
                         arrEndpunkte[i].Kettenlaenge = intKettenlaenge_akt;
                         if (intKettenlaenge_max < intKettenlaenge_akt) {
@@ -762,6 +762,8 @@ public class Org_Generator_Activity extends Activity {
                     }
 
                     intTmp = arrElemente[0].Ketten_Index;
+                    arrKetten[intTmp].Kettenlaenge     = arrKetten[intTmp].Kettenlaenge + intAnzahl_C_Atome;
+                    arrKetten[intTmp].Molmasse         = arrKetten[intTmp].Molmasse + fltMolmasse;
                     arrKetten[intTmp].Koordinatenpaare = arrKetten[intTmp].Koordinatenpaare + ";" + arrElemente[0].Koordinaten.Zeile
                                                                                             + ";" + arrElemente[0].Koordinaten.Spalte;
                     Log.d(TAG, "arrKetten[" + intTmp + "].Koordinatenpaare=" + arrKetten[intTmp].Koordinatenpaare);
@@ -822,12 +824,15 @@ public class Org_Generator_Activity extends Activity {
                                         arrKetten[(arrKetten.length-1)].Koordinatenpaare = arrKetten[intKetten_Index].Koordinatenpaare;
 
                                         intKetten_Index++;
-                                        Log.d(TAG, "Verzweigung, arrKetten[" + intKetten_Index + "].Koordinatenpaare=" + arrKetten[intKetten_Index].Koordinatenpaare);
+                                        //Log.d(TAG, "Verzweigung, arrKetten[" + intKetten_Index + "].Koordinatenpaare=" + arrKetten[intKetten_Index].Koordinatenpaare);
                                     }
                                     arrElemente[intElement_Index].Ketten_Index = intKetten_Index;
+                                    /*
                                     Log.d(TAG, "Neues Element '"+strBilddateiname+"' (Z"+arrElemente[intElement_Index].Koordinaten.Zeile
                                                                                           +"S"+arrElemente[intElement_Index].Koordinaten.Spalte
                                                                                           +"), Ketten-Index "+arrElemente[intElement_Index].Ketten_Index);
+
+                                    */
                                 }
                             }
                         } // if (arrBindung[j] > 0)
@@ -844,22 +849,38 @@ public class Org_Generator_Activity extends Activity {
         String strZellenname;
         int intResId;
 
+        Log.d(TAG, "Endpunkt-Index mit der längste C-Kette: "+intEndpunkt_Index);
         for (int i = 0; i < arrKetten.length; i++) {
-            Log.d(TAG, "arrKetten[" + i + "].Endpunkt_Index="   + arrKetten[i].Endpunkt_Index);
-            Log.d(TAG, "arrKetten[" + i + "].Koordinatenpaare=" + arrKetten[i].Koordinatenpaare);
 
+            if (   (arrKetten[i].Endpunkt_Index == intEndpunkt_Index)
+                && (arrKetten[i].Kettenlaenge   == arrEndpunkte[intEndpunkt_Index].Kettenlaenge)) {
+                Log.d(TAG, "arrKetten[" + i + "].Endpunkt_Index   = " + arrKetten[i].Endpunkt_Index);
+                Log.d(TAG, "arrKetten[" + i + "].Kettenlaenge     = " + arrKetten[i].Kettenlaenge);
+                Log.d(TAG, "arrKetten[" + i + "].Molmasse         = " + arrKetten[i].Molmasse);
+                Log.d(TAG, "arrKetten[" + i + "].Koordinatenpaare = " + arrKetten[i].Koordinatenpaare);
+            }
+
+            /*
             if (arrKetten[i].Endpunkt_Index == intEndpunkt_Index) {
                 // Name des ImageButtons aus Positionsangabe (Zeile und Spalte) bilden
-                strZellenname = "ibtFeld_012";
+                strZellenname = "ibtFeld_022";
                 // ResId des ImageButtons ermitteln
                 intResId = getResources().getIdentifier(strZellenname, "id", getPackageName());
 
                 ImageButton btn = (ImageButton) findViewById(intResId);
-                btn.setBackground(null); // Zelle hervorheben
+                //btn.setBackground(null); // Zelle hervorheben
+
+                // https://stackoverflow.com/questions/15187609/android-button-border-dynamically
+                GradientDrawable drawable = new GradientDrawable();
+                drawable.setShape(GradientDrawable.RECTANGLE);
+                drawable.setStroke(5, Color.MAGENTA);
+                drawable.setColor(Color.BLACK);
+                btn.setBackground(drawable);
             }
+            */
         }
 
-            return intEndpunkt_Index;
+        return intEndpunkt_Index;
     } // Kettenlaenge_ermitteln
 } // class Org_Generator
 

@@ -2,6 +2,7 @@ package de.laborabakus;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -44,6 +45,7 @@ class tKetten {
     int Kettenlaenge = 0; // Anzahl gefundener C-Atome
     float Molmasse = 0; // Summe der Molmasse der gefundenen C-Atome
     String Koordinatenpaare = "";
+    ArrayList<String> Bilddateinamen = new ArrayList<String>();
 }
 
 public class Org_GeneratorTools {
@@ -77,7 +79,7 @@ public class Org_GeneratorTools {
                                                             ,"an0101a140_27" , "10"
                                                             ,"an1010a140_27" , "10"};
 
-    // HashMap definieren, die bestimmte Bilddateinamen (z.B. "an1010a112_216")+die Anzahl der C-Atome enthält
+    // HashMap definieren, die bestimmte Bilddateinamen (z.B. "an1010a112_216") und die Anzahl der C-Atome enthält
     // key   (String) : Bilddateiname
     // value (Integer): Anzahl C-Atome
     private static HashMap<String, Integer> hmC_Atome_mehrfach = new HashMap<String,Integer>();
@@ -228,4 +230,44 @@ public class Org_GeneratorTools {
         fltMolmasse = Float.parseFloat(strMolmasse);
         return fltMolmasse;
     } // fktMolmasse
+
+    public static String fktKettenname (int pAnzahl_C_Atome) {
+        String strKettenname;
+        switch (pAnzahl_C_Atome) {
+            case  1:
+                strKettenname = "methan";
+                break;
+            case  2:
+                strKettenname = "ethan";
+                break;
+            case  3:
+                strKettenname = "propan";
+                break;
+            case  4:
+                strKettenname = "butan";
+                break;
+            case  5:
+                strKettenname = "pentan";
+                break;
+            case  6:
+                strKettenname = "hexan";
+                break;
+            case  7:
+                strKettenname = "heptan";
+                break;
+            case  8:
+                strKettenname = "octan";
+                break;
+            case  9:
+                strKettenname = "nonan";
+                break;
+            case 10:
+                strKettenname = "decan";
+                break;
+            default:
+                strKettenname = "???";
+        }
+        return strKettenname;
+    } // fktstrKettenname
+
 } // Org_GeneratorTools

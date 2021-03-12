@@ -3,8 +3,6 @@ package de.laborabakus;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
@@ -276,6 +274,7 @@ public class Org_Generator_Activity extends Activity {
     {
         String strMsg = "";
         int intAnzahlEndpunkte = 0;
+        int intKettenlaenge_max = 0;
         int intEndpunkt_Index = 0;
 
         if (arrElementePos.isEmpty()) {
@@ -303,13 +302,21 @@ public class Org_Generator_Activity extends Activity {
         }
 
         if (strMsg.equals("")) {
-            intEndpunkt_Index = Kettenlaenge_ermitteln();
+            intKettenlaenge_max = Kettenlaenge_ermitteln();
+
+            for (int i = 0; i < arrKetten.length; i++) {
+                if (arrKetten[i].Kettenlaenge == intKettenlaenge_max) {
+                    intEndpunkt_Index = arrKetten[i].Endpunkt_Index;
+                    break;
+                }
+            }
 
             strMsg = "Endpunkt "+(intEndpunkt_Index+1)+": Z"+(arrEndpunkte[intEndpunkt_Index].StartPos.Zeile+1)+"S"+(arrEndpunkte[intEndpunkt_Index].StartPos.Spalte+1)
                                                        +"-Z"+(arrEndpunkte[intEndpunkt_Index].ZielPos.Zeile +1)+"S"+(arrEndpunkte[intEndpunkt_Index].ZielPos.Spalte +1)
                     +", Bindung auf "+arrEndpunkte[intEndpunkt_Index].Bindung+" Uhr"
                     +", Kettenlänge "+arrEndpunkte[intEndpunkt_Index].Kettenlaenge
-                    +", Molmasse "   +arrEndpunkte[intEndpunkt_Index].Molmasse;
+                    +", Molmasse "   +arrEndpunkte[intEndpunkt_Index].Molmasse
+                    +", Kettenname " +Org_GeneratorTools.fktKettenname(intKettenlaenge_max);
             Log.d(TAG, strMsg);
         }
 
@@ -684,7 +691,6 @@ public class Org_Generator_Activity extends Activity {
     public int Kettenlaenge_ermitteln()
     {
         int arrBindung[] = new int[4];
-        int intEndpunkt_Index = 0;
         int intElement_Index = 0;
         int intKettenlaenge_akt = 0;
         int intKettenlaenge_max = 0;
@@ -726,11 +732,15 @@ public class Org_Generator_Activity extends Activity {
             arrElemente[0].Ketten_Index       = intKetten_Index;
 
             // je Endpunkt wird mind. 1 Kette angelegt
+            intZeile  = arrEndpunkte[i].StartPos.Zeile;
+            intSpalte = arrEndpunkte[i].StartPos.Spalte;
+            strBilddateiname = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
             arrKetten[intKetten_Index].Endpunkt_Index   = i;
             arrKetten[intKetten_Index].Kettenlaenge     = arrEndpunkte[i].Kettenlaenge;
             arrKetten[intKetten_Index].Molmasse         = arrEndpunkte[i].Molmasse;
-            arrKetten[intKetten_Index].Koordinatenpaare = arrEndpunkte[i].StartPos.Zeile
-                                                     +";"+arrEndpunkte[i].StartPos.Spalte;
+            arrKetten[intKetten_Index].Koordinatenpaare = intZeile
+                                                     +";"+intSpalte;
+            arrKetten[intKetten_Index].Bilddateinamen.add(strBilddateiname);
 
             // Schleife, bis Elemente-Array leer
             do {
@@ -760,15 +770,16 @@ public class Org_Generator_Activity extends Activity {
                     if (intKettenlaenge_max < intKettenlaenge_akt) {
                         // aktuelle Kettenlänge ist größer als die bisher zu irgendeinem Endpunkt ermittelte Kettenlänge
                         intKettenlaenge_max = intKettenlaenge_akt;
-                        intEndpunkt_Index = i;
                     }
-                }
+                } // if (arrEndpunkte[i].Kettenlaenge < intKettenlaenge_akt)
 
                 intTmp = arrElemente[0].Ketten_Index;
                 arrKetten[intTmp].Kettenlaenge     = arrKetten[intTmp].Kettenlaenge + intAnzahl_C_Atome;
                 arrKetten[intTmp].Molmasse         = arrKetten[intTmp].Molmasse + fltMolmasse;
                 arrKetten[intTmp].Koordinatenpaare = arrKetten[intTmp].Koordinatenpaare + ";" + arrElemente[0].Koordinaten.Zeile
                                                                                         + ";" + arrElemente[0].Koordinaten.Spalte;
+                arrKetten[intTmp].Bilddateinamen.add(strBilddateiname);
+
                 Log.d(TAG, "arrKetten[" + intTmp + "].Koordinatenpaare=" + arrKetten[intTmp].Koordinatenpaare);
 
                 // Alle Bindungen zu C-Atomen mit Ausnahme der Herkunftsbindung in Elemente-Array eintragen (Koordinaten, Herkunftsbindung, Akt-Kettenlänge)
@@ -816,6 +827,7 @@ public class Org_Generator_Activity extends Activity {
                                 intBindung = Org_GeneratorTools.fktBindungUmkehren(intBindung);
                                 arrElemente[intElement_Index].Bindung_Vorgaenger = intBindung;
                                 arrElemente[intElement_Index].Kettenlaenge       = intKettenlaenge_akt;
+                                arrElemente[intElement_Index].Ketten_Index       = arrElemente[0].Ketten_Index;;
                                 intAnzahl_Elemente++;
                                 if (intAnzahl_Elemente > 1) {
                                     // Verzweigung, d.h. zusätzliche Kette
@@ -825,11 +837,12 @@ public class Org_Generator_Activity extends Activity {
                                     arrKetten[(arrKetten.length-1)].Kettenlaenge     = arrKetten[intKetten_Index].Kettenlaenge;
                                     arrKetten[(arrKetten.length-1)].Molmasse         = arrKetten[intKetten_Index].Molmasse;
                                     arrKetten[(arrKetten.length-1)].Koordinatenpaare = arrKetten[intKetten_Index].Koordinatenpaare;
+                                    arrKetten[(arrKetten.length-1)].Bilddateinamen = arrKetten[intKetten_Index].Bilddateinamen;
 
                                     intKetten_Index++;
+                                    arrElemente[intElement_Index].Ketten_Index = intKetten_Index;
                                     //Log.d(TAG, "Verzweigung, arrKetten[" + intKetten_Index + "].Koordinatenpaare=" + arrKetten[intKetten_Index].Koordinatenpaare);
                                 }
-                                arrElemente[intElement_Index].Ketten_Index = intKetten_Index;
                                 /*
                                 Log.d(TAG, "Neues Element '"+strBilddateiname+"' (Z"+arrElemente[intElement_Index].Koordinaten.Zeile
                                                                                       +"S"+arrElemente[intElement_Index].Koordinaten.Spalte
@@ -848,25 +861,25 @@ public class Org_Generator_Activity extends Activity {
 
         } // for (int i = 0; i < arrEndpunkte.length; i++)
 
-        String strZellenname;
-        int intResId;
-
-        Log.d(TAG, "Endpunkt-Index mit der längste C-Kette: "+intEndpunkt_Index);
+        Log.d(TAG, "Endpunkte mit der längste C-Kette:");
         // Kette zum Endpunkt mit der längsten C-Kette suchen
         for (int i = 0; i < arrKetten.length; i++) {
-            if (   (arrKetten[i].Endpunkt_Index == intEndpunkt_Index)
-                && (arrKetten[i].Kettenlaenge   == arrEndpunkte[intEndpunkt_Index].Kettenlaenge)) {
+            if (arrKetten[i].Kettenlaenge == intKettenlaenge_max) {
                 Log.d(TAG, "arrKetten[" + i + "].Endpunkt_Index   = " + arrKetten[i].Endpunkt_Index);
                 Log.d(TAG, "arrKetten[" + i + "].Kettenlaenge     = " + arrKetten[i].Kettenlaenge);
                 Log.d(TAG, "arrKetten[" + i + "].Molmasse         = " + arrKetten[i].Molmasse);
                 Log.d(TAG, "arrKetten[" + i + "].Koordinatenpaare = " + arrKetten[i].Koordinatenpaare);
+                Log.d(TAG, "arrKetten[" + i + "].Bilddateinamen   = " + arrKetten[i].Bilddateinamen);
 
                 // Molmasse im Endpunkte-Array anpassen (erst möglich, wenn die längste Kette gefunden wurde)
-                arrEndpunkte[intEndpunkt_Index].Molmasse = arrKetten[i].Molmasse;
+                arrEndpunkte[arrKetten[i].Endpunkt_Index].Molmasse = arrKetten[i].Molmasse;
             }
 
             /*
-            if (arrKetten[i].Endpunkt_Index == intEndpunkt_Index) {
+                // Zelle hervorheben
+                String strZellenname;
+                int intResId;
+
                 // Name des ImageButtons aus Positionsangabe (Zeile und Spalte) bilden
                 strZellenname = "ibtFeld_022";
                 // ResId des ImageButtons ermitteln
@@ -881,11 +894,9 @@ public class Org_Generator_Activity extends Activity {
                 drawable.setStroke(5, Color.MAGENTA);
                 drawable.setColor(Color.BLACK);
                 btn.setBackground(drawable);
-            }
             */
         }
-
-        return intEndpunkt_Index;
+        return intKettenlaenge_max;
     } // Kettenlaenge_ermitteln
 } // class Org_Generator
 

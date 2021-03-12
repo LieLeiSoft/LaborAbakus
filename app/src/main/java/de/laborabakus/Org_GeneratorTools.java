@@ -53,12 +53,7 @@ public class Org_GeneratorTools {
     private static final String[] arrKohlenstoff_Elementtyp = {"an", "co", "en", "in", "nt"};
 
     // spezielle Kohlenstoff-Elemente mit ZWEI Kohlenstoff-Atomen
-    private static final String[] arrKohlenstoff_doppelt = {"en0112a24_022", "en0211a24_022"
-                                                           ,"en1021a24_022", "en1102a24_022"
-                                                           ,"en1111a24_022", "en1111b24_022"
-                                                           ,"en1120a24_022", "en1201a24_022"
-                                                           ,"en2011a24_022", "en2110a24_022"
-                                                           ,"in0101a24_022", "in1010a24_022"};
+    private static final String[] arrKohlenstoff_doppelt = {"in0101a24_022", "in1010a24_022"};
 
     // spezielle Kohlenstoff-Elemente mit mehreren Kohlenstoff-Atomen
     // Array enthält abwechselnd Bilddateinamen und Anzahle Kohlenstoff-Atome

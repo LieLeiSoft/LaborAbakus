@@ -110,6 +110,12 @@
 
         </TableRow>
 
+        <TextView
+            android:id="@+id/tv_Alkylgruppen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-Cx-Hx- Alkylgruppen" />
+        
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
@@ -668,12 +674,6 @@
                 android:textSize="15sp" />
         </TableRow>
 
-        <TextView
-            android:id="@+id/tv_Alkylgruppen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="-Cx-Hx- Alkylgruppen" />
-
         <TableRow
             android:id="@+id/tableRow8"
             android:layout_width="wrap_content"
@@ -689,7 +689,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/en2110a24_022"
+                android:src="@drawable/en2011a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -703,7 +703,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/en2011a24_022"
+                android:src="@drawable/en1201a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -717,7 +717,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/en1120a24_022"
+                android:src="@drawable/en1120a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -731,7 +731,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/en1021a24_022"
+                android:src="@drawable/en0112a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -759,7 +759,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/en1111a24_022"
+                android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -781,7 +781,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/en0211a24_022"
+                android:src="@drawable/en2110a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -795,7 +795,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/en1201a24_022"
+                android:src="@drawable/en0211a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -809,7 +809,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/en1102a24_022"
+                android:src="@drawable/en1021a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -823,7 +823,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/en0112a24_022"
+                android:src="@drawable/en1102a12_011"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -851,12 +851,18 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/en1111b24_022"
+                android:src="@drawable/grau"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
 
         </TableRow>
+
+        <TextView
+            android:id="@+id/tvDreifachbindungen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-C≡C- Dreifachbindungen" />
 
         <TableRow
             android:id="@+id/tableRow10"
@@ -949,6 +955,12 @@
 
         </TableRow>
 
+        <TextView
+            android:id="@+id/tvHydroxylgruppen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-OH Hydroxylgruppen" />
+
         <TableRow
             android:id="@+id/tableRow11"
             android:layout_width="wrap_content"
@@ -1038,12 +1050,6 @@
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tvDreifachbindungen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="-C≡C- Dreifachbindungen" />
 
         </TableRow>
 
@@ -1142,12 +1148,6 @@
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tvHydroxylgruppen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="-OH Hydroxylgruppen" />
 
         </TableRow>
 

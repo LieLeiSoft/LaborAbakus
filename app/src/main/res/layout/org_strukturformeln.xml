@@ -115,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="-Cx-Hx- Alkylgruppen" />
-        
+
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
@@ -1130,7 +1130,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/grau"
+                android:src="@drawable/ox1010a15_999"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />
@@ -1144,7 +1144,7 @@
                 android:layout_weight="1"
                 android:background="@color/cWeiss"
                 android:onClick="btnZelle"
-                android:src="@drawable/grau"
+                android:src="@drawable/ox0101a15_999"
                 android:textAllCaps="false"
                 android:textColor="@color/cSchwarz"
                 android:textSize="15sp" />

@@ -264,6 +264,126 @@ public class Org_GeneratorTools {
             case 10:
                 strKettenname = "decan";
                 break;
+            case 11:
+                strKettenname = "undecan";
+                break;
+            case 12:
+                strKettenname = "dodecan";
+                break;
+            case 13:
+                strKettenname = "tridecan";
+                break;
+            case 14:
+                strKettenname = "tetradecan";
+                break;
+            case 15:
+                strKettenname = "pentadecan";
+                break;
+            case 16:
+                strKettenname = "hexadecan";
+                break;
+            case 17:
+                strKettenname = "heptadecan";
+                break;
+            case 18:
+                strKettenname = "octadecan";
+                break;
+            case 19:
+                strKettenname = "nonadecan";
+                break;
+            case 20:
+                strKettenname = "eicosan";
+                break;
+            case 21:
+                strKettenname = "heneicosan";
+                break;
+            case 22:
+                strKettenname = "docosan";
+                break;
+            case 23:
+                strKettenname = "tricosan";
+                break;
+            case 24:
+                strKettenname = "tetracosan";
+                break;
+            case 25:
+                strKettenname = "pentacosan";
+                break;
+            case 26:
+                strKettenname = "hexacosan";
+                break;
+            case 27:
+                strKettenname = "heptacosan";
+                break;
+            case 28:
+                strKettenname = "octacosan";
+                break;
+            case 29:
+                strKettenname = "nonacosan";
+                break;
+            case 30:
+                strKettenname = "triacontan";
+                break;
+            case 31:
+                strKettenname = "hentriacontan";
+                break;
+            case 32:
+                strKettenname = "dotriacontan";
+                break;
+            case 33:
+                strKettenname = "tritriacontan";
+                break;
+            case 34:
+                strKettenname = "tetratriacontan";
+                break;
+            case 35:
+                strKettenname = "pentatriacontan";
+                break;
+            case 36:
+                strKettenname = "hexatriacontan";
+                break;
+            case 37:
+                strKettenname = "heptatriacontan";
+                break;
+            case 38:
+                strKettenname = "octatriacontan";
+                break;
+            case 39:
+                strKettenname = "nonatriacontan";
+                break;
+            case 40:
+                strKettenname = "tetracontan";
+                break;
+            case 41:
+                strKettenname = "hentetracontan";
+                break;
+            case 42:
+                strKettenname = "dotetracontan";
+                break;
+            case 43:
+                strKettenname = "tritetracontan";
+                break;
+            case 44:
+                strKettenname = "tetratetracontan";
+                break;
+            case 45:
+                strKettenname = "pentatetracontan";
+                break;
+            case 46:
+                strKettenname = "hexatetracontan";
+                break;
+            case 47:
+                strKettenname = "heptatetracontan";
+                break;
+            case 48:
+                strKettenname = "octatetracontan";
+                break;
+            case 49:
+                strKettenname = "nonatetracontan";
+                break;
+            case 50:
+                strKettenname = "pentacontan";
+                break;
             default:
                 strKettenname = "???";
         }

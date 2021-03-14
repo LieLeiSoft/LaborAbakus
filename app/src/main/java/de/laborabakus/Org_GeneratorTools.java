@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 class tKoordinaten {
     int Spalte = 0;
@@ -44,8 +45,11 @@ class tKetten {
     int Endpunkt_Index = 0;
     int Kettenlaenge = 0; // Anzahl gefundener C-Atome
     float Molmasse = 0; // Summe der Molmasse der gefundenen C-Atome
-    String Koordinatenpaare = "";
     ArrayList<String> Bilddateinamen = new ArrayList<String>();
+    List<Integer> Koordinaten_Zeile  = new ArrayList<>();
+    List<Integer> Koordinaten_Spalte = new ArrayList<>();
+    List<Integer> Bindung_Vorgaenger = new ArrayList<>(); // Bindung des Kettenmitglieds zu vorherigen Kettenmitglied
+    List<Integer> Bindung_Nachfolger = new ArrayList<>(); // Bindung des Kettenmitglieds zu nächsten Kettenmitglied
 }
 
 public class Org_GeneratorTools {

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
@@ -12,6 +11,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
@@ -884,8 +884,8 @@ public class Org_Generator_Activity extends Activity {
 
         } // for (int i = 0; i < arrEndpunkte.length; i++)
 
-        Log.d(TAG, "Endpunkte mit der längste C-Kette:");
         // Kette zum Endpunkt mit der längsten C-Kette suchen
+        Log.d(TAG, "Endpunkte mit der längste C-Kette:");
         for (int i = 0; i < arrKetten.length; i++) {
             if (arrKetten[i].Kettenlaenge == intKettenlaenge_max) {
                 Log.d(TAG, "arrKetten[" + i + "].Endpunkt_Index     = " + arrKetten[i].Endpunkt_Index);
@@ -910,26 +910,8 @@ public class Org_Generator_Activity extends Activity {
                         Log.d(TAG, "Verbindung zum Nachfolger: "+arrKetten[i].Bindung_Nachfolger.get(j)+" Uhr");
                     }
 
-                // Zelle hervorheben
-                String strZellenname;
-                int intResId;
-
-                intZeile  = arrKetten[i].Koordinaten_Zeile.get(j);
-                intSpalte = arrKetten[i].Koordinaten_Spalte.get(j);
-                // Name des ImageButtons aus Positionsangabe (Zeile und Spalte) bilden
-                strZellenname = "ibtFeld_" + new DecimalFormat("00").format((intZeile+1)) + (intSpalte+1);
-                // ResId des ImageButtons ermitteln
-                intResId = getResources().getIdentifier(strZellenname, "id", getPackageName());
-
-                ImageButton btn = (ImageButton) findViewById(intResId);
-                //btn.setBackground(null); // Zelle hervorheben
-
-                // https://stackoverflow.com/questions/15187609/android-button-border-dynamically
-                GradientDrawable drawable = new GradientDrawable();
-                drawable.setShape(GradientDrawable.RECTANGLE);
-                drawable.setStroke(5, Color.MAGENTA);
-                drawable.setColor(Color.BLACK);
-                btn.setBackground(drawable);
+                    Zelle_hervorheben(arrKetten[i].Koordinaten_Zeile.get(j), arrKetten[i].Koordinaten_Spalte.get(j)
+                                     ,arrKetten[i].Bindung_Vorgaenger.get(j), arrKetten[i].Bindung_Nachfolger.get(j));
 
                 } // for (int j = 0; j < arrKetten[i].Bilddateinamen.size(); j++)
 
@@ -940,5 +922,66 @@ public class Org_Generator_Activity extends Activity {
         } // for (int i = 0; i < arrKetten.length; i++)
         return intKettenlaenge_max;
     } // Kettenlaenge_ermitteln
+
+    public boolean Zelle_hervorheben(int pZeile, int pSpalte, int pBindung_Vorgaenger, int Bindung_Nachfolger)
+    {
+        String strZellenname;
+        int intResId;
+        int intTop    = 10;
+        int intLeft   = 10;
+        int intRight  = 10;
+        int intBottom = 10;
+
+        // Name des ImageButtons aus Positionsangabe (Zeile und Spalte) bilden
+        strZellenname = "ibtFeld_" + new DecimalFormat("00").format((pZeile+1)) + (pSpalte+1);
+
+        // ResId des ImageButtons ermitteln
+        intResId = getResources().getIdentifier(strZellenname, "id", getPackageName());
+
+        // Variable für ImageButton deklarieren
+        ImageButton btn = (ImageButton) findViewById(intResId);
+
+        // Bindung zum vorherigen Element auswerten
+        switch (pBindung_Vorgaenger) {
+            case 12: // Bindung auf 12 Uhr
+                intTop = 0;
+                break;
+            case 3: // Bindung auf 3 Uhr
+                intRight = 0;
+                break;
+            case 6: // Bindung auf 6 Uhr
+                intBottom = 0;
+                break;
+            case 9: // Bindung auf 9 Uhr
+                intLeft = 0;
+                break;
+        } // switch (pBindung_Vorgaenger)
+
+        // Bindung zum nachfolgenden Element auswerten
+        switch (Bindung_Nachfolger) {
+            case 12: // Bindung auf 12 Uhr
+                intTop = 0;
+                break;
+            case 3: // Bindung auf 3 Uhr
+                intRight = 0;
+                break;
+            case 6: // Bindung auf 6 Uhr
+                intBottom = 0;
+                break;
+            case 9: // Bindung auf 9 Uhr
+                intLeft = 0;
+                break;
+        } // switch (Bindung_Nachfolger)
+
+        // https://stackoverflow.com/questions/9373026/changing-imagebutton-margins-in-code
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) btn.getLayoutParams();
+        params.setMargins(intLeft, intTop, intRight, intBottom);
+        btn.setLayoutParams(params);
+
+        btn.setBackgroundColor(Color.YELLOW);
+
+        return true;
+    } // Zelle_markieren
+
 } // class Org_Generator
 

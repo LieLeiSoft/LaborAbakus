@@ -44,7 +44,6 @@ class tElemente {
 class tKetten {
     int Endpunkt_Index = 0;
     int Kettenlaenge = 0; // Anzahl gefundener C-Atome
-    float Molmasse = 0; // Summe der Molmasse der gefundenen C-Atome
     ArrayList<String> Bilddateinamen = new ArrayList<String>();
     List<Integer> Koordinaten_Zeile  = new ArrayList<>();
     List<Integer> Koordinaten_Spalte = new ArrayList<>();

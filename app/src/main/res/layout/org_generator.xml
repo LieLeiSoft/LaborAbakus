@@ -19,10 +19,10 @@
             android:text="Strukturformel-Baukasten"
             android:gravity="center_horizontal|center_vertical" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <TableRow
+            android:id="@+id/tableRow001"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/btnLoeschen"
@@ -39,16 +39,16 @@
                 android:layout_weight="1"
                 android:onClick="btnBestimmeFormel"
                 android:text="bestimme Formel" />
-        </LinearLayout>
+
+        </TableRow>
 
         <TableRow
             android:id="@+id/tableRow1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <ImageButton
                 android:id="@+id/ibtFeld_011"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -61,7 +61,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_012"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -74,7 +73,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_013"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,7 +85,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_014"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -100,7 +97,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_015"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -113,7 +109,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_016"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -128,12 +123,11 @@
 
         <TableRow
             android:id="@+id/tableRow2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <ImageButton
                 android:id="@+id/ibtFeld_021"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -146,7 +140,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_022"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -159,7 +152,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_023"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -172,7 +164,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_024"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -185,7 +176,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_025"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -198,7 +188,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_026"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -218,7 +207,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_031"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -231,7 +219,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_032"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -244,7 +231,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_033"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -257,7 +243,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_034"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -270,7 +255,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_035"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -283,7 +267,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_036"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -303,7 +286,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_041"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -316,7 +298,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_042"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -329,7 +310,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_043"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -342,7 +322,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_044"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -355,7 +334,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_045"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -368,7 +346,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_046"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -388,7 +365,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_051"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -401,7 +377,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_052"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -414,7 +389,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_053"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -427,7 +401,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_054"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -440,7 +413,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_055"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -453,7 +425,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_056"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -472,7 +443,6 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_061"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -486,7 +456,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_062"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -499,7 +468,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_063"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -512,7 +480,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_064"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -525,7 +492,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_065"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -537,7 +503,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_066"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -557,7 +522,6 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_071"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -571,7 +535,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_072"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -583,7 +546,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_073"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -596,7 +558,6 @@
                 android:textSize="15sp"/>
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_074"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -610,7 +571,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_075"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -622,7 +582,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_076"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -642,7 +601,6 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_081"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -656,7 +614,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_082"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -668,7 +625,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_083"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -681,7 +637,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_084"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -695,7 +650,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_085"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -707,7 +661,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_086"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -727,7 +680,6 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_091"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -741,7 +693,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_092"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -753,7 +704,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_093"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -766,7 +716,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_094"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -780,7 +729,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_095"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -792,7 +740,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_096"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -812,7 +759,6 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_101"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -826,7 +772,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_102"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -838,7 +783,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_103"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -850,7 +794,6 @@
                 android:textColor="@color/cSchwarz" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_104"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -864,7 +807,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_105"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -876,7 +818,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_106"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -896,7 +837,6 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_111"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -910,7 +850,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_112"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -922,7 +861,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_113"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -935,7 +873,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_114"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -949,7 +886,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_115"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -961,7 +897,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_116"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -981,7 +916,6 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_121"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -995,7 +929,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_122"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1007,7 +940,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_123"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1020,7 +952,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_124"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -1034,7 +965,6 @@
 
             <ImageButton
                 android:id="@+id/ibtFeld_125"
-                style="?android:borderlessButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -1046,7 +976,6 @@
                 android:textSize="15sp" />
 
             <ImageButton
-                style="?android:borderlessButtonStyle"
                 android:id="@+id/ibtFeld_126"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

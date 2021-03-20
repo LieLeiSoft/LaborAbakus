@@ -173,8 +173,10 @@ public class Org_Strukturformeln_Activity extends Activity {
                 v = (View) findViewById(intResId);
                 if (bVisible)
                     v.setVisibility(View.VISIBLE);
-                else
+                else {
                     v.setVisibility(View.INVISIBLE);
+                    v.setVisibility(View.GONE);
+                }
 
             } // if (value != "frei")
         } // for(String key : hmBilddateien.keySet())

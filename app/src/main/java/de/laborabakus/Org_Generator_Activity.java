@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -37,6 +38,8 @@ public class Org_Generator_Activity extends Activity {
 
     int resIdFeld;
     int intAnzahlAktiveZellen;
+    int intKEYCODE_BACK_Counter;
+    float fltMolmasse = 0;
 
     // Objekt vom Typ "Org_GeneratorTools" instanzieren, damit Konstruktor ausgeführt wird
     Org_GeneratorTools objOrg_GeneratorTools = new Org_GeneratorTools();
@@ -63,6 +66,8 @@ public class Org_Generator_Activity extends Activity {
     public void onResume()
     {
         super.onResume();
+
+        intKEYCODE_BACK_Counter = 0;
 
         if(resIdFeld == 0) {
             // Es wurde noch kein Element (in "Org_Strukturformeln_Activity") ausgewählt
@@ -120,6 +125,31 @@ public class Org_Generator_Activity extends Activity {
     public void onPause() {
         super.onPause();
     } // onPause
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            intKEYCODE_BACK_Counter++;
+            switch (intKEYCODE_BACK_Counter) {
+                case 1: {
+                    String text = "\n   Zum Beenden erneut drücken.   \n";
+                    Toast Meldung = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+                    Meldung.setGravity(Gravity.BOTTOM, 0, 0);
+                    Meldung.show();
+
+                    break;
+                }
+                case 2: {
+                    ActivityRegistry.finishAll();
+                    Intent intent = new Intent(this, HauptmenueActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    startActivity(intent);
+                    return true;
+                }
+            } // switch
+        }
+        return true;
+    } // onKeyDown
 
     public void btnFeld(View v)
     {
@@ -317,8 +347,8 @@ public class Org_Generator_Activity extends Activity {
                                                        +"-Z"+(arrEndpunkte[intEndpunkt_Index].ZielPos.Zeile +1)+"S"+(arrEndpunkte[intEndpunkt_Index].ZielPos.Spalte +1)
                     +", Bindung auf "+arrEndpunkte[intEndpunkt_Index].Bindung+" Uhr"
                     +", Kettenlänge "+arrEndpunkte[intEndpunkt_Index].Kettenlaenge
-                    +", Molmasse "   +arrEndpunkte[intEndpunkt_Index].Molmasse
-                    +", Kettenname " +Org_GeneratorTools.fktKettenname(intKettenlaenge_max);
+                    +", Kettenname " +Org_GeneratorTools.fktKettenname(intKettenlaenge_max)
+                    +"\nMolmasse " + fltMolmasse;
             Log.d(TAG, strMsg);
         }
 
@@ -602,20 +632,23 @@ public class Org_Generator_Activity extends Activity {
         int intAnzahlEndpunkte = 0;
         int intAnzahlBindungen = 0; // Zähler für die Anzahl Bindungen zu einem C-Atom
         int intKettenlaenge = 0; // Länge der Kohlenstoffatome
-        float fltMolmasse = 0;
+
         String strBilddateiname;
         tKoordinaten NaechstesElementPos = new tKoordinaten();
         tKoordinaten ZielPos = new tKoordinaten();
+
+        fltMolmasse = 0;
 
         for (int intZeile = 0; intZeile < arrGitter.length; intZeile++) {
             for (int intSpalte = 0; intSpalte < arrGitter[intZeile].length; intSpalte++) {
                 if (arrGitter[intZeile][intSpalte] != null) {
                     intAnzahlBindungen = 0;
                     strBilddateiname = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
+                    fltMolmasse = fltMolmasse + Org_GeneratorTools.fktMolmasse(strBilddateiname);
+                    Log.d(TAG,strBilddateiname);
                     if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname)) {
                         // Element enthält Kohlenstoff
                         intKettenlaenge = Org_GeneratorTools.fktAnzahl_C_Atome(strBilddateiname);
-                        fltMolmasse = Org_GeneratorTools.fktMolmasse(strBilddateiname);
 
                         // Bindungseigenschaften in Array speichern
                         arrBindung = Org_GeneratorTools.fktBindung2Array(strBilddateiname);
@@ -679,7 +712,6 @@ public class Org_Generator_Activity extends Activity {
                             arrEndpunkte[intAnzahlEndpunkte].ZielPos.Spalte  = ZielPos.Spalte;
                             arrEndpunkte[intAnzahlEndpunkte].Bindung         = intBindung;
                             arrEndpunkte[intAnzahlEndpunkte].Kettenlaenge    = intKettenlaenge;
-                            arrEndpunkte[intAnzahlEndpunkte].Molmasse        = fltMolmasse;
                             intAnzahlEndpunkte++;
                         } // if (intAnzahlBindungen == 1)
                     } // if (Org_GeneratorTools.fktIstKohlenstoff(strBilddateiname))
@@ -704,7 +736,6 @@ public class Org_Generator_Activity extends Activity {
         int intZeile, intSpalte;
         int intAnzahl_Elemente;
         int intIdx;
-        float fltMolmasse = 0;
         String strBilddateiname = "";
         tKoordinaten NaechstesElementPos = new tKoordinaten();
 
@@ -742,7 +773,6 @@ public class Org_Generator_Activity extends Activity {
             strBilddateiname = arrGitter[intZeile][intSpalte]; // Bsp.: an1010a56_108
             arrKetten[intKetten_Index_max].Endpunkt_Index   = i;
             arrKetten[intKetten_Index_max].Kettenlaenge     = arrEndpunkte[i].Kettenlaenge;
-            arrKetten[intKetten_Index_max].Molmasse         = arrEndpunkte[i].Molmasse;
             arrKetten[intKetten_Index_max].Bilddateinamen.add(strBilddateiname);
             arrKetten[intKetten_Index_max].Koordinaten_Zeile.add (intZeile);
             arrKetten[intKetten_Index_max].Koordinaten_Spalte.add(intSpalte);
@@ -764,8 +794,6 @@ public class Org_Generator_Activity extends Activity {
                 intAnzahl_C_Atome = Org_GeneratorTools.fktAnzahl_C_Atome(strBilddateiname);
                 intKettenlaenge_akt = intKettenlaenge_akt + intAnzahl_C_Atome;
 
-                fltMolmasse = Org_GeneratorTools.fktMolmasse(strBilddateiname);
-
                 if (arrEndpunkte[i].Kettenlaenge < intKettenlaenge_akt) {
                     // aktuelle Kettenlänge ist größer als die bisher zu diesem Endpunkt ermittelte Kettenlänge
                     arrEndpunkte[i].ZielPos.Zeile  = intZeile;
@@ -782,7 +810,6 @@ public class Org_Generator_Activity extends Activity {
 
                 intKetten_Index_akt = arrElemente[0].Ketten_Index;
                 arrKetten[intKetten_Index_akt].Kettenlaenge     = arrKetten[intKetten_Index_akt].Kettenlaenge + intAnzahl_C_Atome;
-                arrKetten[intKetten_Index_akt].Molmasse         = arrKetten[intKetten_Index_akt].Molmasse + fltMolmasse;
                 arrKetten[intKetten_Index_akt].Bilddateinamen.add(strBilddateiname);
                 arrKetten[intKetten_Index_akt].Koordinaten_Zeile.add (arrElemente[0].Koordinaten.Zeile);
                 arrKetten[intKetten_Index_akt].Koordinaten_Spalte.add(arrElemente[0].Koordinaten.Spalte);
@@ -801,7 +828,7 @@ public class Org_Generator_Activity extends Activity {
                         switch (j) {
                             case 0: // Bindung auf 12 Uhr
                                 NaechstesElementPos.Zeile--;
-                                intBindung = 12;
+                                intBindung = 12; // gesehen vom aktuellen C-Atom
                                 break;
                             case 1: // Bindung auf 3 Uhr
                                 NaechstesElementPos.Spalte++;
@@ -846,7 +873,6 @@ public class Org_Generator_Activity extends Activity {
                                     intKetten_Index_akt = arrKetten.length - 1;
                                     arrKetten[intKetten_Index_akt].Endpunkt_Index          = arrKetten[intKetten_Index_max].Endpunkt_Index;
                                     arrKetten[intKetten_Index_akt].Kettenlaenge            = arrKetten[intKetten_Index_max].Kettenlaenge;
-                                    arrKetten[intKetten_Index_akt].Molmasse                = arrKetten[intKetten_Index_max].Molmasse;
                                     arrKetten[intKetten_Index_akt].Bilddateinamen.addAll    (arrKetten[intKetten_Index_max].Bilddateinamen);
                                     arrKetten[intKetten_Index_akt].Koordinaten_Zeile.addAll (arrKetten[intKetten_Index_max].Koordinaten_Zeile);
                                     arrKetten[intKetten_Index_akt].Koordinaten_Spalte.addAll(arrKetten[intKetten_Index_max].Koordinaten_Spalte);
@@ -890,15 +916,11 @@ public class Org_Generator_Activity extends Activity {
             if (arrKetten[i].Kettenlaenge == intKettenlaenge_max) {
                 Log.d(TAG, "arrKetten[" + i + "].Endpunkt_Index     = " + arrKetten[i].Endpunkt_Index);
                 Log.d(TAG, "arrKetten[" + i + "].Kettenlaenge       = " + arrKetten[i].Kettenlaenge);
-                Log.d(TAG, "arrKetten[" + i + "].Molmasse           = " + arrKetten[i].Molmasse);
                 Log.d(TAG, "arrKetten[" + i + "].Bilddateinamen     = " + arrKetten[i].Bilddateinamen);
                 Log.d(TAG, "arrKetten[" + i + "].Koordinaten_Zeile  = " + arrKetten[i].Koordinaten_Zeile);
                 Log.d(TAG, "arrKetten[" + i + "].Koordinaten_Spalte = " + arrKetten[i].Koordinaten_Spalte);
                 Log.d(TAG, "arrKetten[" + i + "].Bindung_Vorgaenger = " + arrKetten[i].Bindung_Vorgaenger);
                 Log.d(TAG, "arrKetten[" + i + "].Bindung_Nachfolger = " + arrKetten[i].Bindung_Nachfolger);
-
-                // Molmasse im Endpunkte-Array anpassen (erst möglich, wenn die längste Kette gefunden wurde)
-                arrEndpunkte[arrKetten[i].Endpunkt_Index].Molmasse = arrKetten[i].Molmasse;
 
                 Log.d(TAG, "Verlauf von Kette "+(i+1));
                 for (int j = 0; j < arrKetten[i].Bilddateinamen.size(); j++) {
@@ -976,9 +998,8 @@ public class Org_Generator_Activity extends Activity {
         // https://stackoverflow.com/questions/9373026/changing-imagebutton-margins-in-code
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) btn.getLayoutParams();
         params.setMargins(intLeft, intTop, intRight, intBottom);
-        btn.setLayoutParams(params);
-
-        btn.setBackgroundColor(Color.YELLOW);
+        //btn.setLayoutParams(params);
+        //btn.setBackgroundColor(Color.YELLOW);
 
         return true;
     } // Zelle_markieren

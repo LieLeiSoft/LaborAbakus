@@ -41,14 +41,19 @@ class tElemente {
     }
 }
 
+class tKettenelement {
+    String Bilddateiname;
+    int Koordinaten_Zeile;
+    int Koordinaten_Spalte;
+    int Bindung_Vorgaenger; // Bindung des Kettenmitglieds zu vorherigen Kettenmitglied
+    int Bindung_Nachfolger; // Bindung des Kettenmitglieds zu nächsten Kettenmitglied
+}
+
 class tKetten {
-    int Endpunkt_Index = 0;
-    int Kettenlaenge = 0; // Anzahl gefundener C-Atome
-    ArrayList<String> Bilddateinamen = new ArrayList<String>();
-    List<Integer> Koordinaten_Zeile  = new ArrayList<>();
-    List<Integer> Koordinaten_Spalte = new ArrayList<>();
-    List<Integer> Bindung_Vorgaenger = new ArrayList<>(); // Bindung des Kettenmitglieds zu vorherigen Kettenmitglied
-    List<Integer> Bindung_Nachfolger = new ArrayList<>(); // Bindung des Kettenmitglieds zu nächsten Kettenmitglied
+    int Endpunkt_Index       = 0;
+    int Kettenlaenge         = 0; // Anzahl gefundener C-Atome
+    int Kennz_Ringverbindung = 0; // 0=keine Ringverbindung, 1=Ringverbindung mit 1 Endpunkt, 2=Ringverbindung mit mehr als 1 Endpunkt
+    HashMap<Integer, tKettenelement> Kettenelemente = new HashMap<Integer, tKettenelement>();
 }
 
 public class Org_GeneratorTools {
